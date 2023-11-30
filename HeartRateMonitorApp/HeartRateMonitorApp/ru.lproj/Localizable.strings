@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  HeartRateMonitorApp
+
+  Created by Kirill Manuilenko on 29.11.23.
+  
+*/
+
+"homeTitileTabBar" = "Главная";
+"historyTitleTabBar" = "История";

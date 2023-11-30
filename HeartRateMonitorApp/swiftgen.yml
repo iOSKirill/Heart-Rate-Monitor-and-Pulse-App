@@ -1,0 +1,19 @@
+## String ##
+ strings:
+   inputs:
+     - HeartRateMonitorApp/en.lproj
+   outputs:
+     - templateName: structured-swift5
+       output: HeartRateMonitorApp/Generated/Strings+Generated.swift
+       params:
+         enumName: L10n
+
+## Assets ##
+ xcassets:
+   inputs:
+     - HeartRateMonitorApp/Assets.xcassets
+   outputs:
+     - templateName: swift5
+       params:
+         forceProvidesNamespaces: true
+       output: HeartRateMonitorApp/Generated/XCAssets+Generated.swift
