@@ -10,11 +10,13 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// History
+  internal static let historyTitleTabBar = L10n.tr("Localizable", "historyTitleTabBar", fallback: "History")
   /// Localizable.strings
   ///   HeartRateMonitorApp
   /// 
   ///   Created by Kirill Manuilenko on 29.11.23.
-  internal static let kirill = L10n.tr("Localizable", "Kirill", fallback: "Kirill")
+  internal static let homeTitileTabBar = L10n.tr("Localizable", "homeTitileTabBar", fallback: "Home")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -4,7 +4,7 @@
      - HeartRateMonitorApp/en.lproj
    outputs:
      - templateName: structured-swift5
-       output: HeartRateMonitorApp/Strings+Generated.swift
+       output: HeartRateMonitorApp/Generated/Strings+Generated.swift
        params:
          enumName: L10n
 
@@ -16,4 +16,4 @@
      - templateName: swift5
        params:
          forceProvidesNamespaces: true
-       output: HeartRateMonitorApp/XCAssets+Generated.swift
+       output: HeartRateMonitorApp/Generated/XCAssets+Generated.swift

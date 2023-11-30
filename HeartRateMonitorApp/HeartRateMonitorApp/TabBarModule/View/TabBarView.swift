@@ -27,12 +27,12 @@ struct TabBarView: View {
     var tabBarButtons: some View {
         VStack {
             HStack {
-                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 0, image: .homeButton, title: "Home")
+                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 0, image: .homeButton, title: L10n.homeTitileTabBar)
                 .offset(y: 20)
                 Spacer(minLength: 0)
                 plusBarButton
                 Spacer(minLength: 0)
-                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 2, image: .historyButton, title: "History")
+                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 2, image: .historyButton, title: L10n.historyTitleTabBar)
                 .offset(y: 20)
             }
             .padding(.horizontal, 72)
