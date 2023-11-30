@@ -21,9 +21,12 @@ struct CustomButtonOnTabBar: View {
             VStack {
                 Image(uiImage: image)
                     .renderingMode(.template)
+                    .padding(.bottom, 4)
                 Text(title)
+                    .font(.gilroyBold(size: 11))
             }
+            .padding(.bottom, 20)
         }
-        .foregroundColor(selectedIndex == index ? Color(.gray) : Color(.black))
+        .foregroundColor(selectedIndex == index ? Color(.notHighlightedButton) : Color(.highlightedButton))
     }
 }
