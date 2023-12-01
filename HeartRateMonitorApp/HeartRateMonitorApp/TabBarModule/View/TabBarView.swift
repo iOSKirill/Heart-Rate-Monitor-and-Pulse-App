@@ -19,8 +19,10 @@ struct TabBarView: View {
         }
         .overlay(
             Circle()
-                .stroke(Color.white, lineWidth: 3)
+                .stroke(Color.white, lineWidth: 5)
         )
+        .background(Color.white)
+        .clipShape(Circle())
         .offset(y: -10)
     }
     // MARK: - Buttons in TabBar -
