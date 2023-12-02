@@ -17,4 +17,12 @@ public extension Color {
     var notHighlightedButton: Color {
         Color("NotHighlightedButton")
     }
+    /// #9FA5AE
+    var backgroundSreens: Color {
+        Color("BackgroundSreens")
+    }
+    /// #4F606D
+    var mainText: Color {
+        Color("MainText")
+    }
 }

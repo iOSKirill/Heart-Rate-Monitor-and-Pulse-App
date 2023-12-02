@@ -8,14 +8,41 @@
 import SwiftUI
 
 struct HomeHealthView: View {
-    var body: some View {
-        ZStack {
-            Color.gray.ignoresSafeArea()
+    // MARK: - Settings button -
+    var settingsButton: some View {
+        Button {
+            // Go to the settings screen
+        } label: {
             VStack {
-                Spacer()
-                Text("Home screen")
-                Spacer()
+                Image(.settingsButton)
+                    .padding(8)
             }
+            .background(Color.white)
+            .cornerRadius(12)
+            .padding(.top, 16)
+            .padding(.bottom, 13)
+        }
+    }
+    // MARK: - Body -
+    var body: some View {
+        NavigationView {
+            ZStack {
+                Color(.backgroundSreens).ignoresSafeArea()
+                VStack {
+                    ScrollView(showsIndicators: false) {
+                        Spacer()
+                        Text("Home screen")
+                        Spacer()
+                    }
+                }
+                
+            }
+            .navigationBarItems(leading: 
+                                    Text(L10n.healthNavigationTitile) .font(.urbanistBold(size: 32))
+                                        .foregroundColor(.mainText)
+                                        .padding(.top, 16)
+                                        .padding(.bottom, 13),
+                                trailing: settingsButton)
         }
     }
 }

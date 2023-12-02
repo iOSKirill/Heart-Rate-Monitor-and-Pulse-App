@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Health
+  internal static let healthNavigationTitile = L10n.tr("Localizable", "healthNavigationTitile", fallback: "Health")
   /// History
   internal static let historyTitleTabBar = L10n.tr("Localizable", "historyTitleTabBar", fallback: "History")
   /// Localizable.strings
