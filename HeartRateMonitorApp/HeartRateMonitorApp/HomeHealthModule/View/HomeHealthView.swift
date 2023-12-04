@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HomeHealthView: View {
+    // MARK: - Property -
+    @StateObject var viewModel = HomeHealthViewModel()
     // MARK: - Settings button -
     var settingsButton: some View {
-        Button {
-            // Go to the settings screen
+        NavigationLink {
+            SettingsView(viewModel: viewModel.settingsVM)
         } label: {
             VStack {
                 Image(.settingsButton)
@@ -35,7 +37,6 @@ struct HomeHealthView: View {
                         Spacer()
                     }
                 }
-                
             }
             .navigationBarItems(leading: 
                                     Text(L10n.healthNavigationTitile) .font(.urbanistBold(size: 32))

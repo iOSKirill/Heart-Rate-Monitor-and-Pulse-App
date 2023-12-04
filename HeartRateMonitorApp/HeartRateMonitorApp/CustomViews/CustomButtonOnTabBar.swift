@@ -21,7 +21,7 @@ struct CustomButtonOnTabBar: View {
             VStack {
                 Image(uiImage: image)
                     .renderingMode(.template)
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 2)
                 Text(title)
                     .font(.gilroyBold(size: 11))
             }

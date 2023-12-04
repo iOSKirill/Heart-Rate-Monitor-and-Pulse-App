@@ -8,4 +8,6 @@
 import Foundation
 
 final class HomeHealthViewModel: ObservableObject {
+    // MARK: - Property -
+    @Published var settingsVM = SettingsViewModel()
 }
