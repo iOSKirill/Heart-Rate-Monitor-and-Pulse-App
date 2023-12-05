@@ -9,3 +9,7 @@
 "homeTitileTabBar" = "Home";
 "historyTitleTabBar" = "History";
 "healthNavigationTitile" = "Health";
+"measureDashboard" = "Measure dashboard";
+"tapToStar" = "Tap to star";
+"measureDashboardTitle" = "How are you feeling today?";
+"measureDashboardSubtitle" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";

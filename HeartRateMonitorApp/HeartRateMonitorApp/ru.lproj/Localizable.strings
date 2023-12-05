@@ -6,6 +6,11 @@
   
 */
 
+//HomeHelthSreen
 "homeTitileTabBar" = "Главная";
 "historyTitleTabBar" = "История";
 "healthNavigationTitile" = "Здоровье";
+"measureDashboard" = "Измерительная панель";
+"tapToStar" = "Нажмите, чтобы начать";
+"measureDashboardTitle" = "Как ты себя сегодня чувствуешь?";
+"measureDashboardSubtitle" = "Сделайте замеры, чтобы получить оценку готовности вашего организма к предстоящему дню";

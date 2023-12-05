@@ -29,5 +29,9 @@ public extension Color {
     var currentDay: Color {
         Color("CurrentDay")
     }
+    /// #CBDBE7
+    var measureDashboardSubtitle: Color {
+        Color("MeasureDashboardSubtitle")
+    }
 }
 

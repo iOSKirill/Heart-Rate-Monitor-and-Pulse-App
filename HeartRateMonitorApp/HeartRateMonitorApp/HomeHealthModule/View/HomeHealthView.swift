@@ -61,14 +61,111 @@ struct HomeHealthView: View {
         .padding(.horizontal, 16)
     }
     
+    // MARK: - Measure dashboard -
+    var measureDashboard: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text(L10n.measureDashboard)
+                    .font(.urbanistBold(size: 17))
+                    .foregroundColor(Color.white)
+                Spacer()
+                Button {
+                    // Additional information
+                } label: {
+                    Image(.informationButton)
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 24)
+            .padding(.bottom, 10)
+            
+            Divider()
+                .frame(maxWidth: .infinity, maxHeight: 1)
+                .background(Color.white.opacity(0.08))
+            
+            HStack(alignment: .center) {
+                VStack(spacing: 13) {
+                    Button {
+                        // The beginning of the pulse measurement
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .stroke(Color.white, lineWidth: 3)
+                                .frame(width: 76, height: 76)
+                            Image(.tapToStartButton)
+                        }
+                    }
+                    Text(L10n.tapToStar)
+                        .font(.urbanistSemiBold(size: 15))
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.top, 28)
+            .frame(maxWidth: .infinity)
+            
+            HStack(alignment: .center) {
+                VStack(spacing: 8) {
+                    Text(L10n.measureDashboardTitle)
+                        .font(.urbanistBold(size: 19))
+                        .foregroundColor(.white)
+                    Text(L10n.measureDashboardSubtitle)
+                        .font(.urbanistSemiBold(size: 15))
+                        .foregroundColor(Color.measureDashboardSubtitle)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 16)
+                    Image(.pulseLine)
+                        .resizable()
+                        .padding(.top, 14)
+                        .padding(.bottom, 24)
+                }
+            }
+            .padding(.top, 25)
+            .frame(maxWidth: .infinity)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, minHeight: 367)
+        .background( 
+            ZStack {
+            Color.currentDay
+            Image(.measureBackgound)
+                .blur(radius: 8.5)
+            }
+        )
+        .cornerRadius(20)
+        .padding(.top, 70)
+        .padding(.horizontal, 16)
+    }
+    
+    // MARK: - Rectangles under dashboard -
+    var rectanglesUnderDashboard: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(.clear)
+                .frame(width: 331, height: 50)
+                .background(.white.opacity(0.3))
+                .cornerRadius(20)
+                .offset(y: 240)
+            Rectangle()
+                .foregroundColor(.clear)
+                .frame(width: 351, height: 50)
+                .background(.white)
+                .cornerRadius(20)
+                .offset(y: 225)
+        }
+    }
+    
     // MARK: - Body -
     var body: some View {
         NavigationView {
             ZStack {
                 Color(.backgroundSreens).ignoresSafeArea()
-                VStack {
-                    ScrollView(showsIndicators: false) {
+                ScrollView(showsIndicators: false) {
+                    VStack {
                         weekCalendar
+                        ZStack {
+                            rectanglesUnderDashboard
+                            measureDashboard
+                        }
                     }
                 }
             }
@@ -79,7 +176,6 @@ struct HomeHealthView: View {
                                             .padding(.bottom, 13),
                                 trailing: settingsButton)
         }
-        .environmentObject(viewModel)
     }
 }
 

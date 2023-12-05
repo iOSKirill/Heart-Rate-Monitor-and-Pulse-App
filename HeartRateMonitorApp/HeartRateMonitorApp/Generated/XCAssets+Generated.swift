@@ -27,15 +27,21 @@ internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Colors {
     internal static let backgroundSreens = ColorAsset(name: "BackgroundSreens")
+    internal static let currentDay = ColorAsset(name: "CurrentDay")
     internal static let highlightedButton = ColorAsset(name: "HighlightedButton")
     internal static let mainText = ColorAsset(name: "MainText")
+    internal static let measureDashboardSubtitle = ColorAsset(name: "MeasureDashboardSubtitle")
     internal static let notHighlightedButton = ColorAsset(name: "NotHighlightedButton")
   }
   internal enum Images {
     internal static let historyButton = ImageAsset(name: "HistoryButton")
     internal static let homeButton = ImageAsset(name: "HomeButton")
+    internal static let informationButton = ImageAsset(name: "InformationButton")
+    internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")
     internal static let plusButton = ImageAsset(name: "PlusButton")
+    internal static let pulseLine = ImageAsset(name: "PulseLine")
     internal static let settingsButton = ImageAsset(name: "SettingsButton")
+    internal static let tapToStartButton = ImageAsset(name: "TapToStartButton")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

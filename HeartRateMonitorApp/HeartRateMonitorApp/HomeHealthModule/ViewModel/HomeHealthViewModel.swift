@@ -19,11 +19,12 @@ final class HomeHealthViewModel: ObservableObject {
         fetchCurrentWeek()
     }
     
+    // MARK: - Fetch days current week -
     func fetchCurrentWeek() {
         let today = Date()
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
         guard let firstWeekDay = week?.start else { return }
-        (0...7).forEach { day in
+        (0...6).forEach { day in
             if let weekDay = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
                 currentWeek.append(weekDay)
             }

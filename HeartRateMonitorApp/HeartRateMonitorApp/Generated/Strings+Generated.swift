@@ -19,6 +19,14 @@ internal enum L10n {
   /// 
   ///   Created by Kirill Manuilenko on 29.11.23.
   internal static let homeTitileTabBar = L10n.tr("Localizable", "homeTitileTabBar", fallback: "Home")
+  /// Measure dashboard
+  internal static let measureDashboard = L10n.tr("Localizable", "measureDashboard", fallback: "Measure dashboard")
+  /// Take a measurement to get an assessment of your body's readiness for the upcoming day
+  internal static let measureDashboardSubtitle = L10n.tr("Localizable", "measureDashboardSubtitle", fallback: "Take a measurement to get an assessment of your body's readiness for the upcoming day")
+  /// How are you feeling today?
+  internal static let measureDashboardTitle = L10n.tr("Localizable", "measureDashboardTitle", fallback: "How are you feeling today?")
+  /// Tap to star
+  internal static let tapToStar = L10n.tr("Localizable", "tapToStar", fallback: "Tap to star")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
