@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     // MARK: - Property -
     @State var selectedIndex: Int = 2
+    
     // MARK: - Plus button  -
     var plusBarButton: some View {
         Button {
@@ -25,6 +26,7 @@ struct TabBarView: View {
         .clipShape(Circle())
         .offset(y: -10)
     }
+    
     // MARK: - Buttons in TabBar -
     var tabBarButtons: some View {
         VStack {
@@ -42,6 +44,7 @@ struct TabBarView: View {
             .background(Color.white)
         }
     }
+    
     // MARK: - Body -
     var body: some View {
         VStack(spacing: 0) {

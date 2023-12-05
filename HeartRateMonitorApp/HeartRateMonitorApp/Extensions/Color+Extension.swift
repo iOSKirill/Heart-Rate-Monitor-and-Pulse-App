@@ -25,4 +25,9 @@ public extension Color {
     var mainText: Color {
         Color("MainText")
     }
+    /// #44A8E1
+    var currentDay: Color {
+        Color("CurrentDay")
+    }
 }
+

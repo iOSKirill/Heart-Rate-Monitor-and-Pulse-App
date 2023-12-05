@@ -20,6 +20,8 @@
 		6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */; };
 		6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64CD2B1DEFAC001D1DBF /* SettingsViewModel.swift */; };
 		6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */; };
+		6CBD64D62B1E1902001D1DBF /* Urbanist-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */; };
+		6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */; };
 		6CDFCC202B192D4C00B1A9A2 /* Gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */; };
 		6CDFCC232B19355600B1A9A2 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC222B19355600B1A9A2 /* Font+Extension.swift */; };
 		6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */; };
@@ -46,6 +48,8 @@
 		6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		6CBD64CD2B1DEFAC001D1DBF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
+		6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		6CDFCC1A2B1928BC00B1A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-bold.ttf"; sourceTree = "<group>"; };
 		6CDFCC222B19355600B1A9A2 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */,
 				6CDFCC222B19355600B1A9A2 /* Font+Extension.swift */,
+				6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */,
 				6CDFCC2E2B1A975600B1A9A2 /* Urbanist-Light.ttf */,
 				6CDFCC302B1A98C200B1A9A2 /* Urbanist-Medium.ttf */,
+				6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				6C2FE76A2B1683730092BFE5 /* Preview Assets.xcassets in Resources */,
 				6C2FE7732B174B650092BFE5 /* Localizable.strings in Resources */,
 				6CDFCC2F2B1A975600B1A9A2 /* Urbanist-Light.ttf in Resources */,
+				6CBD64D62B1E1902001D1DBF /* Urbanist-SemiBold.ttf in Resources */,
 				6C2FE7672B1683730092BFE5 /* Assets.xcassets in Resources */,
 				6CDFCC2D2B1A974C00B1A9A2 /* Urbanist-Bold.ttf in Resources */,
 				6CDFCC312B1A98C200B1A9A2 /* Urbanist-Medium.ttf in Resources */,
@@ -352,6 +359,7 @@
 				6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */,
 				6C2FE79F2B1797F90092BFE5 /* HistoryViewModel.swift in Sources */,
 				6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */,
+				6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */,
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */,
 			);

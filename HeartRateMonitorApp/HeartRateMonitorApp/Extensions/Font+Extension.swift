@@ -29,4 +29,8 @@ extension Font {
     static func urbanistMedium(size: CGFloat) -> Font {
         return Font.custom("Urbanist-Medium", size: size)
     }
+    /// Urbanist-SemiBold.ttf
+    static func urbanistSemiBold(size: CGFloat) -> Font {
+    return Font.custom("Urbanist-SemiBold", size: size)
+}
 }
