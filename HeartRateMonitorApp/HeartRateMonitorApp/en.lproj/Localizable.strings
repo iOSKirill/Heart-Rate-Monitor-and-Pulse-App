@@ -6,10 +6,11 @@
   
 */
 
-"homeTitileTabBar" = "Home";
-"historyTitleTabBar" = "History";
-"healthNavigationTitile" = "Health";
-"measureDashboard" = "Measure dashboard";
-"tapToStar" = "Tap to star";
-"measureDashboardTitle" = "How are you feeling today?";
-"measureDashboardSubtitle" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";
+// MARK: - Home helth screen -
+"tabBar.home.title" = "Home";
+"tabBar.history.title" = "History";
+"navigationBar.health.title" = "Health";
+"dashboard.measure.title" = "Measure dashboard";
+"button.start.title" = "Tap to star";
+"dashboard.measure.subtitle" = "How are you feeling today?";
+"dashboard.measure.mainText" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";

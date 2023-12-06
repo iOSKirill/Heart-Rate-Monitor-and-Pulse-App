@@ -65,7 +65,7 @@ struct HomeHealthView: View {
     var measureDashboard: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(L10n.measureDashboard)
+                Text(L10n.Dashboard.Measure.title)
                     .font(.urbanistBold(size: 17))
                     .foregroundColor(Color.white)
                 Spacer()
@@ -95,7 +95,7 @@ struct HomeHealthView: View {
                             Image(.tapToStartButton)
                         }
                     }
-                    Text(L10n.tapToStar)
+                    Text(L10n.Button.Start.title)
                         .font(.urbanistSemiBold(size: 15))
                         .foregroundColor(.white)
                 }
@@ -105,10 +105,10 @@ struct HomeHealthView: View {
             
             HStack(alignment: .center) {
                 VStack(spacing: 8) {
-                    Text(L10n.measureDashboardTitle)
+                    Text(L10n.Dashboard.Measure.subtitle)
                         .font(.urbanistBold(size: 19))
                         .foregroundColor(.white)
-                    Text(L10n.measureDashboardSubtitle)
+                    Text(L10n.Dashboard.Measure.mainText)
                         .font(.urbanistSemiBold(size: 15))
                         .foregroundColor(Color.measureDashboardSubtitle)
                         .multilineTextAlignment(.center)
@@ -141,14 +141,14 @@ struct HomeHealthView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: .infinity, height: 50)
+                .frame(height: 50)
                 .background(.white.opacity(0.3))
                 .cornerRadius(20)
                 .padding(.horizontal, 25)
                 .offset(y: 240)
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: .infinity, height: 50)
+                .frame(height: 50)
                 .background(.white)
                 .cornerRadius(20)
                 .padding(.horizontal, 20)
@@ -171,7 +171,7 @@ struct HomeHealthView: View {
                     }
                 }
             }
-            .navigationBarItems(leading: Text(L10n.healthNavigationTitile)
+            .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
                                             .font(.urbanistBold(size: 32))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
