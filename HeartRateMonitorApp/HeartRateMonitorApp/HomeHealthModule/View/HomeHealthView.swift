@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
-    
+
     // MARK: - Settings button -
     var settingsButton: some View {
         NavigationLink {
@@ -26,7 +26,7 @@ struct HomeHealthView: View {
             .padding(.bottom, 13)
         }
     }
-    
+
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
         GeometryReader { geo in
@@ -35,7 +35,7 @@ struct HomeHealthView: View {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
-                                .font(.urbanistSemiBold(size: 17))
+                                .font(.custom(FontFamily.Urbanist.semiBold, size: 17))
                                 .foregroundColor(Color.mainText)
                                 .background(
                                         ZStack {
@@ -48,7 +48,7 @@ struct HomeHealthView: View {
                                     )
 
                             Text(day.getWeekOfDayName)
-                                .font(.urbanistSemiBold(size: 15))
+                                .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
                                 .foregroundColor(Color.mainText)
                                 .padding(.top, 6)
                         }
@@ -60,13 +60,13 @@ struct HomeHealthView: View {
         .padding(.top, 20)
         .padding(.horizontal, 16)
     }
-    
+
     // MARK: - Measure dashboard -
     var measureDashboard: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(L10n.Dashboard.Measure.title)
-                    .font(.urbanistBold(size: 17))
+                    .font(.custom(FontFamily.Urbanist.bold, size: 17))
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
@@ -78,11 +78,11 @@ struct HomeHealthView: View {
             .padding(.horizontal, 16)
             .padding(.top, 24)
             .padding(.bottom, 10)
-            
+
             Divider()
                 .frame(maxWidth: .infinity, maxHeight: 1)
                 .background(Color.white.opacity(0.08))
-            
+
             HStack(alignment: .center) {
                 VStack(spacing: 13) {
                     Button {
@@ -96,20 +96,20 @@ struct HomeHealthView: View {
                         }
                     }
                     Text(L10n.Button.Start.title)
-                        .font(.urbanistSemiBold(size: 15))
+                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
                         .foregroundColor(.white)
                 }
             }
             .padding(.top, 28)
             .frame(maxWidth: .infinity)
-            
+
             HStack(alignment: .center) {
                 VStack(spacing: 8) {
                     Text(L10n.Dashboard.Measure.subtitle)
-                        .font(.urbanistBold(size: 19))
+                        .font(.custom(FontFamily.Urbanist.bold, size: 19))
                         .foregroundColor(.white)
                     Text(L10n.Dashboard.Measure.mainText)
-                        .font(.urbanistSemiBold(size: 15))
+                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
                         .foregroundColor(Color.measureDashboardSubtitle)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 16)
@@ -124,7 +124,7 @@ struct HomeHealthView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, minHeight: 367)
-        .background( 
+        .background(
             ZStack {
             Color.currentDay
             Image(.measureBackgound)
@@ -135,7 +135,7 @@ struct HomeHealthView: View {
         .padding(.top, 70)
         .padding(.horizontal, 16)
     }
-    
+
     // MARK: - Rectangles under dashboard -
     var rectanglesUnderDashboard: some View {
         ZStack {
@@ -155,7 +155,7 @@ struct HomeHealthView: View {
                 .offset(y: 225)
         }
     }
-    
+
     // MARK: - Body -
     var body: some View {
         NavigationView {
@@ -172,7 +172,7 @@ struct HomeHealthView: View {
                 }
             }
             .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
-                                            .font(.urbanistBold(size: 32))
+                                            .font(.custom(FontFamily.Urbanist.bold, size: 15))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
                                             .padding(.bottom, 13),

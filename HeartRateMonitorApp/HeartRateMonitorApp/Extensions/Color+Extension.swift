@@ -34,4 +34,3 @@ public extension Color {
         Color("MeasureDashboardSubtitle")
     }
 }
-

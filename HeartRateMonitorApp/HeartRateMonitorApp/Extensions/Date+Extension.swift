@@ -21,11 +21,11 @@ extension Date {
     var getWeekOfDayName: String {
         return formatted(.dayOfMonth)
     }
-    
+
     var getDayOfWeekNumber: String {
         return formatted(.dayOfWeek)
     }
-    
+
     func formatted(_ format: DateFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
