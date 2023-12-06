@@ -38,14 +38,14 @@ struct HomeHealthView: View {
                                 .font(.custom(FontFamily.Urbanist.semiBold, size: 17))
                                 .foregroundColor(Color.mainText)
                                 .background(
-                                        ZStack {
-                                            Circle()
-                                                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                                .foregroundColor(Color.currentDay)
-                                                .frame(width: 32, height: 32)
-                                                .opacity(day.todayDateInCalendar ? 1 : 0)
-                                        }
-                                    )
+                                    ZStack {
+                                        Circle()
+                                            .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
+                                            .foregroundColor(Color.currentDay)
+                                            .frame(width: 32, height: 32)
+                                            .opacity(day.todayDateInCalendar ? 1 : 0)
+                                    }
+                                )
 
                             Text(day.getWeekOfDayName)
                                 .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
@@ -146,6 +146,7 @@ struct HomeHealthView: View {
                 .cornerRadius(20)
                 .padding(.horizontal, 25)
                 .offset(y: 240)
+            
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 50)
@@ -172,7 +173,7 @@ struct HomeHealthView: View {
                 }
             }
             .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
-                                            .font(.custom(FontFamily.Urbanist.bold, size: 15))
+                                            .font(.custom(FontFamily.Urbanist.bold, size: 32))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
                                             .padding(.bottom, 13),
