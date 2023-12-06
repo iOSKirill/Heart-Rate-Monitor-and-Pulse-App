@@ -7,13 +7,29 @@
 
 import Foundation
 
+enum DateFormat: String {
+    case dayOfMonth = "EEE"
+    case dayOfWeek = "dd"
+}
+
 extension Date {
-    /// "EEE"
-    func weekDayAbbrev() -> String {
-        return self.formatted(.dateTime .weekday(.abbreviated))
+    var todayDateInCalendar: Bool {
+        let calendar = Calendar.current
+        return calendar.isDate(Date(), inSameDayAs: self)
     }
-    /// "dd"
-    func dayNum() -> String {
-        return self.formatted(.dateTime .day())
+
+    var getWeekOfDayName: String {
+        return formatted(.dayOfMonth)
+    }
+    
+    var getDayOfWeekNumber: String {
+        return formatted(.dayOfWeek)
+    }
+    
+    func formatted(_ format: DateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = format.rawValue
+        return dateFormatter.string(from: self)
     }
 }

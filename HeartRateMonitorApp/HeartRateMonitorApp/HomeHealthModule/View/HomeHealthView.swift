@@ -34,7 +34,7 @@ struct HomeHealthView: View {
                 HStack {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
-                            Text(day.dayNum())
+                            Text(day.getDayOfWeekNumber)
                                 .font(.urbanistSemiBold(size: 17))
                                 .foregroundColor(Color.mainText)
                                 .background(
@@ -43,11 +43,11 @@ struct HomeHealthView: View {
                                                 .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
                                                 .foregroundColor(Color.currentDay)
                                                 .frame(width: 32, height: 32)
-                                                .opacity(viewModel.isToday(date: day) ? 1 : 0)
+                                                .opacity(day.todayDateInCalendar ? 1 : 0)
                                         }
                                     )
 
-                            Text(day.weekDayAbbrev())
+                            Text(day.getWeekOfDayName)
                                 .font(.urbanistSemiBold(size: 15))
                                 .foregroundColor(Color.mainText)
                                 .padding(.top, 6)
