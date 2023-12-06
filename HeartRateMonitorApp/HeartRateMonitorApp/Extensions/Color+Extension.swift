@@ -17,4 +17,20 @@ public extension Color {
     var notHighlightedButton: Color {
         Color("NotHighlightedButton")
     }
+    /// #9FA5AE
+    var backgroundSreens: Color {
+        Color("BackgroundSreens")
+    }
+    /// #4F606D
+    var mainText: Color {
+        Color("MainText")
+    }
+    /// #44A8E1
+    var currentDay: Color {
+        Color("CurrentDay")
+    }
+    /// #CBDBE7
+    var measureDashboardSubtitle: Color {
+        Color("MeasureDashboardSubtitle")
+    }
 }

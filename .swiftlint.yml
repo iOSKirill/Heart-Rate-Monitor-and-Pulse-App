@@ -51,7 +51,6 @@ disabled_rules:
 #    - strong_iboutlet
 #    - trailing_closure
 #    - conditional_returns_on_newline
-#    - trailing_whitespace
 #    - unneeded_break_in_switch
 #    - yoda_condition
 #    - notification_center_detachment

@@ -13,6 +13,7 @@ struct CustomButtonOnTabBar: View {
     let index: Int
     let image: UIImage
     let title: String
+
     // MARK: - Body -
     var body: some View {
         Button {
@@ -21,9 +22,9 @@ struct CustomButtonOnTabBar: View {
             VStack {
                 Image(uiImage: image)
                     .renderingMode(.template)
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 2)
                 Text(title)
-                    .font(.gilroyBold(size: 11))
+                    .font(.custom(FontFamily.Gilroy.bold, size: 11))
             }
             .padding(.bottom, 20)
         }

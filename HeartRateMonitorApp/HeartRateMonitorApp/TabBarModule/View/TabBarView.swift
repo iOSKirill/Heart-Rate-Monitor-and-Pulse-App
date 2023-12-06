@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     // MARK: - Property -
     @State var selectedIndex: Int = 2
+
     // MARK: - Plus button  -
     var plusBarButton: some View {
         Button {
@@ -19,20 +20,33 @@ struct TabBarView: View {
         }
         .overlay(
             Circle()
-                .stroke(Color.white, lineWidth: 3)
+                .stroke(Color.white, lineWidth: 5)
         )
+        .background(Color.white)
+        .clipShape(Circle())
         .offset(y: -10)
     }
+
     // MARK: - Buttons in TabBar -
     var tabBarButtons: some View {
         VStack {
             HStack {
-                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 0, image: .homeButton, title: L10n.homeTitileTabBar)
+                CustomButtonOnTabBar(
+                    selectedIndex: $selectedIndex,
+                    index: 0,
+                    image: .homeButton,
+                    title: L10n.TabBar.Home.title
+                )
                 .offset(y: 20)
                 Spacer(minLength: 0)
                 plusBarButton
                 Spacer(minLength: 0)
-                CustomButtonOnTabBar(selectedIndex: $selectedIndex, index: 2, image: .historyButton, title: L10n.historyTitleTabBar)
+                CustomButtonOnTabBar(
+                    selectedIndex: $selectedIndex,
+                    index: 2,
+                    image: .historyButton,
+                    title: L10n.TabBar.History.title
+                )
                 .offset(y: 20)
             }
             .padding(.horizontal, 72)
@@ -40,6 +54,7 @@ struct TabBarView: View {
             .background(Color.white)
         }
     }
+
     // MARK: - Body -
     var body: some View {
         VStack(spacing: 0) {

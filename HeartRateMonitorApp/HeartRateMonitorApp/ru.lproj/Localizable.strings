@@ -6,5 +6,11 @@
   
 */
 
-"homeTitileTabBar" = "Главная";
-"historyTitleTabBar" = "История";
+// MARK: - Home helth screen -
+"tabBar.home.title" = "Главная";
+"tabBar.history.title" = "История";
+"navigationBar.health.title" = "Здоровье";
+"dashboard.measure.title" = "Измерительная панель";
+"button.start.title" = "Нажмите, чтобы начать";
+"dashboard.measure.subtitle" = "Как ты себя сегодня чувствуешь?";
+"dashboard.measure.mainText" = "Сделайте замеры, чтобы получить оценку готовности вашего организма к предстоящему дню";

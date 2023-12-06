@@ -1,8 +1,8 @@
 ## String ##
  strings:
-   inputs:
+  inputs:
      - HeartRateMonitorApp/en.lproj
-   outputs:
+  outputs:
      - templateName: structured-swift5
        output: HeartRateMonitorApp/Generated/Strings+Generated.swift
        params:
@@ -17,3 +17,11 @@
        params:
          forceProvidesNamespaces: true
        output: HeartRateMonitorApp/Generated/XCAssets+Generated.swift
+
+## Fonts ##
+ fonts:
+  inputs:
+     - HeartRateMonitorApp/Fonts
+  outputs:
+     - templateName: swift5
+       output: HeartRateMonitorApp/Generated/Fonts+Generated.swift
