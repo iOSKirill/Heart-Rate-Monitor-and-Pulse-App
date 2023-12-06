@@ -141,15 +141,17 @@ struct HomeHealthView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: 331, height: 50)
+                .frame(width: .infinity, height: 50)
                 .background(.white.opacity(0.3))
                 .cornerRadius(20)
+                .padding(.horizontal, 25)
                 .offset(y: 240)
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: 351, height: 50)
+                .frame(width: .infinity, height: 50)
                 .background(.white)
                 .cornerRadius(20)
+                .padding(.horizontal, 20)
                 .offset(y: 225)
         }
     }
