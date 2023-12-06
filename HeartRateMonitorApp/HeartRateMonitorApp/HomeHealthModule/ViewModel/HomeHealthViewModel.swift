@@ -24,11 +24,9 @@ final class HomeHealthViewModel: ObservableObject {
         let today = Date()
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
         guard let firstWeekDay = week?.start else { return }
-        (0...6).forEach { day in
-            if let weekDay = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
-                currentWeek.append(weekDay)
-            }
-        }
+        currentWeek = (0...6).compactMap { day in
+            calendar.date(byAdding: .day, value: day, to: firstWeekDay)
+         }
     }
     
     // MARK: - Checking if currnet Date is Today -
