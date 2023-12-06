@@ -9,10 +9,10 @@ import Foundation
 
 final class HomeHealthViewModel: ObservableObject {
     // MARK: - Property -
-    @Published var settingsVM = SettingsViewModel()
-    @Published var currentWeek: [Date] = []
-    @Published var currentDay: Date = Date()
-    let calendar = Calendar.current
+    @Published private(set) var settingsVM = SettingsViewModel()
+    @Published private(set) var currentWeek: [Date] = []
+    @Published private(set) var currentDay: Date = Date()
+    private let calendar = Calendar.current
     
     // MARK: - Intializing -
     init() {

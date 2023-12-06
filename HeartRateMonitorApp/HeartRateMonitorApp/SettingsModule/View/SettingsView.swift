@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     // MARK: - Property -
     @StateObject var viewModel = SettingsViewModel()
+    
     // MARK: - Body -
     var body: some View {
         ZStack {
