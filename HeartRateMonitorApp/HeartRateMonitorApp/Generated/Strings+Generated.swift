@@ -12,11 +12,21 @@ import Foundation
 internal enum L10n {
   internal enum Button {
     internal enum Start {
-      /// Tap to star
-      internal static let title = L10n.tr("Localizable", "button.start.title", fallback: "Tap to star")
+      /// Tap to start
+      internal static let title = L10n.tr("Localizable", "button.start.title", fallback: "Tap to start")
     }
   }
   internal enum Dashboard {
+    internal enum Assessment {
+      /// Statistics
+      internal static let header = L10n.tr("Localizable", "dashboard.assessment.header", fallback: "Statistics")
+      /// Take some measurements to see your results
+      internal static let mainText = L10n.tr("Localizable", "dashboard.assessment.mainText", fallback: "Take some measurements to see your results")
+      /// No data
+      internal static let subtitle = L10n.tr("Localizable", "dashboard.assessment.subtitle", fallback: "No data")
+      /// Assessment for the week
+      internal static let title = L10n.tr("Localizable", "dashboard.assessment.title", fallback: "Assessment for the week")
+    }
     internal enum Measure {
       /// Take a measurement to get an assessment of your body's readiness for the upcoming day
       internal static let mainText = L10n.tr("Localizable", "dashboard.measure.mainText", fallback: "Take a measurement to get an assessment of your body's readiness for the upcoming day")

@@ -33,4 +33,8 @@ public extension Color {
     var measureDashboardSubtitle: Color {
         Color("MeasureDashboardSubtitle")
     }
+    /// #678093
+    var assessmentDashboardMainText: Color {
+        Color("AssessmentDashboardMainText")
+    }
 }

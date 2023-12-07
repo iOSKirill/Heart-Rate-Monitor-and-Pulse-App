@@ -11,6 +11,10 @@
 "tabBar.history.title" = "History";
 "navigationBar.health.title" = "Health";
 "dashboard.measure.title" = "Measure dashboard";
-"button.start.title" = "Tap to star";
+"button.start.title" = "Tap to start";
 "dashboard.measure.subtitle" = "How are you feeling today?";
 "dashboard.measure.mainText" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";
+"dashboard.assessment.header" = "Statistics";
+"dashboard.assessment.title" = "Assessment for the week";
+"dashboard.assessment.subtitle" = "No data";
+"dashboard.assessment.mainText" = "Take some measurements to see your results";

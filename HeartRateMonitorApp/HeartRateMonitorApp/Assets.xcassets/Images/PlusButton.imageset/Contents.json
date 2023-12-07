@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "PlusButton.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "PlusButton@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "PlusButton@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "PlusButton.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
