@@ -146,7 +146,7 @@ struct HomeHealthView: View {
                 .cornerRadius(20)
                 .padding(.horizontal, 25)
                 .offset(y: 240)
-            
+
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 50)
@@ -155,6 +155,60 @@ struct HomeHealthView: View {
                 .padding(.horizontal, 20)
                 .offset(y: 225)
         }
+    }
+
+    // MARK: - Weekly assessment dashboard -
+    var weeklyAssessmentDashboard: some View {
+        VStack(alignment: .leading) {
+            Text(L10n.Dashboard.Assessment.header)
+                .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                .foregroundColor(Color.mainText)
+                .padding(.leading, 16)
+
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(.assessmentIcon)
+                        .padding(.leading, 16)
+                    Text(L10n.Dashboard.Assessment.title)
+                        .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                        .foregroundColor(Color.mainText)
+                        .padding(.leading, 12)
+                    Spacer()
+                }
+                .padding(.top, 16)
+
+                HStack(alignment: .center) {
+                    VStack(spacing: 2) {
+                        Text(L10n.Dashboard.Assessment.subtitle)
+                            .font(.custom(FontFamily.Urbanist.bold, size: 19))
+                            .foregroundColor(Color.mainText)
+                        Text(L10n.Dashboard.Assessment.mainText)
+                            .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                            .foregroundColor(Color.assessmentDashboardMainText)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 176)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 60)
+                .padding(.bottom, 69)
+            }
+            .frame(maxWidth: .infinity, minHeight: 238)
+            .background(
+                ZStack(alignment: .bottom) {
+                Color.white
+                Image(.assessmentBackground)
+                        .opacity(0.4)
+                        .blur(radius: 5.0)
+                        .padding(.bottom, 16)
+                }
+            )
+            .cornerRadius(20)
+            .padding(.top, 12)
+            .padding(.horizontal, 16)
+        }
+        .padding(.top, 31)
+        .padding(.bottom, 30)
     }
 
     // MARK: - Body -
@@ -169,6 +223,7 @@ struct HomeHealthView: View {
                             rectanglesUnderDashboard
                             measureDashboard
                         }
+                        weeklyAssessmentDashboard
                     }
                 }
             }

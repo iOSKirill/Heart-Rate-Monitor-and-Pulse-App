@@ -14,3 +14,7 @@
 "button.start.title" = "Нажмите, чтобы начать";
 "dashboard.measure.subtitle" = "Как ты себя сегодня чувствуешь?";
 "dashboard.measure.mainText" = "Сделайте замеры, чтобы получить оценку готовности вашего организма к предстоящему дню";
+"dashboard.assessment.header" = "Статистика";
+"dashboard.assessment.title" = "Оценка за неделю";
+"dashboard.assessment.subtitle" = "Нет данных";
+"dashboard.assessment.mainText" = "Сделайте несколько измерений, чтобы увидеть свои результаты";

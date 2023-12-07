@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "HomeButton.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "HomeButton@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "HomeButton@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "HomeButton.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

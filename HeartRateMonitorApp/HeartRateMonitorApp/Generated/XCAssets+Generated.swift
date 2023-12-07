@@ -26,6 +26,7 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Colors {
+    internal static let assessmentDashboardMainText = ColorAsset(name: "AssessmentDashboardMainText")
     internal static let backgroundSreens = ColorAsset(name: "BackgroundSreens")
     internal static let currentDay = ColorAsset(name: "CurrentDay")
     internal static let highlightedButton = ColorAsset(name: "HighlightedButton")
@@ -34,6 +35,8 @@ internal enum Asset {
     internal static let notHighlightedButton = ColorAsset(name: "NotHighlightedButton")
   }
   internal enum Images {
+    internal static let assessmentBackground = ImageAsset(name: "AssessmentBackground")
+    internal static let assessmentIcon = ImageAsset(name: "AssessmentIcon")
     internal static let historyButton = ImageAsset(name: "HistoryButton")
     internal static let homeButton = ImageAsset(name: "HomeButton")
     internal static let informationButton = ImageAsset(name: "InformationButton")
