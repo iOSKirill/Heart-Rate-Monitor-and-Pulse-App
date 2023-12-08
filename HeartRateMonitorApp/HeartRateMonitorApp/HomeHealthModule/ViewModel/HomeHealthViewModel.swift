@@ -12,6 +12,7 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
     @Published private(set) var currentDay = Date()
+    @Published var isPopupVisible = false
     private let calendar = Calendar.current
 
     // MARK: - Intializing -

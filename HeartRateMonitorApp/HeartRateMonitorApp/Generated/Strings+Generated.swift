@@ -42,6 +42,26 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "navigationBar.health.title", fallback: "Health")
     }
   }
+  internal enum Popup {
+    internal enum Hrv {
+      /// HRV is an indicator that reflects the unevenness of your heartbeat.
+      internal static let subtitle = L10n.tr("Localizable", "popup.HRV.subtitle", fallback: "HRV is an indicator that reflects the unevenness of your heartbeat.")
+      /// HRV
+      internal static let title = L10n.tr("Localizable", "popup.HRV.title", fallback: "HRV")
+    }
+    internal enum Assessment {
+      /// Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.
+      internal static let subtitle = L10n.tr("Localizable", "popup.assessment.subtitle", fallback: "Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.")
+      /// Assessment
+      internal static let title = L10n.tr("Localizable", "popup.assessment.title", fallback: "Assessment")
+    }
+    internal enum Pulse {
+      /// Heart Rate - heart rate, that is, the number of heartbeats per minute.
+      internal static let subtitle = L10n.tr("Localizable", "popup.pulse.subtitle", fallback: "Heart Rate - heart rate, that is, the number of heartbeats per minute.")
+      /// Pulse
+      internal static let title = L10n.tr("Localizable", "popup.pulse.title", fallback: "Pulse")
+    }
+  }
   internal enum TabBar {
     internal enum History {
       /// History

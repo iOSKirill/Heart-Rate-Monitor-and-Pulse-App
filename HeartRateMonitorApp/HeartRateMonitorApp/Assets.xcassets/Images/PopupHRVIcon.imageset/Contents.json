@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "PopupHRVIcon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

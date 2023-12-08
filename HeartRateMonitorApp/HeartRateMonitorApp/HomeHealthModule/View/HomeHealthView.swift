@@ -60,6 +60,57 @@ struct HomeHealthView: View {
         .padding(.top, 20)
         .padding(.horizontal, 16)
     }
+    
+    // MARK: - Popup info -
+    var popupInfo: some View {
+        VStack(alignment: .leading) {
+            VStack(spacing: 12) {
+                CustomPopupVStackInfo(
+                    image: .popupAssessmentIcon,
+                    title: L10n.Popup.Assessment.title,
+                    subtitle: L10n.Popup.Assessment.subtitle
+                )
+                CustomPopupVStackInfo(
+                    image: .popupPulseIcon,
+                    title: L10n.Popup.Pulse.title,
+                    subtitle: L10n.Popup.Pulse.subtitle
+                )
+                CustomPopupVStackInfo(
+                    image: .popupHRVIcon,
+                    title: L10n.Popup.Hrv.title,
+                    subtitle: L10n.Popup.Hrv.subtitle
+                )
+                Button {
+                    viewModel.isPopupVisible.toggle()
+                } label: {
+                    VStack {
+                        Text("OK")
+                            .font(.custom(FontFamily.Urbanist.bold, size: 15))
+                            .foregroundColor(.white)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 37)
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color.gradientFirstButton,
+                                Color.gradientSecondButton
+                            ]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+
+                    .cornerRadius(43)
+                    .padding(.horizontal, 101.5)
+                }
+            }
+            .padding(.vertical, 20)
+        }
+        .frame(maxWidth: .infinity, minHeight: 363)
+        .background(Color.white)
+        .cornerRadius(20)
+        .padding(.horizontal, 16)
+    }
 
     // MARK: - Measure dashboard -
     var measureDashboard: some View {
@@ -70,7 +121,7 @@ struct HomeHealthView: View {
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
-                    // Additional information
+                    viewModel.isPopupVisible.toggle()
                 } label: {
                     Image(.informationButton)
                 }
@@ -184,7 +235,7 @@ struct HomeHealthView: View {
                             .foregroundColor(Color.mainText)
                         Text(L10n.Dashboard.Assessment.mainText)
                             .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
-                            .foregroundColor(Color.assessmentDashboardMainText)
+                            .foregroundColor(Color.subtitle)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 176)
                     }
@@ -226,12 +277,17 @@ struct HomeHealthView: View {
                         weeklyAssessmentDashboard
                     }
                 }
+                if viewModel.isPopupVisible {
+                    Color.black.opacity(0.6)
+                        .edgesIgnoringSafeArea(.all)
+                    popupInfo
+                }
             }
             .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
                                             .font(.custom(FontFamily.Urbanist.bold, size: 32))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
-                                            .padding(.bottom, 13),
+                                            .padding(.bottom, 12),
                                 trailing: settingsButton)
         }
     }

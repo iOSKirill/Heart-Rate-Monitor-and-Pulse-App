@@ -1,5 +1,5 @@
 //
-//  CustomButtinOnTabBar.swift
+//  CustomButtonOnTabBar.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 29.11.23.
