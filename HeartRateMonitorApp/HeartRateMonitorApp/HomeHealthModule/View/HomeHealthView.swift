@@ -23,7 +23,7 @@ struct HomeHealthView: View {
             .background(Color.white)
             .cornerRadius(12)
             .padding(.top, 16)
-            .padding(.bottom, 13)
+            .padding(.bottom, 25)
         }
     }
 
@@ -287,7 +287,7 @@ struct HomeHealthView: View {
                                             .font(.custom(FontFamily.Urbanist.bold, size: 32))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
-                                            .padding(.bottom, 12),
+                                            .padding(.bottom, 25),
                                 trailing: settingsButton)
         }
     }
