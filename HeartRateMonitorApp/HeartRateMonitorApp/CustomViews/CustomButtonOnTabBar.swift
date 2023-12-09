@@ -24,7 +24,7 @@ struct CustomButtonOnTabBar: View {
                     .renderingMode(.template)
                     .padding(.bottom, 2)
                 Text(title)
-                    .font(.custom(FontFamily.Gilroy.bold, size: 11))
+                    .font(.appGilroyBold(of: 11))
             }
             .padding(.bottom, 20)
         }

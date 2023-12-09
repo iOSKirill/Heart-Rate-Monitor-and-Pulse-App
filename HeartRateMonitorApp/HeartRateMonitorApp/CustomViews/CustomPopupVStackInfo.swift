@@ -19,7 +19,7 @@ struct CustomPopupVStackInfo: View {
             HStack(spacing: 8) {
                 Image(uiImage: image)
                 Text(title)
-                    .font(.custom(FontFamily.Urbanist.semiBold, size: 16))
+                    .font(.appSemibold(of: 16))
                     .foregroundColor(Color.mainText)
                 Spacer()
             }
@@ -27,7 +27,7 @@ struct CustomPopupVStackInfo: View {
             
             HStack {
                 Text(subtitle)
-                    .font(.custom(FontFamily.Urbanist.medium, size: 14))
+                    .font(.appMedium(of: 14))
                     .foregroundColor(Color.subtitle)
                 Spacer()
             }

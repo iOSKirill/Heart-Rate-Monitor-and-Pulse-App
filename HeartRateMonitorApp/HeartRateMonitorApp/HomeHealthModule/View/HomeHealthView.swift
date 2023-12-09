@@ -35,7 +35,7 @@ struct HomeHealthView: View {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
-                                .font(.custom(FontFamily.Urbanist.semiBold, size: 17))
+                                .font(.appSemibold(of: 17))
                                 .foregroundColor(Color.mainText)
                                 .background(
                                     ZStack {
@@ -48,7 +48,7 @@ struct HomeHealthView: View {
                                 )
 
                             Text(day.getWeekOfDayName)
-                                .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                                .font(.appSemibold(of: 15))
                                 .foregroundColor(Color.mainText)
                                 .padding(.top, 6)
                         }
@@ -85,7 +85,7 @@ struct HomeHealthView: View {
                 } label: {
                     VStack {
                         Text("OK")
-                            .font(.custom(FontFamily.Urbanist.bold, size: 15))
+                            .font(.appUrbanistBold(of: 15))
                             .foregroundColor(.white)
                     }
                     .frame(maxWidth: .infinity, maxHeight: 37)
@@ -117,7 +117,7 @@ struct HomeHealthView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(L10n.Dashboard.Measure.title)
-                    .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                    .font(.appUrbanistBold(of: 17))
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
@@ -147,7 +147,7 @@ struct HomeHealthView: View {
                         }
                     }
                     Text(L10n.Button.Start.title)
-                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                        .font(.appSemibold(of: 15))
                         .foregroundColor(.white)
                 }
             }
@@ -157,10 +157,10 @@ struct HomeHealthView: View {
             HStack(alignment: .center) {
                 VStack(spacing: 8) {
                     Text(L10n.Dashboard.Measure.subtitle)
-                        .font(.custom(FontFamily.Urbanist.bold, size: 19))
+                        .font(.appUrbanistBold(of: 19))
                         .foregroundColor(.white)
                     Text(L10n.Dashboard.Measure.mainText)
-                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                        .font(.appSemibold(of: 15))
                         .foregroundColor(Color.measureDashboardSubtitle)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 16)
@@ -212,7 +212,7 @@ struct HomeHealthView: View {
     var weeklyAssessmentDashboard: some View {
         VStack(alignment: .leading) {
             Text(L10n.Dashboard.Assessment.header)
-                .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                .font(.appUrbanistBold(of: 17))
                 .foregroundColor(Color.mainText)
                 .padding(.leading, 16)
 
@@ -221,7 +221,7 @@ struct HomeHealthView: View {
                     Image(.assessmentIcon)
                         .padding(.leading, 16)
                     Text(L10n.Dashboard.Assessment.title)
-                        .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                        .font(.appUrbanistBold(of: 17))
                         .foregroundColor(Color.mainText)
                         .padding(.leading, 12)
                     Spacer()
@@ -231,10 +231,10 @@ struct HomeHealthView: View {
                 HStack(alignment: .center) {
                     VStack(spacing: 2) {
                         Text(L10n.Dashboard.Assessment.subtitle)
-                            .font(.custom(FontFamily.Urbanist.bold, size: 19))
+                            .font(.appUrbanistBold(of: 19))
                             .foregroundColor(Color.mainText)
                         Text(L10n.Dashboard.Assessment.mainText)
-                            .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                            .font(.appSemibold(of: 15))
                             .foregroundColor(Color.subtitle)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 176)
@@ -284,7 +284,7 @@ struct HomeHealthView: View {
                 }
             }
             .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
-                                            .font(.custom(FontFamily.Urbanist.bold, size: 32))
+                                            .font(.appUrbanistBold(of: 32))
                                             .foregroundColor(.mainText)
                                             .padding(.top, 16)
                                             .padding(.bottom, 25),
