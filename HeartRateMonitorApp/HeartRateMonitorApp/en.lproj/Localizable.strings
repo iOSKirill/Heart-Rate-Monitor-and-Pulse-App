@@ -24,3 +24,4 @@
 "popup.pulse.subtitle" = "Heart Rate - heart rate, that is, the number of heartbeats per minute.";
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV is an indicator that reflects the unevenness of your heartbeat.";
+"popup.button.title" = "OK";

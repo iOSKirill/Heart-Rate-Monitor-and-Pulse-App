@@ -28,6 +28,8 @@ internal enum Asset {
   internal enum Colors {
     internal static let backgroundSreens = ColorAsset(name: "BackgroundSreens")
     internal static let currentDay = ColorAsset(name: "CurrentDay")
+    internal static let gradientFirstButton = ColorAsset(name: "GradientFirstButton")
+    internal static let gradientSecondButton = ColorAsset(name: "GradientSecondButton")
     internal static let highlightedButton = ColorAsset(name: "HighlightedButton")
     internal static let mainText = ColorAsset(name: "MainText")
     internal static let measureDashboardSubtitle = ColorAsset(name: "MeasureDashboardSubtitle")

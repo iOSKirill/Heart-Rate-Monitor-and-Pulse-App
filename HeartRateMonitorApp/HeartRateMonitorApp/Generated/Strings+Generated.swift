@@ -55,6 +55,10 @@ internal enum L10n {
       /// Assessment
       internal static let title = L10n.tr("Localizable", "popup.assessment.title", fallback: "Assessment")
     }
+    internal enum Button {
+      /// OK
+      internal static let title = L10n.tr("Localizable", "popup.button.title", fallback: "OK")
+    }
     internal enum Pulse {
       /// Heart Rate - heart rate, that is, the number of heartbeats per minute.
       internal static let subtitle = L10n.tr("Localizable", "popup.pulse.subtitle", fallback: "Heart Rate - heart rate, that is, the number of heartbeats per minute.")

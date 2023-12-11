@@ -84,7 +84,7 @@ struct HomeHealthView: View {
                     viewModel.isPopupVisible.toggle()
                 } label: {
                     VStack {
-                        Text("OK")
+                        Text(L10n.Popup.Button.title)
                             .font(.appUrbanistBold(of: 15))
                             .foregroundColor(.white)
                     }
