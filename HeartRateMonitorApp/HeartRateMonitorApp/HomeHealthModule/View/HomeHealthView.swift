@@ -110,6 +110,7 @@ struct HomeHealthView: View {
         .background(Color.white)
         .cornerRadius(20)
         .padding(.horizontal, 16)
+        .transition(.scale)
     }
 
     // MARK: - Measure dashboard -
@@ -121,7 +122,9 @@ struct HomeHealthView: View {
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
-                    viewModel.isPopupVisible.toggle()
+                    withAnimation(.linear(duration: 0.5)) {
+                        viewModel.isPopupVisible.toggle()
+                    }
                 } label: {
                     Image(.informationButton)
                 }
