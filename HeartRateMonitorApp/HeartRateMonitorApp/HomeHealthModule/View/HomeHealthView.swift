@@ -11,22 +11,6 @@ struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
 
-    // MARK: - Settings button -
-    var settingsButton: some View {
-        NavigationLink {
-            SettingsView(viewModel: viewModel.settingsVM)
-        } label: {
-            VStack {
-                Image(.settingsButton)
-                    .padding(8)
-            }
-            .background(Color.white)
-            .cornerRadius(12)
-            .padding(.top, 16)
-            .padding(.bottom, 25)
-        }
-    }
-
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
         GeometryReader { geo in
@@ -60,7 +44,7 @@ struct HomeHealthView: View {
         .padding(.top, 20)
         .padding(.horizontal, 16)
     }
-    
+
     // MARK: - Popup info -
     var popupInfo: some View {
         VStack(alignment: .leading) {
@@ -267,31 +251,36 @@ struct HomeHealthView: View {
 
     // MARK: - Body -
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.backgroundSreens).ignoresSafeArea()
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        weekCalendar
-                        ZStack {
-                            rectanglesUnderDashboard
-                            measureDashboard
-                        }
-                        weeklyAssessmentDashboard
+        ZStack {
+            Color(.backgroundSreens).ignoresSafeArea()
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    weekCalendar
+                    ZStack {
+                        rectanglesUnderDashboard
+                        measureDashboard
+                        viewModel.getScrollOffsetReader()
                     }
-                }
-                if viewModel.isPopupVisible {
-                    Color.black.opacity(0.6)
-                        .edgesIgnoringSafeArea(.all)
-                    popupInfo
+                    weeklyAssessmentDashboard
                 }
             }
-            .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
-                                            .font(.appUrbanistBold(of: 32))
-                                            .foregroundColor(.mainText)
-                                            .padding(.top, 16)
-                                            .padding(.bottom, 25),
-                                trailing: settingsButton)
+            .coordinateSpace(name: "scroll")
+            .onPreferenceChange(ScrollPreKey.self, perform: { value in
+                viewModel.updateSrollStatus(value: value)
+            })
+            .safeAreaInset(edge: .top, content: {
+                Color.backgroundSreens
+                    .frame(height: 30)
+            })
+            .overlay {
+                CustomNavigationBar(isScroll: $viewModel.isScroll)
+            }
+            if viewModel.isPopupVisible {
+                Color.black.opacity(0.6)
+                    .edgesIgnoringSafeArea(.all)
+                popupInfo
+                    .statusBar(hidden: true)
+            }
         }
     }
 }

@@ -30,6 +30,7 @@
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
 		6CDFCC2D2B1A974C00B1A9A2 /* Urbanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */; };
 		6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA342B247F97000EC270 /* Font+Extension.swift */; };
+		6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		6CF3FA342B247F97000EC270 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				6C2FE7A32B1799800092BFE5 /* CustomButtonOnTabBar.swift */,
 				6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */,
+				6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */,
 				6C2FE79F2B1797F90092BFE5 /* HistoryViewModel.swift in Sources */,
 				6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */,
+				6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */,
 				6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */,
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */,

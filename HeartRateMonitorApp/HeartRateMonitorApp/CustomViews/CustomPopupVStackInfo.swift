@@ -24,7 +24,7 @@ struct CustomPopupVStackInfo: View {
                 Spacer()
             }
             .padding(.leading, 16)
-            
+
             HStack {
                 Text(subtitle)
                     .font(.appMedium(of: 14))
