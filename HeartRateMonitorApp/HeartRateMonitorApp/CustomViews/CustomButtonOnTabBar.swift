@@ -28,6 +28,6 @@ struct CustomButtonOnTabBar: View {
             }
             .padding(.bottom, 20)
         }
-        .foregroundColor(selectedIndex == index ? Color(.notHighlightedButton) : Color(.highlightedButton))
+        .foregroundColor(selectedIndex == index ? Color(.highlightedButton) : Color(.notHighlightedButton))
     }
 }

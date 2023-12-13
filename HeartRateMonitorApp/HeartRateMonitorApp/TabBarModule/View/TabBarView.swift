@@ -55,6 +55,7 @@ struct TabBarView: View {
         }
     }
 
+    @StateObject var viewModel = HomeHealthViewModel()
     // MARK: - Body -
     var body: some View {
         VStack(spacing: 0) {
