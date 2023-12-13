@@ -20,7 +20,6 @@ disabled_rules:
     - trailing_comma
 #   - function_parameter_count
     - line_length
-#   - type_body_length
 #   - file_length
 #   - function_body_length
     - identifier_name
@@ -202,7 +201,6 @@ opt_in_rules: # some rules are only opt-in
     - toggle_bool
     - trailing_closure
     - trailing_comma
-    - type_body_length
 #    - type_contents_order
     - unavailable_function
     - unneeded_parentheses_in_closure_argument

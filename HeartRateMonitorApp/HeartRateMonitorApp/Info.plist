@@ -5,9 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Gilroy-bold.ttf</string>
-		<string>Urbanist-Regular.ttf</string>
 		<string>Urbanist-Bold.ttf</string>
-		<string>Urbanist-Light.ttf</string>
 		<string>Urbanist-Medium.ttf</string>
 		<string>Urbanist-SemiBold.ttf</string>
 	</array>

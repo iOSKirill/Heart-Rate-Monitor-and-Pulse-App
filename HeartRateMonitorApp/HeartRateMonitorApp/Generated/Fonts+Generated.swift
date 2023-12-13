@@ -26,8 +26,9 @@ internal enum FontFamily {
   }
   internal enum Urbanist {
     internal static let bold = FontConvertible(name: "Urbanist-Bold", family: "Urbanist", path: "Urbanist-Bold.ttf")
+    internal static let medium = FontConvertible(name: "Urbanist-Medium", family: "Urbanist", path: "Urbanist-Medium.ttf")
     internal static let semiBold = FontConvertible(name: "Urbanist-SemiBold", family: "Urbanist", path: "Urbanist-SemiBold.ttf")
-    internal static let all: [FontConvertible] = [bold, semiBold]
+    internal static let all: [FontConvertible] = [bold, medium, semiBold]
   }
   internal static let allCustomFonts: [FontConvertible] = [Gilroy.all, Urbanist.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {

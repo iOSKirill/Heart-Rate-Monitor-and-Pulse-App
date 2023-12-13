@@ -26,13 +26,15 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Colors {
-    internal static let assessmentDashboardMainText = ColorAsset(name: "AssessmentDashboardMainText")
     internal static let backgroundSreens = ColorAsset(name: "BackgroundSreens")
     internal static let currentDay = ColorAsset(name: "CurrentDay")
+    internal static let gradientFirstButton = ColorAsset(name: "GradientFirstButton")
+    internal static let gradientSecondButton = ColorAsset(name: "GradientSecondButton")
     internal static let highlightedButton = ColorAsset(name: "HighlightedButton")
     internal static let mainText = ColorAsset(name: "MainText")
     internal static let measureDashboardSubtitle = ColorAsset(name: "MeasureDashboardSubtitle")
     internal static let notHighlightedButton = ColorAsset(name: "NotHighlightedButton")
+    internal static let subtitle = ColorAsset(name: "Subtitle")
   }
   internal enum Images {
     internal static let assessmentBackground = ImageAsset(name: "AssessmentBackground")
@@ -42,6 +44,9 @@ internal enum Asset {
     internal static let informationButton = ImageAsset(name: "InformationButton")
     internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")
     internal static let plusButton = ImageAsset(name: "PlusButton")
+    internal static let popupAssessmentIcon = ImageAsset(name: "PopupAssessmentIcon")
+    internal static let popupHRVIcon = ImageAsset(name: "PopupHRVIcon")
+    internal static let popupPulseIcon = ImageAsset(name: "PopupPulseIcon")
     internal static let pulseLine = ImageAsset(name: "PulseLine")
     internal static let settingsButton = ImageAsset(name: "SettingsButton")
     internal static let tapToStartButton = ImageAsset(name: "TapToStartButton")

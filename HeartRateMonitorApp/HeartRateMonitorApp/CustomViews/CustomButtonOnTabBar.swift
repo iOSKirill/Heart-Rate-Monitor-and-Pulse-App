@@ -1,5 +1,5 @@
 //
-//  CustomButtinOnTabBar.swift
+//  CustomButtonOnTabBar.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 29.11.23.
@@ -24,10 +24,10 @@ struct CustomButtonOnTabBar: View {
                     .renderingMode(.template)
                     .padding(.bottom, 2)
                 Text(title)
-                    .font(.custom(FontFamily.Gilroy.bold, size: 11))
+                    .font(.appGilroyBold(of: 11))
             }
             .padding(.bottom, 20)
         }
-        .foregroundColor(selectedIndex == index ? Color(.notHighlightedButton) : Color(.highlightedButton))
+        .foregroundColor(selectedIndex == index ? Color(.highlightedButton) : Color(.notHighlightedButton))
     }
 }

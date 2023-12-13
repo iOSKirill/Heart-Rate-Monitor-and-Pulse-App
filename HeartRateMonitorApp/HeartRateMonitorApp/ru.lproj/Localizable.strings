@@ -18,3 +18,10 @@
 "dashboard.assessment.title" = "Оценка за неделю";
 "dashboard.assessment.subtitle" = "Нет данных";
 "dashboard.assessment.mainText" = "Сделайте несколько измерений, чтобы увидеть свои результаты";
+"popup.assessment.title" = "Оценка";
+"popup.assessment.subtitle" = "Оценка - отображает общее состояние вашего организма, включая выводы об уровне стресса, работе центральной нервной системы и другие данные о организме.";
+"popup.pulse.title" = "Пульс";
+"popup.pulse.subtitle" = "Частота сердечных сокращений - частота сердечных сокращений, то есть количество ударов сердца в минуту.";
+"popup.HRV.title" = "HRV";
+"popup.HRV.subtitle" = "HRV - это показатель, отражающий неравномерность вашего сердцебиения.";
+"popup.button.title" = "ОК";

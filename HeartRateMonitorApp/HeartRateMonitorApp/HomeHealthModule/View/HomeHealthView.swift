@@ -10,22 +10,7 @@ import SwiftUI
 struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
-
-    // MARK: - Settings button -
-    var settingsButton: some View {
-        NavigationLink {
-            SettingsView(viewModel: viewModel.settingsVM)
-        } label: {
-            VStack {
-                Image(.settingsButton)
-                    .padding(8)
-            }
-            .background(Color.white)
-            .cornerRadius(12)
-            .padding(.top, 16)
-            .padding(.bottom, 13)
-        }
-    }
+    @Binding var isPopupVisible: Bool
 
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
@@ -35,7 +20,7 @@ struct HomeHealthView: View {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
-                                .font(.custom(FontFamily.Urbanist.semiBold, size: 17))
+                                .font(.appSemibold(of: 17))
                                 .foregroundColor(Color.mainText)
                                 .background(
                                     ZStack {
@@ -48,7 +33,7 @@ struct HomeHealthView: View {
                                 )
 
                             Text(day.getWeekOfDayName)
-                                .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                                .font(.appSemibold(of: 15))
                                 .foregroundColor(Color.mainText)
                                 .padding(.top, 6)
                         }
@@ -66,11 +51,13 @@ struct HomeHealthView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(L10n.Dashboard.Measure.title)
-                    .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                    .font(.appUrbanistBold(of: 17))
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
-                    // Additional information
+                    withAnimation(.linear(duration: 0.3)) {
+                        isPopupVisible.toggle()
+                    }
                 } label: {
                     Image(.informationButton)
                 }
@@ -96,7 +83,7 @@ struct HomeHealthView: View {
                         }
                     }
                     Text(L10n.Button.Start.title)
-                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                        .font(.appSemibold(of: 15))
                         .foregroundColor(.white)
                 }
             }
@@ -106,10 +93,10 @@ struct HomeHealthView: View {
             HStack(alignment: .center) {
                 VStack(spacing: 8) {
                     Text(L10n.Dashboard.Measure.subtitle)
-                        .font(.custom(FontFamily.Urbanist.bold, size: 19))
+                        .font(.appUrbanistBold(of: 19))
                         .foregroundColor(.white)
                     Text(L10n.Dashboard.Measure.mainText)
-                        .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
+                        .font(.appSemibold(of: 15))
                         .foregroundColor(Color.measureDashboardSubtitle)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 16)
@@ -161,7 +148,7 @@ struct HomeHealthView: View {
     var weeklyAssessmentDashboard: some View {
         VStack(alignment: .leading) {
             Text(L10n.Dashboard.Assessment.header)
-                .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                .font(.appUrbanistBold(of: 17))
                 .foregroundColor(Color.mainText)
                 .padding(.leading, 16)
 
@@ -170,7 +157,7 @@ struct HomeHealthView: View {
                     Image(.assessmentIcon)
                         .padding(.leading, 16)
                     Text(L10n.Dashboard.Assessment.title)
-                        .font(.custom(FontFamily.Urbanist.bold, size: 17))
+                        .font(.appUrbanistBold(of: 17))
                         .foregroundColor(Color.mainText)
                         .padding(.leading, 12)
                     Spacer()
@@ -180,11 +167,11 @@ struct HomeHealthView: View {
                 HStack(alignment: .center) {
                     VStack(spacing: 2) {
                         Text(L10n.Dashboard.Assessment.subtitle)
-                            .font(.custom(FontFamily.Urbanist.bold, size: 19))
+                            .font(.appUrbanistBold(of: 19))
                             .foregroundColor(Color.mainText)
                         Text(L10n.Dashboard.Assessment.mainText)
-                            .font(.custom(FontFamily.Urbanist.semiBold, size: 15))
-                            .foregroundColor(Color.assessmentDashboardMainText)
+                            .font(.appSemibold(of: 15))
+                            .foregroundColor(Color.subtitle)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 176)
                     }
@@ -213,30 +200,34 @@ struct HomeHealthView: View {
 
     // MARK: - Body -
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.backgroundSreens).ignoresSafeArea()
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        weekCalendar
-                        ZStack {
-                            rectanglesUnderDashboard
-                            measureDashboard
-                        }
-                        weeklyAssessmentDashboard
+        ZStack {
+            Color(.backgroundSreens).ignoresSafeArea()
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    weekCalendar
+                    ZStack {
+                        rectanglesUnderDashboard
+                        measureDashboard
+                        viewModel.getScrollOffsetReader()
                     }
+                    weeklyAssessmentDashboard
                 }
             }
-            .navigationBarItems(leading: Text(L10n.NavigationBar.Health.title)
-                                            .font(.custom(FontFamily.Urbanist.bold, size: 32))
-                                            .foregroundColor(.mainText)
-                                            .padding(.top, 16)
-                                            .padding(.bottom, 13),
-                                trailing: settingsButton)
+            .coordinateSpace(name: "scroll")
+            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
+                viewModel.updateSrollStatus(value: value)
+            })
+            .safeAreaInset(edge: .top, content: {
+                Color.backgroundSreens
+                    .frame(height: 30)
+            })
+            .overlay {
+                CustomNavigationBar(isScrolling: $viewModel.isScroll)
+            }
         }
     }
 }
 
 #Preview {
-    HomeHealthView()
+    HomeHealthView(isPopupVisible: .constant(true))
 }

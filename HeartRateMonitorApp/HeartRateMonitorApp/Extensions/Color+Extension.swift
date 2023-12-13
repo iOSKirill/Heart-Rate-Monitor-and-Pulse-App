@@ -34,7 +34,15 @@ public extension Color {
         Color("MeasureDashboardSubtitle")
     }
     /// #678093
-    var assessmentDashboardMainText: Color {
-        Color("AssessmentDashboardMainText")
+    var subtitle: Color {
+        Color("Subtitle")
+    }
+    /// #55BDE0
+    var gradientFirstButton: Color {
+        Color("GradientFirstButton")
+    }
+    /// #217BD9
+    var gradientSecondButton: Color {
+        Color("GradientSecondButton")
     }
 }
