@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScrollPreKey: PreferenceKey {
+struct ScrollPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
@@ -17,7 +17,7 @@ struct ScrollPreKey: PreferenceKey {
 struct CustomNavigationBar: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
-    @Binding var isScroll: Bool
+    @Binding var isScrolling: Bool
 
     // MARK: - Body -
     var body: some View {
@@ -25,7 +25,7 @@ struct CustomNavigationBar: View {
             Color.clear
                 .frame(height: 110)
                 .background(.ultraThinMaterial)
-                .opacity(isScroll ? 1 : 0)
+                .opacity(isScrolling ? 1 : 0)
                 .blur(radius: 0.5)
                 .edgesIgnoringSafeArea(.top)
             HStack {
@@ -46,7 +46,7 @@ struct CustomNavigationBar: View {
                     .padding(.top, 16)
                     .padding(.bottom, 20)
                 }
-                .disabled(viewModel.isPopupVisible ? true : false)
+                .contentShape(Rectangle())
             }
             .offset(y: -35)
             .padding(.horizontal)

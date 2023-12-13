@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TabBarView: View {
     // MARK: - Property -
-    @State var selectedIndex: Int = 2
+    @State private var selectedIndex: Int = 2
+    @State private var isPopupVisible = false
 
     // MARK: - Plus button  -
     var plusBarButton: some View {
@@ -55,25 +56,29 @@ struct TabBarView: View {
         }
     }
 
-    @StateObject var viewModel = HomeHealthViewModel()
     // MARK: - Body -
     var body: some View {
-        VStack(spacing: 0) {
-            switch selectedIndex {
-            case 0:
-                HomeHealthView()
-
-            case 1:
-                HistoryView()
-
-            case 2:
-                HistoryView()
-
-            default:
-                Text("View")
+        ZStack {
+            VStack(spacing: 0) {
+                switch selectedIndex {
+                case 0:
+                    HomeHealthView(isPopupVisible: $isPopupVisible)
+                case 1:
+                    HistoryView()
+                case 2:
+                    HistoryView()
+                default:
+                    Text("View")
+                }
+                ZStack {
+                    tabBarButtons
+                }
             }
-            ZStack {
-                tabBarButtons
+            if isPopupVisible {
+                Color.black.opacity(0.6)
+                    .edgesIgnoringSafeArea(.all)
+                PopupInfoView(isPopupVisible: $isPopupVisible)
+                    .zIndex(1)
             }
         }
     }

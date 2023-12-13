@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
+    @Binding var isPopupVisible: Bool
 
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
@@ -45,58 +46,6 @@ struct HomeHealthView: View {
         .padding(.horizontal, 16)
     }
 
-    // MARK: - Popup info -
-    var popupInfo: some View {
-        VStack(alignment: .leading) {
-            VStack(spacing: 12) {
-                CustomPopupVStackInfo(
-                    image: .popupAssessmentIcon,
-                    title: L10n.Popup.Assessment.title,
-                    subtitle: L10n.Popup.Assessment.subtitle
-                )
-                CustomPopupVStackInfo(
-                    image: .popupPulseIcon,
-                    title: L10n.Popup.Pulse.title,
-                    subtitle: L10n.Popup.Pulse.subtitle
-                )
-                CustomPopupVStackInfo(
-                    image: .popupHRVIcon,
-                    title: L10n.Popup.Hrv.title,
-                    subtitle: L10n.Popup.Hrv.subtitle
-                )
-                Button {
-                    viewModel.isPopupVisible.toggle()
-                } label: {
-                    VStack {
-                        Text(L10n.Popup.Button.title)
-                            .font(.appUrbanistBold(of: 15))
-                            .foregroundColor(.white)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: 37)
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color.gradientFirstButton,
-                                Color.gradientSecondButton
-                            ]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-
-                    .cornerRadius(43)
-                    .padding(.horizontal, 101.5)
-                }
-            }
-            .padding(.vertical, 20)
-        }
-        .frame(maxWidth: .infinity, minHeight: 363)
-        .background(Color.white)
-        .cornerRadius(20)
-        .padding(.horizontal, 16)
-        .transition(.scale)
-    }
-
     // MARK: - Measure dashboard -
     var measureDashboard: some View {
         VStack(alignment: .leading) {
@@ -106,8 +55,8 @@ struct HomeHealthView: View {
                     .foregroundColor(Color.white)
                 Spacer()
                 Button {
-                    withAnimation(.linear(duration: 0.5)) {
-                        viewModel.isPopupVisible.toggle()
+                    withAnimation(.linear(duration: 0.3)) {
+                        isPopupVisible.toggle()
                     }
                 } label: {
                     Image(.informationButton)
@@ -265,7 +214,7 @@ struct HomeHealthView: View {
                 }
             }
             .coordinateSpace(name: "scroll")
-            .onPreferenceChange(ScrollPreKey.self, perform: { value in
+            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
                 viewModel.updateSrollStatus(value: value)
             })
             .safeAreaInset(edge: .top, content: {
@@ -273,18 +222,12 @@ struct HomeHealthView: View {
                     .frame(height: 30)
             })
             .overlay {
-                CustomNavigationBar(isScroll: $viewModel.isScroll)
-            }
-            if viewModel.isPopupVisible {
-                Color.black.opacity(0.6)
-                    .edgesIgnoringSafeArea(.all)
-                popupInfo
-                    .statusBar(hidden: true)
+                CustomNavigationBar(isScrolling: $viewModel.isScroll)
             }
         }
     }
 }
 
 #Preview {
-    HomeHealthView()
+    HomeHealthView(isPopupVisible: .constant(true))
 }

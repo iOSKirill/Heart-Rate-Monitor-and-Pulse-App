@@ -13,7 +13,6 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
     @Published private(set) var currentDay = Date()
-    @Published var isPopupVisible = false
     @Published var isScroll = false
     private let calendar = Calendar.current
 
@@ -35,7 +34,7 @@ final class HomeHealthViewModel: ObservableObject {
     // MARK: - Reading the scroll offset -
     func getScrollOffsetReader() -> some View {
         GeometryReader { proxy in
-            Color.clear.preference(key: ScrollPreKey.self, value: proxy.frame(in: .named("scroll")).minY)
+            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
         }
     }
 
