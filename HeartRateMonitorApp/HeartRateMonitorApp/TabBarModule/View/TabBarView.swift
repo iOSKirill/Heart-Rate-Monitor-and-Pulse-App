@@ -63,10 +63,13 @@ struct TabBarView: View {
                 switch selectedIndex {
                 case 0:
                     HomeHealthView(isPopupVisible: $isPopupVisible)
+
                 case 1:
                     HistoryView()
+
                 case 2:
                     HistoryView()
+
                 default:
                     Text("View")
                 }

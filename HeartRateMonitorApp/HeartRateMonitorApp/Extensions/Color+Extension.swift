@@ -45,4 +45,8 @@ public extension Color {
     var gradientSecondButton: Color {
         Color("GradientSecondButton")
     }
+    /// #F2F3F4
+    var settingsButtonBackground: Color {
+        Color("SettingsButtonBackground")
+    }
 }
