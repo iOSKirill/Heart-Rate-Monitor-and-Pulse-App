@@ -25,3 +25,11 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV - это показатель, отражающий неравномерность вашего сердцебиения.";
 "popup.button.title" = "ОК";
+
+// MARK: - Settings screen -
+"settings.contactUs.title" = "Cвязаться с нами";
+"settings.privacPolicy.title" = "Политика конфиденциальности";
+"settings.termsOfUse.title" = "Условия использования";
+"settings.shareThisApp.title" = "Поделитесь этим приложением";
+"settings.FAQ.title" = "FAQ";
+"settings.rateUs.title" = "Оцените нас";
