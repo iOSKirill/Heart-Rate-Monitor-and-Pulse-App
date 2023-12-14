@@ -49,6 +49,12 @@ internal enum Asset {
     internal static let popupPulseIcon = ImageAsset(name: "PopupPulseIcon")
     internal static let pulseLine = ImageAsset(name: "PulseLine")
     internal static let settingsButton = ImageAsset(name: "SettingsButton")
+    internal static let settingsContactUsIcon = ImageAsset(name: "SettingsContactUsIcon")
+    internal static let settingsFAQIcon = ImageAsset(name: "SettingsFAQIcon")
+    internal static let settingsPrivacyPolicyIcon = ImageAsset(name: "SettingsPrivacyPolicyIcon")
+    internal static let settingsRateUsIcon = ImageAsset(name: "SettingsRateUsIcon")
+    internal static let settingsShareThisAppIcon = ImageAsset(name: "SettingsShareThisAppIcon")
+    internal static let settingsTermsOfUseIcon = ImageAsset(name: "SettingsTermsOfUseIcon")
     internal static let tapToStartButton = ImageAsset(name: "TapToStartButton")
   }
 }
