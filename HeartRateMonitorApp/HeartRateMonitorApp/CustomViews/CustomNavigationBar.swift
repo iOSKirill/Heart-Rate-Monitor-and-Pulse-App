@@ -18,7 +18,7 @@ struct CustomNavigationBar: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
     @Binding var isScrolling: Bool
-    @State private var isPresented = false
+    @State private var isPresentedSettingsView = false
 
     // MARK: - Body -
     var body: some View {
@@ -36,7 +36,7 @@ struct CustomNavigationBar: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Button {
-                    isPresented.toggle()
+                    isPresentedSettingsView.toggle()
                 } label: {
                     VStack {
                         Image(.settingsButton)
@@ -47,7 +47,7 @@ struct CustomNavigationBar: View {
                     .padding(.top, 16)
                     .padding(.bottom, 20)
                 }
-                .fullScreenCover(isPresented: $isPresented) {
+                .fullScreenCover(isPresented: $isPresentedSettingsView) {
                     SettingsView()
                 }
             }
