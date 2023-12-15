@@ -34,6 +34,7 @@ internal enum Asset {
     internal static let mainText = ColorAsset(name: "MainText")
     internal static let measureDashboardSubtitle = ColorAsset(name: "MeasureDashboardSubtitle")
     internal static let notHighlightedButton = ColorAsset(name: "NotHighlightedButton")
+    internal static let settingsButtonBackground = ColorAsset(name: "SettingsButtonBackground")
     internal static let subtitle = ColorAsset(name: "Subtitle")
   }
   internal enum Images {
@@ -43,13 +44,21 @@ internal enum Asset {
     internal static let homeButton = ImageAsset(name: "HomeButton")
     internal static let informationButton = ImageAsset(name: "InformationButton")
     internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")
+    internal static let navBarBackButtonIcon = ImageAsset(name: "NavBarBackButtonIcon")
     internal static let navBarCloseButtonIcon = ImageAsset(name: "NavBarCloseButtonIcon")
     internal static let plusButton = ImageAsset(name: "PlusButton")
     internal static let popupAssessmentIcon = ImageAsset(name: "PopupAssessmentIcon")
     internal static let popupHRVIcon = ImageAsset(name: "PopupHRVIcon")
     internal static let popupPulseIcon = ImageAsset(name: "PopupPulseIcon")
     internal static let pulseLine = ImageAsset(name: "PulseLine")
+    internal static let settingsArrowIcon = ImageAsset(name: "SettingsArrowIcon")
     internal static let settingsButton = ImageAsset(name: "SettingsButton")
+    internal static let settingsContactUsIcon = ImageAsset(name: "SettingsContactUsIcon")
+    internal static let settingsFAQIcon = ImageAsset(name: "SettingsFAQIcon")
+    internal static let settingsPrivacyPolicyIcon = ImageAsset(name: "SettingsPrivacyPolicyIcon")
+    internal static let settingsRateUsIcon = ImageAsset(name: "SettingsRateUsIcon")
+    internal static let settingsShareThisAppIcon = ImageAsset(name: "SettingsShareThisAppIcon")
+    internal static let settingsTermsOfUseIcon = ImageAsset(name: "SettingsTermsOfUseIcon")
     internal static let tapToStartButton = ImageAsset(name: "TapToStartButton")
   }
 }

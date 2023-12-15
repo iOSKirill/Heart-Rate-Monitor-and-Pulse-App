@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "SettingsTermsOfUseIcon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
