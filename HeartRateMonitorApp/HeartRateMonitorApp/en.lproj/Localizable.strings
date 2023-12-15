@@ -25,3 +25,12 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV is an indicator that reflects the unevenness of your heartbeat.";
 "popup.button.title" = "OK";
+
+// MARK: - Settings screen -
+"settings.contactUs.title" = "Contact Us";
+"settings.privacPolicy.title" = "Privacy Policy";
+"settings.termsOfUse.title" = "Terms of Use";
+"settings.shareThisApp.title" = "Share This App";
+"settings.FAQ.title" = "FAQ";
+"settings.rateUs.title" = "Rate Us";
+"settings.navBar.title" = "Settings";

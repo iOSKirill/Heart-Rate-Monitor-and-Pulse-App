@@ -66,6 +66,36 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "popup.pulse.title", fallback: "Pulse")
     }
   }
+  internal enum Settings {
+    internal enum Faq {
+      /// FAQ
+      internal static let title = L10n.tr("Localizable", "settings.FAQ.title", fallback: "FAQ")
+    }
+    internal enum ContactUs {
+      /// Contact Us
+      internal static let title = L10n.tr("Localizable", "settings.contactUs.title", fallback: "Contact Us")
+    }
+    internal enum NavBar {
+      /// Settings
+      internal static let title = L10n.tr("Localizable", "settings.navBar.title", fallback: "Settings")
+    }
+    internal enum PrivacPolicy {
+      /// Privacy Policy
+      internal static let title = L10n.tr("Localizable", "settings.privacPolicy.title", fallback: "Privacy Policy")
+    }
+    internal enum RateUs {
+      /// Rate Us
+      internal static let title = L10n.tr("Localizable", "settings.rateUs.title", fallback: "Rate Us")
+    }
+    internal enum ShareThisApp {
+      /// Share This App
+      internal static let title = L10n.tr("Localizable", "settings.shareThisApp.title", fallback: "Share This App")
+    }
+    internal enum TermsOfUse {
+      /// Terms of Use
+      internal static let title = L10n.tr("Localizable", "settings.termsOfUse.title", fallback: "Terms of Use")
+    }
+  }
   internal enum TabBar {
     internal enum History {
       /// History
