@@ -25,3 +25,6 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV is an indicator that reflects the unevenness of your heartbeat.";
 "popup.button.title" = "OK";
+
+// MARK: - Measurement screen -
+"measurement.navBar.title" = "Measurement";

@@ -36,6 +36,12 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
     }
   }
+  internal enum Measurement {
+    internal enum NavBar {
+      /// Measurement
+      internal static let title = L10n.tr("Localizable", "measurement.navBar.title", fallback: "Measurement")
+    }
+  }
   internal enum NavigationBar {
     internal enum Health {
       /// Health

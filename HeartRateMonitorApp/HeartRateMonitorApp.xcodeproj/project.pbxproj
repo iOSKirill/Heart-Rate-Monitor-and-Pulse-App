@@ -25,6 +25,8 @@
 		6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */; };
 		6CBD64D62B1E1902001D1DBF /* Urbanist-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */; };
 		6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */; };
+		6CC6AE302B2C89D100F83B8B /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE2F2B2C89D100F83B8B /* MeasurementView.swift */; };
+		6CC6AE322B2C8A1500F83B8B /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE312B2C8A1500F83B8B /* MeasurementViewModel.swift */; };
 		6CDFCC202B192D4C00B1A9A2 /* Gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */; };
 		6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */; };
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
@@ -55,6 +57,8 @@
 		6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
 		6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		6CC6AE2F2B2C89D100F83B8B /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
+		6CC6AE312B2C8A1500F83B8B /* MeasurementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementViewModel.swift; sourceTree = "<group>"; };
 		6CDFCC1A2B1928BC00B1A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-bold.ttf"; sourceTree = "<group>"; };
 		6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				6C2FE7A22B1799400092BFE5 /* CustomViews */,
 				6C2FE7972B1797210092BFE5 /* TabBarModule */,
 				6C2FE78D2B1794A10092BFE5 /* HomeHealthModule */,
+				6CC6AE2C2B2C895600F83B8B /* MeasurementModule */,
 				6C2FE79B2B1797AF0092BFE5 /* HistoryModule */,
 				6CBD64CA2B1DEF23001D1DBF /* SettingsModule */,
 				6C2FE7A72B18E6730092BFE5 /* Extensions */,
@@ -242,6 +247,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6CC6AE2C2B2C895600F83B8B /* MeasurementModule */ = {
+			isa = PBXGroup;
+			children = (
+				6CC6AE2E2B2C89B500F83B8B /* View */,
+				6CC6AE2D2B2C89A900F83B8B /* ViewModel */,
+			);
+			path = MeasurementModule;
+			sourceTree = "<group>";
+		};
+		6CC6AE2D2B2C89A900F83B8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6CC6AE312B2C8A1500F83B8B /* MeasurementViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6CC6AE2E2B2C89B500F83B8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6CC6AE2F2B2C89D100F83B8B /* MeasurementView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6CDFCC172B1927FE00B1A9A2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +407,7 @@
 				6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */,
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,
 				6C2FE7A12B1798110092BFE5 /* HistoryView.swift in Sources */,
+				6CC6AE302B2C89D100F83B8B /* MeasurementView.swift in Sources */,
 				6C2FE7932B1795210092BFE5 /* HomeHealthViewModel.swift in Sources */,
 				6C2FE7632B16836C0092BFE5 /* HeartRateMonitorApp.swift in Sources */,
 				6C2FE79A2B1797480092BFE5 /* TabBarView.swift in Sources */,
@@ -390,6 +421,7 @@
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */,
 				6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */,
+				6CC6AE322B2C8A1500F83B8B /* MeasurementViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
