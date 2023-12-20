@@ -10,6 +10,7 @@ import SwiftUI
 struct MeasurementView: View {
     // MARK: - Property -
     @StateObject var viewModel = MeasurementViewModel()
+    @State var currentPulse: String = ""
     @Environment(\.dismiss) var dismiss
 
     // MARK: - Close view button -
@@ -34,7 +35,29 @@ struct MeasurementView: View {
             ZStack {
                 Color(.backgroundSreens).ignoresSafeArea()
                 VStack {
-                    Text("Measurement View")
+                    Text(viewModel.pulse)
+                        .onReceive(viewModel.$pulse) { newPulse in
+                            self.currentPulse = newPulse
+                        }
+                    Button {
+                        viewModel.initCaptureSession()
+                    } label: {
+                        Text("Start measurement")
+                            .padding()
+                    }
+                    .background(.green)
+                    .cornerRadius(15)
+                    Button {
+                        viewModel.deinitCaptureSession()
+                    } label: {
+                        Text("Stop measurement")
+                            .padding()
+                    }
+                    .background(.red)
+                    .cornerRadius(15)
+                }
+                .onAppear {
+                    viewModel.initVideoCapture()
                 }
             }
             .navigationBarItems(trailing: closeViewButton)

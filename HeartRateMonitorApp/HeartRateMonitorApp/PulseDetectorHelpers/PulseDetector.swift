@@ -29,51 +29,37 @@ class PulseDetector: NSObject {
     private var average: Float = 0.0
     private var wasDown = false
     private var periodStart: Double = 0.0
-    
+
     override init() {
         super.init()
         reset()
     }
 
     func addNewValue(newVal: Double, atTime time: Double) -> Float {
-        if newVal > 0 {
-            upVals[upValIndex] = newVal
-            upValIndex += 1
-            if upValIndex >= averageSize {
-                upValIndex = 0
-            }
-        }
-        
-        if newVal < 0 {
-            downVals[downValIndex] = -newVal
-            downValIndex += 1
-            if downValIndex >= averageSize {
-                downValIndex = 0
-            }
-        }
-        
+        upVals[upValIndex] = newVal
+        upValIndex = (upValIndex + 1) % averageSize
+
+        downVals[downValIndex] = -newVal
+        downValIndex = (downValIndex + 1) % averageSize
+
         // working out the average value above zero
         var count: Double = 0
         var total: Double = 0
-        for i in 0..<averageSize {
-            if upVals[i] != invalidEntry {
-                count += 1
-                total += upVals[i]
-            }
+        for index in 0..<averageSize where upVals[index] != invalidEntry {
+            count += 1
+            total += upVals[index]
         }
-        
-        let averageUp: Double = total/count
+        let averageUp: Double = total / count
+
         // and the average value below zero
         count = 0
         total = 0
-        for i in 0..<averageSize {
-            if downVals[i] != invalidEntry {
-                count += 1
-                total += downVals[i]
-            }
+        for index in 0..<averageSize where downVals[index] != invalidEntry {
+            count += 1
+            total += downVals[index]
         }
-        let averageDown: Double = total/count
-        
+        let averageDown: Double = total / count
+
         if newVal < -0.5 * averageDown {
             wasDown = true
         }
@@ -101,11 +87,11 @@ class PulseDetector: NSObject {
         let time = CACurrentMediaTime()
         var total: Double = 0
         var count: Double = 0
-        for i in 0..<maxPeriodsToStore {
+        for index in 0..<maxPeriodsToStore {
             // only use upto 10 seconds worth of data
-            if periods[i] != invalidEntry && time - periodTimes[i] < 10 {
+            if periods[index] != invalidEntry && time - periodTimes[index] < 10 {
                 count += 1
-                total += periods[i]
+                total += periods[index]
             }
         }
         if count > 2 {
@@ -115,12 +101,12 @@ class PulseDetector: NSObject {
     }
 
     func reset() {
-        for i in 0..<maxPeriodsToStore {
-            periods[i] = invalidEntry
+        for index in 0..<maxPeriodsToStore {
+            periods[index] = invalidEntry
         }
-        for i in 0..<averageSize {
-            upVals[i] = invalidEntry
-            downVals[i] = invalidEntry
+        for index in 0..<averageSize {
+            upVals[index] = invalidEntry
+            downVals[index] = invalidEntry
         }
         freq = 0.5
         periodIndex = 0

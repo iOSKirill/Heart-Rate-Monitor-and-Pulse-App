@@ -73,7 +73,7 @@ struct HomeHealthView: View {
             HStack(alignment: .center) {
                 VStack(spacing: 13) {
                     Button {
-                        // The beginning of the pulse measurement
+                        viewModel.isPresentedMeasurementView.toggle()
                     } label: {
                         ZStack {
                             Circle()
@@ -81,6 +81,9 @@ struct HomeHealthView: View {
                                 .frame(width: 76, height: 76)
                             Image(.tapToStartButton)
                         }
+                    }
+                    .fullScreenCover(isPresented: $viewModel.isPresentedMeasurementView) {
+                        MeasurementView()
                     }
                     Text(L10n.Button.Start.title)
                         .font(.appSemibold(of: 15))

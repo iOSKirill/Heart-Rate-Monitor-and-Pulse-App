@@ -31,6 +31,8 @@
 		6CC6AE9B2B3332CA00F83B8B /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE9A2B3332CA00F83B8B /* ColorUtils.swift */; };
 		6CC6AE9E2B33340100F83B8B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE9D2B33340100F83B8B /* Filter.swift */; };
 		6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE9F2B33343400F83B8B /* PulseDetector.swift */; };
+		6CC6AEA22B33366600F83B8B /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */; };
+		6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */; };
 		6CDFCC202B192D4C00B1A9A2 /* Gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */; };
 		6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */; };
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
@@ -67,6 +69,8 @@
 		6CC6AE9A2B3332CA00F83B8B /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		6CC6AE9D2B33340100F83B8B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6CC6AE9F2B33343400F83B8B /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
+		6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
+		6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
 		6CDFCC1A2B1928BC00B1A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-bold.ttf"; sourceTree = "<group>"; };
 		6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -109,9 +113,10 @@
 			children = (
 				6CDFCC1A2B1928BC00B1A9A2 /* Info.plist */,
 				6C2FE7622B16836C0092BFE5 /* HeartRateMonitorApp.swift */,
+				6C2FE7962B1796C10092BFE5 /* Generated */,
 				6CC6AE992B3332A700F83B8B /* Utilities */,
 				6CC6AE9C2B3333AA00F83B8B /* PulseDetectorHelpers */,
-				6C2FE7962B1796C10092BFE5 /* Generated */,
+				6CC6AEA32B3336C600F83B8B /* Services */,
 				6C2FE7A22B1799400092BFE5 /* CustomViews */,
 				6C2FE7972B1797210092BFE5 /* TabBarModule */,
 				6C2FE78D2B1794A10092BFE5 /* HomeHealthModule */,
@@ -229,6 +234,7 @@
 				6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */,
 				6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */,
 				6CF3FA342B247F97000EC270 /* Font+Extension.swift */,
+				6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +304,14 @@
 				6CC6AE9F2B33343400F83B8B /* PulseDetector.swift */,
 			);
 			path = PulseDetectorHelpers;
+			sourceTree = "<group>";
+		};
+		6CC6AEA32B3336C600F83B8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		6CDFCC172B1927FE00B1A9A2 /* Fonts */ = {
@@ -433,6 +447,8 @@
 				6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
 				6CC6AE9E2B33340100F83B8B /* Filter.swift in Sources */,
+				6CC6AEA22B33366600F83B8B /* AVCaptureDevice+Extension.swift in Sources */,
+				6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */,
 				6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */,
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,
 				6C2FE7A12B1798110092BFE5 /* HistoryView.swift in Sources */,

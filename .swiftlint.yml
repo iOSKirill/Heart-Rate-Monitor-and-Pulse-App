@@ -73,7 +73,6 @@ disabled_rules:
 #    - collection_alignment
 #    - redundant_string_enum_value
 #    - overridden_super_call
-#    - large_tuple
 #    - unavailable_function
 #    - class_delegate_protocol
 #    - first_where
