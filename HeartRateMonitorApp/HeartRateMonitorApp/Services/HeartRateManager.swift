@@ -37,7 +37,7 @@ struct VideoSpec {
 
 typealias ImageBufferHandler = ((_ imageBuffer: CMSampleBuffer) -> Void)
 
-class HeartRateManager: NSObject {
+final class HeartRateManager: NSObject {
     private let captureSession = AVCaptureSession()
     private var videoDevice: AVCaptureDevice!
     private var videoConnection: AVCaptureConnection!
