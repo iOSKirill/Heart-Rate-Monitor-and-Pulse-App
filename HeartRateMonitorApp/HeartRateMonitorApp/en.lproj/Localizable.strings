@@ -34,3 +34,6 @@
 "settings.FAQ.title" = "FAQ";
 "settings.rateUs.title" = "Rate Us";
 "settings.navBar.title" = "Settings";
+
+// MARK: - Measurement screen -
+"measurement.navBar.title" = "Measurement";

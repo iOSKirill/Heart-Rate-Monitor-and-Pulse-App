@@ -34,3 +34,6 @@
 "settings.FAQ.title" = "FAQ";
 "settings.rateUs.title" = "Оцените нас";
 "settings.navBar.title" = "Настройки";
+
+// MARK: - Measurement screen -
+"measurement.navBar.title" = "Измерение";

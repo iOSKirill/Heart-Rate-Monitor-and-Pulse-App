@@ -14,6 +14,7 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var currentWeek: [Date] = []
     @Published private(set) var currentDay = Date()
     @Published var isScroll = false
+    @Published var isPresentedMeasurementView = false
     private let calendar = Calendar.current
 
     // MARK: - Intializing -

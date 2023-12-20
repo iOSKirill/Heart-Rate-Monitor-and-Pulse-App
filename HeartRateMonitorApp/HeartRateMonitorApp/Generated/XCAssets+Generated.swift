@@ -45,6 +45,7 @@ internal enum Asset {
     internal static let informationButton = ImageAsset(name: "InformationButton")
     internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")
     internal static let navBarBackButtonIcon = ImageAsset(name: "NavBarBackButtonIcon")
+    internal static let navBarCloseButtonIcon = ImageAsset(name: "NavBarCloseButtonIcon")
     internal static let plusButton = ImageAsset(name: "PlusButton")
     internal static let popupAssessmentIcon = ImageAsset(name: "PopupAssessmentIcon")
     internal static let popupHRVIcon = ImageAsset(name: "PopupHRVIcon")
