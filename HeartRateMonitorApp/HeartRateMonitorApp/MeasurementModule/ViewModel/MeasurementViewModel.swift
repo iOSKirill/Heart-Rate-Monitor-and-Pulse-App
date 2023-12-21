@@ -12,13 +12,13 @@ import SwiftUI
 
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
-    private var validFrameCounter = 0
     private var heartRateManager: HeartRateManager!
-    private var hueFilter = Filter()
     private var pulseDetector = PulseDetector()
+    private var hueFilter = Filter()
+    private var timer = Timer()
     private var inputs: [CGFloat] = []
     private var measurementStartedFlag = false
-    private var timer = Timer()
+    private var validFrameCounter = 0
     @Published var pulse: String = ""
 
     // MARK: - Frames Capture Methods
@@ -90,19 +90,23 @@ extension MeasurementViewModel {
             switch indexBGRA {
             case 0:
                 bluemean = CGFloat(pixel)
+
             case 1:
                 greenmean = CGFloat(pixel)
+
             case 2:
                 redmean = CGFloat(pixel)
+
             case 3:
                 break
+
             default:
                 break
             }
             indexBGRA += 1
         }
 
-        let hsv = rgb2hsv(RGB(red: redmean, green: greenmean, blue: bluemean, alpha: 1.0))
+        let hsv = convertRGBtoHSV(RGB(red: redmean, green: greenmean, blue: bluemean, alpha: 1.0))
         if hsv.saturation > 0.5 && hsv.brightness > 0.5 {
             DispatchQueue.main.async {
                 // self.thresholdLabel.text = "Hold your index finger ☝️ still."

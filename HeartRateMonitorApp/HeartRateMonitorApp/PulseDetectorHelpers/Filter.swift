@@ -12,6 +12,7 @@ private let numberOfPoles: Int = 10
 private let gain: Double = 1.894427025e+01
 
 class Filter: NSObject {
+    // MARK: - Property -
     var zerosArray = [Double](repeating: 0.0, count: numberOfZeros + 1)
     var polesArray = [Double](repeating: 0.0, count: numberOfPoles + 1)
 

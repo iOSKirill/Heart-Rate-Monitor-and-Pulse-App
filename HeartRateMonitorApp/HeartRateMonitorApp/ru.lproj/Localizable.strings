@@ -37,3 +37,14 @@
 
 // MARK: - Measurement screen -
 "measurement.navBar.title" = "Измерение";
+"measurement.bmp.title" = "bpm";
+"measurement.stepOne.title" = "Приложите указательный палец к камере телефона. Следуйте следующим инструкциям";
+"measurement.stepOne.subtitle" = "Измерение займет у нас 30 секунд";
+"measurement.stepOne.button" = "Начать";
+"measurement.stepTwo.title" = "Пожалуйста, не убирайте палец, дождитесь завершения измерения.";
+"measurement.stepTwo.subtitle" = "Измерение: осталось 03 секунды";
+"measurement.stepTwo.button" = "Остановить";
+"measurement.stepThree.title" = "Для получения дополнительной информации сохраните текущее измерение.";
+"measurement.stepThree.button.save" = "Сохранить";
+"measurement.stepThree.button.notNow" = "Не сейчас";
+"measurement.stepThree.assessment.title" = "Проводите измерения каждый день, чтобы следить за своим здоровьем";
