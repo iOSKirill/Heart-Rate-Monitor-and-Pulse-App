@@ -37,6 +37,8 @@ internal enum L10n {
     }
   }
   internal enum Measurement {
+    /// bpm
+    internal static let bpm = L10n.tr("Localizable", "measurement.bpm", fallback: "bpm")
     internal enum Bmp {
       /// bpm
       internal static let title = L10n.tr("Localizable", "measurement.bmp.title", fallback: "bpm")

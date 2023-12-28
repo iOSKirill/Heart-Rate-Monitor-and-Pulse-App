@@ -48,3 +48,4 @@
 "measurement.stepThree.button.save" = "Сохранить";
 "measurement.stepThree.button.notNow" = "Не сейчас";
 "measurement.stepThree.assessment.title" = "Проводите измерения каждый день, чтобы следить за своим здоровьем";
+"measurement.bpm" = "bpm";

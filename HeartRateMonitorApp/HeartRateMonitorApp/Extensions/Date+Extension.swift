@@ -26,7 +26,7 @@ extension Date {
         return formatted(.dayOfWeek)
     }
 
-    func formatted(_ format: DateFormat) -> String {
+    private func formatted(_ format: DateFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = format.rawValue

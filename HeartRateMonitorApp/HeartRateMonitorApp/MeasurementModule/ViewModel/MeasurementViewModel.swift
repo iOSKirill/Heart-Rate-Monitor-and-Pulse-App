@@ -10,6 +10,12 @@ import CoreImage
 import Foundation
 import SwiftUI
 
+enum StepMeasurement {
+    case first
+    case second
+    case third
+}
+
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
     private var heartRateManager: HeartRateManager!
@@ -19,7 +25,23 @@ final class MeasurementViewModel: ObservableObject {
     private var inputs: [CGFloat] = []
     private var measurementStartedFlag = false
     private var validFrameCounter = 0
-    @Published var pulse: String = ""
+    @Published var pulseValue: String = "00"
+    @Published var lastPulseValue: String = "00"
+    @Published var currentStepMeasurement: StepMeasurement = .first
+    @Published var isBeatingHeart = false
+    @Published var isProgressBar: Float = 0.0
+
+    private func startHeartAnimation() {
+        self.isBeatingHeart.toggle()
+    }
+
+    private func startProgressBarAnimation() {
+        if self.isProgressBar < 1 {
+            self.isProgressBar += 0.03333333333
+        } else {
+            self.timer.invalidate()
+        }
+    }
 
     // MARK: - Frames Capture Methods
     func initVideoCapture() {
@@ -54,9 +76,12 @@ final class MeasurementViewModel: ObservableObject {
                 let average = self.pulseDetector.getAverage()
                 let pulse = 60.0 / average
                 if pulse == -60 {
-                    self.pulse = "Expect the pulse to be measured..."
+                    self.pulseValue = "00"
                 } else {
-                    self.pulse = "\(lroundf(pulse)) BPM"
+                    startProgressBarAnimation()
+                    startHeartAnimation()
+                    self.pulseValue = "\(lroundf(pulse))"
+                    self.lastPulseValue = self.pulseValue
                 }
             })
         }
@@ -90,16 +115,12 @@ extension MeasurementViewModel {
             switch indexBGRA {
             case 0:
                 bluemean = CGFloat(pixel)
-
             case 1:
                 greenmean = CGFloat(pixel)
-
             case 2:
                 redmean = CGFloat(pixel)
-
             case 3:
                 break
-
             default:
                 break
             }
@@ -109,7 +130,7 @@ extension MeasurementViewModel {
         let hsv = convertRGBtoHSV(RGB(red: redmean, green: greenmean, blue: bluemean, alpha: 1.0))
         if hsv.saturation > 0.5 && hsv.brightness > 0.5 {
             DispatchQueue.main.async {
-                // self.thresholdLabel.text = "Hold your index finger ☝️ still."
+                print("Hold your index finger ☝️ still.")
                 self.toggleTorch(status: true)
                 if !self.measurementStartedFlag {
                     self.startMeasurement()
