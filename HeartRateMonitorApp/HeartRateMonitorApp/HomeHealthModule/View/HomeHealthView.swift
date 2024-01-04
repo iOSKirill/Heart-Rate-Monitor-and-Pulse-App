@@ -12,6 +12,23 @@ struct HomeHealthView: View {
     @StateObject var viewModel = HomeHealthViewModel()
     @Binding var isPopupVisible: Bool
 
+    // MARK: - Open settings screen -
+    var settingButton: some View {
+        Button {
+            viewModel.isPresentedSettingsView.toggle()
+        } label: {
+            VStack {
+                Image(.settingsButton)
+                    .padding(8)
+            }
+            .background(.white)
+            .cornerRadius(12)
+        }
+        .fullScreenCover(isPresented: $viewModel.isPresentedSettingsView) {
+            SettingsView()
+        }
+    }
+
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
         GeometryReader { geo in
@@ -205,27 +222,18 @@ struct HomeHealthView: View {
     var body: some View {
         ZStack {
             Color(.backgroundSreens).ignoresSafeArea()
-            ScrollView(showsIndicators: false) {
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                title: L10n.NavigationBar.Health.title,
+                button: AnyView(settingButton)
+            )) {
                 VStack {
                     weekCalendar
                     ZStack {
                         rectanglesUnderDashboard
                         measureDashboard
-                        viewModel.getScrollOffsetReader()
                     }
                     weeklyAssessmentDashboard
                 }
-            }
-            .coordinateSpace(name: "scroll")
-            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-                viewModel.updateSrollStatus(value: value)
-            })
-            .safeAreaInset(edge: .top, content: {
-                Color.backgroundSreens
-                    .frame(height: 30)
-            })
-            .overlay {
-                CustomNavigationBar(isScrolling: $viewModel.isScroll)
             }
         }
     }

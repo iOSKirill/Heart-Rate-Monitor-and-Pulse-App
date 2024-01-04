@@ -8,4 +8,5 @@
 import Foundation
 
 final class SettingsViewModel: ObservableObject {
+    @Published var scrollOffSet: CGFloat = 0.0
 }

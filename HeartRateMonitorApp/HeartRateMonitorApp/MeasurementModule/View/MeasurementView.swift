@@ -64,7 +64,6 @@ struct MeasurementView: View {
              .background(.white.opacity(0.6))
              .cornerRadius(12)
          }
-         .padding(.top, 32)
      }
 
     // MARK: - Measurement view -
@@ -91,29 +90,25 @@ struct MeasurementView: View {
 
     // MARK: - Body -
     var body: some View {
-
-            ZStack {
-                Color(.backgroundSreens).ignoresSafeArea()
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        //                    Text(viewModel.pulse)
-                        //                        .onReceive(viewModel.$pulse) { newPulse in
-                        //                            self.currentPulse = newPulse
-                        //                        }
-                        measurementView
-                        switch viewModel.currentStepMeasurement {
-                        case .first:
-                            InfoView()
-                        case .second:
-                            InfoView()
-                        case .third:
-                            AssessmentView()
-                        }
+        ZStack {
+            Color(.backgroundSreens).ignoresSafeArea()
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .centerTitleRightButton(
+                title: L10n.Measurement.NavBar.title,
+                button: AnyView(closeViewButton)
+            )) {
+                VStack {
+                    measurementView
+                    switch viewModel.currentStepMeasurement {
+                    case .first:
+                        InfoView()
+                    case .second:
+                        InfoView()
+                    case .third:
+                        AssessmentView()
                     }
                 }
-//                .onAppear {
-//                    viewModel.initVideoCapture()
-//                }
+                .padding(.top, 23)
+            }
         }
     }
 }

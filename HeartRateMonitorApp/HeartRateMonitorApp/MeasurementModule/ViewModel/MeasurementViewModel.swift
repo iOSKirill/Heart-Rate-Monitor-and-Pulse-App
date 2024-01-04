@@ -30,6 +30,7 @@ final class MeasurementViewModel: ObservableObject {
     @Published var currentStepMeasurement: StepMeasurement = .first
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
+    @Published var scrollOffSet: CGFloat = 0.0
 
     private func startHeartAnimation() {
         self.isBeatingHeart.toggle()
