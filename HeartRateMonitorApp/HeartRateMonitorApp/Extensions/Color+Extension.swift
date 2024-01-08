@@ -65,4 +65,8 @@ public extension Color {
     var progressBarRed: Color {
         Color("ProgressBarRed")
     }
+    /// #44A8E1
+    var blueText: Color {
+        Color("BlueText")
+    }
 }

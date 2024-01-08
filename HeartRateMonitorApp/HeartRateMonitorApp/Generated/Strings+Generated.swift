@@ -50,8 +50,12 @@ internal enum L10n {
     internal enum StepOne {
       /// Start
       internal static let button = L10n.tr("Localizable", "measurement.stepOne.button", fallback: "Start")
-      /// It will take us 30 seconds to measure
-      internal static let subtitle = L10n.tr("Localizable", "measurement.stepOne.subtitle", fallback: "It will take us 30 seconds to measure")
+      /// It will take us %@ to measure
+      internal static func subtitle(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepOne.subtitle", String(describing: p1), fallback: "It will take us %@ to measure")
+      }
+      /// 30 seconds
+      internal static let time = L10n.tr("Localizable", "measurement.stepOne.time", fallback: "30 seconds")
       /// Put your index finger to the phone's camera. Follow the following instructions
       internal static let title = L10n.tr("Localizable", "measurement.stepOne.title", fallback: "Put your index finger to the phone's camera. Follow the following instructions")
     }
@@ -72,8 +76,14 @@ internal enum L10n {
     internal enum StepTwo {
       /// Stop
       internal static let button = L10n.tr("Localizable", "measurement.stepTwo.button", fallback: "Stop")
-      /// Measuring: 03s left
-      internal static let subtitle = L10n.tr("Localizable", "measurement.stepTwo.subtitle", fallback: "Measuring: 03s left")
+      /// Measuring: %@ left
+      internal static func subtitle(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepTwo.subtitle", String(describing: p1), fallback: "Measuring: %@ left")
+      }
+      /// %@s
+      internal static func time(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepTwo.time", String(describing: p1), fallback: "%@s")
+      }
       /// Please do not remove your finger, wait for the measurement to finish.
       internal static let title = L10n.tr("Localizable", "measurement.stepTwo.title", fallback: "Please do not remove your finger, wait for the measurement to finish.")
     }

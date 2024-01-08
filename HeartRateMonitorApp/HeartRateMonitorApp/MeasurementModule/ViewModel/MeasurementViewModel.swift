@@ -9,6 +9,7 @@ import AVFoundation
 import CoreImage
 import Foundation
 import SwiftUI
+import Combine
 
 enum StepMeasurement {
     case first
@@ -25,6 +26,7 @@ final class MeasurementViewModel: ObservableObject {
     private var inputs: [CGFloat] = []
     private var measurementStartedFlag = false
     private var validFrameCounter = 0
+    private var measurementSeconds = 0
     @Published var pulseValue: String = "00"
     @Published var lastPulseValue: String = "00"
     @Published var currentStepMeasurement: StepMeasurement = .first
@@ -32,15 +34,46 @@ final class MeasurementViewModel: ObservableObject {
     @Published var isProgressBar: Float = 0.0
     @Published var scrollOffSet: CGFloat = 0.0
 
+    var stepOneSubtitle: Text {
+        let time = L10n.Measurement.StepOne.time
+        let parts = L10n.Measurement.StepOne.subtitle(time).components(separatedBy: time)
+        return Text(parts[0])
+                    .font(.appSemibold(of: 15))
+                    .foregroundColor(Color.subtitle) +
+               Text(time)
+                    .font(.appSemibold(of: 20))
+                    .foregroundColor(Color.blueText) +
+               Text(parts[1])
+                    .font(.appSemibold(of: 15))
+                    .foregroundColor(Color.subtitle)
+    }
+
+    var measurementTime: Text {
+        let formattedSeconds = String(format: "%02d", measurementSeconds)
+        let timeTitle = L10n.Measurement.StepTwo.time(formattedSeconds)
+        let parts = L10n.Measurement.StepTwo.subtitle(timeTitle).components(separatedBy: timeTitle)
+        return Text(parts[0])
+                    .font(.appSemibold(of: 15))
+                    .foregroundColor(Color.subtitle) +
+               Text(timeTitle)
+                    .font(.appSemibold(of: 20))
+                    .foregroundColor(Color.blueText) +
+               Text(parts[1])
+                    .font(.appSemibold(of: 15))
+                    .foregroundColor(Color.subtitle)
+    }
+
     private func startHeartAnimation() {
         self.isBeatingHeart.toggle()
     }
 
     private func startProgressBarAnimation() {
         if self.isProgressBar < 1 {
-            self.isProgressBar += 0.03333333333
+            self.isProgressBar +=  1.0 / 30.0
         } else {
-            self.timer.invalidate()
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+            }
         }
     }
 
@@ -69,24 +102,30 @@ final class MeasurementViewModel: ObservableObject {
     }
 
     // MARK: - Measurement
-    private func startMeasurement() {
-        DispatchQueue.main.async {
-            self.toggleTorch(status: true)
-            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
-                guard let self = self else { return }
-                let average = self.pulseDetector.getAverage()
-                let pulse = 60.0 / average
-                if pulse == -60 {
-                    self.pulseValue = "00"
-                } else {
-                    startProgressBarAnimation()
-                    startHeartAnimation()
-                    self.pulseValue = "\(lroundf(pulse))"
-                    self.lastPulseValue = self.pulseValue
-                }
-            })
+     func startMeasurement() {
+            DispatchQueue.main.async {
+                self.toggleTorch(status: true)
+                self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+                    guard let self = self else { return }
+                    let average = self.pulseDetector.getAverage()
+                    let pulse = 60.0 / average
+                    if pulse == -60 {
+                        self.pulseValue = "00"
+                    } else {
+                        startHeartAnimation()
+                        self.pulseValue = "\(lroundf(pulse))"
+                        self.lastPulseValue = self.pulseValue
+                        self.measurementSeconds += 1
+                        startProgressBarAnimation()
+
+                        if measurementSeconds >= 30 {
+                            currentStepMeasurement = .third
+                            timer.invalidate()
+                        }
+                    }
+                })
+            }
         }
-    }
 }
 
 // MARK: - Handle Image Buffer
@@ -131,7 +170,6 @@ extension MeasurementViewModel {
         let hsv = convertRGBtoHSV(RGB(red: redmean, green: greenmean, blue: bluemean, alpha: 1.0))
         if hsv.saturation > 0.5 && hsv.brightness > 0.5 {
             DispatchQueue.main.async {
-                print("Hold your index finger ☝️ still.")
                 self.toggleTorch(status: true)
                 if !self.measurementStartedFlag {
                     self.startMeasurement()
@@ -151,6 +189,11 @@ extension MeasurementViewModel {
             pulseDetector.reset()
             DispatchQueue.main.async {
                 print("Cover the back camera until the image turns red 🟥")
+                self.timer.invalidate()
+                self.isBeatingHeart = false
+                self.isProgressBar = 0.0
+                self.lastPulseValue = "00"
+                self.measurementSeconds = 0
             }
         }
     }

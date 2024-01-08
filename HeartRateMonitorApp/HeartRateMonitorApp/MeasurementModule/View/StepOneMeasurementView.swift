@@ -25,9 +25,7 @@ struct StepOneMeasurementView: View {
             pulse: viewModel.pulseValue
         )
 
-        Text(L10n.Measurement.StepOne.subtitle)
-            .font(.appSemibold(of: 15))
-            .foregroundColor(Color.subtitle)
+        viewModel.stepOneSubtitle
 
         Button {
             currentStepMeasurement = .second

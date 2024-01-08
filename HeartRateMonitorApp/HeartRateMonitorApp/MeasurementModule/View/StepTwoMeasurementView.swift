@@ -25,12 +25,10 @@ struct StepTwoMeasurementView: View {
             pulse: viewModel.lastPulseValue
         )
 
-        Text(L10n.Measurement.StepTwo.subtitle)
-            .font(.appSemibold(of: 15))
-            .foregroundColor(Color.subtitle)
+        viewModel.measurementTime
 
         Button {
-            currentStepMeasurement = .third
+            currentStepMeasurement = .first
         } label: {
             VStack {
                 Text(L10n.Measurement.StepTwo.button)

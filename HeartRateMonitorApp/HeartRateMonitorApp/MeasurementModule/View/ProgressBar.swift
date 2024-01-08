@@ -46,7 +46,7 @@ struct ProgressBar: View {
 
                     Text(L10n.Measurement.bpm)
                         .font(.appMedium(of: 15))
-                        .foregroundColor(Color.settingsButtonBackground)
+                        .foregroundColor(Color.subtitle)
                         .offset(y: -9)
                 }
             }

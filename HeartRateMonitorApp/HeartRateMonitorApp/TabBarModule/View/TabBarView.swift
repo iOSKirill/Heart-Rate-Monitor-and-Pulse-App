@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TabBarView: View {
     // MARK: - Property -
-    @State private var selectedIndex: Int = 2
+    @State private var selectedIndex: Int = 1
     @State private var isPopupVisible = false
+    @State private var isPresentedMeasurementView = false
 
     // MARK: - Plus button  -
     var plusBarButton: some View {
         Button {
-            selectedIndex = 1
+            isPresentedMeasurementView.toggle()
         } label: {
             Image(.plusButton)
         }
@@ -26,6 +27,9 @@ struct TabBarView: View {
         .background(Color.white)
         .clipShape(Circle())
         .offset(y: -10)
+        .fullScreenCover(isPresented: $isPresentedMeasurementView) {
+            MeasurementView()
+        }
     }
 
     // MARK: - Buttons in TabBar -
@@ -44,7 +48,7 @@ struct TabBarView: View {
                 Spacer(minLength: 0)
                 CustomButtonOnTabBar(
                     selectedIndex: $selectedIndex,
-                    index: 2,
+                    index: 1,
                     image: .historyButton,
                     title: L10n.TabBar.History.title
                 )
@@ -63,13 +67,8 @@ struct TabBarView: View {
                 switch selectedIndex {
                 case 0:
                     HomeHealthView(isPopupVisible: $isPopupVisible)
-
                 case 1:
                     HistoryView()
-
-                case 2:
-                    HistoryView()
-
                 default:
                     Text("View")
                 }

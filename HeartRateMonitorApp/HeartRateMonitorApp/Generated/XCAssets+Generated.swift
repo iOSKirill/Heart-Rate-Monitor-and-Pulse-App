@@ -29,6 +29,7 @@ internal enum Asset {
     internal static let backgroundSreens = ColorAsset(name: "BackgroundSreens")
     internal static let blueGradientFirstButton = ColorAsset(name: "BlueGradientFirstButton")
     internal static let blueGradientSecondButton = ColorAsset(name: "BlueGradientSecondButton")
+    internal static let blueText = ColorAsset(name: "BlueText")
     internal static let currentDay = ColorAsset(name: "CurrentDay")
     internal static let highlightedButton = ColorAsset(name: "HighlightedButton")
     internal static let mainText = ColorAsset(name: "MainText")
