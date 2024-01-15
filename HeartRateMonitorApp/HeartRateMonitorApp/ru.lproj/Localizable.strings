@@ -39,11 +39,9 @@
 "measurement.navBar.title" = "Измерение";
 
 // MARK: - Onboarding screen -
-"onboarding.stepOne.title" = "Измерьте частоту сердечных сокращений и пульс"
-"onboarding.stepOne.subtitle" = "Мгновенно считывайте свое сердцебиение и следите за состоянием организма"
-"onboarding.stepTwo.title" = "Ваши оценки Наши обновления"
-"onboarding.stepTwo.subtitle" = "Ваш рейтинг и отзывы позволяют нам улучшать приложение и добавлять ваши идеи"
-"onboarding.stepThree.title" = "История измерений ЧСС"
-"onboarding.stepThree.subtitle" = "Получите подробные исторические записи для анализа ваших сердечных данных"
-"onboarding.stepFour.title" = "Начните, чтобы продолжить PulseWave app"
-"onboarding.stepFour.subtitle" = "Начните пользоваться приложением PulseWave без ограничений всего за $ 5,99 в неделю"
+"onboarding.stepOne.title" = "Измерьте частоту сердечных сокращений и пульс";
+"onboarding.stepOne.subtitle" = "Мгновенно считывайте свое сердцебиение \n и следите за состоянием организма";
+"onboarding.stepTwo.title" = "Ваши оценки \n Наши обновления";
+"onboarding.stepTwo.subtitle" = "Ваш рейтинг и отзывы позволяют нам \n улучшать приложение и добавлять ваши идеи";
+"onboarding.stepThree.title" = "История измерений ЧСС";
+"onboarding.stepThree.subtitle" = "Получите подробные исторические записи \n для анализа ваших сердечных данных";

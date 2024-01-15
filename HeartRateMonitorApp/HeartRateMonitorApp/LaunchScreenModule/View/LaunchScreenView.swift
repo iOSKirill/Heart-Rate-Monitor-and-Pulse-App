@@ -25,11 +25,11 @@ struct LaunchScreenView: View {
         .fullScreenCover(isPresented: $viewModel.isPresentedNextScreen) {
             switch viewModel.appCondition {
             case .onboardingView:
-                HistoryView()
+                OnboardingView()
             case .homeHealthView:
                 TabBarView()
             case .none:
-                TabBarView()
+                OnboardingView()
             }
         }
         .task {

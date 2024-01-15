@@ -39,11 +39,9 @@
 "measurement.navBar.title" = "Measurement";
 
 // MARK: - Onboarding screen -
-"onboarding.stepOne.title" = "Measure Heart Rate & Pulse"
-"onboarding.stepOne.subtitle" = "Instantly read your heartbeat and track the body's health"
-"onboarding.stepTwo.title" = "Your ratings Our updates"
-"onboarding.stepTwo.subtitle" = "Your rating and feedback allow us to improve the app and add your ideas"
-"onboarding.stepThree.title" = "HR Measurements History"
-"onboarding.stepThree.subtitle" = "Get detailed historical records to analyze your heart data"
-"onboarding.stepFour.title" = "Start to Continue PulseWave app"
-"onboarding.stepFour.subtitle" = "Start to continue PulseWave app with no limits just for $5,99 per week"
+"onboarding.stepOne.title" = "Measure Heart Rate & Pulse";
+"onboarding.stepOne.subtitle" = "Instantly read your heartbeat \n and track the body's health";
+"onboarding.stepTwo.title" = "Your ratings \n Our updates";
+"onboarding.stepTwo.subtitle" = "Your rating and feedback allow us to \n improve the app and add your ideas";
+"onboarding.stepThree.title" = "HR Measurements History";
+"onboarding.stepThree.subtitle" = "Get detailed historical records \n to analyze your heart data";
