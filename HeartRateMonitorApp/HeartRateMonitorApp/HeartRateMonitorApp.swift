@@ -11,7 +11,7 @@ import SwiftUI
 struct HeartRateMonitorApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            LaunchScreenView()
         }
     }
 }
