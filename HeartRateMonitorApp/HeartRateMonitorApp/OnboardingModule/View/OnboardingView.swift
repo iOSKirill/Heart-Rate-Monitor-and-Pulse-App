@@ -37,9 +37,17 @@ struct OnboardingView: View {
     var backgroundOnboardingStep: some View {
         TabView(selection: $viewModel.currentStep) {
             ForEach(viewModel.onboardingSteps, id: \.id) { item in
-                Image(item.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                if item.id == 1 {
+                    Image(item.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                } else {
+                    Image(item.image)
+                        .resizable()
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(contentMode: .fit)
+                }
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
