@@ -94,6 +94,30 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "navigationBar.health.title", fallback: "Health")
     }
   }
+  internal enum Onboarding {
+    internal enum StepOne {
+      /// Instantly read your heartbeat 
+      ///  and track the body's health
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.stepOne.subtitle", fallback: "Instantly read your heartbeat \n and track the body's health")
+      /// Measure Heart Rate & Pulse
+      internal static let title = L10n.tr("Localizable", "onboarding.stepOne.title", fallback: "Measure Heart Rate & Pulse")
+    }
+    internal enum StepThree {
+      /// Get detailed historical records 
+      ///  to analyze your heart data
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.stepThree.subtitle", fallback: "Get detailed historical records \n to analyze your heart data")
+      /// HR Measurements History
+      internal static let title = L10n.tr("Localizable", "onboarding.stepThree.title", fallback: "HR Measurements History")
+    }
+    internal enum StepTwo {
+      /// Your rating and feedback allow us to 
+      ///  improve the app and add your ideas
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.stepTwo.subtitle", fallback: "Your rating and feedback allow us to \n improve the app and add your ideas")
+      /// Your ratings 
+      ///  Our updates
+      internal static let title = L10n.tr("Localizable", "onboarding.stepTwo.title", fallback: "Your ratings \n Our updates")
+    }
+  }
   internal enum Popup {
     internal enum Hrv {
       /// HRV is an indicator that reflects the unevenness of your heartbeat.

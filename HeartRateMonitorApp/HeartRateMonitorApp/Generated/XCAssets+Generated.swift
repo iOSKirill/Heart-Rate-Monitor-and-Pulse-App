@@ -43,6 +43,7 @@ internal enum Asset {
     internal static let subtitle = ColorAsset(name: "Subtitle")
   }
   internal enum Images {
+    internal static let appIconLaunchScreen = ImageAsset(name: "AppIconLaunchScreen")
     internal static let assessmentBackground = ImageAsset(name: "AssessmentBackground")
     internal static let assessmentIcon = ImageAsset(name: "AssessmentIcon")
     internal static let historyButton = ImageAsset(name: "HistoryButton")
@@ -54,6 +55,10 @@ internal enum Asset {
     internal static let measurementIPhone = ImageAsset(name: "MeasurementIPhone")
     internal static let navBarBackButtonIcon = ImageAsset(name: "NavBarBackButtonIcon")
     internal static let navBarCloseButtonIcon = ImageAsset(name: "NavBarCloseButtonIcon")
+    internal static let onboardingBackground = ImageAsset(name: "OnboardingBackground")
+    internal static let onboardingStepOne = ImageAsset(name: "OnboardingStepOne")
+    internal static let onboardingStepThree = ImageAsset(name: "OnboardingStepThree")
+    internal static let onboardingStepTwo = ImageAsset(name: "OnboardingStepTwo")
     internal static let plusButton = ImageAsset(name: "PlusButton")
     internal static let popupAssessmentIcon = ImageAsset(name: "PopupAssessmentIcon")
     internal static let popupHRVIcon = ImageAsset(name: "PopupHRVIcon")

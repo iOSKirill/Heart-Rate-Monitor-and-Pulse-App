@@ -51,3 +51,11 @@
 "measurement.stepThree.button.notNow" = "Not now";
 "measurement.stepThree.assessment.title" = "Take measurements every day to monitor your health";
 "measurement.bpm" = "bpm";
+
+// MARK: - Onboarding screen -
+"onboarding.stepOne.title" = "Measure Heart Rate & Pulse";
+"onboarding.stepOne.subtitle" = "Instantly read your heartbeat \n and track the body's health";
+"onboarding.stepTwo.title" = "Your ratings \n Our updates";
+"onboarding.stepTwo.subtitle" = "Your rating and feedback allow us to \n improve the app and add your ideas";
+"onboarding.stepThree.title" = "HR Measurements History";
+"onboarding.stepThree.subtitle" = "Get detailed historical records \n to analyze your heart data";

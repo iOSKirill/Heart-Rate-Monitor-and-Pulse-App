@@ -51,3 +51,11 @@
 "measurement.stepThree.button.notNow" = "Не сейчас";
 "measurement.stepThree.assessment.title" = "Проводите измерения каждый день, чтобы следить за своим здоровьем";
 "measurement.bpm" = "bpm";
+
+// MARK: - Onboarding screen -
+"onboarding.stepOne.title" = "Измерьте частоту сердечных сокращений и пульс";
+"onboarding.stepOne.subtitle" = "Мгновенно считывайте свое сердцебиение \n и следите за состоянием организма";
+"onboarding.stepTwo.title" = "Ваши оценки \n Наши обновления";
+"onboarding.stepTwo.subtitle" = "Ваш рейтинг и отзывы позволяют нам \n улучшать приложение и добавлять ваши идеи";
+"onboarding.stepThree.title" = "История измерений ЧСС";
+"onboarding.stepThree.subtitle" = "Получите подробные исторические записи \n для анализа ваших сердечных данных";
