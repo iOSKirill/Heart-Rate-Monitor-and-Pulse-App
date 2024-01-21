@@ -20,7 +20,7 @@ final class LaunchScreenViewModel: ObservableObject {
         startPoint: .top,
         endPoint: .bottom
     )
-    
+
     func nextPresentedView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.isPresentedNextScreen.toggle()

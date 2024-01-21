@@ -12,7 +12,7 @@ enum CameraType: Int {
     case back
     case front
 
-    func captureDevice() -> AVCaptureDevice {
+    func captureDevice() -> AVCaptureDevice? {
         switch self {
         case .front:
             let devices = AVCaptureDevice.DiscoverySession(deviceTypes: [],
@@ -26,7 +26,7 @@ enum CameraType: Int {
         default:
             break
         }
-        return AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)!
+        return AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
     }
 }
 
