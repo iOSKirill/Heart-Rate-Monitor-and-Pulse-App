@@ -13,7 +13,7 @@ import SwiftUI
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
     private var validFrameCounter = 0
-    private var heartRateManager: HeartRateManager!
+    private var heartRateManager: HeartRateManager?
     private var hueFilter = Filter()
     private var pulseDetector = PulseDetector()
     private var inputs: [CGFloat] = []
@@ -25,18 +25,18 @@ final class MeasurementViewModel: ObservableObject {
     func initVideoCapture() {
         let specs = VideoSpec(fps: 30)
         heartRateManager = HeartRateManager(cameraType: .back, preferredSpec: specs)
-        heartRateManager.imageBufferHandler = { [unowned self] imageBuffer in
+        heartRateManager?.imageBufferHandler = { [unowned self] imageBuffer in
             self.handle(buffer: imageBuffer)
         }
     }
 
     // MARK: - AVCaptureSession Helpers
     func initCaptureSession() {
-        heartRateManager.startCapture()
+        heartRateManager?.startCapture()
     }
 
     func deinitCaptureSession() {
-        heartRateManager.stopCapture()
+        heartRateManager?.stopCapture()
         toggleTorch(status: false)
     }
 

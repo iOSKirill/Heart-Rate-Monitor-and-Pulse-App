@@ -39,27 +39,32 @@ typealias ImageBufferHandler = ((_ imageBuffer: CMSampleBuffer) -> Void)
 
 final class HeartRateManager: NSObject {
     private let captureSession = AVCaptureSession()
-    private var videoDevice: AVCaptureDevice!
+    private let videoDevice: AVCaptureDevice
     private var videoConnection: AVCaptureConnection!
     private var audioConnection: AVCaptureConnection!
     private var previewLayer: AVCaptureVideoPreviewLayer?
 
     var imageBufferHandler: ImageBufferHandler?
 
-    init(cameraType: CameraType, preferredSpec: VideoSpec?) {
-        super.init()
-        videoDevice = cameraType.captureDevice()
+    init?(cameraType: CameraType, preferredSpec: VideoSpec?) {
+        guard let videoDevice = cameraType.captureDevice() else {
+            return nil
+        }
 
-        // MARK: - Setup Video Format
+        self.videoDevice = videoDevice
+
+        super.init()
+
+        // Setup Video Format
         do {
             captureSession.sessionPreset = .low
-            if let preferredSpec = preferredSpec {
+            if let preferredSpec {
                 // Update the format with a preferred fps
                 videoDevice.updateFormatWithPreferredVideoSpec(preferredSpec: preferredSpec)
             }
         }
 
-        // MARK: - Setup video device input
+        // Setup video device input
         let videoDeviceInput: AVCaptureDeviceInput
         do {
             videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
@@ -69,7 +74,7 @@ final class HeartRateManager: NSObject {
         guard captureSession.canAddInput(videoDeviceInput) else { fatalError() }
         captureSession.addInput(videoDeviceInput)
 
-        // MARK: - Setup video output
+        // Setup video output
         let videoDataOutput = AVCaptureVideoDataOutput()
         videoDataOutput.videoSettings = [
             kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA)
@@ -113,8 +118,9 @@ final class HeartRateManager: NSObject {
     }
 }
 
+// MARK: - Export buffer from video frame
+
 extension HeartRateManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-    // MARK: - Export buffer from video frame
     func captureOutput(_ output: AVCaptureOutput,
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
@@ -122,8 +128,7 @@ extension HeartRateManager: AVCaptureVideoDataOutputSampleBufferDelegate {
             connection.videoOrientation = .portrait
             return
         }
-        if let imageBufferHandler = imageBufferHandler {
-            imageBufferHandler(sampleBuffer)
-        }
+
+        imageBufferHandler?(sampleBuffer)
     }
 }
