@@ -49,6 +49,21 @@ internal enum L10n {
     }
   }
   internal enum Onboarding {
+    /// and
+    internal static let and = L10n.tr("Localizable", "onboarding.and", fallback: "and")
+    /// Privacy Policy
+    internal static let privacyPolicy = L10n.tr("Localizable", "onboarding.privacyPolicy", fallback: "Privacy Policy")
+    /// Terms of Service
+    internal static let termsOfService = L10n.tr("Localizable", "onboarding.termsOfService", fallback: "Terms of Service")
+    internal enum Paywall {
+      /// Start to Continue
+      internal static let buttonTitle = L10n.tr("Localizable", "onboarding.paywall.buttonTitle", fallback: "Start to Continue")
+      /// Start to continue PulseWave app with no limits just for $5,99 per week
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.paywall.subtitle", fallback: "Start to continue PulseWave app with no limits just for $5,99 per week")
+      /// Start to Continue 
+      ///  PulseWave app
+      internal static let title = L10n.tr("Localizable", "onboarding.paywall.title", fallback: "Start to Continue \n PulseWave app")
+    }
     internal enum StepOne {
       /// Instantly read your heartbeat 
       ///  and track the body's health
@@ -70,6 +85,15 @@ internal enum L10n {
       /// Your ratings 
       ///  Our updates
       internal static let title = L10n.tr("Localizable", "onboarding.stepTwo.title", fallback: "Your ratings \n Our updates")
+    }
+    internal enum Trial {
+      /// Try Free Trial
+      internal static let buttonTitle = L10n.tr("Localizable", "onboarding.trial.buttonTitle", fallback: "Try Free Trial")
+      /// Start to continue PulseWave app with a 3-day trial and $5,99 per week
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.trial.subtitle", fallback: "Start to continue PulseWave app with a 3-day trial and $5,99 per week")
+      /// Start to Continue 
+      ///  PulseWave app
+      internal static let title = L10n.tr("Localizable", "onboarding.trial.title", fallback: "Start to Continue \n PulseWave app")
     }
   }
   internal enum Popup {

@@ -41,7 +41,22 @@
 // MARK: - Onboarding screen -
 "onboarding.stepOne.title" = "Измерьте частоту сердечных сокращений и пульс";
 "onboarding.stepOne.subtitle" = "Мгновенно считывайте свое сердцебиение \n и следите за состоянием организма";
+
 "onboarding.stepTwo.title" = "Ваши оценки \n Наши обновления";
 "onboarding.stepTwo.subtitle" = "Ваш рейтинг и отзывы позволяют нам \n улучшать приложение и добавлять ваши идеи";
+
 "onboarding.stepThree.title" = "История измерений ЧСС";
 "onboarding.stepThree.subtitle" = "Получите подробные исторические записи \n для анализа ваших сердечных данных";
+
+"onboarding.paywall.title" = "Начните, чтобы продолжить \n Приложение Pulse Wave";
+"onboarding.paywall.subtitle" = "Начните пользоваться приложением PulseWave без ограничений всего за $ 5,99 в неделю";
+"onboarding.paywall.buttonTitle" = "Начните, чтобы продолжить";
+
+
+"onboarding.trial.title" = "Начните, чтобы продолжить \n Приложение Pulse Wave";
+"onboarding.trial.subtitle" = "Начните пользоваться приложением PulseWave с 3-дневной пробной версии и платой 5,99 долларов в неделю";
+"onboarding.trial.buttonTitle" = "Попробуйте бесплатную версию";
+
+"onboarding.termsOfService" = " Условия обслуживания";
+"onboarding.and" = "и";
+"onboarding.privacyPolicy" = "Политика конфиденциальности";

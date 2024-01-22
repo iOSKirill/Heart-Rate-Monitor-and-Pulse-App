@@ -41,7 +41,21 @@
 // MARK: - Onboarding screen -
 "onboarding.stepOne.title" = "Measure Heart Rate & Pulse";
 "onboarding.stepOne.subtitle" = "Instantly read your heartbeat \n and track the body's health";
+
 "onboarding.stepTwo.title" = "Your ratings \n Our updates";
 "onboarding.stepTwo.subtitle" = "Your rating and feedback allow us to \n improve the app and add your ideas";
+
 "onboarding.stepThree.title" = "HR Measurements History";
 "onboarding.stepThree.subtitle" = "Get detailed historical records \n to analyze your heart data";
+
+"onboarding.paywall.title" = "Start to Continue \n PulseWave app";
+"onboarding.paywall.subtitle" = "Start to continue PulseWave app with no limits just for $5,99 per week";
+"onboarding.paywall.buttonTitle" = "Start to Continue";
+
+"onboarding.trial.title" = "Start to Continue \n PulseWave app";
+"onboarding.trial.subtitle" = "Start to continue PulseWave app with a 3-day trial and $5,99 per week";
+"onboarding.trial.buttonTitle" = "Try Free Trial";
+
+"onboarding.termsOfService" = "Terms of Service";
+"onboarding.and" = "and";
+"onboarding.privacyPolicy" = "Privacy Policy";
