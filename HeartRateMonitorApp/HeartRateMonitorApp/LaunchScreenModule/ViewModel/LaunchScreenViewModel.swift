@@ -14,13 +14,13 @@ final class LaunchScreenViewModel: ObservableObject {
     @Published var isPresentedNextScreen = false
     private(set) var blueGradient = LinearGradient(
         gradient: Gradient(colors: [
-            Color.gradientFirstButton,
-            Color.gradientSecondButton
+            Color.blueGradientFirstButton,
+            Color.blueGradientSecondButton
         ]),
         startPoint: .top,
         endPoint: .bottom
     )
-    
+
     func nextPresentedView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.isPresentedNextScreen.toggle()

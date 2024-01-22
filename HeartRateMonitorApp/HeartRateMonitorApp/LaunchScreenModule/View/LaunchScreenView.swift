@@ -15,7 +15,7 @@ enum AppCondition: String {
 struct LaunchScreenView: View {
     // MARK: - Property -
     @StateObject var viewModel = LaunchScreenViewModel()
-    
+
     // MARK: - Body -
     var body: some View {
         ZStack {
