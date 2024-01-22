@@ -19,6 +19,7 @@
 		6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A32B1799800092BFE5 /* CustomButtonOnTabBar.swift */; };
 		6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */; };
 		6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */; };
+		6C7E02CC2B5E835900D288F7 /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 6C7E02CB2B5E835900D288F7 /* ApphudSDK */; };
 		6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */; };
 		6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */; };
 		6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8787C2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift */; };
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7E02CC2B5E835900D288F7 /* ApphudSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +416,9 @@
 			dependencies = (
 			);
 			name = HeartRateMonitorApp;
+			packageProductDependencies = (
+				6C7E02CB2B5E835900D288F7 /* ApphudSDK */,
+			);
 			productName = HeartRateMonitorApp;
 			productReference = 6C2FE75F2B16836C0092BFE5 /* HeartRateMonitorApp.app */;
 			productType = "com.apple.product-type.application";
@@ -443,6 +448,9 @@
 				ru,
 			);
 			mainGroup = 6C2FE7562B16836B0092BFE5;
+			packageReferences = (
+				6C7E02CA2B5E835900D288F7 /* XCRemoteSwiftPackageReference "ApphudSDK" */,
+			);
 			productRefGroup = 6C2FE7602B16836C0092BFE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -769,6 +777,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6C7E02CA2B5E835900D288F7 /* XCRemoteSwiftPackageReference "ApphudSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apphud/ApphudSDK.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C7E02CB2B5E835900D288F7 /* ApphudSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C7E02CA2B5E835900D288F7 /* XCRemoteSwiftPackageReference "ApphudSDK" */;
+			productName = ApphudSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C2FE7572B16836B0092BFE5 /* Project object */;
 }

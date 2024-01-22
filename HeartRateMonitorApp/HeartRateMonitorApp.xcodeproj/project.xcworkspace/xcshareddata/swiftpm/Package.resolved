@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "apphudsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apphud/ApphudSDK.git",
+      "state" : {
+        "revision" : "8f8b3963e6b8065df281dfbc6cb276918202d6d7",
+        "version" : "3.2.6"
+      }
+    }
+  ],
+  "version" : 2
+}
