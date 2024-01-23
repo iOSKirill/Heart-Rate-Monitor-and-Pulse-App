@@ -9,7 +9,7 @@ import Foundation
 
 struct OnboardingStep: Hashable {
     let id: Int
-    let image: ImageResource
+    let image: ImageResource?
     let title: String
     let description: String
 }

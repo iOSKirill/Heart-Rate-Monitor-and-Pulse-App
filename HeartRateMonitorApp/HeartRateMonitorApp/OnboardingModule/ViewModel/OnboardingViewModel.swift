@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+enum WebViewType {
+    case termsOfService
+    case privacyPolicy
+}
+
 final class OnboardingViewModel: ObservableObject {
     // MARK: - Property -
     @AppStorage("appCondition", store: .standard) var appCondition: AppCondition = .onboardingView
@@ -24,8 +29,14 @@ final class OnboardingViewModel: ObservableObject {
         OnboardingStep(id: 2,
                        image: .onboardingStepThree,
                        title: L10n.Onboarding.StepThree.title,
-                       description: L10n.Onboarding.StepThree.subtitle)
+                       description: L10n.Onboarding.StepThree.subtitle),
+        OnboardingStep(id: 3,
+                       image: nil,
+                       title: L10n.Onboarding.Paywall.title,
+                       description: L10n.Onboarding.Paywall.subtitle)
     ]
+    @Published var webViewType: WebViewType? = .none
+    @Published var showWebView: Bool = false
     private(set) var blueGradient = LinearGradient(
         gradient: Gradient(colors: [
             Color.gradientFirstButton,
@@ -34,6 +45,8 @@ final class OnboardingViewModel: ObservableObject {
         startPoint: .top,
         endPoint: .bottom
     )
+    private(set) var privacyURL = AppConstants.Info.privacy
+    private(set) var termsURL = AppConstants.Info.terms
     
     // MARK: - Next step onboarding -
     func nextStepOnButton() {

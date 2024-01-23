@@ -51,6 +51,7 @@ internal enum Asset {
     internal static let onboardingStepOne = ImageAsset(name: "OnboardingStepOne")
     internal static let onboardingStepThree = ImageAsset(name: "OnboardingStepThree")
     internal static let onboardingStepTwo = ImageAsset(name: "OnboardingStepTwo")
+    internal static let paywallBackground = ImageAsset(name: "PaywallBackground")
     internal static let plusButton = ImageAsset(name: "PlusButton")
     internal static let popupAssessmentIcon = ImageAsset(name: "PopupAssessmentIcon")
     internal static let popupHRVIcon = ImageAsset(name: "PopupHRVIcon")

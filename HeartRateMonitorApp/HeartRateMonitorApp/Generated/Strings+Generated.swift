@@ -58,8 +58,9 @@ internal enum L10n {
     internal enum Paywall {
       /// Start to Continue
       internal static let buttonTitle = L10n.tr("Localizable", "onboarding.paywall.buttonTitle", fallback: "Start to Continue")
-      /// Start to continue PulseWave app with no limits just for $5,99 per week
-      internal static let subtitle = L10n.tr("Localizable", "onboarding.paywall.subtitle", fallback: "Start to continue PulseWave app with no limits just for $5,99 per week")
+      /// Start to continue PulseWave app 
+      ///  with no limits just for $5,99 per week
+      internal static let subtitle = L10n.tr("Localizable", "onboarding.paywall.subtitle", fallback: "Start to continue PulseWave app \n with no limits just for $5,99 per week")
       /// Start to Continue 
       ///  PulseWave app
       internal static let title = L10n.tr("Localizable", "onboarding.paywall.title", fallback: "Start to Continue \n PulseWave app")
