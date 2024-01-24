@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#warning("TODO: remove me")
+@available(*, deprecated)
 struct StepTwoMeasurementView: View {
     // MARK: - Property -
     @StateObject var viewModel = MeasurementViewModel()
@@ -20,9 +22,9 @@ struct StepTwoMeasurementView: View {
             .multilineTextAlignment(.center)
 
         ProgressBar(
-            isProgressBar: viewModel.isProgressBar,
-            isBeatingHeart: viewModel.isBeatingHeart,
-            pulse: viewModel.lastPulseValue
+            progress: viewModel.isProgressBar,
+            isHeartBeating: viewModel.isBeatingHeart,
+            pulse: viewModel.pulseValue
         )
 
         viewModel.measurementTime
@@ -50,11 +52,11 @@ struct StepTwoMeasurementView: View {
             .padding(.horizontal, 101.5)
         }
         .onAppear {
-            viewModel.initVideoCapture()
-            viewModel.initCaptureSession()
+//            viewModel.initVideoCapture()
+//            viewModel.initCaptureSession()
         }
         .onDisappear {
-            viewModel.deinitCaptureSession()
+//            viewModel.deinitCaptureSession()
         }
     }
 }

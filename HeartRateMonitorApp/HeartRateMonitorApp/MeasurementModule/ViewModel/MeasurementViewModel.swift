@@ -19,20 +19,48 @@ enum StepMeasurement {
 
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
-    private var validFrameCounter = 0
-    private var heartRateManager: HeartRateManager?
-    private var hueFilter = Filter()
-    private var pulseDetector = PulseDetector()
-    private var timer = Timer()
-    private var inputs: [CGFloat] = []
-    private var measurementStartedFlag = false
-    private var measurementSeconds = 0
+
     @Published var pulseValue: String = "00"
     @Published var lastPulseValue: String = "00"
     @Published var currentStepMeasurement: StepMeasurement = .first
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
     @Published var scrollOffSet: CGFloat = 0.0
+
+    private(set) var title: String = ""
+    private(set) var progress: Float = 0.0
+    private(set) var buttonTitle: String = ""
+
+    private(set) var buttonGradient = Gradient(colors: [
+        .blueGradientFirstButton,
+        .blueGradientSecondButton
+    ])
+
+    enum State {
+        case initial
+        case inProgress
+        case finished
+    }
+
+    private var state: State {
+        didSet {
+            guard oldValue != state else { return }
+            didUpdateState()
+        }
+    }
+
+    var descriptionText: Text? {
+        switch state {
+        case .initial:
+            return stepOneSubtitle
+
+        case .inProgress:
+            return measurementTime
+
+        case .finished:
+            return nil
+        }
+    }
 
     var stepOneSubtitle: Text {
         let time = L10n.Measurement.StepOne.time
@@ -63,32 +91,114 @@ final class MeasurementViewModel: ObservableObject {
                     .foregroundColor(Color.subtitle)
     }
 
-    private func startHeartAnimation() {
-        self.isBeatingHeart.toggle()
+    private var validFrameCounter = 0
+    private var heartRateManager: HeartRateManager?
+    private var hueFilter = Filter()
+    private var pulseDetector = PulseDetector()
+    private var inputs: [CGFloat] = []
+    private var measurementStartedFlag = false
+    private var measurementSeconds = 0
+
+    private var timerSubscription: AnyCancellable?
+
+    // MARK: - Lifecycle
+
+    init() {
+        self.state = .initial
+        didUpdateState()
     }
 
-    private func startProgressBarAnimation() {
-        if self.isProgressBar < 1 {
-            self.isProgressBar +=  1.0 / 30.0
-        } else {
-            DispatchQueue.main.async {
-                self.timer.invalidate()
+    // MARK: - Public
+
+    func toggleState() {
+        switch state {
+        case .initial:
+            state = .inProgress
+
+        case .inProgress:
+            state = .initial
+
+        case .finished:
+            break
+        }
+    }
+
+    // MARK: - Measurement
+
+    func startMeasurement() {
+        toggleTorch(status: true)
+
+        stopTimer()
+
+        timerSubscription = Timer.publish(every: 1, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self else { return }
+
+                let average = self.pulseDetector.getAverage()
+                let pulse = 60.0 / average
+                if pulse == -60 {
+                    self.pulseValue = "00"
+                } else {
+                    self.pulseValue = "\(lroundf(pulse))"
+                    self.lastPulseValue = self.pulseValue
+                    self.measurementSeconds += 1
+                    self.updateProgress()
+
+                    if measurementSeconds >= 30 {
+                        self.state = .finished
+                        self.didUpdateState()
+                    }
+                }
             }
+    }
+}
+
+// MARK: - Private
+
+private extension MeasurementViewModel {
+    func didUpdateState() {
+        title = state.title
+        isBeatingHeart = state.isHeartbeating
+        buttonGradient = state.buttonGradient
+        buttonTitle = state.buttonTitle
+
+        switch state {
+        case .initial:
+            currentStepMeasurement = .first
+
+            stopTimer()
+            progress = 0.0
+
+            measurementSeconds = 0
+            pulseValue = "00"
+            lastPulseValue = "00"
+
+            deinitCaptureSession()
+
+        case .inProgress:
+            currentStepMeasurement = .second
+
+            setupVideoCapture()
+            setupCaptureSession()
+            progress = 0.0
+
+        case .finished:
+            currentStepMeasurement = .third
+            progress = 1.0
+
+            pulseValue = "00"
+            lastPulseValue = "00"
         }
     }
 
-    // MARK: - Frames Capture Methods
-    func initVideoCapture() {
-        let specs = VideoSpec(fps: 30)
-        heartRateManager = HeartRateManager(cameraType: .back, preferredSpec: specs)
-        heartRateManager?.imageBufferHandler = { [unowned self] imageBuffer in
-            self.handle(buffer: imageBuffer)
+    func updateProgress() {
+        guard isProgressBar < 1 else {
+            stopTimer()
+            return
         }
-    }
-
-    // MARK: - AVCaptureSession Helpers
-    func initCaptureSession() {
-        heartRateManager?.startCapture()
+        isProgressBar +=  1.0 / 30.0
+        progress = self.isProgressBar
     }
 
     func deinitCaptureSession() {
@@ -96,39 +206,81 @@ final class MeasurementViewModel: ObservableObject {
         toggleTorch(status: false)
     }
 
-    private func toggleTorch(status: Bool) {
+    func setupVideoCapture() {
+        let specs = VideoSpec(fps: 30)
+        heartRateManager = HeartRateManager(cameraType: .back, preferredSpec: specs)
+        heartRateManager?.imageBufferHandler = { [weak self] imageBuffer in
+            self?.handle(buffer: imageBuffer)
+        }
+    }
+
+    func setupCaptureSession() {
+        heartRateManager?.startCapture()
+    }
+
+    func toggleTorch(status: Bool) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         device.toggleTorch(turnOn: status)
     }
 
-    // MARK: - Measurement
-     func startMeasurement() {
-            DispatchQueue.main.async {
-                self.toggleTorch(status: true)
-                self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
-                    guard let self = self else { return }
-                    let average = self.pulseDetector.getAverage()
-                    let pulse = 60.0 / average
-                    if pulse == -60 {
-                        self.pulseValue = "00"
-                    } else {
-                        startHeartAnimation()
-                        self.pulseValue = "\(lroundf(pulse))"
-                        self.lastPulseValue = self.pulseValue
-                        self.measurementSeconds += 1
-                        startProgressBarAnimation()
+    func stopTimer() {
+        timerSubscription?.cancel()
+        timerSubscription = nil
+    }
+}
 
-                        if measurementSeconds >= 30 {
-                            currentStepMeasurement = .third
-                            timer.invalidate()
-                        }
-                    }
-                })
-            }
+// MARK: - State Utils
+
+private extension MeasurementViewModel.State {
+    var title: String {
+        switch self {
+        case .initial:
+            return L10n.Measurement.StepOne.title
+
+        case .inProgress:
+            return L10n.Measurement.StepTwo.title
+
+        case .finished:
+            return L10n.Measurement.StepThree.title
         }
+    }
+
+    var buttonTitle: String {
+        switch self {
+        case .initial:
+            return L10n.Measurement.StepOne.button
+
+        case .inProgress:
+            return L10n.Measurement.StepTwo.button
+
+        case .finished:
+            return L10n.Measurement.StepThree.Button.save
+        }
+    }
+
+    var buttonGradient: Gradient {
+        switch self {
+        case .initial, .finished:
+            return Gradient(colors: [.blueGradientFirstButton, .blueGradientSecondButton])
+
+        case .inProgress:
+            return Gradient(colors: [.redGradientFirstButton, .redGradientSecondButton])
+        }
+    }
+
+    var isHeartbeating: Bool {
+        switch self {
+        case .initial, .finished:
+            return false
+
+        case .inProgress:
+            return true
+        }
+    }
 }
 
 // MARK: - Handle Image Buffer
+
 private extension MeasurementViewModel {
     func handle(buffer: CMSampleBuffer) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else { return }
@@ -196,12 +348,14 @@ private extension MeasurementViewModel {
             validFrameCounter = 0
             measurementStartedFlag = false
             pulseDetector.reset()
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 print("Cover the back camera until the image turns red 🟥")
-                self.timer.invalidate()
+                self.stopTimer()
                 self.isBeatingHeart = false
                 self.isProgressBar = 0.0
                 self.lastPulseValue = "00"
+                self.pulseValue = "00"
                 self.measurementSeconds = 0
             }
         }

@@ -70,14 +70,16 @@ struct MeasurementView: View {
     var measurementView: some View {
         VStack {
             VStack(alignment: .center, spacing: 20) {
-                switch viewModel.currentStepMeasurement {
-                case .first:
-                    StepOneMeasurementView(currentStepMeasurement: $viewModel.currentStepMeasurement)
-                case .second:
-                    StepTwoMeasurementView(currentStepMeasurement: $viewModel.currentStepMeasurement)
-                case .third:
-                    StepThreeMeasurementView()
-                }
+                MeasurementContentView(
+                    title: viewModel.title,
+                    progress: viewModel.progress,
+                    isHeartBeating: viewModel.isBeatingHeart,
+                    pulse: viewModel.pulseValue,
+                    descriptionText: viewModel.stepOneSubtitle,
+                    buttonGradient: viewModel.buttonGradient,
+                    buttonTitle: viewModel.buttonTitle,
+                    action: { viewModel.toggleState() }
+                )
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 32)
@@ -92,7 +94,8 @@ struct MeasurementView: View {
     var body: some View {
         ZStack {
             Color(.backgroundSreens).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .centerTitleRightButton(
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet,
+                             navBarLayout: .centerTitleRightButton(
                 title: L10n.Measurement.NavBar.title,
                 button: AnyView(closeViewButton)
             )) {

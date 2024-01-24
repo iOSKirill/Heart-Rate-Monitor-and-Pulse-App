@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProgressBar: View {
     // MARK: - Property -
-    var isProgressBar: Float
-    var isBeatingHeart: Bool
+    var progress: Float
+    var isHeartBeating: Bool
     var pulse: String
 
     // MARK: - Body -
@@ -22,11 +22,11 @@ struct ProgressBar: View {
                 .frame(width: 159, height: 159)
 
             Circle()
-                .trim(from: 0.0, to: CGFloat(self.isProgressBar))
+                .trim(from: 0.0, to: CGFloat(self.progress))
                 .stroke(style: StrokeStyle(lineWidth: 12.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.progressBarRed)
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear(duration: 30.0), value: self.isProgressBar)
+                .animation(.linear(duration: 1.0), value: progress)
                 .shadow(color: .red, radius: 1.5)
 
             HStack {
@@ -36,11 +36,11 @@ struct ProgressBar: View {
 
                 VStack {
                     Image(.measureHeart)
-                        .scaleEffect(isBeatingHeart ? 0.5 : 1)
+                        .scaleEffect(isHeartBeating ? 0.5 : 1)
                         .animation(
                             .easeInOut(duration: 0.6)
                             .repeatForever(autoreverses: true),
-                            value: self.isBeatingHeart
+                            value: isHeartBeating
                         )
                         .shadow(color: .red, radius: 5)
 

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#warning("TODO: remove me")
+@available(*, deprecated)
 struct StepOneMeasurementView: View {
     // MARK: - Property -
     @StateObject var viewModel = MeasurementViewModel()
@@ -20,8 +22,8 @@ struct StepOneMeasurementView: View {
             .multilineTextAlignment(.center)
 
         ProgressBar(
-            isProgressBar: viewModel.isProgressBar,
-            isBeatingHeart: viewModel.isBeatingHeart,
+            progress: viewModel.isProgressBar,
+            isHeartBeating: viewModel.isBeatingHeart,
             pulse: viewModel.pulseValue
         )
 

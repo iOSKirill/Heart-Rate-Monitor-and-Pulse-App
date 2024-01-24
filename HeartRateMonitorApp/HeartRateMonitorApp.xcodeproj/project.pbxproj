@@ -49,6 +49,7 @@
 		6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA342B247F97000EC270 /* Font+Extension.swift */; };
 		6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */; };
 		6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA3A2B2A4840000EC270 /* PopupInfoView.swift */; };
+		7CF2D5642B5DBCD000D567DD /* MeasurementContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2D5632B5DBCD000D567DD /* MeasurementContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		6CF3FA342B247F97000EC270 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		6CF3FA3A2B2A4840000EC270 /* PopupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupInfoView.swift; sourceTree = "<group>"; };
+		7CF2D5632B5DBCD000D567DD /* MeasurementContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +370,7 @@
 				6CEDD44D2B3C2F980024C41A /* StepTwoMeasurementView.swift */,
 				6CEDD44F2B3C301D0024C41A /* StepThreeMeasurementView.swift */,
 				6CEDD4512B3C309F0024C41A /* ProgressBar.swift */,
+				7CF2D5632B5DBCD000D567DD /* MeasurementContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				6CEDD44E2B3C2F980024C41A /* StepTwoMeasurementView.swift in Sources */,
 				6C2FE7932B1795210092BFE5 /* HomeHealthViewModel.swift in Sources */,
 				6C2FE7632B16836C0092BFE5 /* HeartRateMonitorApp.swift in Sources */,
+				7CF2D5642B5DBCD000D567DD /* MeasurementContentView.swift in Sources */,
 				6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */,
 				6C2FE79A2B1797480092BFE5 /* TabBarView.swift in Sources */,
 				6C2FE7952B1796870092BFE5 /* HomeHealthView.swift in Sources */,
