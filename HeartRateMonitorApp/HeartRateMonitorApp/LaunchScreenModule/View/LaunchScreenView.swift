@@ -26,8 +26,10 @@ struct LaunchScreenView: View {
             switch viewModel.appCondition {
             case .onboardingView:
                 OnboardingView()
+
             case .homeHealthView:
                 TabBarView()
+
             case .none:
                 OnboardingView()
             }

@@ -52,7 +52,7 @@ internal enum Asset {
     internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")
     internal static let measureHeart = ImageAsset(name: "MeasureHeart")
     internal static let measurementAssessmentBackground = ImageAsset(name: "MeasurementAssessmentBackground")
-    internal static let measurementIPhone = ImageAsset(name: "MeasurementIPhone")
+    internal static let measurementiPhone = ImageAsset(name: "MeasurementiPhone")
     internal static let navBarBackButtonIcon = ImageAsset(name: "NavBarBackButtonIcon")
     internal static let navBarCloseButtonIcon = ImageAsset(name: "NavBarCloseButtonIcon")
     internal static let onboardingBackground = ImageAsset(name: "OnboardingBackground")

@@ -11,7 +11,7 @@ struct InfoView: View {
     // MARK: - Body -
     var body: some View {
         VStack {
-            Image(.measurementIPhone)
+            Image(.measurementiPhone)
                 .resizable()
                 .scaledToFit()
         }

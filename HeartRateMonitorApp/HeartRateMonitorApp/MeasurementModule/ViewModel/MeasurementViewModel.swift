@@ -19,13 +19,13 @@ enum StepMeasurement {
 
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
-    private var heartRateManager: HeartRateManager!
-    private var pulseDetector = PulseDetector()
+    private var validFrameCounter = 0
+    private var heartRateManager: HeartRateManager?
     private var hueFilter = Filter()
+    private var pulseDetector = PulseDetector()
     private var timer = Timer()
     private var inputs: [CGFloat] = []
     private var measurementStartedFlag = false
-    private var validFrameCounter = 0
     private var measurementSeconds = 0
     @Published var pulseValue: String = "00"
     @Published var lastPulseValue: String = "00"
@@ -81,18 +81,18 @@ final class MeasurementViewModel: ObservableObject {
     func initVideoCapture() {
         let specs = VideoSpec(fps: 30)
         heartRateManager = HeartRateManager(cameraType: .back, preferredSpec: specs)
-        heartRateManager.imageBufferHandler = { [unowned self] imageBuffer in
+        heartRateManager?.imageBufferHandler = { [unowned self] imageBuffer in
             self.handle(buffer: imageBuffer)
         }
     }
 
     // MARK: - AVCaptureSession Helpers
     func initCaptureSession() {
-        heartRateManager.startCapture()
+        heartRateManager?.startCapture()
     }
 
     func deinitCaptureSession() {
-        heartRateManager.stopCapture()
+        heartRateManager?.stopCapture()
         toggleTorch(status: false)
     }
 
@@ -129,38 +129,47 @@ final class MeasurementViewModel: ObservableObject {
 }
 
 // MARK: - Handle Image Buffer
-extension MeasurementViewModel {
-    fileprivate func handle(buffer: CMSampleBuffer) {
+private extension MeasurementViewModel {
+    func handle(buffer: CMSampleBuffer) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else { return }
+
+        let cameraImage = CIImage(cvPixelBuffer: pixelBuffer)
+
+        let extent = cameraImage.extent
+        let inputExtent = CIVector(x: extent.origin.x,
+                                   y: extent.origin.y,
+                                   z: extent.size.width,
+                                   w: extent.size.height)
+        guard
+            let averageFilter = CIFilter(name: "CIAreaAverage",
+                                         parameters: [kCIInputImageKey: cameraImage, kCIInputExtentKey: inputExtent]),
+            let outputImage = averageFilter.outputImage,
+            let cgImage = CIContext(options: nil).createCGImage(outputImage, from: outputImage.extent),
+            let rawData: NSData = cgImage.dataProvider?.data
+        else { return }
+
+        let pixels = rawData.bytes.assumingMemoryBound(to: UInt8.self)
+        let bytes = UnsafeBufferPointer<UInt8>(start: pixels, count: rawData.length)
+
+        var indexBGRA = 0
         var redmean: CGFloat = 0.0
         var greenmean: CGFloat = 0.0
         var bluemean: CGFloat = 0.0
 
-        let pixelBuffer = CMSampleBufferGetImageBuffer(buffer)
-        let cameraImage = CIImage(cvPixelBuffer: pixelBuffer!)
-
-        let extent = cameraImage.extent
-        let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
-        let averageFilter = CIFilter(name: "CIAreaAverage",
-                              parameters: [kCIInputImageKey: cameraImage, kCIInputExtentKey: inputExtent])!
-        let outputImage = averageFilter.outputImage!
-
-        let ctx = CIContext(options: nil)
-        let cgImage = ctx.createCGImage(outputImage, from: outputImage.extent)!
-
-        let rawData: NSData = cgImage.dataProvider!.data!
-        let pixels = rawData.bytes.assumingMemoryBound(to: UInt8.self)
-        let bytes = UnsafeBufferPointer<UInt8>(start: pixels, count: rawData.length)
-        var indexBGRA = 0
         for pixel in UnsafeBufferPointer(start: bytes.baseAddress, count: bytes.count) {
             switch indexBGRA {
             case 0:
                 bluemean = CGFloat(pixel)
+
             case 1:
                 greenmean = CGFloat(pixel)
+
             case 2:
                 redmean = CGFloat(pixel)
+
             case 3:
                 break
+
             default:
                 break
             }
