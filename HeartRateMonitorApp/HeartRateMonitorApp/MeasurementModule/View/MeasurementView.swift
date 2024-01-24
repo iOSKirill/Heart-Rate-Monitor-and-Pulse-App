@@ -75,7 +75,7 @@ struct MeasurementView: View {
                     progress: viewModel.progress,
                     isHeartBeating: viewModel.isBeatingHeart,
                     pulse: viewModel.pulseValue,
-                    descriptionText: viewModel.stepOneSubtitle,
+                    descriptionText: viewModel.descriptionText,
                     buttonGradient: viewModel.buttonGradient,
                     buttonTitle: viewModel.buttonTitle,
                     action: { viewModel.toggleState() }
