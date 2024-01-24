@@ -11,7 +11,7 @@ import WebKit
 struct OnboardingView: View {
     // MARK: - Property -
     @StateObject var viewModel = OnboardingViewModel()
-    
+
     // MARK: - TabView onboarding -
     var tabView: some View {
         TabView(selection: $viewModel.currentStep) {
@@ -22,7 +22,7 @@ struct OnboardingView: View {
                         .font(.appUrbanistBold(of: 32))
                         .foregroundColor(Color.mainText)
                         .padding(.horizontal, 15)
-                    
+
                     Text(item.description)
                         .multilineTextAlignment(.center)
                         .font(.appMedium(of: 14))
@@ -34,7 +34,7 @@ struct OnboardingView: View {
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .animation(.easeInOut(duration: 0.3), value: viewModel.currentStep)
     }
-    
+
     var backgroundOnboardingStep: some View {
         TabView(selection: $viewModel.currentStep) {
             ForEach(viewModel.onboardingSteps, id: \.id) { item in
@@ -75,7 +75,7 @@ struct OnboardingView: View {
         }
         .padding(.bottom, 18)
     }
-    
+
     // MARK: - Next screen onboarding -
     var nextButton: some View {
         Button {

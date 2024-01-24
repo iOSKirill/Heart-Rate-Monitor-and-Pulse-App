@@ -56,7 +56,7 @@ final class OnboardingViewModel: ObservableObject {
             appCondition = .homeHealthView
         }
     }
-    
+
     // MARK: - Get next button text -
     func getNextButtonText() -> String {
         currentStep == 0 ? "Go" : "Next"
