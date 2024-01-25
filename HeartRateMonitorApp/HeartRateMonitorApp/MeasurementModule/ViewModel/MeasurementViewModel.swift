@@ -284,22 +284,24 @@ private extension MeasurementViewModel.State {
 private extension MeasurementViewModel {
     func handle(buffer: CMSampleBuffer) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else { return }
+        processBuffer(pixelBuffer: pixelBuffer)
+    }
 
+    func processBuffer(pixelBuffer: CVPixelBuffer) {
         let cameraImage = CIImage(cvPixelBuffer: pixelBuffer)
-
         let extent = cameraImage.extent
-        let inputExtent = CIVector(x: extent.origin.x,
-                                   y: extent.origin.y,
-                                   z: extent.size.width,
-                                   w: extent.size.height)
-        guard
-            let averageFilter = CIFilter(name: "CIAreaAverage",
-                                         parameters: [kCIInputImageKey: cameraImage, kCIInputExtentKey: inputExtent]),
-            let outputImage = averageFilter.outputImage,
-            let cgImage = CIContext(options: nil).createCGImage(outputImage, from: outputImage.extent),
-            let rawData: NSData = cgImage.dataProvider?.data
-        else { return }
+        let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
+        guard let averageFilter = CIFilter(
+            name: "CIAreaAverage",
+            parameters: [kCIInputImageKey: cameraImage, kCIInputExtentKey: inputExtent]
+        ),
+              let outputImage = averageFilter.outputImage,
+              let cgImage = CIContext(options: nil).createCGImage(outputImage, from: outputImage.extent),
+              let rawData: NSData = cgImage.dataProvider?.data else { return }
+        processRawData(rawData: rawData)
+    }
 
+    func processRawData(rawData: NSData) {
         let pixels = rawData.bytes.assumingMemoryBound(to: UInt8.self)
         let bytes = UnsafeBufferPointer<UInt8>(start: pixels, count: rawData.length)
 
@@ -329,6 +331,10 @@ private extension MeasurementViewModel {
         }
 
         let hsv = convertRGBtoHSV(RGB(red: redmean, green: greenmean, blue: bluemean, alpha: 1.0))
+        processHSV(hsv: hsv)
+    }
+
+    func processHSV(hsv: HSV) {
         if hsv.saturation > 0.5 && hsv.brightness > 0.5 {
             DispatchQueue.main.async {
                 self.toggleTorch(status: true)
@@ -345,19 +351,23 @@ private extension MeasurementViewModel {
                 _ = self.pulseDetector.addNewValue(newVal: filtered, atTime: CACurrentMediaTime())
             }
         } else {
-            validFrameCounter = 0
-            measurementStartedFlag = false
-            pulseDetector.reset()
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                print("Cover the back camera until the image turns red 🟥")
-                self.stopTimer()
-                self.isBeatingHeart = false
-                self.isProgressBar = 0.0
-                self.lastPulseValue = "00"
-                self.pulseValue = "00"
-                self.measurementSeconds = 0
-            }
+            resetMeasurement()
+        }
+    }
+
+    func resetMeasurement() {
+        validFrameCounter = 0
+        measurementStartedFlag = false
+        pulseDetector.reset()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            print("Cover the back camera until the image turns red 🟥")
+            self.stopTimer()
+            self.isBeatingHeart = false
+            self.isProgressBar = 0.0
+            self.lastPulseValue = "00"
+            self.pulseValue = "00"
+            self.measurementSeconds = 0
         }
     }
 }
