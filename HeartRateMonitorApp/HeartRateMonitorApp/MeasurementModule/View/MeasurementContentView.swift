@@ -20,7 +20,7 @@ struct MeasurementContentView: View {
     var body: some View {
         Text(title)
             .font(.appSemibold(of: 15))
-            .foregroundColor(Color.subtitle)
+            .foregroundColor(Color.appSlateGrey)
             .multilineTextAlignment(.center)
 
         ProgressBar(
@@ -50,7 +50,7 @@ struct MeasurementContentView: View {
             )
             .cornerRadius(43)
             .padding(.horizontal, 101.5)
-            .shadow(color: Color.shadowButton.opacity(0.15), radius: 5.95, x: 0, y: 4)
+            .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
         }
     }
 }
@@ -61,8 +61,8 @@ struct MeasurementContentView: View {
                         isHeartBeating: true,
                         pulse: "50",
                         descriptionText: Text("312"),
-                           buttonGradient: Gradient(colors: [.backgroundSreens,
-                                                             .blueGradientFirstButton]),
+                           buttonGradient: Gradient(colors: [.appBlueGradientFirstButton,
+                                                             .appBlueGradientSecondButton]),
                            buttonTitle: "123",
                            action: { print("sdf") }
     )

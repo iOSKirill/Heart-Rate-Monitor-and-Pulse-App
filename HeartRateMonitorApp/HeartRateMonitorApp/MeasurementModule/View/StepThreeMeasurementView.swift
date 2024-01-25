@@ -17,7 +17,7 @@ struct StepThreeMeasurementView: View {
     var body: some View {
         Text(L10n.Measurement.StepThree.title)
             .font(.appSemibold(of: 15))
-            .foregroundColor(Color.subtitle)
+            .foregroundColor(Color.appSlateGrey)
             .multilineTextAlignment(.center)
 
         ProgressBar(
@@ -39,8 +39,8 @@ struct StepThreeMeasurementView: View {
                 .background(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color.blueGradientFirstButton,
-                            Color.blueGradientSecondButton
+                            Color.appBlueGradientFirstButton,
+                            Color.appBlueGradientSecondButton
                         ]),
                         startPoint: .top,
                         endPoint: .bottom
@@ -48,7 +48,7 @@ struct StepThreeMeasurementView: View {
                 )
                 .cornerRadius(43)
                 .padding(.horizontal, 101.5)
-                .shadow(color: Color.shadowButton.opacity(0.15), radius: 5.95, x: 0, y: 4)
+                .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
             }
 
             Button {
@@ -56,7 +56,7 @@ struct StepThreeMeasurementView: View {
             } label: {
                 Text(L10n.Measurement.StepThree.Button.notNow)
                     .font(.appUrbanistBold(of: 15))
-                    .foregroundColor(Color.subtitle)
+                    .foregroundColor(Color.appSlateGrey)
             }
         }
     }

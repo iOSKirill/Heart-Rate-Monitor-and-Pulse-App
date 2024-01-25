@@ -29,7 +29,7 @@ struct AssessmentView: View {
         VStack(spacing: 4) {
             Text(L10n.Measurement.StepThree.Assessment.title)
                 .font(.appUrbanistBold(of: 17))
-                .foregroundColor(Color.mainText)
+                .foregroundColor(Color.appMarengo)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
                 .padding(.top, 26)
@@ -58,7 +58,7 @@ struct MeasurementView: View {
          } label: {
              VStack {
                  Image(.navBarCloseButtonIcon)
-                     .foregroundColor(Color.mainText)
+                     .foregroundColor(Color.appMarengo)
                      .padding(8)
              }
              .background(.white.opacity(0.6))
@@ -93,7 +93,7 @@ struct MeasurementView: View {
     // MARK: - Body -
     var body: some View {
         ZStack {
-            Color(.backgroundSreens).ignoresSafeArea()
+            Color(.appPaleBlue).ignoresSafeArea()
             CustomScrollView(scrollOffSet: $viewModel.scrollOffSet,
                              navBarLayout: .centerTitleRightButton(
                 title: L10n.Measurement.NavBar.title,

@@ -32,8 +32,8 @@ final class MeasurementViewModel: ObservableObject {
     private(set) var buttonTitle: String = ""
 
     private(set) var buttonGradient = Gradient(colors: [
-        .blueGradientFirstButton,
-        .blueGradientSecondButton
+        .appBlueGradientFirstButton,
+        .appBlueGradientSecondButton
     ])
 
     enum State {
@@ -67,13 +67,13 @@ final class MeasurementViewModel: ObservableObject {
         let parts = L10n.Measurement.StepOne.subtitle(time).components(separatedBy: time)
         return Text(parts[0])
                     .font(.appSemibold(of: 15))
-                    .foregroundColor(Color.subtitle) +
+                    .foregroundColor(Color.appSlateGrey) +
                Text(time)
                     .font(.appSemibold(of: 20))
-                    .foregroundColor(Color.blueText) +
+                    .foregroundColor(Color.appBlue) +
                Text(parts[1])
                     .font(.appSemibold(of: 15))
-                    .foregroundColor(Color.subtitle)
+                    .foregroundColor(Color.appSlateGrey)
     }
 
     var measurementTime: Text {
@@ -82,13 +82,13 @@ final class MeasurementViewModel: ObservableObject {
         let parts = L10n.Measurement.StepTwo.subtitle(timeTitle).components(separatedBy: timeTitle)
         return Text(parts[0])
                     .font(.appSemibold(of: 15))
-                    .foregroundColor(Color.subtitle) +
+                    .foregroundColor(Color.appSlateGrey) +
                Text(timeTitle)
                     .font(.appSemibold(of: 20))
-                    .foregroundColor(Color.blueText) +
+                    .foregroundColor(Color.appBlue) +
                Text(parts[1])
                     .font(.appSemibold(of: 15))
-                    .foregroundColor(Color.subtitle)
+                    .foregroundColor(Color.appSlateGrey)
     }
 
     private var validFrameCounter = 0
@@ -261,10 +261,10 @@ private extension MeasurementViewModel.State {
     var buttonGradient: Gradient {
         switch self {
         case .initial, .finished:
-            return Gradient(colors: [.blueGradientFirstButton, .blueGradientSecondButton])
+            return Gradient(colors: [.appBlueGradientFirstButton, .appBlueGradientSecondButton])
 
         case .inProgress:
-            return Gradient(colors: [.redGradientFirstButton, .redGradientSecondButton])
+            return Gradient(colors: [.appRedGradientFirstButton, .appRedGradientSecondButton])
         }
     }
 

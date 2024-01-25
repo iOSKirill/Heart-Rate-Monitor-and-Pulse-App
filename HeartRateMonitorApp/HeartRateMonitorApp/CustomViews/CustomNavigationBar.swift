@@ -30,7 +30,7 @@ struct CustomNavigationBar: View {
                         HStack {
                             Text(title)
                                 .font(.appUrbanistBold(of: 32))
-                                .foregroundColor(.mainText)
+                                .foregroundColor(.appMarengo)
                             Spacer()
                             button
                         }
@@ -38,7 +38,7 @@ struct CustomNavigationBar: View {
                         ZStack {
                             Text(title)
                                 .font(.appUrbanistBold(of: 24))
-                                .foregroundColor(.mainText)
+                                .foregroundColor(.appMarengo)
                             button
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
@@ -48,7 +48,7 @@ struct CustomNavigationBar: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Text(title)
                                 .font(.appUrbanistBold(of: 24))
-                                .foregroundColor(.mainText)
+                                .foregroundColor(.appMarengo)
                         }
                     case .leftButtonCenterTitleRightButton(let title, let buttonFirst, let buttonSecond):
                         HStack {
@@ -56,7 +56,7 @@ struct CustomNavigationBar: View {
                             Spacer()
                             Text(title)
                                 .font(.appUrbanistBold(of: 24))
-                                .foregroundColor(.mainText)
+                                .foregroundColor(.appMarengo)
                             Spacer()
                             buttonSecond
                         }
@@ -94,7 +94,7 @@ struct CustomNavigationBar: View {
                     content()
                         .padding(.top, 50)
                         .background(GeometryReader {
-                            Color.backgroundSreens.preference(
+                            Color.appPaleBlue.preference(
                                 key: ViewOffSetKey.self,
                                 value: -$0.frame(in: .named("scroll")).origin.y
                             )

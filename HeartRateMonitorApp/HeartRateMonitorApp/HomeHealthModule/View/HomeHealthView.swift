@@ -38,12 +38,12 @@ struct HomeHealthView: View {
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
                                 .font(.appSemibold(of: 17))
-                                .foregroundColor(Color.mainText)
+                                .foregroundColor(Color.appMarengo)
                                 .background(
                                     ZStack {
                                         Circle()
                                             .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                            .foregroundColor(Color.currentDay)
+                                            .foregroundColor(Color.appBlue)
                                             .frame(width: 32, height: 32)
                                             .opacity(day.todayDateInCalendar ? 1 : 0)
                                     }
@@ -51,7 +51,7 @@ struct HomeHealthView: View {
 
                             Text(day.getWeekOfDayName)
                                 .font(.appSemibold(of: 15))
-                                .foregroundColor(Color.mainText)
+                                .foregroundColor(Color.appMarengo)
                                 .padding(.top, 6)
                         }
                         .frame(width: geo.size.width / 8, height: 69)
@@ -117,7 +117,7 @@ struct HomeHealthView: View {
                         .foregroundColor(.white)
                     Text(L10n.Dashboard.Measure.mainText)
                         .font(.appSemibold(of: 15))
-                        .foregroundColor(Color.measureDashboardSubtitle)
+                        .foregroundColor(Color.appVeryLightBlue)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 16)
                     Image(.pulseLine)
@@ -133,7 +133,7 @@ struct HomeHealthView: View {
         .frame(maxWidth: .infinity, minHeight: 367)
         .background(
             ZStack {
-            Color.currentDay
+            Color.appBlue
             Image(.measureBackgound)
                 .blur(radius: 8.5)
             }
@@ -169,7 +169,7 @@ struct HomeHealthView: View {
         VStack(alignment: .leading) {
             Text(L10n.Dashboard.Assessment.header)
                 .font(.appUrbanistBold(of: 17))
-                .foregroundColor(Color.mainText)
+                .foregroundColor(Color.appMarengo)
                 .padding(.leading, 16)
 
             VStack(alignment: .leading) {
@@ -178,7 +178,7 @@ struct HomeHealthView: View {
                         .padding(.leading, 16)
                     Text(L10n.Dashboard.Assessment.title)
                         .font(.appUrbanistBold(of: 17))
-                        .foregroundColor(Color.mainText)
+                        .foregroundColor(Color.appMarengo)
                         .padding(.leading, 12)
                     Spacer()
                 }
@@ -188,10 +188,10 @@ struct HomeHealthView: View {
                     VStack(spacing: 2) {
                         Text(L10n.Dashboard.Assessment.subtitle)
                             .font(.appUrbanistBold(of: 19))
-                            .foregroundColor(Color.mainText)
+                            .foregroundColor(Color.appMarengo)
                         Text(L10n.Dashboard.Assessment.mainText)
                             .font(.appSemibold(of: 15))
-                            .foregroundColor(Color.subtitle)
+                            .foregroundColor(Color.appSlateGrey)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 176)
                     }
@@ -221,7 +221,7 @@ struct HomeHealthView: View {
     // MARK: - Body -
     var body: some View {
         ZStack {
-            Color(.backgroundSreens).ignoresSafeArea()
+            Color(.appPaleBlue).ignoresSafeArea()
             CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                 title: L10n.NavigationBar.Health.title,
                 button: AnyView(settingButton)

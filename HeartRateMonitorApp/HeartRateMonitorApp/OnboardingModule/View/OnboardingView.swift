@@ -19,13 +19,13 @@ struct OnboardingView: View {
                     Text(item.title)
                         .multilineTextAlignment(.center)
                         .font(.appUrbanistBold(of: 32))
-                        .foregroundColor(Color.mainText)
+                        .foregroundColor(Color.appMarengo)
                         .padding(.horizontal, 15)
 
                     Text(item.description)
                         .multilineTextAlignment(.center)
                         .font(.appMedium(of: 14))
-                        .foregroundColor(Color.subtitle)
+                        .foregroundColor(Color.appSlateGrey)
                         .padding(.horizontal, 32)
                 }
             }
@@ -62,11 +62,11 @@ struct OnboardingView: View {
                     Rectangle()
                         .frame(width: 32, height: 8)
                         .cornerRadius(10)
-                        .foregroundColor(Color.currentDay)
+                        .foregroundColor(Color.appBlue)
                 } else {
                     Circle()
                         .frame(width: 8, height: 8)
-                        .foregroundColor(Color.notHighlightedButton)
+                        .foregroundColor(Color.appManatee)
                 }
             }
         }

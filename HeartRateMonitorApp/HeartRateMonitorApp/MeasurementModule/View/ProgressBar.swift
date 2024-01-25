@@ -17,22 +17,22 @@ struct ProgressBar: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(Color.settingsButtonBackground, lineWidth: 10)
+                .stroke(Color.appPaleBlue, lineWidth: 10)
                 .foregroundColor(.gray)
                 .frame(width: 159, height: 159)
 
             Circle()
                 .trim(from: 0.0, to: CGFloat(self.progress))
                 .stroke(style: StrokeStyle(lineWidth: 12.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.progressBarRed)
+                .foregroundColor(Color.appRed)
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.linear(duration: 1.0), value: progress)
-                .shadow(color: .red, radius: 1.5)
+                .shadow(color: .appRed, radius: 1.5)
 
             HStack {
                 Text(pulse)
                     .font(.appUrbanistBold(of: 58))
-                    .foregroundColor(pulse != "00" ? Color.mainText : Color.settingsButtonBackground)
+                    .foregroundColor(pulse != "00" ? Color.appMarengo : Color.appPaleBlue)
 
                 VStack {
                     Image(.measureHeart)
@@ -42,11 +42,11 @@ struct ProgressBar: View {
                             .repeatForever(autoreverses: true),
                             value: isHeartBeating
                         )
-                        .shadow(color: .red, radius: 5)
+                        .shadow(color: .appRed, radius: 5)
 
                     Text(L10n.Measurement.bpm)
                         .font(.appMedium(of: 15))
-                        .foregroundColor(Color.subtitle)
+                        .foregroundColor(Color.appSlateGrey)
                         .offset(y: -9)
                 }
             }

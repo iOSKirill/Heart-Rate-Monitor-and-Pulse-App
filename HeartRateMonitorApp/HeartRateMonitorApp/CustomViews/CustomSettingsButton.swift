@@ -22,11 +22,11 @@ struct CustomSettingsButton: View {
                     Image(uiImage: image)
                         .padding(8)
                 }
-                .background(Color.settingsButtonBackground)
+                .background(Color.appPaleBlue)
                 .cornerRadius(12)
                 Text(title)
                     .font(.appSemibold(of: 15))
-                    .foregroundStyle(Color.mainText)
+                    .foregroundStyle(Color.appMarengo)
                 Spacer()
                 Image(.settingsArrowIcon)
             }

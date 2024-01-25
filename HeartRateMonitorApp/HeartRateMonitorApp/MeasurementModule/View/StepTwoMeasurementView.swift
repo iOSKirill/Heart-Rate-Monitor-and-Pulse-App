@@ -18,7 +18,7 @@ struct StepTwoMeasurementView: View {
     var body: some View {
         Text(L10n.Measurement.StepTwo.title)
             .font(.appSemibold(of: 15))
-            .foregroundColor(Color.subtitle)
+            .foregroundColor(Color.appSlateGrey)
             .multilineTextAlignment(.center)
 
         ProgressBar(
@@ -41,8 +41,8 @@ struct StepTwoMeasurementView: View {
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color.redGradientFirstButton,
-                        Color.redGradientSecondButton
+                        Color.appRedGradientFirstButton,
+                        Color.appRedGradientSecondButton
                     ]),
                     startPoint: .top,
                     endPoint: .bottom

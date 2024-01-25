@@ -19,7 +19,7 @@ struct SettingsView: View {
         } label: {
             VStack {
                 Image(.navBarBackButtonIcon)
-                    .foregroundColor(Color.mainText)
+                    .foregroundColor(Color.appMarengo)
                     .padding(10)
             }
             .background(Color.white)
@@ -30,7 +30,7 @@ struct SettingsView: View {
     // MARK: - Body -
     var body: some View {
         ZStack(alignment: .top) {
-            Color(.backgroundSreens).ignoresSafeArea()
+            Color(.appPaleBlue).ignoresSafeArea()
             VStack(spacing: 12) {
                 VStack {
                     VStack(spacing: 14) {
