@@ -1,5 +1,5 @@
 //
-//  ProgressBar.swift
+//  ProgressBarView.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 27.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressBar: View {
+struct ProgressBarView: View {
     // MARK: - Property -
     var progress: Float
     var isHeartBeating: Bool

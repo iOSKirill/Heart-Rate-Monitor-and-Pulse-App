@@ -19,7 +19,6 @@ enum StepMeasurement {
 
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
-
     @Published var pulseValue: String = "00"
     @Published var lastPulseValue: String = "00"
     @Published var currentStepMeasurement: StepMeasurement = .first
@@ -97,19 +96,17 @@ final class MeasurementViewModel: ObservableObject {
     private var pulseDetector = PulseDetector()
     private var inputs: [CGFloat] = []
     private var measurementStartedFlag = false
-    private var measurementSeconds = 0
+    private var measurementSeconds = 30
 
     private var timerSubscription: AnyCancellable?
 
-    // MARK: - Lifecycle
-
+    // MARK: - Lifecycle -
     init() {
         self.state = .initial
         didUpdateState()
     }
 
-    // MARK: - Public
-
+    // MARK: - Public -
     func toggleState() {
         switch state {
         case .initial:
@@ -123,11 +120,9 @@ final class MeasurementViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Measurement
-
+    // MARK: - Measurement -
     func startMeasurement() {
         toggleTorch(status: true)
-
         stopTimer()
 
         timerSubscription = Timer.publish(every: 1, on: .main, in: .default)
@@ -142,10 +137,10 @@ final class MeasurementViewModel: ObservableObject {
                 } else {
                     self.pulseValue = "\(lroundf(pulse))"
                     self.lastPulseValue = self.pulseValue
-                    self.measurementSeconds += 1
+                    self.measurementSeconds -= 1
                     self.updateProgress()
 
-                    if measurementSeconds >= 30 {
+                    if measurementSeconds <= 0 {
                         self.state = .finished
                         self.didUpdateState()
                     }
@@ -154,8 +149,7 @@ final class MeasurementViewModel: ObservableObject {
     }
 }
 
-// MARK: - Private
-
+// MARK: - Private -
 private extension MeasurementViewModel {
     func didUpdateState() {
         title = state.title
@@ -166,27 +160,22 @@ private extension MeasurementViewModel {
         switch state {
         case .initial:
             currentStepMeasurement = .first
-
-            stopTimer()
             progress = 0.0
-
-            measurementSeconds = 0
+            measurementSeconds = 30
             pulseValue = "00"
             lastPulseValue = "00"
-
+            stopTimer()
             deinitCaptureSession()
 
         case .inProgress:
             currentStepMeasurement = .second
-
+            progress = 0.0
             setupVideoCapture()
             setupCaptureSession()
-            progress = 0.0
 
         case .finished:
             currentStepMeasurement = .third
             progress = 1.0
-
             pulseValue = "00"
             lastPulseValue = "00"
         }
@@ -229,8 +218,7 @@ private extension MeasurementViewModel {
     }
 }
 
-// MARK: - State Utils
-
+// MARK: - State Utils -
 private extension MeasurementViewModel.State {
     var title: String {
         switch self {
@@ -280,7 +268,6 @@ private extension MeasurementViewModel.State {
 }
 
 // MARK: - Handle Image Buffer
-
 private extension MeasurementViewModel {
     func handle(buffer: CMSampleBuffer) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else { return }
@@ -367,7 +354,7 @@ private extension MeasurementViewModel {
             self.isProgressBar = 0.0
             self.lastPulseValue = "00"
             self.pulseValue = "00"
-            self.measurementSeconds = 0
+            self.measurementSeconds = 30
         }
     }
 }

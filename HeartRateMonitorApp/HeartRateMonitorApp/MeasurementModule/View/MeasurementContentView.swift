@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MeasurementContentView: View {
+    // MARK: - Property -
     var title: String
     var progress: Float
     var isHeartBeating: Bool
@@ -17,13 +18,14 @@ struct MeasurementContentView: View {
     var buttonTitle: String
     var action: () -> Void
 
+    // MARK: - Body -
     var body: some View {
         Text(title)
             .font(.appSemibold(of: 15))
             .foregroundColor(Color.appSlateGrey)
             .multilineTextAlignment(.center)
 
-        ProgressBar(
+        ProgressBarView(
             progress: progress,
             isHeartBeating: isHeartBeating,
             pulse: pulse
@@ -32,6 +34,7 @@ struct MeasurementContentView: View {
         if let descriptionText {
             descriptionText
         }
+
         Button {
             action()
         } label: {
@@ -56,14 +59,17 @@ struct MeasurementContentView: View {
 }
 
 #Preview {
-    MeasurementContentView(title: "Start",
-                        progress: 0.1,
-                        isHeartBeating: true,
-                        pulse: "50",
-                        descriptionText: Text("312"),
-                           buttonGradient: Gradient(colors: [.appBlueGradientFirstButton,
-                                                             .appBlueGradientSecondButton]),
-                           buttonTitle: "123",
-                           action: { print("sdf") }
+    MeasurementContentView(
+        title: "Start",
+        progress: 0.1,
+        isHeartBeating: true,
+        pulse: "50",
+        descriptionText: Text("initial view"),
+        buttonGradient: Gradient(colors: [
+            .appBlueGradientFirstButton,
+            .appBlueGradientSecondButton
+        ]),
+        buttonTitle: "123",
+        action: { print("initial action") }
     )
 }
