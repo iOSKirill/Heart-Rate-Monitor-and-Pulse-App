@@ -33,16 +33,4 @@ final class HomeHealthViewModel: ObservableObject {
             calendar.date(byAdding: .day, value: day, to: firstWeekDay)
         }
     }
-
-//    // MARK: - Reading the scroll offset -
-//    func getScrollOffsetReader() -> some View {
-//        GeometryReader { proxy in
-//            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
-//        }
-//    }
-//
-//    // MARK: - Update scroll status  -
-//    func updateSrollStatus(value: CGFloat) {
-//        isScroll = value < 30
-//    }
 }

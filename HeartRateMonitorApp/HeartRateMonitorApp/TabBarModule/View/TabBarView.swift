@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     // MARK: - Property -
-    @State private var selectedIndex: Int = 1
+    @State private var selectedIndex: Int = 0
     @State private var isPopupVisible = false
     @State private var isPresentedMeasurementView = false
 

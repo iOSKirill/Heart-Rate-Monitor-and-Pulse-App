@@ -78,7 +78,8 @@ struct MeasurementView: View {
                     descriptionText: viewModel.descriptionText,
                     buttonGradient: viewModel.buttonGradient,
                     buttonTitle: viewModel.buttonTitle,
-                    action: { viewModel.toggleState() }
+                    action: { viewModel.toggleState() },
+                    notNowButtonTitle: viewModel.notNowButtonTitle
                 )
             }
             .padding(.horizontal, 16)

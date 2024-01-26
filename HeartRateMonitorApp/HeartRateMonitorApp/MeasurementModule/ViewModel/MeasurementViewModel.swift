@@ -29,6 +29,7 @@ final class MeasurementViewModel: ObservableObject {
     private(set) var title: String = ""
     private(set) var progress: Float = 0.0
     private(set) var buttonTitle: String = ""
+    private(set) var notNowButtonTitle: String = ""
 
     private(set) var buttonGradient = Gradient(colors: [
         .appBlueGradientFirstButton,
@@ -156,6 +157,7 @@ private extension MeasurementViewModel {
         isBeatingHeart = state.isHeartbeating
         buttonGradient = state.buttonGradient
         buttonTitle = state.buttonTitle
+        notNowButtonTitle = state.notNowButtonTitle
 
         switch state {
         case .initial:
@@ -176,8 +178,7 @@ private extension MeasurementViewModel {
         case .finished:
             currentStepMeasurement = .third
             progress = 1.0
-            pulseValue = "00"
-            lastPulseValue = "00"
+            deinitCaptureSession()
         }
     }
 
@@ -263,6 +264,16 @@ private extension MeasurementViewModel.State {
 
         case .inProgress:
             return true
+        }
+    }
+
+    var notNowButtonTitle: String {
+        switch self {
+        case .initial, .inProgress:
+            return ""
+
+        case .finished:
+            return L10n.Measurement.StepThree.Button.notNow
         }
     }
 }

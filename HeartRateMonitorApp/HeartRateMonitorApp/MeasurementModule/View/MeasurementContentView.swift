@@ -17,6 +17,8 @@ struct MeasurementContentView: View {
     var buttonGradient: Gradient
     var buttonTitle: String
     var action: () -> Void
+    var notNowButtonTitle: String?
+    @State private var isPresentedHomeHealthView = false
 
     // MARK: - Body -
     var body: some View {
@@ -54,6 +56,19 @@ struct MeasurementContentView: View {
             .cornerRadius(43)
             .padding(.horizontal, 101.5)
             .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
+        }
+
+        if let notNowButtonTitle {
+            Button {
+                isPresentedHomeHealthView.toggle()
+            } label: {
+                Text(notNowButtonTitle)
+                    .font(.appUrbanistBold(of: 15))
+                    .foregroundColor(Color.appSlateGrey)
+            }
+            .fullScreenCover(isPresented: $isPresentedHomeHealthView) {
+                TabBarView()
+            }
         }
     }
 }
