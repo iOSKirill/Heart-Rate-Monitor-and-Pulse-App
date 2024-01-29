@@ -22,54 +22,59 @@ struct MeasurementContentView: View {
 
     // MARK: - Body -
     var body: some View {
-        Text(title)
-            .font(.appSemibold(of: 15))
-            .foregroundColor(Color.appSlateGrey)
-            .multilineTextAlignment(.center)
+        VStack(alignment: .center, spacing: 20) {
+            Text(title)
+                .font(.appSemibold(of: 15))
+                .foregroundColor(Color.appSlateGrey)
+                .multilineTextAlignment(.center)
 
-        ProgressBarView(
-            progress: progress,
-            isHeartBeating: isHeartBeating,
-            pulse: pulse
-        )
-
-        if let descriptionText {
-            descriptionText
-        }
-
-        Button {
-            action()
-        } label: {
-            VStack {
-                Text(buttonTitle)
-                    .font(.appUrbanistBold(of: 15))
-                    .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity, maxHeight: 37)
-            .background(
-                LinearGradient(
-                    gradient: buttonGradient,
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+            ProgressBarView(
+                progress: progress,
+                isHeartBeating: isHeartBeating,
+                pulse: pulse
             )
-            .cornerRadius(43)
-            .padding(.horizontal, 101.5)
-            .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
-        }
 
-        if let notNowButtonTitle {
-            Button {
-                isPresentedHomeHealthView.toggle()
-            } label: {
-                Text(notNowButtonTitle)
-                    .font(.appUrbanistBold(of: 15))
-                    .foregroundColor(Color.appSlateGrey)
+            if let descriptionText {
+                descriptionText
+
             }
-            .fullScreenCover(isPresented: $isPresentedHomeHealthView) {
-                TabBarView()
+
+            Button {
+                action()
+            } label: {
+                VStack {
+                    Text(buttonTitle)
+                        .font(.appUrbanistBold(of: 15))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 54)
+                }
+                .background(
+                    LinearGradient(
+                        gradient: buttonGradient,
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+                .cornerRadius(43)
+                .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
+            }
+
+            if let notNowButtonTitle {
+                Button {
+                    isPresentedHomeHealthView.toggle()
+                } label: {
+                    Text(notNowButtonTitle)
+                        .font(.appUrbanistBold(of: 15))
+                        .foregroundColor(Color.appSlateGrey)
+                }
+                .fullScreenCover(isPresented: $isPresentedHomeHealthView) {
+                    TabBarView()
+                }
             }
         }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 32)
     }
 }
 
@@ -84,7 +89,7 @@ struct MeasurementContentView: View {
             .appBlueGradientFirstButton,
             .appBlueGradientSecondButton
         ]),
-        buttonTitle: "123",
+        buttonTitle: "Start",
         action: { print("initial action") }
     )
 }

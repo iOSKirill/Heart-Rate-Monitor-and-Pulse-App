@@ -69,23 +69,19 @@ struct MeasurementView: View {
     // MARK: - Measurement view -
     var measurementView: some View {
         VStack {
-            VStack(alignment: .center, spacing: 20) {
-                MeasurementContentView(
-                    title: viewModel.title,
-                    progress: viewModel.progress,
-                    isHeartBeating: viewModel.isBeatingHeart,
-                    pulse: viewModel.pulseValue,
-                    descriptionText: viewModel.descriptionText,
-                    buttonGradient: viewModel.buttonGradient,
-                    buttonTitle: viewModel.buttonTitle,
-                    action: { viewModel.toggleState() },
-                    notNowButtonTitle: viewModel.notNowButtonTitle
-                )
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 32)
+            MeasurementContentView(
+                title: viewModel.title,
+                progress: viewModel.progress,
+                isHeartBeating: viewModel.isBeatingHeart,
+                pulse: viewModel.pulseValue,
+                descriptionText: viewModel.descriptionText,
+                buttonGradient: viewModel.buttonGradient,
+                buttonTitle: viewModel.buttonTitle,
+                action: { viewModel.toggleState() },
+                notNowButtonTitle: viewModel.notNowButtonTitle
+            )
         }
-        .frame(maxWidth: .infinity, maxHeight: 379)
+        .frame(maxWidth: .infinity)
         .background(.white)
         .cornerRadius(24)
         .padding(.horizontal, 16)
@@ -95,11 +91,12 @@ struct MeasurementView: View {
     var body: some View {
         ZStack {
             Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet,
-                             navBarLayout: .centerTitleRightButton(
-                title: L10n.Measurement.NavBar.title,
-                button: AnyView(closeViewButton)
-            )) {
+            CustomScrollView(
+                scrollOffSet: $viewModel.scrollOffSet,
+                navBarLayout: .centerTitleRightButton(
+                    title: L10n.Measurement.NavBar.title,
+                    button: AnyView(closeViewButton)
+                )) {
                 VStack {
                     measurementView
                     switch viewModel.currentStepMeasurement {

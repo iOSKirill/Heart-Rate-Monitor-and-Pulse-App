@@ -125,6 +125,7 @@ final class MeasurementViewModel: ObservableObject {
     func startMeasurement() {
         toggleTorch(status: true)
         stopTimer()
+        progress = 0.0
 
         timerSubscription = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
@@ -359,13 +360,13 @@ private extension MeasurementViewModel {
         pulseDetector.reset()
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            print("Cover the back camera until the image turns red 🟥")
             self.stopTimer()
             self.isBeatingHeart = false
-            self.isProgressBar = 0.0
-            self.lastPulseValue = "00"
-            self.pulseValue = "00"
+            self.isProgressBar = 0
+            self.progress = 0.0
             self.measurementSeconds = 30
+            self.pulseValue = "00"
+            self.lastPulseValue = "00"
         }
     }
 }

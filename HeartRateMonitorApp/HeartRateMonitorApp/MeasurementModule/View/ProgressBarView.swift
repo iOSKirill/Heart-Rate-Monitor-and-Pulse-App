@@ -28,6 +28,7 @@ struct ProgressBarView: View {
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.linear(duration: 1.0), value: progress)
                 .shadow(color: .appRed, radius: 1.5)
+                .frame(width: 159, height: 159)
 
             HStack {
                 Text(pulse)
