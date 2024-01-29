@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - RGB -
 struct RGB {
     var red: CGFloat
     var green: CGFloat
@@ -14,6 +15,7 @@ struct RGB {
     var alpha: CGFloat
 }
 
+// MARK: - HSV -
 struct HSV {
     var hue: CGFloat
     var saturation: CGFloat
@@ -21,9 +23,10 @@ struct HSV {
     var alpha: CGFloat
 }
 
-func hsv2rgb(_ hsv: HSV) -> RGB {
-    // Converts HSV to a RGB color
+// MARK: - Converts HSV to a RGB color -
+func convertHSVtoRGB(_ hsv: HSV) -> RGB {
     var rgb = RGB(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+
     var redComponent: CGFloat
     var greenComponent: CGFloat
     var blueComponent: CGFloat
@@ -78,8 +81,8 @@ func hsv2rgb(_ hsv: HSV) -> RGB {
     return rgb
 }
 
-func rgb2hsv(_ rgb: RGB) -> HSV {
-    // Converts RGB to a HSV color
+// MARK: - Converts RGB to a HSV color -
+func convertRGBtoHSV(_ rgb: RGB) -> HSV {
     var hsb = HSV(hue: 0.0, saturation: 0.0, brightness: 0.0, alpha: 0.0)
 
     let redValue: CGFloat = rgb.red

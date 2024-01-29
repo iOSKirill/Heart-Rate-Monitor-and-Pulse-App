@@ -37,9 +37,55 @@ internal enum L10n {
     }
   }
   internal enum Measurement {
+    /// bpm
+    internal static let bpm = L10n.tr("Localizable", "measurement.bpm", fallback: "bpm")
+    internal enum Bmp {
+      /// bpm
+      internal static let title = L10n.tr("Localizable", "measurement.bmp.title", fallback: "bpm")
+    }
     internal enum NavBar {
       /// Measurement
       internal static let title = L10n.tr("Localizable", "measurement.navBar.title", fallback: "Measurement")
+    }
+    internal enum StepOne {
+      /// Start
+      internal static let button = L10n.tr("Localizable", "measurement.stepOne.button", fallback: "Start")
+      /// It will take us %@ to measure
+      internal static func subtitle(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepOne.subtitle", String(describing: p1), fallback: "It will take us %@ to measure")
+      }
+      /// 30 seconds
+      internal static let time = L10n.tr("Localizable", "measurement.stepOne.time", fallback: "30 seconds")
+      /// Put your index finger to the phone's camera. Follow the following instructions
+      internal static let title = L10n.tr("Localizable", "measurement.stepOne.title", fallback: "Put your index finger to the phone's camera. Follow the following instructions")
+    }
+    internal enum StepThree {
+      /// For more information, save the current measurement.
+      internal static let title = L10n.tr("Localizable", "measurement.stepThree.title", fallback: "For more information, save the current measurement.")
+      internal enum Assessment {
+        /// Take measurements every day to monitor your health
+        internal static let title = L10n.tr("Localizable", "measurement.stepThree.assessment.title", fallback: "Take measurements every day to monitor your health")
+      }
+      internal enum Button {
+        /// Not now
+        internal static let notNow = L10n.tr("Localizable", "measurement.stepThree.button.notNow", fallback: "Not now")
+        /// Save
+        internal static let save = L10n.tr("Localizable", "measurement.stepThree.button.save", fallback: "Save")
+      }
+    }
+    internal enum StepTwo {
+      /// Stop
+      internal static let button = L10n.tr("Localizable", "measurement.stepTwo.button", fallback: "Stop")
+      /// Measuring: %@ left
+      internal static func subtitle(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepTwo.subtitle", String(describing: p1), fallback: "Measuring: %@ left")
+      }
+      /// %@s
+      internal static func time(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "measurement.stepTwo.time", String(describing: p1), fallback: "%@s")
+      }
+      /// Please do not remove your finger, wait for the measurement to finish.
+      internal static let title = L10n.tr("Localizable", "measurement.stepTwo.title", fallback: "Please do not remove your finger, wait for the measurement to finish.")
     }
   }
   internal enum NavigationBar {

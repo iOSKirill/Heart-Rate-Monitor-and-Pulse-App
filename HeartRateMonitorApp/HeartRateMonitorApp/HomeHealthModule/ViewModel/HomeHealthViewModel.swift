@@ -15,6 +15,8 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var currentDay = Date()
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
+    @Published var isPresentedSettingsView = false
+    @Published var scrollOffSet: CGFloat = 0.0
     private let calendar = Calendar.current
 
     // MARK: - Intializing -
@@ -30,17 +32,5 @@ final class HomeHealthViewModel: ObservableObject {
         currentWeek = (0...6).compactMap { day in
             calendar.date(byAdding: .day, value: day, to: firstWeekDay)
         }
-    }
-
-    // MARK: - Reading the scroll offset -
-    func getScrollOffsetReader() -> some View {
-        GeometryReader { proxy in
-            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
-        }
-    }
-
-    // MARK: - Update scroll status  -
-    func updateSrollStatus(value: CGFloat) {
-        isScroll = value < 30
     }
 }

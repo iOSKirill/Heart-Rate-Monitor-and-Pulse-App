@@ -27,8 +27,8 @@ disabled_rules:
 #   - nesting
 
     # temporary disable
+    - statement_position
 #   - vertical_whitespace_between_cases
-#   - statement_position
 #   - private_outlet
 #   - private_action
 #   - attributes

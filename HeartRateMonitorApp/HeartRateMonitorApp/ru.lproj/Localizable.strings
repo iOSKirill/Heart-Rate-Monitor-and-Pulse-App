@@ -37,6 +37,20 @@
 
 // MARK: - Measurement screen -
 "measurement.navBar.title" = "Измерение";
+"measurement.bmp.title" = "bpm";
+"measurement.stepOne.title" = "Приложите указательный палец к камере телефона. Следуйте следующим инструкциям";
+"measurement.stepOne.time" = "30 секунд";
+"measurement.stepOne.subtitle" = "Измерение займет у вас %@";
+"measurement.stepOne.button" = "Начать";
+"measurement.stepTwo.title" = "Пожалуйста, не убирайте палец, дождитесь завершения измерения.";
+"measurement.stepTwo.time" = "%@с";
+"measurement.stepTwo.subtitle" = "Измерение: осталось %@";
+"measurement.stepTwo.button" = "Остановить";
+"measurement.stepThree.title" = "Для получения дополнительной информации сохраните текущее измерение.";
+"measurement.stepThree.button.save" = "Сохранить";
+"measurement.stepThree.button.notNow" = "Не сейчас";
+"measurement.stepThree.assessment.title" = "Проводите измерения каждый день, чтобы следить за своим здоровьем";
+"measurement.bpm" = "bpm";
 
 // MARK: - Onboarding screen -
 "onboarding.stepOne.title" = "Измерьте частоту сердечных сокращений и пульс";

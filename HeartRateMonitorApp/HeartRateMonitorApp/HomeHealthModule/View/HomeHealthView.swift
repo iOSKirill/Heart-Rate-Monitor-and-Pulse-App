@@ -12,6 +12,23 @@ struct HomeHealthView: View {
     @StateObject var viewModel = HomeHealthViewModel()
     @Binding var isPopupVisible: Bool
 
+    // MARK: - Open settings screen -
+    var settingButton: some View {
+        Button {
+            viewModel.isPresentedSettingsView.toggle()
+        } label: {
+            VStack {
+                Image(.settingsButton)
+                    .padding(8)
+            }
+            .background(.white)
+            .cornerRadius(12)
+        }
+        .fullScreenCover(isPresented: $viewModel.isPresentedSettingsView) {
+            SettingsView()
+        }
+    }
+
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
         GeometryReader { geo in
@@ -21,12 +38,12 @@ struct HomeHealthView: View {
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
                                 .font(.appSemibold(of: 17))
-                                .foregroundColor(Color.mainText)
+                                .foregroundColor(Color.appMarengo)
                                 .background(
                                     ZStack {
                                         Circle()
                                             .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                            .foregroundColor(Color.currentDay)
+                                            .foregroundColor(Color.appBlue)
                                             .frame(width: 32, height: 32)
                                             .opacity(day.todayDateInCalendar ? 1 : 0)
                                     }
@@ -34,7 +51,7 @@ struct HomeHealthView: View {
 
                             Text(day.getWeekOfDayName)
                                 .font(.appSemibold(of: 15))
-                                .foregroundColor(Color.mainText)
+                                .foregroundColor(Color.appMarengo)
                                 .padding(.top, 6)
                         }
                         .frame(width: geo.size.width / 8, height: 69)
@@ -100,7 +117,7 @@ struct HomeHealthView: View {
                         .foregroundColor(.white)
                     Text(L10n.Dashboard.Measure.mainText)
                         .font(.appSemibold(of: 15))
-                        .foregroundColor(Color.measureDashboardSubtitle)
+                        .foregroundColor(Color.appVeryLightBlue)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 16)
                     Image(.pulseLine)
@@ -116,7 +133,7 @@ struct HomeHealthView: View {
         .frame(maxWidth: .infinity, minHeight: 367)
         .background(
             ZStack {
-            Color.currentDay
+            Color.appBlue
             Image(.measureBackgound)
                 .blur(radius: 8.5)
             }
@@ -152,7 +169,7 @@ struct HomeHealthView: View {
         VStack(alignment: .leading) {
             Text(L10n.Dashboard.Assessment.header)
                 .font(.appUrbanistBold(of: 17))
-                .foregroundColor(Color.mainText)
+                .foregroundColor(Color.appMarengo)
                 .padding(.leading, 16)
 
             VStack(alignment: .leading) {
@@ -161,7 +178,7 @@ struct HomeHealthView: View {
                         .padding(.leading, 16)
                     Text(L10n.Dashboard.Assessment.title)
                         .font(.appUrbanistBold(of: 17))
-                        .foregroundColor(Color.mainText)
+                        .foregroundColor(Color.appMarengo)
                         .padding(.leading, 12)
                     Spacer()
                 }
@@ -171,10 +188,10 @@ struct HomeHealthView: View {
                     VStack(spacing: 2) {
                         Text(L10n.Dashboard.Assessment.subtitle)
                             .font(.appUrbanistBold(of: 19))
-                            .foregroundColor(Color.mainText)
+                            .foregroundColor(Color.appMarengo)
                         Text(L10n.Dashboard.Assessment.mainText)
                             .font(.appSemibold(of: 15))
-                            .foregroundColor(Color.subtitle)
+                            .foregroundColor(Color.appSlateGrey)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 176)
                     }
@@ -204,28 +221,19 @@ struct HomeHealthView: View {
     // MARK: - Body -
     var body: some View {
         ZStack {
-            Color(.backgroundSreens).ignoresSafeArea()
-            ScrollView(showsIndicators: false) {
+            Color(.appPaleBlue).ignoresSafeArea()
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                title: L10n.NavigationBar.Health.title,
+                button: AnyView(settingButton)
+            )) {
                 VStack {
                     weekCalendar
                     ZStack {
                         rectanglesUnderDashboard
                         measureDashboard
-                        viewModel.getScrollOffsetReader()
                     }
                     weeklyAssessmentDashboard
                 }
-            }
-            .coordinateSpace(name: "scroll")
-            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-                viewModel.updateSrollStatus(value: value)
-            })
-            .safeAreaInset(edge: .top, content: {
-                Color.backgroundSreens
-                    .frame(height: 30)
-            })
-            .overlay {
-                CustomNavigationBar(isScrolling: $viewModel.isScroll)
             }
         }
     }

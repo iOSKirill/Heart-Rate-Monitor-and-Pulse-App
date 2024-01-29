@@ -44,8 +44,8 @@ struct PopupInfoView: View {
                     .background(
                         LinearGradient(
                             gradient: Gradient(colors: [
-                                Color.gradientFirstButton,
-                                Color.gradientSecondButton
+                                Color.appBlueGradientFirstButton,
+                                Color.appBlueGradientSecondButton
                             ]),
                             startPoint: .top,
                             endPoint: .bottom
@@ -53,6 +53,7 @@ struct PopupInfoView: View {
                     )
                     .cornerRadius(43)
                     .padding(.horizontal, 101.5)
+                    .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
                 }
             }
             .padding(.vertical, 20)

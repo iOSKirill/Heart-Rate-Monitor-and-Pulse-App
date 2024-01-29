@@ -28,8 +28,8 @@ final class OnboardingViewModel: ObservableObject {
     ]
     private(set) var blueGradient = LinearGradient(
         gradient: Gradient(colors: [
-            Color.gradientFirstButton,
-            Color.gradientSecondButton
+            Color.appBlueGradientFirstButton,
+            Color.appBlueGradientSecondButton
         ]),
         startPoint: .top,
         endPoint: .bottom

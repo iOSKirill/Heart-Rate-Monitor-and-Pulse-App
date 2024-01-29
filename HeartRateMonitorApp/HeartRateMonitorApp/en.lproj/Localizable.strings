@@ -37,6 +37,20 @@
 
 // MARK: - Measurement screen -
 "measurement.navBar.title" = "Measurement";
+"measurement.bmp.title" = "bpm";
+"measurement.stepOne.title" = "Put your index finger to the phone's camera. Follow the following instructions";
+"measurement.stepOne.time" = "30 seconds";
+"measurement.stepOne.subtitle" = "It will take us %@ to measure";
+"measurement.stepOne.button" = "Start";
+"measurement.stepTwo.title" = "Please do not remove your finger, wait for the measurement to finish.";
+"measurement.stepTwo.time" = "%@s";
+"measurement.stepTwo.subtitle" = "Measuring: %@ left";
+"measurement.stepTwo.button" = "Stop";
+"measurement.stepThree.title" = "For more information, save the current measurement.";
+"measurement.stepThree.button.save" = "Save";
+"measurement.stepThree.button.notNow" = "Not now";
+"measurement.stepThree.assessment.title" = "Take measurements every day to monitor your health";
+"measurement.bpm" = "bpm";
 
 // MARK: - Onboarding screen -
 "onboarding.stepOne.title" = "Measure Heart Rate & Pulse";
