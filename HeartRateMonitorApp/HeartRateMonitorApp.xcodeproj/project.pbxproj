@@ -18,6 +18,7 @@
 		6C2FE7A12B1798110092BFE5 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A02B1798110092BFE5 /* HistoryView.swift */; };
 		6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A32B1799800092BFE5 /* CustomButtonOnTabBar.swift */; };
 		6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */; };
+		6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3261952B67F2C100A15BEA /* AppConstants.swift */; };
 		6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */; };
 		6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */; };
 		6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */; };
@@ -63,6 +64,7 @@
 		6C2FE7A02B1798110092BFE5 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		6C2FE7A32B1799800092BFE5 /* CustomButtonOnTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnTabBar.swift; sourceTree = "<group>"; };
 		6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		6C3261952B67F2C100A15BEA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVStackInfo.swift; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 				6CC6AE992B3332A700F83B8B /* Utilities */,
 				6CC6AE9C2B3333AA00F83B8B /* PulseDetectorHelpers */,
 				6CC6AEA32B3336C600F83B8B /* Services */,
-				6C2FE7A22B1799400092BFE5 /* CustomViews */,
 				6CA878792B4D633300B2DCC3 /* LaunchScreenModule */,
 				6CA878802B4D722400B2DCC3 /* OnboardingModule */,
 				6C2FE7972B1797210092BFE5 /* TabBarModule */,
@@ -139,7 +140,7 @@
 				6CC6AE2C2B2C895600F83B8B /* MeasurementModule */,
 				6C2FE79B2B1797AF0092BFE5 /* HistoryModule */,
 				6CBD64CA2B1DEF23001D1DBF /* SettingsModule */,
-				6C2FE7A72B18E6730092BFE5 /* Extensions */,
+				6C3261942B67F29E00A15BEA /* Helpers */,
 				6CDFCC172B1927FE00B1A9A2 /* Fonts */,
 				6C2FE7662B1683730092BFE5 /* Assets.xcassets */,
 				6C2FE7752B174B650092BFE5 /* Localizable.strings */,
@@ -253,6 +254,16 @@
 				6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6C3261942B67F29E00A15BEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6C2FE7A22B1799400092BFE5 /* CustomViews */,
+				6C2FE7A72B18E6730092BFE5 /* Extensions */,
+				6C3261952B67F2C100A15BEA /* AppConstants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6CA878792B4D633300B2DCC3 /* LaunchScreenModule */ = {
@@ -522,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */,
+				6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
 				6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */,
 				6CA878862B4D744000B2DCC3 /* OnboardingView.swift in Sources */,
