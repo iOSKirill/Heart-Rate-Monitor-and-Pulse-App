@@ -20,7 +20,7 @@ final class RealmManager: RealmManagerProtocol {
     func addLastMeasurement(valueMeasurement: String, timeMeasurement: Date) {
         let pulseDB = PulseDB(value: valueMeasurement, time: timeMeasurement)
         do {
-            guard let realm = try? Realm() else { return }
+            let realm = try Realm()
             try realm.write {
                 realm.add(pulseDB)
             }
@@ -31,7 +31,7 @@ final class RealmManager: RealmManagerProtocol {
 
     func deleteMeasurementPulseDB(pulseDB: PulseDB) {
         do {
-            guard let realm = try? Realm() else { return }
+            let realm = try Realm()
             try realm.write {
                 realm.delete(pulseDB)
             }
