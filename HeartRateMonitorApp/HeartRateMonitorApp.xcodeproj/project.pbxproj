@@ -21,6 +21,7 @@
 		6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3261952B67F2C100A15BEA /* AppConstants.swift */; };
 		6C32619A2B67F71E00A15BEA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3261992B67F71E00A15BEA /* Realm */; };
 		6C32619C2B67F71E00A15BEA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C32619B2B67F71E00A15BEA /* RealmSwift */; };
+		6C32619E2B67F7DE00A15BEA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32619D2B67F7DE00A15BEA /* RealmManager.swift */; };
 		6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */; };
 		6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */; };
 		6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */; };
@@ -67,6 +68,7 @@
 		6C2FE7A32B1799800092BFE5 /* CustomButtonOnTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnTabBar.swift; sourceTree = "<group>"; };
 		6C2FE7A82B18E6B00092BFE5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		6C3261952B67F2C100A15BEA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		6C32619D2B67F7DE00A15BEA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVStackInfo.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */,
+				6C32619D2B67F7DE00A15BEA /* RealmManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,
 				6C2FE7A12B1798110092BFE5 /* HistoryView.swift in Sources */,
 				6CC6AE302B2C89D100F83B8B /* MeasurementView.swift in Sources */,
+				6C32619E2B67F7DE00A15BEA /* RealmManager.swift in Sources */,
 				6C2FE7932B1795210092BFE5 /* HomeHealthViewModel.swift in Sources */,
 				6C2FE7632B16836C0092BFE5 /* HeartRateMonitorApp.swift in Sources */,
 				7CF2D5642B5DBCD000D567DD /* MeasurementContentView.swift in Sources */,
