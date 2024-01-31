@@ -9,11 +9,14 @@ import Foundation
 import RealmSwift
 
 protocol RealmManagerProtocol {
+    var realm: Realm? { get }
     func addLastMeasurement(valueMeasurement: String, timeMeasurement: Date)
     func deleteMeasurementPulseDB(pulseDB: PulseDB)
 }
 
 final class RealmManager: RealmManagerProtocol {
+    var realm = try? Realm()
+
     func addLastMeasurement(valueMeasurement: String, timeMeasurement: Date) {
         let pulseDB = PulseDB(value: valueMeasurement, time: timeMeasurement)
         do {

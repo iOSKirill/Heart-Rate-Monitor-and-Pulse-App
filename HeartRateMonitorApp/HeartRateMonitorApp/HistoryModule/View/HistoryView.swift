@@ -19,14 +19,20 @@ struct HistoryView: View {
                 title: L10n.History.NavBar.title,
                 button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
             )) {
-                CustomHistoryView(
-                    dateAndTimeMeasurement: "24.05.2023",
-                    pulse: "80",
-                    assessment: "65%",
-                    hrv: "96"
-                )
+                ForEach(viewModel.arrayPulseDB, id: \.self) { item in
+                    CustomHistoryView(
+                        dateAndTimeMeasurement: "24.05.2023",
+                        pulse: item.value,
+                        assessment: "65%",
+                        hrv: "96"
+                    )
+                }
+                .onAppear {
+                    viewModel.trackingChangesRealmDB()
+                }
             }
         }
+
     }
 }
 
