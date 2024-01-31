@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct HistoryView: View {
+    // MARK: - Property -
+    @StateObject var viewModel = HistoryViewModel()
+
+    // MARK: - Body -
     var body: some View {
         ZStack {
-            Color.gray.ignoresSafeArea()
-            VStack {
-                Spacer()
-                Text("History screen")
-                Spacer()
+            Color(.appPaleBlue).ignoresSafeArea()
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                title: L10n.History.NavBar.title,
+                button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
+            )) {
+                CustomHistoryView(
+                    dateAndTimeMeasurement: "24.05.2023",
+                    pulse: "80",
+                    assessment: "65%",
+                    hrv: "96"
+                )
             }
         }
     }

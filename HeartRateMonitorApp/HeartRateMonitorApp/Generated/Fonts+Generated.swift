@@ -21,8 +21,9 @@ internal typealias Font = FontConvertible.Font
 // swiftlint:disable identifier_name line_length type_body_length
 internal enum FontFamily {
   internal enum Gilroy {
+    internal static let black = FontConvertible(name: "Gilroy-Black", family: "Gilroy", path: "Gilroy-black.ttf")
     internal static let bold = FontConvertible(name: "Gilroy-Bold", family: "Gilroy", path: "Gilroy-bold.ttf")
-    internal static let all: [FontConvertible] = [bold]
+    internal static let all: [FontConvertible] = [black, bold]
   }
   internal enum Urbanist {
     internal static let bold = FontConvertible(name: "Urbanist-Bold", family: "Urbanist", path: "Urbanist-Bold.ttf")

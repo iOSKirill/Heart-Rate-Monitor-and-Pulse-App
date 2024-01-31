@@ -8,5 +8,7 @@
 import Foundation
 
 final class HistoryViewModel: ObservableObject {
-
+    // MARK: - Property -
+    @Published var isPresentedSettingsView = false
+    @Published var scrollOffSet: CGFloat = 0.0
 }

@@ -36,6 +36,24 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
     }
   }
+  internal enum History {
+    /// bpm
+    internal static let bpm = L10n.tr("Localizable", "history.bpm", fallback: "bpm")
+    /// ms
+    internal static let ms = L10n.tr("Localizable", "history.ms", fallback: "ms")
+    internal enum Headline {
+      /// Assessment
+      internal static let assessment = L10n.tr("Localizable", "history.headline.assessment", fallback: "Assessment")
+      /// HRV
+      internal static let hrv = L10n.tr("Localizable", "history.headline.HRV", fallback: "HRV")
+      /// Pulse
+      internal static let pulse = L10n.tr("Localizable", "history.headline.pulse", fallback: "Pulse")
+    }
+    internal enum NavBar {
+      /// History
+      internal static let title = L10n.tr("Localizable", "history.navBar.title", fallback: "History")
+    }
+  }
   internal enum Measurement {
     /// bpm
     internal static let bpm = L10n.tr("Localizable", "measurement.bpm", fallback: "bpm")

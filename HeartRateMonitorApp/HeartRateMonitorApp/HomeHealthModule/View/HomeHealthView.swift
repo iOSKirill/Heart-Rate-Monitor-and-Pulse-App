@@ -224,7 +224,7 @@ struct HomeHealthView: View {
             Color(.appPaleBlue).ignoresSafeArea()
             CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                 title: L10n.NavigationBar.Health.title,
-                button: AnyView(settingButton)
+                button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
             )) {
                 VStack {
                     weekCalendar
