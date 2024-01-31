@@ -101,6 +101,9 @@ final class MeasurementViewModel: ObservableObject {
 
     private var timerSubscription: AnyCancellable?
 
+    private var realmManager: RealmManagerProtocol = RealmManager()
+    private var timeMeasurement: Date = Date()
+
     // MARK: - Lifecycle -
     init() {
         self.state = .initial
@@ -117,7 +120,9 @@ final class MeasurementViewModel: ObservableObject {
             state = .initial
 
         case .finished:
-            break
+            timeMeasurement = .now
+            realmManager.addLastMeasurement(valueMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
+            print("Pulse: \(lastPulseValue)")
         }
     }
 
