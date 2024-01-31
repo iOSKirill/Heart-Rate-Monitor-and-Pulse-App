@@ -21,7 +21,7 @@ struct HistoryView: View {
             )) {
                 ForEach(viewModel.arrayPulseDB, id: \.self) { item in
                     CustomHistoryView(
-                        dateAndTimeMeasurement: "24.05.2023",
+                        dateAndTimeMeasurement: item.time.getdateOfHistory,
                         pulse: item.value,
                         assessment: "65%",
                         hrv: "96"

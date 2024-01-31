@@ -122,7 +122,6 @@ final class MeasurementViewModel: ObservableObject {
         case .finished:
             timeMeasurement = .now
             realmManager.addLastMeasurement(valueMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
-            print("Pulse: \(lastPulseValue)")
         }
     }
 
