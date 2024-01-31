@@ -126,8 +126,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "popup.HRV.title", fallback: "HRV")
     }
     internal enum Assessment {
-      /// Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.
-      internal static let subtitle = L10n.tr("Localizable", "popup.assessment.subtitle", fallback: "Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.")
+      /// Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.
+      internal static let subtitle = L10n.tr("Localizable", "popup.assessment.subtitle", fallback: "Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.")
       /// Assessment
       internal static let title = L10n.tr("Localizable", "popup.assessment.title", fallback: "Assessment")
     }

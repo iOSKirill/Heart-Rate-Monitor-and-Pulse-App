@@ -19,7 +19,7 @@
 "dashboard.assessment.subtitle" = "No data";
 "dashboard.assessment.mainText" = "Take some measurements to see your results";
 "popup.assessment.title" = "Assessment";
-"popup.assessment.subtitle" = "Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.";
+"popup.assessment.subtitle" = "Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.";
 "popup.pulse.title" = "Pulse";
 "popup.pulse.subtitle" = "Heart Rate - heart rate, that is, the number of heartbeats per minute.";
 "popup.HRV.title" = "HRV";
