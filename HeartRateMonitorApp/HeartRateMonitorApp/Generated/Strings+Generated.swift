@@ -46,12 +46,21 @@ internal enum L10n {
       internal static let assessment = L10n.tr("Localizable", "history.headline.assessment", fallback: "Assessment")
       /// HRV
       internal static let hrv = L10n.tr("Localizable", "history.headline.HRV", fallback: "HRV")
+      /// Measurement history
+      internal static let noData = L10n.tr("Localizable", "history.headline.noData", fallback: "Measurement history")
       /// Pulse
       internal static let pulse = L10n.tr("Localizable", "history.headline.pulse", fallback: "Pulse")
     }
     internal enum NavBar {
       /// History
       internal static let title = L10n.tr("Localizable", "history.navBar.title", fallback: "History")
+    }
+    internal enum NoData {
+      /// To make a story appear, 
+      ///  take a measurement
+      internal static let subtitle = L10n.tr("Localizable", "history.noData.subtitle", fallback: "To make a story appear, \n take a measurement")
+      /// No data
+      internal static let title = L10n.tr("Localizable", "history.noData.title", fallback: "No data")
     }
   }
   internal enum Measurement {

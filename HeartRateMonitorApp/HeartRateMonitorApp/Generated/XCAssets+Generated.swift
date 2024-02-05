@@ -30,6 +30,8 @@ internal enum Asset {
     internal static let appBlueGradientFirstButton = ColorAsset(name: "AppBlueGradientFirstButton")
     internal static let appBlueGradientSecondButton = ColorAsset(name: "AppBlueGradientSecondButton")
     internal static let appBlueShadow = ColorAsset(name: "AppBlueShadow")
+    internal static let appBlueWhiteGradientFirst = ColorAsset(name: "AppBlueWhiteGradientFirst")
+    internal static let appBlueWhiteGradientSecond = ColorAsset(name: "AppBlueWhiteGradientSecond")
     internal static let appManatee = ColorAsset(name: "AppManatee")
     internal static let appMarengo = ColorAsset(name: "AppMarengo")
     internal static let appPaleBlue = ColorAsset(name: "AppPaleBlue")
@@ -38,6 +40,8 @@ internal enum Asset {
     internal static let appRedGradientSecondButton = ColorAsset(name: "AppRedGradientSecondButton")
     internal static let appSlateGrey = ColorAsset(name: "AppSlateGrey")
     internal static let appVeryLightBlue = ColorAsset(name: "AppVeryLightBlue")
+    internal static let appWhiteGradientFirst = ColorAsset(name: "AppWhiteGradientFirst")
+    internal static let appWhiteGradientSecond = ColorAsset(name: "AppWhiteGradientSecond")
   }
   internal enum Images {
     internal static let appIconLaunchScreen = ImageAsset(name: "AppIconLaunchScreen")
@@ -47,6 +51,7 @@ internal enum Asset {
     internal static let historyBackground = ImageAsset(name: "HistoryBackground")
     internal static let historyButton = ImageAsset(name: "HistoryButton")
     internal static let historyHeadlineIcon = ImageAsset(name: "HistoryHeadlineIcon")
+    internal static let historyNoDataBackground = ImageAsset(name: "HistoryNoDataBackground")
     internal static let homeButton = ImageAsset(name: "HomeButton")
     internal static let informationButton = ImageAsset(name: "InformationButton")
     internal static let measureBackgound = ImageAsset(name: "MeasureBackgound")

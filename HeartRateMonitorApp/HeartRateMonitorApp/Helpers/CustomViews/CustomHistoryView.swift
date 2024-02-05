@@ -54,9 +54,9 @@ struct CustomHistoryView: View {
                 .padding(.vertical, 8)
 
                 Divider()
-                    .frame(maxWidth: 1, maxHeight: 37)
+                    .frame(maxWidth: 1)
                     .background(Color.white.opacity(0.2))
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 20.5)
 
                 // Second section measurement
                 VStack(spacing: 4) {
@@ -74,9 +74,9 @@ struct CustomHistoryView: View {
                 .padding(.vertical, 8)
 
                 Divider()
-                    .frame(maxWidth: 1, maxHeight: 37)
+                    .frame(maxWidth: 1)
                     .background(Color.white.opacity(0.2))
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 20.5)
 
                 // Third section measurement
                 VStack(spacing: 4) {

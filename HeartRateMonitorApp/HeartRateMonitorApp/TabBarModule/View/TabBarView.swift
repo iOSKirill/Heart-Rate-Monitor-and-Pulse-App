@@ -16,6 +16,7 @@ struct TabBarView: View {
     // MARK: - Plus button  -
     var plusBarButton: some View {
         Button {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             isPresentedMeasurementView.toggle()
         } label: {
             Image(.plusButton)

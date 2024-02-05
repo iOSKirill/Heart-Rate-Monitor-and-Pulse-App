@@ -25,6 +25,7 @@ final class MeasurementViewModel: ObservableObject {
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
     @Published var scrollOffSet: CGFloat = 0.0
+    @Published var isPresentedHomeHealthView: Bool = false
 
     private(set) var title: String = ""
     private(set) var progress: Float = 0.0
@@ -122,6 +123,7 @@ final class MeasurementViewModel: ObservableObject {
         case .finished:
             timeMeasurement = .now
             realmManager.addLastMeasurement(valueMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
+            isPresentedHomeHealthView.toggle()
         }
     }
 

@@ -85,6 +85,9 @@ struct MeasurementView: View {
         .background(.white)
         .cornerRadius(24)
         .padding(.horizontal, 16)
+        .fullScreenCover(isPresented: $viewModel.isPresentedHomeHealthView) {
+            TabBarView()
+        }
     }
 
     // MARK: - Body -

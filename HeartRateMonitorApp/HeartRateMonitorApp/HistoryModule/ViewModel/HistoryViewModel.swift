@@ -7,15 +7,25 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
 
 final class HistoryViewModel: ObservableObject {
     // MARK: - Property -
-    @Published var isPresentedSettingsView = false
+    @Published var isPresentedSettingsView: Bool = false
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var arrayPulseDB: [PulseDB] = []
 
     private var realmManager: RealmManagerProtocol = RealmManager()
     private var notificationToken: NotificationToken?
+
+    private(set) var rectangleGradientFirst = Gradient(colors: [
+        .appBlueWhiteGradientFirst,
+        .appBlueWhiteGradientSecond
+    ])
+    private(set) var rectangleGradientSecond = Gradient(colors: [
+        .appWhiteGradientFirst,
+        .appWhiteGradientSecond
+    ])
 
     // Observer Realm
     func trackingChangesRealmDB() {
