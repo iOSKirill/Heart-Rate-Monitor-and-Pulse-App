@@ -83,9 +83,9 @@ struct HomeHealthView: View {
             .padding(.top, 24)
             .padding(.bottom, 10)
 
-            Divider()
-                .frame(maxWidth: .infinity, maxHeight: 1)
-                .background(Color.white.opacity(0.08))
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(.white.opacity(0.15))
 
             HStack(alignment: .center) {
                 VStack(spacing: 13) {

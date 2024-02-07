@@ -26,9 +26,9 @@ struct CustomHistoryView: View {
             .padding(.horizontal, 16)
             .padding(.top, 16)
 
-            Divider()
-                .frame(maxWidth: .infinity, maxHeight: 1)
-                .background(Color.white.opacity(0.2))
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(.white.opacity(0.15))
 
             HStack {
 
@@ -50,9 +50,9 @@ struct CustomHistoryView: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
 
-                Divider()
-                    .frame(maxWidth: 1)
-                    .background(Color.white.opacity(0.2))
+                Rectangle()
+                    .frame(width: 1, height: 37)
+                    .foregroundColor(.white.opacity(0.15))
                     .padding(.vertical, 20.5)
 
                 // Second section measurement
@@ -70,9 +70,9 @@ struct CustomHistoryView: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
 
-                Divider()
-                    .frame(maxWidth: 1)
-                    .background(Color.white.opacity(0.2))
+                Rectangle()
+                    .frame(width: 1, height: 37)
+                    .foregroundColor(.white.opacity(0.15))
                     .padding(.vertical, 20.5)
 
                 // Third section measurement
