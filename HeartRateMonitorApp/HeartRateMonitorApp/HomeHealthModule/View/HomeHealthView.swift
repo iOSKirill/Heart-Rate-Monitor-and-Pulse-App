@@ -136,6 +136,7 @@ struct HomeHealthView: View {
             Color.appBlue
             Image(.measureBackgound)
                 .blur(radius: 8.5)
+                .opacity(0.8)
             }
         )
         .cornerRadius(20)

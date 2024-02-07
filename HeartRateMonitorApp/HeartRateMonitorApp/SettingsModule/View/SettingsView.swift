@@ -12,21 +12,6 @@ struct SettingsView: View {
     @StateObject var viewModel = SettingsViewModel()
     @Environment(\.dismiss) var dismiss
 
-    // MARK: - Back button -
-    var backButton: some View {
-        Button {
-            dismiss()
-        } label: {
-            VStack {
-                Image(.navBarBackButtonIcon)
-                    .foregroundColor(Color.appMarengo)
-                    .padding(10)
-            }
-            .background(Color.white)
-            .cornerRadius(12)
-        }
-    }
-
     // MARK: - Body -
     var body: some View {
         ZStack(alignment: .top) {
@@ -91,7 +76,7 @@ struct SettingsView: View {
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .leftButtonCenterTitle(
                     title: L10n.Settings.NavBar.title,
-                    button: AnyView(backButton)
+                    button: AnyView(CustomBackButton())
                 )
             )
         }

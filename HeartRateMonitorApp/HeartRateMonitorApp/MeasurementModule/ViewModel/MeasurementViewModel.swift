@@ -122,7 +122,7 @@ final class MeasurementViewModel: ObservableObject {
 
         case .finished:
             timeMeasurement = .now
-            realmManager.addLastMeasurement(valueMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
+            realmManager.addLastMeasurement(pulseMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
             isPresentedHomeHealthView.toggle()
         }
     }

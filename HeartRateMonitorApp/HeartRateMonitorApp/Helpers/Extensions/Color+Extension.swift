@@ -57,6 +57,10 @@ public extension Color {
     var appBlue: Color {
         Color("AppBlue")
     }
+    /// #91C4DB
+    var appLightBlue: Color {
+        Color("AppLightBlue")
+    }
     /// #BED7E8
     var appBlueWhiteGradientFirst: Color {
         Color("AppBlueWhiteGradientFirst")

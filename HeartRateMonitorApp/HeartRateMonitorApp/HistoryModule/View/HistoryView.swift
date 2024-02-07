@@ -64,28 +64,27 @@ struct HistoryView: View {
 
     // MARK: - Body -
     var body: some View {
-        ZStack {
-            Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
-                title: L10n.History.NavBar.title,
-                button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
-            )) {
-                VStack {
-//                    if !viewModel.arrayPulseDB.isEmpty {
-//                        ForEach(viewModel.arrayPulseDB, id: \.self) { item in
-//                            CustomHistoryView(
-//                                dateAndTimeMeasurement: item.time.getdateOfHistory,
-//                                pulse: item.value,
-//                                assessment: "65%",
-//                                hrv: "96"
-//                            )
-//                        }
-//                    } else {
-                        notDataMeasurement
-//                    }
-                }
-                .onAppear {
-                    viewModel.trackingChangesRealmDB()
+        NavigationView {
+            ZStack {
+                Color(.appPaleBlue).ignoresSafeArea()
+                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                    title: L10n.History.NavBar.title,
+                    button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
+                )) {
+                    VStack {
+                        if !viewModel.arrayPulseDB.isEmpty {
+                            ForEach(viewModel.arrayPulseDB, id: \.self) { item in
+                                NavigationLink(destination: HistoryInfoView(measurementDetails: item)) {
+                                    CustomHistoryView(historyInfo: item)
+                                }
+                            }
+                        } else {
+                            notDataMeasurement
+                        }
+                    }
+                    .onAppear {
+                        viewModel.trackingChangesRealmDB()
+                    }
                 }
             }
         }

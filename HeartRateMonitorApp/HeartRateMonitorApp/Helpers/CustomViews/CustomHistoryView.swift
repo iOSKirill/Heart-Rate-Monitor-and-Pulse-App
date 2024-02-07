@@ -9,10 +9,7 @@ import SwiftUI
 
 struct CustomHistoryView: View {
     // MARK: - Property -
-    var dateAndTimeMeasurement: String
-    var pulse: String
-    var assessment: String
-    var hrv: String
+    var historyInfo: PulseDB
 
     // MARK: - Body -
     var body: some View {
@@ -20,7 +17,7 @@ struct CustomHistoryView: View {
             HStack {
                 Image(.historyHeadlineIcon)
                     .padding(.trailing, 12)
-                Text(dateAndTimeMeasurement)
+                Text(historyInfo.time.getDateOfHistory)
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(.white)
                 Spacer()
@@ -42,7 +39,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(pulse)
+                        Text(historyInfo.pulse)
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                         Text(L10n.History.bpm)
@@ -65,7 +62,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(assessment)
+                        Text("60%")
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                     }
@@ -85,7 +82,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(hrv)
+                        Text("90")
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                         Text(L10n.History.ms)
@@ -107,11 +104,12 @@ struct CustomHistoryView: View {
             Color.appBlue
             Image(.historyBackground)
                     .blur(radius: 8.5)
-                    .opacity(0.6)
+                    .opacity(0.8)
             }
         )
         .cornerRadius(20)
         .padding(.top, 12)
         .padding(.horizontal, 16)
+        .buttonStyle(.plain)
     }
 }

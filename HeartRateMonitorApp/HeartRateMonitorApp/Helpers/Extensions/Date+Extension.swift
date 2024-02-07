@@ -11,6 +11,7 @@ enum DateFormat: String {
     case dayOfMonth = "EEE"
     case dayOfWeek = "dd"
     case dateOfHistory = "dd.MM.yyyy - HH:mm"
+    case dateOfHistoryDetails = "HH:mm"
 }
 
 extension Date {
@@ -27,8 +28,12 @@ extension Date {
         return formatted(.dayOfWeek)
     }
 
-    var getdateOfHistory: String {
+    var getDateOfHistory: String {
         return formatted(.dateOfHistory)
+    }
+
+    var getDateOfHistoryDetails: String {
+        return formatted(.dateOfHistoryDetails)
     }
 
     private func formatted(_ format: DateFormat) -> String {

@@ -50,6 +50,8 @@
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
 		6CDFCC2D2B1A974C00B1A9A2 /* Urbanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */; };
 		6CEC0BFC2B7104A80009A872 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFB2B7104A80009A872 /* RectangleView.swift */; };
+		6CEC0BFE2B7232640009A872 /* HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */; };
+		6CEC0C002B72A3510009A872 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */; };
 		6CEDD4522B3C309F0024C41A /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDD4512B3C309F0024C41A /* ProgressBarView.swift */; };
 		6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA342B247F97000EC270 /* Font+Extension.swift */; };
 		6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */; };
@@ -102,6 +104,8 @@
 		6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		6CEC0BFB2B7104A80009A872 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
+		6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		6CEDD4512B3C309F0024C41A /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		6CF3FA342B247F97000EC270 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				6C2FE7A02B1798110092BFE5 /* HistoryView.swift */,
+				6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */,
 				6CEC0BFB2B7104A80009A872 /* RectangleView.swift */,
 			);
 			path = View;
@@ -258,6 +263,7 @@
 				6CC6AE282B2B81A700F83B8B /* CustomSettingsButton.swift */,
 				6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */,
 				6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */,
+				6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */,
+				6CEC0C002B72A3510009A872 /* CustomBackButton.swift in Sources */,
 				6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
 				6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */,
@@ -579,6 +586,7 @@
 				6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */,
 				6C2FE79A2B1797480092BFE5 /* TabBarView.swift in Sources */,
 				6C2FE7952B1796870092BFE5 /* HomeHealthView.swift in Sources */,
+				6CEC0BFE2B7232640009A872 /* HistoryInfoView.swift in Sources */,
 				6CEC0BFC2B7104A80009A872 /* RectangleView.swift in Sources */,
 				6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */,
 				6CA878842B4D742800B2DCC3 /* OnboardingViewModel.swift in Sources */,
@@ -668,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -726,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

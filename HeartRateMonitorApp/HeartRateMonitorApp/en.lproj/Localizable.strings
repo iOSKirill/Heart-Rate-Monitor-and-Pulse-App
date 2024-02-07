@@ -70,3 +70,4 @@
 "history.headline.noData" = "Measurement history";
 "history.noData.title" = "No data";
 "history.noData.subtitle" = "To make a story appear, \n take a measurement";
+"history.dashboard.healine" = "Today at";

@@ -41,6 +41,10 @@ internal enum L10n {
     internal static let bpm = L10n.tr("Localizable", "history.bpm", fallback: "bpm")
     /// ms
     internal static let ms = L10n.tr("Localizable", "history.ms", fallback: "ms")
+    internal enum Dashboard {
+      /// Today at
+      internal static let healine = L10n.tr("Localizable", "history.dashboard.healine", fallback: "Today at")
+    }
     internal enum Headline {
       /// Assessment
       internal static let assessment = L10n.tr("Localizable", "history.headline.assessment", fallback: "Assessment")
