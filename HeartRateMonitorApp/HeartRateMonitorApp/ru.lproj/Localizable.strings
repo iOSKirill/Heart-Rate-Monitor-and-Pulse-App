@@ -70,4 +70,5 @@
 "history.headline.noData" = "История измерений";
 "history.noData.title" = "Нет данных";
 "history.noData.subtitle" = "Чтобы история появилась, \n выполните измерение";
-"history.dashboard.healine" = "Сегодня в";
+"history.time.today" = "Сегодня в";
+"history.time.yesterday" = "Вчера в";

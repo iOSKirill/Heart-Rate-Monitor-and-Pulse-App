@@ -12,6 +12,7 @@ struct HistoryInfoView: View {
     @State var scrollOffSet: CGFloat = 0.0
     @State var isPresentedSettingsView: Bool = false
     @State var measurementDetails: PulseDB
+    @Binding var showTabBar: Bool
 
     // MARK: - Share button -
     var shareHistoryButton: some View {
@@ -33,7 +34,7 @@ struct HistoryInfoView: View {
 
             // Headline
             HStack {
-                Text("\(L10n.History.Dashboard.healine) \(measurementDetails.time.getDateOfHistoryDetails)")
+                Text(measurementDetails.time.getDateOfHistoryDetails)
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(.white)
                 Spacer()
@@ -69,7 +70,7 @@ struct HistoryInfoView: View {
                     .foregroundColor(.white.opacity(0.15))
                     .padding(.horizontal, 4)
 
-                VStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: 8) {
                     // Pulse detail
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 8) {
@@ -176,7 +177,7 @@ struct HistoryInfoView: View {
             Color(.appPaleBlue).ignoresSafeArea()
             CustomScrollView(scrollOffSet: $scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
                 title: L10n.History.NavBar.title,
-                buttonFirst: AnyView(CustomBackButton()),
+                buttonFirst: AnyView(CustomBackButton(showTabBar: $showTabBar)),
                 buttonSecond: AnyView(shareHistoryButton)
             )) {
                 VStack(spacing: 11) {
@@ -185,10 +186,13 @@ struct HistoryInfoView: View {
                 }
             }
         }
+        .onAppear {
+            showTabBar = false
+        }
         .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    HistoryInfoView(measurementDetails: .init(pulse: "60", hrv: "90", assessment: "50%", time: .now))
+    HistoryInfoView(measurementDetails: .init(pulse: "60", hrv: "90", assessment: "50%", time: .now), showTabBar: .constant(true))
 }

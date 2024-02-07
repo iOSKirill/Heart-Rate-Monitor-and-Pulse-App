@@ -41,10 +41,6 @@ internal enum L10n {
     internal static let bpm = L10n.tr("Localizable", "history.bpm", fallback: "bpm")
     /// ms
     internal static let ms = L10n.tr("Localizable", "history.ms", fallback: "ms")
-    internal enum Dashboard {
-      /// Today at
-      internal static let healine = L10n.tr("Localizable", "history.dashboard.healine", fallback: "Today at")
-    }
     internal enum Headline {
       /// Assessment
       internal static let assessment = L10n.tr("Localizable", "history.headline.assessment", fallback: "Assessment")
@@ -65,6 +61,12 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "history.noData.subtitle", fallback: "To make a story appear, \n take a measurement")
       /// No data
       internal static let title = L10n.tr("Localizable", "history.noData.title", fallback: "No data")
+    }
+    internal enum Time {
+      /// Today at
+      internal static let today = L10n.tr("Localizable", "history.time.today", fallback: "Today at")
+      /// Yesterday at
+      internal static let yesterday = L10n.tr("Localizable", "history.time.yesterday", fallback: "Yesterday at")
     }
   }
   internal enum Measurement {

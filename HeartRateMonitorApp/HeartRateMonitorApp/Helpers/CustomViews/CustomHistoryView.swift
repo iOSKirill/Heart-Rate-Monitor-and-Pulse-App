@@ -62,7 +62,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("60%")
+                        Text(historyInfo.assessment)
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                     }
@@ -82,7 +82,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("90")
+                        Text(historyInfo.hrv)
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                         Text(L10n.History.ms)

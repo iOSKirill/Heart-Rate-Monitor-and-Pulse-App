@@ -76,7 +76,7 @@ struct SettingsView: View {
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .leftButtonCenterTitle(
                     title: L10n.Settings.NavBar.title,
-                    button: AnyView(CustomBackButton())
+                    button: AnyView(CustomBackButton(showTabBar: .constant(true)))
                 )
             )
         }

@@ -10,6 +10,7 @@ import SwiftUI
 struct HistoryView: View {
     // MARK: - Property -
     @StateObject var viewModel = HistoryViewModel()
+    @Binding var showTabBar: Bool
 
     var notDataMeasurement: some View {
         VStack(spacing: 8) {
@@ -74,7 +75,10 @@ struct HistoryView: View {
                     VStack {
                         if !viewModel.arrayPulseDB.isEmpty {
                             ForEach(viewModel.arrayPulseDB, id: \.self) { item in
-                                NavigationLink(destination: HistoryInfoView(measurementDetails: item)) {
+                                NavigationLink(destination: HistoryInfoView(
+                                    measurementDetails: item,
+                                    showTabBar: $showTabBar
+                                )) {
                                     CustomHistoryView(historyInfo: item)
                                 }
                             }
@@ -92,5 +96,5 @@ struct HistoryView: View {
 }
 
 #Preview {
-    HistoryView()
+    HistoryView(showTabBar: .constant(true))
 }

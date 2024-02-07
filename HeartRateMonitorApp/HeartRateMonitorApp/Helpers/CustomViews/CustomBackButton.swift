@@ -10,11 +10,13 @@ import SwiftUI
 struct CustomBackButton: View {
     // MARK: - Property -
     @Environment(\.dismiss) var dismiss
+    @Binding var showTabBar: Bool
 
     // MARK: - Back button -
     var body: some View {
         Button {
             dismiss()
+            showTabBar = true
         } label: {
             VStack {
                 Image(.navBarBackButtonIcon)
@@ -28,5 +30,5 @@ struct CustomBackButton: View {
 }
 
 #Preview {
-    CustomBackButton()
+    CustomBackButton(showTabBar: .constant(true))
 }

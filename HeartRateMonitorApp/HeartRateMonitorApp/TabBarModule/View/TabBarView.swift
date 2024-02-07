@@ -12,6 +12,7 @@ struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @State private var isPopupVisible = false
     @State private var isPresentedMeasurementView = false
+    @State private var showTabBar = true
 
     // MARK: - Plus button  -
     var plusBarButton: some View {
@@ -68,13 +69,17 @@ struct TabBarView: View {
                 switch selectedIndex {
                 case 0:
                     HomeHealthView(isPopupVisible: $isPopupVisible)
+
                 case 1:
-                    HistoryView()
+                    HistoryView(showTabBar: $showTabBar)
+
                 default:
                     Text("View")
                 }
                 ZStack {
-                    tabBarButtons
+                    if showTabBar {
+                        tabBarButtons
+                    }
                 }
             }
             if isPopupVisible {

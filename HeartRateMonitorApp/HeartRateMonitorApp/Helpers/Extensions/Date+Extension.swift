@@ -33,7 +33,14 @@ extension Date {
     }
 
     var getDateOfHistoryDetails: String {
-        return formatted(.dateOfHistoryDetails)
+        let calendar = Calendar.current
+        if calendar.isDateInToday(self) {
+            return "\(L10n.History.Time.today) \(formatted(.dateOfHistoryDetails))"
+        } else if calendar.isDateInYesterday(self) {
+            return "\(L10n.History.Time.yesterday) \(formatted(.dateOfHistoryDetails))"
+        } else {
+            return formatted(.dateOfHistory)
+        }
     }
 
     private func formatted(_ format: DateFormat) -> String {
