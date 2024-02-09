@@ -68,7 +68,7 @@ struct TabBarView: View {
             VStack(spacing: 0) {
                 switch selectedIndex {
                 case 0:
-                    HomeHealthView(isPopupVisible: $isPopupVisible)
+                    HomeHealthView(isPopupVisible: $isPopupVisible, showTabBar: $showTabBar)
 
                 case 1:
                     HistoryView(showTabBar: $showTabBar)

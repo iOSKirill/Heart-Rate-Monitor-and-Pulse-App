@@ -11,7 +11,6 @@ import SwiftUI
 
 final class HistoryViewModel: ObservableObject {
     // MARK: - Property -
-    @Published var isPresentedSettingsView: Bool = false
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var arrayPulseDB: [PulseDB] = []
 

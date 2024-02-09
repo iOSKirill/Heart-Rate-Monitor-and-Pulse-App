@@ -70,7 +70,7 @@ struct HistoryView: View {
                 Color(.appPaleBlue).ignoresSafeArea()
                 CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                     title: L10n.History.NavBar.title,
-                    button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
+                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
                 )) {
                     VStack {
                         if !viewModel.arrayPulseDB.isEmpty {

@@ -11,6 +11,7 @@ struct SettingsView: View {
     // MARK: - Property -
     @StateObject var viewModel = SettingsViewModel()
     @Environment(\.dismiss) var dismiss
+    @Binding var showTabBar: Bool
 
     // MARK: - Body -
     var body: some View {
@@ -76,13 +77,17 @@ struct SettingsView: View {
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .leftButtonCenterTitle(
                     title: L10n.Settings.NavBar.title,
-                    button: AnyView(CustomBackButton(showTabBar: .constant(true)))
+                    button: AnyView(CustomBackButton(showTabBar: $showTabBar))
                 )
             )
         }
+        .onAppear {
+            showTabBar = false
+        }
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(showTabBar: .constant(true))
 }

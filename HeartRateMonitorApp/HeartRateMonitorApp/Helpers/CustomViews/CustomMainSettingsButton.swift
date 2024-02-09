@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct CustomMainSettingsButton: View {
-    // MARK: - Property -
-    @Binding var isPresentedView: Bool
-
+    @Binding var showTabBar: Bool
     // MARK: - Body -
     var body: some View {
-        Button {
-            isPresentedView.toggle()
+        NavigationLink {
+            SettingsView(showTabBar: $showTabBar)
         } label: {
             VStack {
                 Image(.settingsButton)
@@ -22,9 +20,6 @@ struct CustomMainSettingsButton: View {
             }
             .background(.white)
             .cornerRadius(12)
-        }
-        .fullScreenCover(isPresented: $isPresentedView) {
-            SettingsView()
         }
     }
 }

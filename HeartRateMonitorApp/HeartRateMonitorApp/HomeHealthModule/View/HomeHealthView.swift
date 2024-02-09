@@ -11,23 +11,7 @@ struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
     @Binding var isPopupVisible: Bool
-
-    // MARK: - Open settings screen -
-    var settingButton: some View {
-        Button {
-            viewModel.isPresentedSettingsView.toggle()
-        } label: {
-            VStack {
-                Image(.settingsButton)
-                    .padding(8)
-            }
-            .background(.white)
-            .cornerRadius(12)
-        }
-        .fullScreenCover(isPresented: $viewModel.isPresentedSettingsView) {
-            SettingsView()
-        }
-    }
+    @Binding var showTabBar: Bool
 
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
@@ -221,19 +205,21 @@ struct HomeHealthView: View {
 
     // MARK: - Body -
     var body: some View {
-        ZStack {
-            Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
-                title: L10n.NavigationBar.Health.title,
-                button: AnyView(CustomMainSettingsButton(isPresentedView: $viewModel.isPresentedSettingsView))
-            )) {
-                VStack {
-                    weekCalendar
-                    ZStack {
-                        rectanglesUnderDashboard
-                        measureDashboard
+        NavigationView {
+            ZStack {
+                Color(.appPaleBlue).ignoresSafeArea()
+                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                    title: L10n.NavigationBar.Health.title,
+                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
+                )) {
+                    VStack {
+                        weekCalendar
+                        ZStack {
+                            rectanglesUnderDashboard
+                            measureDashboard
+                        }
+                        weeklyAssessmentDashboard
                     }
-                    weeklyAssessmentDashboard
                 }
             }
         }
@@ -241,5 +227,5 @@ struct HomeHealthView: View {
 }
 
 #Preview {
-    HomeHealthView(isPopupVisible: .constant(true))
+    HomeHealthView(isPopupVisible: .constant(true), showTabBar: .constant(true))
 }
