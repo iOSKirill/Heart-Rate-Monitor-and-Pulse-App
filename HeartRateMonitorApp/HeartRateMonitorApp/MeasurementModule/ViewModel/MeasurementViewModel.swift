@@ -20,7 +20,7 @@ enum StepMeasurement {
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
     @Published var pulseValue: String = "00"
-    @Published var lastPulseValue: String = "00"
+    @Published var lastPulseValue: Int = 00
     @Published var currentStepMeasurement: StepMeasurement = .first
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
@@ -144,7 +144,7 @@ final class MeasurementViewModel: ObservableObject {
                     self.pulseValue = "00"
                 } else {
                     self.pulseValue = "\(lroundf(pulse))"
-                    self.lastPulseValue = self.pulseValue
+                    self.lastPulseValue = Int(pulseValue) ?? 0
                     self.measurementSeconds -= 1
                     self.updateProgress()
 
@@ -172,7 +172,7 @@ private extension MeasurementViewModel {
             progress = 0.0
             measurementSeconds = 30
             pulseValue = "00"
-            lastPulseValue = "00"
+            lastPulseValue = 00
             stopTimer()
             deinitCaptureSession()
 
@@ -372,7 +372,7 @@ private extension MeasurementViewModel {
             self.progress = 0.0
             self.measurementSeconds = 30
             self.pulseValue = "00"
-            self.lastPulseValue = "00"
+            self.lastPulseValue = 00
         }
     }
 }

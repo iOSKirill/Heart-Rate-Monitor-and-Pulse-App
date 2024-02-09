@@ -9,9 +9,7 @@ import SwiftUI
 
 struct HistoryInfoView: View {
     // MARK: - Property -
-    @State var scrollOffSet: CGFloat = 0.0
-    @State var isPresentedSettingsView: Bool = false
-    @State var measurementDetails: PulseDB
+    @ObservedObject var viewModel: HistoryInfoViewModel
     @Binding var showTabBar: Bool
 
     // MARK: - Share button -
@@ -34,7 +32,7 @@ struct HistoryInfoView: View {
 
             // Headline
             HStack {
-                Text(measurementDetails.time.getDateOfHistoryDetails)
+                Text(viewModel.measurementDetails.time.getDateOfHistoryDetails)
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(.white)
                 Spacer()
@@ -58,7 +56,7 @@ struct HistoryInfoView: View {
                             .foregroundColor(.white)
                     }
 
-                    Text(measurementDetails.assessment)
+                    Text("\(viewModel.measurementDetails.assessment)%")
                         .font(.appBlack(of: 48))
                         .foregroundColor(.white)
                         .padding(.leading, 42)
@@ -81,7 +79,7 @@ struct HistoryInfoView: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text(measurementDetails.pulse)
+                            Text("\(viewModel.measurementDetails.pulse)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.bpm)
@@ -101,7 +99,7 @@ struct HistoryInfoView: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text(measurementDetails.hrv)
+                            Text("\(viewModel.measurementDetails.hrv)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.ms)
@@ -118,7 +116,7 @@ struct HistoryInfoView: View {
             .padding(.top, 24)
             .padding(.bottom, 15)
 
-            Text("Today your body is working quite \n well and is ready to work.")
+            Text(viewModel.getDescriptionForAssessment())
                 .font(.appSemibold(of: 15))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
@@ -175,7 +173,7 @@ struct HistoryInfoView: View {
     var body: some View {
         ZStack {
             Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
+            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
                 title: L10n.History.NavBar.title,
                 buttonFirst: AnyView(CustomBackButton(showTabBar: $showTabBar)),
                 buttonSecond: AnyView(shareHistoryButton)
@@ -194,5 +192,5 @@ struct HistoryInfoView: View {
 }
 
 #Preview {
-    HistoryInfoView(measurementDetails: .init(pulse: "60", hrv: "90", assessment: "50%", time: .now), showTabBar: .constant(true))
+    HistoryInfoView(viewModel: .init(measurementDetails: .init()), showTabBar: .constant(true))
 }

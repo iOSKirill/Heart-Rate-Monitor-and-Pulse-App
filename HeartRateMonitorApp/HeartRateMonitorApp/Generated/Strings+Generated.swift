@@ -62,11 +62,27 @@ internal enum L10n {
       /// No data
       internal static let title = L10n.tr("Localizable", "history.noData.title", fallback: "No data")
     }
+  }
+  internal enum HistoryInfo {
+    internal enum Subtitle {
+      /// Unsatisfactory! 
+      ///  It is better to consult with your doctor.
+      internal static let lowHealthRange = L10n.tr("Localizable", "historyInfo.subtitle.lowHealthRange", fallback: "Unsatisfactory! \n It is better to consult with your doctor.")
+      /// Satisfactory. 
+      ///  Try to rest more
+      internal static let mediumHealthRange = L10n.tr("Localizable", "historyInfo.subtitle.mediumHealthRange", fallback: "Satisfactory. \n Try to rest more")
+      internal enum HighHealthRange {
+        /// You were in great shape on
+        internal static let otherDates = L10n.tr("Localizable", "historyInfo.subtitle.highHealthRange.otherDates", fallback: "You were in great shape on")
+        /// You are in great shape today!
+        internal static let today = L10n.tr("Localizable", "historyInfo.subtitle.highHealthRange.today", fallback: "You are in great shape today!")
+      }
+    }
     internal enum Time {
       /// Today at
-      internal static let today = L10n.tr("Localizable", "history.time.today", fallback: "Today at")
+      internal static let today = L10n.tr("Localizable", "historyInfo.time.today", fallback: "Today at")
       /// Yesterday at
-      internal static let yesterday = L10n.tr("Localizable", "history.time.yesterday", fallback: "Yesterday at")
+      internal static let yesterday = L10n.tr("Localizable", "historyInfo.time.yesterday", fallback: "Yesterday at")
     }
   }
   internal enum Measurement {

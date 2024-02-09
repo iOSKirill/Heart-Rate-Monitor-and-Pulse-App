@@ -39,7 +39,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(historyInfo.pulse)
+                        Text("\(historyInfo.pulse)")
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                         Text(L10n.History.bpm)
@@ -62,7 +62,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(historyInfo.assessment)
+                        Text("\(historyInfo.assessment)%")
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                     }
@@ -82,7 +82,7 @@ struct CustomHistoryView: View {
                         .foregroundColor(.white)
 
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(historyInfo.hrv)
+                        Text("\(historyInfo.hrv)")
                             .font(.appBlack(of: 32))
                             .foregroundColor(.white)
                         Text(L10n.History.ms)

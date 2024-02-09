@@ -70,5 +70,11 @@
 "history.headline.noData" = "История измерений";
 "history.noData.title" = "Нет данных";
 "history.noData.subtitle" = "Чтобы история появилась, \n выполните измерение";
-"history.time.today" = "Сегодня в";
-"history.time.yesterday" = "Вчера в";
+
+// MARK: - History info screen -
+"historyInfo.time.today" = "Сегодня в";
+"historyInfo.time.yesterday" = "Вчера в";
+"historyInfo.subtitle.highHealthRange.today" = "Сегодня ты в отличной форме!";
+"historyInfo.subtitle.highHealthRange.otherDates" = "Ты был в отличной форме - ";
+"historyInfo.subtitle.mediumHealthRange" = "Удовлетворительный. \n Старайтесь больше отдыхать";
+"historyInfo.subtitle.lowHealthRange" = "Неудовлетворительно! \n Лучше проконсультироваться со своим врачом.";

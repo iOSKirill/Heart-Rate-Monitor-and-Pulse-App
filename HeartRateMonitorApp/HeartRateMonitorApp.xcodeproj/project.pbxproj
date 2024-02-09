@@ -26,6 +26,7 @@
 		6C32619C2B67F71E00A15BEA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C32619B2B67F71E00A15BEA /* RealmSwift */; };
 		6C32619E2B67F7DE00A15BEA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32619D2B67F7DE00A15BEA /* RealmManager.swift */; };
 		6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */; };
+		6C5644C22B74DD7700C3CEB6 /* HistoryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */; };
 		6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */; };
 		6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */; };
 		6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8787C2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift */; };
@@ -79,6 +80,7 @@
 		6C3261952B67F2C100A15BEA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		6C32619D2B67F7DE00A15BEA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
+		6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoViewModel.swift; sourceTree = "<group>"; };
 		6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVStackInfo.swift; sourceTree = "<group>"; };
 		6CA8787C2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				6C2FE78D2B1794A10092BFE5 /* HomeHealthModule */,
 				6CC6AE2C2B2C895600F83B8B /* MeasurementModule */,
 				6C2FE79B2B1797AF0092BFE5 /* HistoryModule */,
+				6C5644BE2B74DD3000C3CEB6 /* HistoryInfoModule */,
 				6CBD64CA2B1DEF23001D1DBF /* SettingsModule */,
 				6C3261942B67F29E00A15BEA /* Helpers */,
 				6CDFCC172B1927FE00B1A9A2 /* Fonts */,
@@ -248,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				6C2FE7A02B1798110092BFE5 /* HistoryView.swift */,
-				6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */,
 				6CEC0BFB2B7104A80009A872 /* RectangleView.swift */,
 			);
 			path = View;
@@ -287,6 +289,31 @@
 				6C2FE7A72B18E6730092BFE5 /* Extensions */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6C5644BE2B74DD3000C3CEB6 /* HistoryInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				6C5644C02B74DD5100C3CEB6 /* View */,
+				6C5644BF2B74DD4700C3CEB6 /* ViewModel */,
+			);
+			path = HistoryInfoModule;
+			sourceTree = "<group>";
+		};
+		6C5644BF2B74DD4700C3CEB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C5644C02B74DD5100C3CEB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6CA878792B4D633300B2DCC3 /* LaunchScreenModule */ = {
@@ -585,6 +612,7 @@
 				7CF2D5642B5DBCD000D567DD /* MeasurementContentView.swift in Sources */,
 				6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */,
 				6C2FE79A2B1797480092BFE5 /* TabBarView.swift in Sources */,
+				6C5644C22B74DD7700C3CEB6 /* HistoryInfoViewModel.swift in Sources */,
 				6C2FE7952B1796870092BFE5 /* HomeHealthView.swift in Sources */,
 				6CEC0BFE2B7232640009A872 /* HistoryInfoView.swift in Sources */,
 				6CEC0BFC2B7104A80009A872 /* RectangleView.swift in Sources */,

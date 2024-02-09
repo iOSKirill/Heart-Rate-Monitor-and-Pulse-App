@@ -70,5 +70,11 @@
 "history.headline.noData" = "Measurement history";
 "history.noData.title" = "No data";
 "history.noData.subtitle" = "To make a story appear, \n take a measurement";
-"history.time.today" = "Today at";
-"history.time.yesterday" = "Yesterday at";
+
+// MARK: - History info screen -
+"historyInfo.time.today" = "Today at";
+"historyInfo.time.yesterday" = "Yesterday at";
+"historyInfo.subtitle.highHealthRange.today" = "You are in great shape today!";
+"historyInfo.subtitle.highHealthRange.otherDates" = "You were in great shape on";
+"historyInfo.subtitle.mediumHealthRange" = "Satisfactory. \n Try to rest more";
+"historyInfo.subtitle.lowHealthRange" = "Unsatisfactory! \n It is better to consult with your doctor.";

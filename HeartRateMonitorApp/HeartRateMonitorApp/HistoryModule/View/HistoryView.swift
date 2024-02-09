@@ -76,7 +76,7 @@ struct HistoryView: View {
                         if !viewModel.arrayPulseDB.isEmpty {
                             ForEach(viewModel.arrayPulseDB, id: \.self) { item in
                                 NavigationLink(destination: HistoryInfoView(
-                                    measurementDetails: item,
+                                    viewModel: HistoryInfoViewModel(measurementDetails: item),
                                     showTabBar: $showTabBar
                                 )) {
                                     CustomHistoryView(historyInfo: item)
@@ -88,6 +88,8 @@ struct HistoryView: View {
                     }
                     .onAppear {
                         viewModel.trackingChangesRealmDB()
+                        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                        print(dr)
                     }
                 }
             }

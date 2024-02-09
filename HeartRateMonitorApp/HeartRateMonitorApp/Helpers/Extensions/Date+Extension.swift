@@ -12,6 +12,7 @@ enum DateFormat: String {
     case dayOfWeek = "dd"
     case dateOfHistory = "dd.MM.yyyy - HH:mm"
     case dateOfHistoryDetails = "HH:mm"
+    case dateOfLowHealthRange = "dd.MM.yyyy"
 }
 
 extension Date {
@@ -35,11 +36,20 @@ extension Date {
     var getDateOfHistoryDetails: String {
         let calendar = Calendar.current
         if calendar.isDateInToday(self) {
-            return "\(L10n.History.Time.today) \(formatted(.dateOfHistoryDetails))"
+            return "\(L10n.HistoryInfo.Time.today) \(formatted(.dateOfHistoryDetails))"
         } else if calendar.isDateInYesterday(self) {
-            return "\(L10n.History.Time.yesterday) \(formatted(.dateOfHistoryDetails))"
+            return "\(L10n.HistoryInfo.Time.yesterday) \(formatted(.dateOfHistoryDetails))"
         } else {
             return formatted(.dateOfHistory)
+        }
+    }
+
+    var getDateOfHistoryLowHealthRange: String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(self) {
+            return L10n.HistoryInfo.Subtitle.HighHealthRange.today
+        } else {
+            return "\(L10n.HistoryInfo.Subtitle.HighHealthRange.otherDates) \(formatted(.dateOfLowHealthRange))!"
         }
     }
 
