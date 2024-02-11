@@ -21,6 +21,8 @@ final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
     @Published var pulseValue: String = "00"
     @Published var lastPulseValue: Int = 00
+    @Published var hrvValue: Float = 0
+    @Published var assessmentValue: Double = 0
     @Published var currentStepMeasurement: StepMeasurement = .first
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
@@ -122,7 +124,7 @@ final class MeasurementViewModel: ObservableObject {
 
         case .finished:
             timeMeasurement = .now
-            realmManager.addLastMeasurement(pulseMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
+            realmManager.addLastMeasurement(pulse: lastPulseValue, hrv: Int(hrvValue), assessment: Int(assessmentValue), time: timeMeasurement)
             isPresentedHomeHealthView.toggle()
         }
     }
@@ -185,6 +187,8 @@ private extension MeasurementViewModel {
         case .finished:
             currentStepMeasurement = .third
             progress = 1.0
+            hrvValue = pulseDetector.getHRV()
+            assessmentValue = pulseDetector.getAssessment(hrvValue: Double(hrvValue), pulseValue: lastPulseValue)
             deinitCaptureSession()
         }
     }

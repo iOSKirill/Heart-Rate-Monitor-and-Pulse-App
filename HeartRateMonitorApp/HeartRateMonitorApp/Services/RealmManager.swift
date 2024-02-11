@@ -10,15 +10,15 @@ import RealmSwift
 
 protocol RealmManagerProtocol {
     var realm: Realm? { get }
-    func addLastMeasurement(pulseMeasurement: Int, timeMeasurement: Date)
+    func addLastMeasurement(pulse: Int, hrv: Int, assessment: Int, time: Date)
     func deleteMeasurementPulseDB(pulseDB: PulseDB)
 }
 
 final class RealmManager: RealmManagerProtocol {
     var realm = try? Realm()
 
-    func addLastMeasurement(pulseMeasurement: Int, timeMeasurement: Date) {
-        let pulseDB = PulseDB(pulse: pulseMeasurement, hrv: 90, assessment: 60, time: timeMeasurement)
+    func addLastMeasurement(pulse: Int, hrv: Int, assessment: Int, time: Date) {
+        let pulseDB = PulseDB(pulse: pulse, hrv: hrv, assessment: assessment, time: time)
         do {
             let realm = try Realm()
             try realm.write {

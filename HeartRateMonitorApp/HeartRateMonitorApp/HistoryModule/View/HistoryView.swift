@@ -88,8 +88,6 @@ struct HistoryView: View {
                     }
                     .onAppear {
                         viewModel.trackingChangesRealmDB()
-                        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                        print(dr)
                     }
                 }
             }

@@ -95,7 +95,7 @@ class PulseDetector: NSObject {
         var total: Double = 0
         var count: Double = 0
         for index in 0..<maxPeriodsToStore {
-            if periods[index] != invalidEntry && time - periodTimes[index] < 10 {
+            if periods[index] != invalidEntry && time - periodTimes[index] < 30 {
                 count += 1
                 total += periods[index]
             }
@@ -123,5 +123,21 @@ class PulseDetector: NSObject {
         periodIndex = 0
         downValIndex = 0
         upValIndex = 0
+    }
+
+    func getHRV() -> Float {
+        return getAverage() * 1000
+    }
+
+    func getAssessment(hrvValue: Double, pulseValue: Int) -> Double {
+        let maxHRV = 1000.0
+        let maxPulse = 200.0
+        
+        let normalizedHRV = hrvValue / maxHRV
+        let normalizedPulse = Double(pulseValue) / maxPulse
+
+        let assessment = ((normalizedHRV + normalizedPulse) / 2.0) * 100.0
+
+        return assessment
     }
 }

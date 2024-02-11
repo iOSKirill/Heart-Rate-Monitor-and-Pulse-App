@@ -18,7 +18,7 @@ struct MeasurementContentView: View {
     var buttonTitle: String
     var action: () -> Void
     var notNowButtonTitle: String?
-    @State private var isPresentedHomeHealthView = false
+    @Environment(\.dismiss) var dismiss
 
     // MARK: - Body -
     var body: some View {
@@ -62,14 +62,11 @@ struct MeasurementContentView: View {
 
             if let notNowButtonTitle {
                 Button {
-                    isPresentedHomeHealthView.toggle()
+                    dismiss()
                 } label: {
                     Text(notNowButtonTitle)
                         .font(.appUrbanistBold(of: 15))
                         .foregroundColor(Color.appSlateGrey)
-                }
-                .fullScreenCover(isPresented: $isPresentedHomeHealthView) {
-                    TabBarView()
                 }
             }
         }

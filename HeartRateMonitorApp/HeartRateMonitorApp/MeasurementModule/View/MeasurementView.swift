@@ -77,7 +77,12 @@ struct MeasurementView: View {
                 descriptionText: viewModel.descriptionText,
                 buttonGradient: viewModel.buttonGradient,
                 buttonTitle: viewModel.buttonTitle,
-                action: { viewModel.toggleState() },
+                action: {
+                    viewModel.toggleState()
+                    if viewModel.isPresentedHomeHealthView {
+                        dismiss()
+                    }
+                },
                 notNowButtonTitle: viewModel.notNowButtonTitle
             )
         }
@@ -85,9 +90,6 @@ struct MeasurementView: View {
         .background(.white)
         .cornerRadius(24)
         .padding(.horizontal, 16)
-        .fullScreenCover(isPresented: $viewModel.isPresentedHomeHealthView) {
-            TabBarView()
-        }
     }
 
     // MARK: - Body -
