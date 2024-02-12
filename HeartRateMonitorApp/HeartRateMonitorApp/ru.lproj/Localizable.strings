@@ -59,3 +59,22 @@
 "onboarding.stepTwo.subtitle" = "Ваш рейтинг и отзывы позволяют нам \n улучшать приложение и добавлять ваши идеи";
 "onboarding.stepThree.title" = "История измерений ЧСС";
 "onboarding.stepThree.subtitle" = "Получите подробные исторические записи \n для анализа ваших сердечных данных";
+
+// MARK: - History screen -
+"history.navBar.title" = "История";
+"history.headline.pulse" = "Пульс";
+"history.headline.assessment" = "Оценка";
+"history.headline.HRV" = "HRV";
+"history.bpm" = "bpm";
+"history.ms" = "ms";
+"history.headline.noData" = "История измерений";
+"history.noData.title" = "Нет данных";
+"history.noData.subtitle" = "Чтобы история появилась, \n выполните измерение";
+
+// MARK: - History info screen -
+"historyInfo.time.today" = "Сегодня в";
+"historyInfo.time.yesterday" = "Вчера в";
+"historyInfo.subtitle.highHealthRange.today" = "Сегодня ты в отличной форме!";
+"historyInfo.subtitle.highHealthRange.otherDates" = "Ты был в отличной форме - ";
+"historyInfo.subtitle.mediumHealthRange" = "Удовлетворительный. \n Старайтесь больше отдыхать";
+"historyInfo.subtitle.lowHealthRange" = "Неудовлетворительно! \n Лучше проконсультироваться со своим врачом.";

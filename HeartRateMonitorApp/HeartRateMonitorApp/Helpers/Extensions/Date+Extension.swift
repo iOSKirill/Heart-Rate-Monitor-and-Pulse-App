@@ -10,6 +10,9 @@ import Foundation
 enum DateFormat: String {
     case dayOfMonth = "EEE"
     case dayOfWeek = "dd"
+    case dateOfHistory = "dd.MM.yyyy - HH:mm"
+    case dateOfHistoryDetails = "HH:mm"
+    case dateOfLowHealthRange = "dd.MM.yyyy"
 }
 
 extension Date {
@@ -24,6 +27,30 @@ extension Date {
 
     var getDayOfWeekNumber: String {
         return formatted(.dayOfWeek)
+    }
+
+    var getDateOfHistory: String {
+        return formatted(.dateOfHistory)
+    }
+
+    var getDateOfHistoryDetails: String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(self) {
+            return "\(L10n.HistoryInfo.Time.today) \(formatted(.dateOfHistoryDetails))"
+        } else if calendar.isDateInYesterday(self) {
+            return "\(L10n.HistoryInfo.Time.yesterday) \(formatted(.dateOfHistoryDetails))"
+        } else {
+            return formatted(.dateOfHistory)
+        }
+    }
+
+    var getDateOfHistoryLowHealthRange: String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(self) {
+            return L10n.HistoryInfo.Subtitle.HighHealthRange.today
+        } else {
+            return "\(L10n.HistoryInfo.Subtitle.HighHealthRange.otherDates) \(formatted(.dateOfLowHealthRange))!"
+        }
     }
 
     private func formatted(_ format: DateFormat) -> String {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C245FE32B6A41EC00E8699A /* CustomMainSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */; };
+		6C245FE52B6A5E2100E8699A /* Gilroy-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */; };
+		6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */; };
 		6C2FE7632B16836C0092BFE5 /* HeartRateMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2FE7622B16836C0092BFE5 /* HeartRateMonitorApp.swift */; };
 		6C2FE7672B1683730092BFE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FE7662B1683730092BFE5 /* Assets.xcassets */; };
 		6C2FE76A2B1683730092BFE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FE7692B1683730092BFE5 /* Preview Assets.xcassets */; };
@@ -23,6 +26,7 @@
 		6C32619C2B67F71E00A15BEA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C32619B2B67F71E00A15BEA /* RealmSwift */; };
 		6C32619E2B67F7DE00A15BEA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32619D2B67F7DE00A15BEA /* RealmManager.swift */; };
 		6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */; };
+		6C5644C22B74DD7700C3CEB6 /* HistoryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */; };
 		6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */; };
 		6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */; };
 		6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8787C2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift */; };
@@ -46,6 +50,9 @@
 		6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */; };
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
 		6CDFCC2D2B1A974C00B1A9A2 /* Urbanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */; };
+		6CEC0BFC2B7104A80009A872 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFB2B7104A80009A872 /* RectangleView.swift */; };
+		6CEC0BFE2B7232640009A872 /* HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */; };
+		6CEC0C002B72A3510009A872 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */; };
 		6CEDD4522B3C309F0024C41A /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDD4512B3C309F0024C41A /* ProgressBarView.swift */; };
 		6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA342B247F97000EC270 /* Font+Extension.swift */; };
 		6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */; };
@@ -54,6 +61,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainSettingsButton.swift; sourceTree = "<group>"; };
+		6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-black.ttf"; sourceTree = "<group>"; };
+		6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryView.swift; sourceTree = "<group>"; };
 		6C2FE75F2B16836C0092BFE5 /* HeartRateMonitorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateMonitorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2FE7622B16836C0092BFE5 /* HeartRateMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateMonitorApp.swift; sourceTree = "<group>"; };
 		6C2FE7662B1683730092BFE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +80,7 @@
 		6C3261952B67F2C100A15BEA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		6C32619D2B67F7DE00A15BEA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		6C54B5172B20A9B500F6E360 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
+		6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoViewModel.swift; sourceTree = "<group>"; };
 		6CA0C9052B234E51003819B6 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVStackInfo.swift; sourceTree = "<group>"; };
 		6CA8787C2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +105,9 @@
 		6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Bold.ttf"; sourceTree = "<group>"; };
+		6CEC0BFB2B7104A80009A872 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
+		6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		6CEDD4512B3C309F0024C41A /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		6CF3FA342B247F97000EC270 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -145,6 +159,7 @@
 				6C2FE78D2B1794A10092BFE5 /* HomeHealthModule */,
 				6CC6AE2C2B2C895600F83B8B /* MeasurementModule */,
 				6C2FE79B2B1797AF0092BFE5 /* HistoryModule */,
+				6C5644BE2B74DD3000C3CEB6 /* HistoryInfoModule */,
 				6CBD64CA2B1DEF23001D1DBF /* SettingsModule */,
 				6C3261942B67F29E00A15BEA /* Helpers */,
 				6CDFCC172B1927FE00B1A9A2 /* Fonts */,
@@ -236,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				6C2FE7A02B1798110092BFE5 /* HistoryView.swift */,
+				6CEC0BFB2B7104A80009A872 /* RectangleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +263,9 @@
 				6CA0C9072B2351C9003819B6 /* CustomPopupVStackInfo.swift */,
 				6CF3FA382B286D0B000EC270 /* CustomNavigationBar.swift */,
 				6CC6AE282B2B81A700F83B8B /* CustomSettingsButton.swift */,
+				6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */,
+				6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */,
+				6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -265,11 +284,36 @@
 		6C3261942B67F29E00A15BEA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6C3261952B67F2C100A15BEA /* AppConstants.swift */,
 				6C2FE7A22B1799400092BFE5 /* CustomViews */,
 				6C2FE7A72B18E6730092BFE5 /* Extensions */,
-				6C3261952B67F2C100A15BEA /* AppConstants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6C5644BE2B74DD3000C3CEB6 /* HistoryInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				6C5644C02B74DD5100C3CEB6 /* View */,
+				6C5644BF2B74DD4700C3CEB6 /* ViewModel */,
+			);
+			path = HistoryInfoModule;
+			sourceTree = "<group>";
+		};
+		6C5644BF2B74DD4700C3CEB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C5644C12B74DD7700C3CEB6 /* HistoryInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C5644C02B74DD5100C3CEB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6CEC0BFD2B7232640009A872 /* HistoryInfoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6CA878792B4D633300B2DCC3 /* LaunchScreenModule */ = {
@@ -412,6 +456,7 @@
 		6CDFCC172B1927FE00B1A9A2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */,
 				6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */,
 				6CDFCC2C2B1A974B00B1A9A2 /* Urbanist-Bold.ttf */,
 				6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */,
@@ -492,6 +537,7 @@
 				6C2FE7732B174B650092BFE5 /* Localizable.strings in Resources */,
 				6CA0C9062B234E51003819B6 /* Urbanist-Medium.ttf in Resources */,
 				6CBD64D62B1E1902001D1DBF /* Urbanist-SemiBold.ttf in Resources */,
+				6C245FE52B6A5E2100E8699A /* Gilroy-black.ttf in Resources */,
 				6C2FE7672B1683730092BFE5 /* Assets.xcassets in Resources */,
 				6CDFCC2D2B1A974C00B1A9A2 /* Urbanist-Bold.ttf in Resources */,
 				6CDFCC202B192D4C00B1A9A2 /* Gilroy-bold.ttf in Resources */,
@@ -547,8 +593,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2FE7A42B1799800092BFE5 /* CustomButtonOnTabBar.swift in Sources */,
+				6CEC0C002B72A3510009A872 /* CustomBackButton.swift in Sources */,
 				6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
+				6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */,
 				6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */,
 				6CA878862B4D744000B2DCC3 /* OnboardingView.swift in Sources */,
 				6CC6AE9E2B33340100F83B8B /* Filter.swift in Sources */,
@@ -564,7 +612,10 @@
 				7CF2D5642B5DBCD000D567DD /* MeasurementContentView.swift in Sources */,
 				6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */,
 				6C2FE79A2B1797480092BFE5 /* TabBarView.swift in Sources */,
+				6C5644C22B74DD7700C3CEB6 /* HistoryInfoViewModel.swift in Sources */,
 				6C2FE7952B1796870092BFE5 /* HomeHealthView.swift in Sources */,
+				6CEC0BFE2B7232640009A872 /* HistoryInfoView.swift in Sources */,
+				6CEC0BFC2B7104A80009A872 /* RectangleView.swift in Sources */,
 				6C2FE7A92B18E6B00092BFE5 /* Color+Extension.swift in Sources */,
 				6CA878842B4D742800B2DCC3 /* OnboardingViewModel.swift in Sources */,
 				6CA0C9082B2351C9003819B6 /* CustomPopupVStackInfo.swift in Sources */,
@@ -576,6 +627,7 @@
 				6CC6AE292B2B81A800F83B8B /* CustomSettingsButton.swift in Sources */,
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CA8787F2B4D642300B2DCC3 /* LaunchScreenView.swift in Sources */,
+				6C245FE32B6A41EC00E8699A /* CustomMainSettingsButton.swift in Sources */,
 				6CF3FA352B247F97000EC270 /* Font+Extension.swift in Sources */,
 				6CC6AE9B2B3332CA00F83B8B /* ColorUtils.swift in Sources */,
 				6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */,
@@ -652,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -710,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

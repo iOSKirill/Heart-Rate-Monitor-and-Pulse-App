@@ -12,10 +12,12 @@ struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @State private var isPopupVisible = false
     @State private var isPresentedMeasurementView = false
+    @State private var showTabBar = true
 
     // MARK: - Plus button  -
     var plusBarButton: some View {
         Button {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             isPresentedMeasurementView.toggle()
         } label: {
             Image(.plusButton)
@@ -66,14 +68,18 @@ struct TabBarView: View {
             VStack(spacing: 0) {
                 switch selectedIndex {
                 case 0:
-                    HomeHealthView(isPopupVisible: $isPopupVisible)
+                    HomeHealthView(isPopupVisible: $isPopupVisible, showTabBar: $showTabBar)
+
                 case 1:
-                    HistoryView()
+                    HistoryView(showTabBar: $showTabBar)
+
                 default:
                     Text("View")
                 }
                 ZStack {
-                    tabBarButtons
+                    if showTabBar {
+                        tabBarButtons
+                    }
                 }
             }
             if isPopupVisible {

@@ -11,21 +11,7 @@ struct SettingsView: View {
     // MARK: - Property -
     @StateObject var viewModel = SettingsViewModel()
     @Environment(\.dismiss) var dismiss
-
-    // MARK: - Back button -
-    var backButton: some View {
-        Button {
-            dismiss()
-        } label: {
-            VStack {
-                Image(.navBarBackButtonIcon)
-                    .foregroundColor(Color.appMarengo)
-                    .padding(10)
-            }
-            .background(Color.white)
-            .cornerRadius(12)
-        }
-    }
+    @Binding var showTabBar: Bool
 
     // MARK: - Body -
     var body: some View {
@@ -91,13 +77,17 @@ struct SettingsView: View {
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .leftButtonCenterTitle(
                     title: L10n.Settings.NavBar.title,
-                    button: AnyView(backButton)
+                    button: AnyView(CustomBackButton(showTabBar: $showTabBar))
                 )
             )
         }
+        .onAppear {
+            showTabBar = false
+        }
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(showTabBar: .constant(true))
 }

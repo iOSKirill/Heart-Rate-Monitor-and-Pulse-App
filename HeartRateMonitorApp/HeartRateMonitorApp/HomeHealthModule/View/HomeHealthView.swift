@@ -11,23 +11,7 @@ struct HomeHealthView: View {
     // MARK: - Property -
     @StateObject var viewModel = HomeHealthViewModel()
     @Binding var isPopupVisible: Bool
-
-    // MARK: - Open settings screen -
-    var settingButton: some View {
-        Button {
-            viewModel.isPresentedSettingsView.toggle()
-        } label: {
-            VStack {
-                Image(.settingsButton)
-                    .padding(8)
-            }
-            .background(.white)
-            .cornerRadius(12)
-        }
-        .fullScreenCover(isPresented: $viewModel.isPresentedSettingsView) {
-            SettingsView()
-        }
-    }
+    @Binding var showTabBar: Bool
 
     // MARK: - Custom week calendar -
     var weekCalendar: some View {
@@ -83,9 +67,9 @@ struct HomeHealthView: View {
             .padding(.top, 24)
             .padding(.bottom, 10)
 
-            Divider()
-                .frame(maxWidth: .infinity, maxHeight: 1)
-                .background(Color.white.opacity(0.08))
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(.white.opacity(0.15))
 
             HStack(alignment: .center) {
                 VStack(spacing: 13) {
@@ -136,6 +120,7 @@ struct HomeHealthView: View {
             Color.appBlue
             Image(.measureBackgound)
                 .blur(radius: 8.5)
+                .opacity(0.8)
             }
         )
         .cornerRadius(20)
@@ -220,19 +205,21 @@ struct HomeHealthView: View {
 
     // MARK: - Body -
     var body: some View {
-        ZStack {
-            Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
-                title: L10n.NavigationBar.Health.title,
-                button: AnyView(settingButton)
-            )) {
-                VStack {
-                    weekCalendar
-                    ZStack {
-                        rectanglesUnderDashboard
-                        measureDashboard
+        NavigationView {
+            ZStack {
+                Color(.appPaleBlue).ignoresSafeArea()
+                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                    title: L10n.NavigationBar.Health.title,
+                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
+                )) {
+                    VStack {
+                        weekCalendar
+                        ZStack {
+                            rectanglesUnderDashboard
+                            measureDashboard
+                        }
+                        weeklyAssessmentDashboard
                     }
-                    weeklyAssessmentDashboard
                 }
             }
         }
@@ -240,5 +227,5 @@ struct HomeHealthView: View {
 }
 
 #Preview {
-    HomeHealthView(isPopupVisible: .constant(true))
+    HomeHealthView(isPopupVisible: .constant(true), showTabBar: .constant(true))
 }

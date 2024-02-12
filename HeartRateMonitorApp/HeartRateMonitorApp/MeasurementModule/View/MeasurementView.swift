@@ -77,7 +77,12 @@ struct MeasurementView: View {
                 descriptionText: viewModel.descriptionText,
                 buttonGradient: viewModel.buttonGradient,
                 buttonTitle: viewModel.buttonTitle,
-                action: { viewModel.toggleState() },
+                action: {
+                    viewModel.toggleState()
+                    if viewModel.isPresentedHomeHealthView {
+                        dismiss()
+                    }
+                },
                 notNowButtonTitle: viewModel.notNowButtonTitle
             )
         }

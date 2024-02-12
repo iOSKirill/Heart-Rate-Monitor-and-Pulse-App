@@ -36,6 +36,55 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
     }
   }
+  internal enum History {
+    /// bpm
+    internal static let bpm = L10n.tr("Localizable", "history.bpm", fallback: "bpm")
+    /// ms
+    internal static let ms = L10n.tr("Localizable", "history.ms", fallback: "ms")
+    internal enum Headline {
+      /// Assessment
+      internal static let assessment = L10n.tr("Localizable", "history.headline.assessment", fallback: "Assessment")
+      /// HRV
+      internal static let hrv = L10n.tr("Localizable", "history.headline.HRV", fallback: "HRV")
+      /// Measurement history
+      internal static let noData = L10n.tr("Localizable", "history.headline.noData", fallback: "Measurement history")
+      /// Pulse
+      internal static let pulse = L10n.tr("Localizable", "history.headline.pulse", fallback: "Pulse")
+    }
+    internal enum NavBar {
+      /// History
+      internal static let title = L10n.tr("Localizable", "history.navBar.title", fallback: "History")
+    }
+    internal enum NoData {
+      /// To make a story appear, 
+      ///  take a measurement
+      internal static let subtitle = L10n.tr("Localizable", "history.noData.subtitle", fallback: "To make a story appear, \n take a measurement")
+      /// No data
+      internal static let title = L10n.tr("Localizable", "history.noData.title", fallback: "No data")
+    }
+  }
+  internal enum HistoryInfo {
+    internal enum Subtitle {
+      /// Unsatisfactory! 
+      ///  It is better to consult with your doctor.
+      internal static let lowHealthRange = L10n.tr("Localizable", "historyInfo.subtitle.lowHealthRange", fallback: "Unsatisfactory! \n It is better to consult with your doctor.")
+      /// Satisfactory. 
+      ///  Try to rest more
+      internal static let mediumHealthRange = L10n.tr("Localizable", "historyInfo.subtitle.mediumHealthRange", fallback: "Satisfactory. \n Try to rest more")
+      internal enum HighHealthRange {
+        /// You were in great shape on
+        internal static let otherDates = L10n.tr("Localizable", "historyInfo.subtitle.highHealthRange.otherDates", fallback: "You were in great shape on")
+        /// You are in great shape today!
+        internal static let today = L10n.tr("Localizable", "historyInfo.subtitle.highHealthRange.today", fallback: "You are in great shape today!")
+      }
+    }
+    internal enum Time {
+      /// Today at
+      internal static let today = L10n.tr("Localizable", "historyInfo.time.today", fallback: "Today at")
+      /// Yesterday at
+      internal static let yesterday = L10n.tr("Localizable", "historyInfo.time.yesterday", fallback: "Yesterday at")
+    }
+  }
   internal enum Measurement {
     /// bpm
     internal static let bpm = L10n.tr("Localizable", "measurement.bpm", fallback: "bpm")
@@ -126,8 +175,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "popup.HRV.title", fallback: "HRV")
     }
     internal enum Assessment {
-      /// Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.
-      internal static let subtitle = L10n.tr("Localizable", "popup.assessment.subtitle", fallback: "Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.")
+      /// Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.
+      internal static let subtitle = L10n.tr("Localizable", "popup.assessment.subtitle", fallback: "Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.")
       /// Assessment
       internal static let title = L10n.tr("Localizable", "popup.assessment.title", fallback: "Assessment")
     }

@@ -20,11 +20,14 @@ enum StepMeasurement {
 final class MeasurementViewModel: ObservableObject {
     // MARK: - Property -
     @Published var pulseValue: String = "00"
-    @Published var lastPulseValue: String = "00"
+    @Published var lastPulseValue: Int = 00
+    @Published var hrvValue: Float = 0
+    @Published var assessmentValue: Double = 0
     @Published var currentStepMeasurement: StepMeasurement = .first
     @Published var isBeatingHeart = false
     @Published var isProgressBar: Float = 0.0
     @Published var scrollOffSet: CGFloat = 0.0
+    @Published var isPresentedHomeHealthView: Bool = false
 
     private(set) var title: String = ""
     private(set) var progress: Float = 0.0
@@ -121,8 +124,8 @@ final class MeasurementViewModel: ObservableObject {
 
         case .finished:
             timeMeasurement = .now
-            realmManager.addLastMeasurement(valueMeasurement: lastPulseValue, timeMeasurement: timeMeasurement)
-            print("Pulse: \(lastPulseValue)")
+            realmManager.addLastMeasurement(pulse: lastPulseValue, hrv: Int(hrvValue), assessment: Int(assessmentValue), time: timeMeasurement)
+            isPresentedHomeHealthView.toggle()
         }
     }
 
@@ -143,7 +146,7 @@ final class MeasurementViewModel: ObservableObject {
                     self.pulseValue = "00"
                 } else {
                     self.pulseValue = "\(lroundf(pulse))"
-                    self.lastPulseValue = self.pulseValue
+                    self.lastPulseValue = Int(pulseValue) ?? 0
                     self.measurementSeconds -= 1
                     self.updateProgress()
 
@@ -171,7 +174,7 @@ private extension MeasurementViewModel {
             progress = 0.0
             measurementSeconds = 30
             pulseValue = "00"
-            lastPulseValue = "00"
+            lastPulseValue = 00
             stopTimer()
             deinitCaptureSession()
 
@@ -184,6 +187,8 @@ private extension MeasurementViewModel {
         case .finished:
             currentStepMeasurement = .third
             progress = 1.0
+            hrvValue = pulseDetector.getHRV()
+            assessmentValue = pulseDetector.getAssessment(hrvValue: Double(hrvValue), pulseValue: lastPulseValue)
             deinitCaptureSession()
         }
     }
@@ -371,7 +376,7 @@ private extension MeasurementViewModel {
             self.progress = 0.0
             self.measurementSeconds = 30
             self.pulseValue = "00"
-            self.lastPulseValue = "00"
+            self.lastPulseValue = 00
         }
     }
 }

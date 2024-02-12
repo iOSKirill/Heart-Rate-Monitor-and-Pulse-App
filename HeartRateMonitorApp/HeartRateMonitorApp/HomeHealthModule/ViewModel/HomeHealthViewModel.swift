@@ -15,7 +15,6 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var currentDay = Date()
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
-    @Published var isPresentedSettingsView = false
     @Published var scrollOffSet: CGFloat = 0.0
     private let calendar = Calendar.current
 
