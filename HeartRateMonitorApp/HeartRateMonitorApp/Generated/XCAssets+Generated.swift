@@ -48,6 +48,7 @@ internal enum Asset {
     internal static let appIconLaunchScreen = ImageAsset(name: "AppIconLaunchScreen")
     internal static let assessmentBackground = ImageAsset(name: "AssessmentBackground")
     internal static let assessmentIcon = ImageAsset(name: "AssessmentIcon")
+    internal static let chartBackground = ImageAsset(name: "ChartBackground")
     internal static let historyArrowIcon = ImageAsset(name: "HistoryArrowIcon")
     internal static let historyAssessmentIcon = ImageAsset(name: "HistoryAssessmentIcon")
     internal static let historyBackground = ImageAsset(name: "HistoryBackground")

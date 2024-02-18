@@ -33,6 +33,10 @@ extension Date {
         return formatted(.dateOfHistory)
     }
 
+    var getDateStatistics: String {
+        return formatted(.dateOfHistoryDetails)
+    }
+
     var getDateOfHistoryDetails: String {
         let calendar = Calendar.current
         if calendar.isDateInToday(self) {

@@ -8,10 +8,16 @@
 import Foundation
 import RealmSwift
 
+struct PulseData {
+    var pulse: Int
+    var time: Date
+}
+
 protocol RealmManagerProtocol {
     var realm: Realm? { get }
     func addLastMeasurement(pulse: Int, hrv: Int, assessment: Int, time: Date)
     func deleteMeasurementPulseDB(pulseDB: PulseDB)
+    func getPulseDataForCurrentDay() -> [PulseData]
 }
 
 final class RealmManager: RealmManagerProtocol {
@@ -39,6 +45,25 @@ final class RealmManager: RealmManagerProtocol {
             print(error.localizedDescription)
         }
     }
+
+    func getPulseDataForCurrentDay() -> [PulseData] {
+        var pulseDataArray: [PulseData] = []
+        do {
+            let realm = try Realm()
+            let startOfDay = Calendar.current.startOfDay(for: Date())
+            let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+
+            pulseDataArray = realm.objects(PulseDB.self)
+                .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
+                .sorted(byKeyPath: "time", ascending: true)
+                .map { PulseData(pulse: $0.pulse, time: $0.time) }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return pulseDataArray
+    }
+
+
 }
 
 class PulseDB: Object {
