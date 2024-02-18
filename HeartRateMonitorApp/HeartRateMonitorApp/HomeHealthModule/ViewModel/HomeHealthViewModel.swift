@@ -18,6 +18,11 @@ final class HomeHealthViewModel: ObservableObject {
     @Published var isPresentedMeasurementView = false
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var pulseData: [PulseData] = []
+    @Published var isOnToggleTodayAndWeek: Bool = true {
+        didSet {
+            trackingChangesRealmDB()
+        }
+    }
     private let calendar = Calendar.current
 
     private var realmManager: RealmManagerProtocol = RealmManager()
@@ -49,9 +54,17 @@ final class HomeHealthViewModel: ObservableObject {
         notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
+                if self?.isOnToggleTodayAndWeek == true {
+                    self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
+                } else {
+                    self?.pulseData = self?.realmManager.getAveragePulseForWeek() ?? []
+                }
             case .update:
-                self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
+                if self?.isOnToggleTodayAndWeek == true {
+                    self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
+                } else {
+                    self?.pulseData = self?.realmManager.getAveragePulseForWeek() ?? []
+                }
             case .error(let error):
                 fatalError("\(error)")
             }

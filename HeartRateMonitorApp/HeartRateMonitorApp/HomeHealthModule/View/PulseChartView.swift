@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PulseChartView: View {
     // MARK: - Property -
+    @Binding var isOn: Bool
     var pulseData: [PulseData]
     var blueGradient: Gradient
 
@@ -29,6 +30,7 @@ struct PulseChartView: View {
                         .foregroundColor(Color.appMarengo)
                         .padding(.leading, 12)
                     Spacer()
+                    CustomToggleTodayAndWeek(isOn: $isOn)
                 }
                 .padding(.top, 18)
                 .padding(.horizontal, 16)
@@ -42,9 +44,7 @@ struct PulseChartView: View {
 
                         // Сhart columns
                         HStack(alignment: .bottom) {
-
                             ForEach(pulseData, id: \.time) { data in
-
                                 ZStack(alignment: .bottom) {
                                     VStack {
                                         Text("\(data.pulse)")
@@ -76,7 +76,7 @@ struct PulseChartView: View {
                     HStack(alignment: .top) {
                         ForEach(pulseData, id: \.time) { data in
                             VStack {
-                                Text("\(data.time.getDayOfWeekNumber)")
+                                Text(isOn ? data.time.getDateStatistics : data.time.getWeekOfDayName)
                                     .font(.appUrbanistBold(of: 13))
                                     .foregroundColor(.appMarengo)
                                     .frame(maxWidth: .infinity)

@@ -220,7 +220,11 @@ struct HomeHealthView: View {
                         }
 
                         if !viewModel.pulseData.isEmpty {
-                            PulseChartView(pulseData: viewModel.pulseData, blueGradient: viewModel.blueGradient)
+                            PulseChartView(
+                                isOn: $viewModel.isOnToggleTodayAndWeek,
+                                pulseData: viewModel.pulseData,
+                                blueGradient: viewModel.blueGradient
+                            )
                         } else {
                             weeklyAssessmentDashboard
                         }
