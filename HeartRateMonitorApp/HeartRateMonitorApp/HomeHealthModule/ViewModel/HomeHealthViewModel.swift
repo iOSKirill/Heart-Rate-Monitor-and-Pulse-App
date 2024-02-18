@@ -49,9 +49,9 @@ final class HomeHealthViewModel: ObservableObject {
         notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                self?.pulseData = self?.realmManager.getAveragePulseForWeek() ?? []
+                self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
             case .update:
-                self?.pulseData = self?.realmManager.getAveragePulseForWeek() ?? []
+                self?.pulseData = self?.realmManager.getPulseDataForCurrentDay() ?? []
             case .error(let error):
                 fatalError("\(error)")
             }
