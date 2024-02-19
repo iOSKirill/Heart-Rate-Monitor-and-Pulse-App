@@ -13,27 +13,23 @@ enum SettingsActionState {
     case contactUs
     case privacyPolicy
     case termsOfUse
-    case shareApp
     case FAQ
 }
 
 final class SettingsViewModel: ObservableObject {
     // MARK: - Property -
     @Published var scrollOffSet: CGFloat = 0.0
-    @Published var isShowingMailView = false
-    @Published var isShowingPrivacyPolicy = false
-    @Published var isShowingTermsOfUse = false
-    @Published var isShowingFAQ = false
+    @Published var isShowing: Bool = false
 
     let termsOfUseURL = AppConstants.terms
     let privacyPolicyURL = AppConstants.privacy
+    let appStoreURL = AppConstants.appStoreURL
     let faqURL = AppConstants.FAQ
-
-    private let appStoreURL = AppConstants.appStoreURL
 
     var state: SettingsActionState {
         didSet {
             guard oldValue != state else { return }
+            toggleState()
         }
     }
 
@@ -43,22 +39,7 @@ final class SettingsViewModel: ObservableObject {
     }
 
     func toggleState() {
-        switch state {
-        case .contactUs:
-            isShowingMailView.toggle()
-
-        case .privacyPolicy:
-            isShowingPrivacyPolicy.toggle()
-
-        case .termsOfUse:
-            isShowingTermsOfUse.toggle()
-
-        case .shareApp:
-            print("shareApp")
-
-        case .FAQ:
-            isShowingFAQ.toggle()
-        }
+        isShowing.toggle()
     }
 }
 

@@ -28,10 +28,6 @@ struct SettingsView: View {
                             title: L10n.Settings.ContactUs.title,
                             action: { viewModel.state = .contactUs; viewModel.toggleState() }
                         )
-                        .disabled(!MFMailComposeViewController.canSendMail())
-                        .sheet(isPresented: $viewModel.isShowingMailView) {
-                            MailView(isShowing: $viewModel.isShowingMailView)
-                        }
 
                         Divider()
                             .padding(.leading, 32)
@@ -41,11 +37,6 @@ struct SettingsView: View {
                             title: L10n.Settings.PrivacPolicy.title,
                             action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
                         )
-                        .sheet(isPresented: $viewModel.isShowingPrivacyPolicy) {
-                            if let privacyPolicyURL = URL(string: viewModel.privacyPolicyURL) {
-                                WebView(url: privacyPolicyURL)
-                            }
-                        }
 
                         Divider()
                             .padding(.leading, 32)
@@ -55,22 +46,46 @@ struct SettingsView: View {
                             title: L10n.Settings.TermsOfUse.title,
                             action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
                         )
-                        .sheet(isPresented: $viewModel.isShowingTermsOfUse) {
-                            if let termsOfUseURL = URL(string: viewModel.termsOfUseURL) {
-                                WebView(url: termsOfUseURL)
-                            }
-                        }
 
                         Divider()
                             .padding(.leading, 32)
 
-                        CustomSettingsButton(
-                            image: .settingsShareThisAppIcon,
-                            title: L10n.Settings.ShareThisApp.title,
-                            action: { viewModel.state = .shareApp; viewModel.toggleState()  }
-                        )
+                        ShareLink(item: URL(string: viewModel.appStoreURL)!) {
+                            HStack(spacing: 8) {
+                                VStack {
+                                    Image(.settingsShareThisAppIcon)
+                                        .padding(8)
+                                }
+                                .background(Color.appPaleBlue)
+                                .cornerRadius(12)
+                                Text(L10n.Settings.ShareThisApp.title)
+                                    .font(.appSemibold(of: 15))
+                                    .foregroundStyle(Color.appMarengo)
+                                Spacer()
+                                Image(.settingsArrowIcon)
+                            }
+                            .padding(.horizontal, 16)
+                        }
                     }
                     .padding(.vertical, 16)
+                }
+                .sheet(isPresented: $viewModel.isShowing) {
+                    switch viewModel.state {
+                    case .contactUs:
+                        MailView(isShowing: $viewModel.isShowing)
+                    case .privacyPolicy:
+                        if let privacyPolicyURL = URL(string: viewModel.privacyPolicyURL) {
+                            WebView(url: privacyPolicyURL)
+                        }
+                    case .termsOfUse:
+                        if let termsOfUseURL = URL(string: viewModel.termsOfUseURL) {
+                            WebView(url: termsOfUseURL)
+                        }
+                    case .FAQ:
+                        if let faqURL = URL(string: viewModel.faqURL) {
+                            WebView(url: faqURL)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .background(.white)
@@ -84,11 +99,6 @@ struct SettingsView: View {
                             title: L10n.Settings.Faq.title,
                             action: { viewModel.state = .FAQ; viewModel.toggleState() }
                         )
-                        .sheet(isPresented: $viewModel.isShowingFAQ) {
-                            if let faqURL = URL(string: viewModel.faqURL) {
-                                WebView(url: faqURL)
-                            }
-                        }
 
                         Divider()
                             .padding(.leading, 32)
