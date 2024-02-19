@@ -39,6 +39,11 @@ struct SettingsView: View {
                             title: L10n.Settings.PrivacPolicy.title,
                             action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
                         )
+                        .sheet(isPresented: $viewModel.isShowingPrivacyPolicy) {
+                            if let privacyPolicyURL = URL(string: viewModel.privacyPolicy) {
+                                WebView(url: privacyPolicyURL)
+                            }
+                        }
 
                         Divider()
                             .padding(.leading, 32)
@@ -48,6 +53,11 @@ struct SettingsView: View {
                             title: L10n.Settings.TermsOfUse.title,
                             action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
                         )
+                        .sheet(isPresented: $viewModel.isShowingTermsOfUse) {
+                            if let termsOfUseURL = URL(string: viewModel.termsOfUse) {
+                                WebView(url: termsOfUseURL)
+                            }
+                        }
 
                         Divider()
                             .padding(.leading, 32)

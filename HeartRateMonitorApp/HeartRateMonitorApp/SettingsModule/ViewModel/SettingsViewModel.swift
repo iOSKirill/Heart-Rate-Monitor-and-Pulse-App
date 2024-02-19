@@ -21,12 +21,17 @@ enum SettingsActionState {
 final class SettingsViewModel: ObservableObject {
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var isShowingMailView = false
+    @Published var isShowingPrivacyPolicy = false
+    @Published var isShowingTermsOfUse = false
 
     var state: SettingsActionState {
         didSet {
             guard oldValue != state else { return }
         }
     }
+
+    let termsOfUse = AppConstants.terms
+    let privacyPolicy = AppConstants.privacy
 
     // MARK: - Lifecycle -
     init() {
@@ -39,17 +44,17 @@ final class SettingsViewModel: ObservableObject {
             isShowingMailView.toggle()
 
         case .privacyPolicy:
-            print("privacyPolicy")
+            isShowingPrivacyPolicy.toggle()
 
         case .termsOfUse:
-            print("termsOfUse")
-            
+            isShowingTermsOfUse.toggle()
+
         case .shareApp:
             print("shareApp")
-            
+
         case .faq:
             print("faq")
-            
+
         case .rateUs:
             print("rateUs")
         }

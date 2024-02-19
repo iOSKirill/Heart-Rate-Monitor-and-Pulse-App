@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct OnboardingView: View {
     // MARK: - Property -
@@ -111,6 +112,19 @@ struct OnboardingView: View {
                 .cornerRadius(20)
             }
         }
+    }
+}
+
+struct WebView: UIViewRepresentable {
+    var url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        let requst = URLRequest(url: url)
+        webView.load(requst)
     }
 }
 
