@@ -40,7 +40,7 @@ struct SettingsView: View {
                             action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
                         )
                         .sheet(isPresented: $viewModel.isShowingPrivacyPolicy) {
-                            if let privacyPolicyURL = URL(string: viewModel.privacyPolicy) {
+                            if let privacyPolicyURL = URL(string: viewModel.privacyPolicyURL) {
                                 WebView(url: privacyPolicyURL)
                             }
                         }
@@ -54,7 +54,7 @@ struct SettingsView: View {
                             action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
                         )
                         .sheet(isPresented: $viewModel.isShowingTermsOfUse) {
-                            if let termsOfUseURL = URL(string: viewModel.termsOfUse) {
+                            if let termsOfUseURL = URL(string: viewModel.termsOfUseURL) {
                                 WebView(url: termsOfUseURL)
                             }
                         }
@@ -65,7 +65,7 @@ struct SettingsView: View {
                         CustomSettingsButton(
                             image: .settingsShareThisAppIcon,
                             title: L10n.Settings.ShareThisApp.title,
-                            action: { viewModel.state = .shareApp; viewModel.toggleState() }
+                            action: { viewModel.state = .shareApp; viewModel.toggleState()  }
                         )
                     }
                     .padding(.vertical, 16)
@@ -80,8 +80,13 @@ struct SettingsView: View {
                         CustomSettingsButton(
                             image: .settingsFAQIcon,
                             title: L10n.Settings.Faq.title,
-                            action: { viewModel.state = .faq; viewModel.toggleState() }
+                            action: { viewModel.state = .FAQ; viewModel.toggleState() }
                         )
+                        .sheet(isPresented: $viewModel.isShowingFAQ) {
+                            if let faqURL = URL(string: viewModel.faqURL) {
+                                WebView(url: faqURL)
+                            }
+                        }
 
                         Divider()
                             .padding(.leading, 32)

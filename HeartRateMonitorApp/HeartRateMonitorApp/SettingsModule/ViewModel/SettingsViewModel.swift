@@ -14,7 +14,7 @@ enum SettingsActionState {
     case privacyPolicy
     case termsOfUse
     case shareApp
-    case faq
+    case FAQ
     case rateUs
 }
 
@@ -23,15 +23,19 @@ final class SettingsViewModel: ObservableObject {
     @Published var isShowingMailView = false
     @Published var isShowingPrivacyPolicy = false
     @Published var isShowingTermsOfUse = false
+    @Published var isShowingFAQ = false
 
+    let termsOfUseURL = AppConstants.terms
+    let privacyPolicyURL = AppConstants.privacy
+    let faqURL = AppConstants.FAQ
+
+    private let appStoreURL = AppConstants.appStoreURL
+    
     var state: SettingsActionState {
         didSet {
             guard oldValue != state else { return }
         }
     }
-
-    let termsOfUse = AppConstants.terms
-    let privacyPolicy = AppConstants.privacy
 
     // MARK: - Lifecycle -
     init() {
@@ -52,8 +56,8 @@ final class SettingsViewModel: ObservableObject {
         case .shareApp:
             print("shareApp")
 
-        case .faq:
-            print("faq")
+        case .FAQ:
+            isShowingFAQ.toggle()
 
         case .rateUs:
             print("rateUs")
@@ -61,6 +65,8 @@ final class SettingsViewModel: ObservableObject {
     }
 }
 
+
+// MARK: - Preview mail view -
 struct MailView: UIViewControllerRepresentable {
     @Binding var isShowing: Bool
 
