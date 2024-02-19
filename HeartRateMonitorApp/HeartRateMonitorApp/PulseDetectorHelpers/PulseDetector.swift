@@ -132,7 +132,7 @@ class PulseDetector: NSObject {
     func getAssessment(hrvValue: Double, pulseValue: Int) -> Double {
         let maxHRV = 1000.0
         let maxPulse = 200.0
-        
+
         let normalizedHRV = hrvValue / maxHRV
         let normalizedPulse = Double(pulseValue) / maxPulse
 

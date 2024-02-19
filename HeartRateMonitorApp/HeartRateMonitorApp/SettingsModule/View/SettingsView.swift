@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct SettingsView: View {
     // MARK: - Property -
@@ -22,25 +23,39 @@ struct SettingsView: View {
                     VStack(spacing: 14) {
                         CustomSettingsButton(
                             image: .settingsContactUsIcon,
-                            title: L10n.Settings.ContactUs.title
+                            title: L10n.Settings.ContactUs.title,
+                            action: { viewModel.state = .contactUs; viewModel.toggleState() }
                         )
+                        .disabled(!MFMailComposeViewController.canSendMail())
+                        .sheet(isPresented: $viewModel.isShowingMailView) {
+                            MailView(isShowing: $viewModel.isShowingMailView)
+                        }
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsPrivacyPolicyIcon,
-                            title: L10n.Settings.PrivacPolicy.title
+                            title: L10n.Settings.PrivacPolicy.title,
+                            action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsTermsOfUseIcon,
-                            title: L10n.Settings.TermsOfUse.title
+                            title: L10n.Settings.TermsOfUse.title,
+                            action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsShareThisAppIcon,
-                            title: L10n.Settings.ShareThisApp.title
+                            title: L10n.Settings.ShareThisApp.title,
+                            action: { viewModel.state = .shareApp; viewModel.toggleState() }
                         )
                     }
                     .padding(.vertical, 16)
@@ -54,13 +69,17 @@ struct SettingsView: View {
                     VStack(spacing: 14) {
                         CustomSettingsButton(
                             image: .settingsFAQIcon,
-                            title: L10n.Settings.Faq.title
+                            title: L10n.Settings.Faq.title,
+                            action: { viewModel.state = .faq; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsRateUsIcon,
-                            title: L10n.Settings.RateUs.title
+                            title: L10n.Settings.RateUs.title,
+                            action: { viewModel.state = .rateUs; viewModel.toggleState() }
                         )
                     }
                     .padding(.vertical, 16)

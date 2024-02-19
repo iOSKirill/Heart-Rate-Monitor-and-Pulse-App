@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CustomSettingsButton: View {
     // MARK: - Property -
-    let image: UIImage
-    let title: String
+    var image: UIImage
+    var title: String
+    var action: () -> Void
 
     // MARK: - Body -
     var body: some View {
         Button {
-            // Preview contact us screen
+            action()
         } label: {
             HStack(spacing: 8) {
                 VStack {
