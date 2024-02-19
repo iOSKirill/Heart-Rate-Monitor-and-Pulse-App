@@ -7,11 +7,13 @@
 
 import SwiftUI
 import MessageUI
+import StoreKit
 
 struct SettingsView: View {
     // MARK: - Property -
     @StateObject var viewModel = SettingsViewModel()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.requestReview) var requestReview
     @Binding var showTabBar: Bool
 
     // MARK: - Body -
@@ -94,7 +96,7 @@ struct SettingsView: View {
                         CustomSettingsButton(
                             image: .settingsRateUsIcon,
                             title: L10n.Settings.RateUs.title,
-                            action: { viewModel.state = .rateUs; viewModel.toggleState() }
+                            action: { requestReview() }
                         )
                     }
                     .padding(.vertical, 16)

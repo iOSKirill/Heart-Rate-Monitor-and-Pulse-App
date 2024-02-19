@@ -15,10 +15,10 @@ enum SettingsActionState {
     case termsOfUse
     case shareApp
     case FAQ
-    case rateUs
 }
 
 final class SettingsViewModel: ObservableObject {
+    // MARK: - Property -
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var isShowingMailView = false
     @Published var isShowingPrivacyPolicy = false
@@ -30,7 +30,7 @@ final class SettingsViewModel: ObservableObject {
     let faqURL = AppConstants.FAQ
 
     private let appStoreURL = AppConstants.appStoreURL
-    
+
     var state: SettingsActionState {
         didSet {
             guard oldValue != state else { return }
@@ -58,13 +58,9 @@ final class SettingsViewModel: ObservableObject {
 
         case .FAQ:
             isShowingFAQ.toggle()
-
-        case .rateUs:
-            print("rateUs")
         }
     }
 }
-
 
 // MARK: - Preview mail view -
 struct MailView: UIViewControllerRepresentable {
