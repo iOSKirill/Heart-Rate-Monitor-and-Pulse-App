@@ -46,6 +46,8 @@
 		6CC6AEA02B33343400F83B8B /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE9F2B33343400F83B8B /* PulseDetector.swift */; };
 		6CC6AEA22B33366600F83B8B /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */; };
 		6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */; };
+		6CDBE64A2B827E6E000CA393 /* PulseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBE6492B827E6E000CA393 /* PulseChartView.swift */; };
+		6CDBE64C2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBE64B2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift */; };
 		6CDFCC202B192D4C00B1A9A2 /* Gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */; };
 		6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */; };
 		6CDFCC292B193E0A00B1A9A2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDFCC282B193E0A00B1A9A2 /* XCAssets+Generated.swift */; };
@@ -100,6 +102,8 @@
 		6CC6AE9F2B33343400F83B8B /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
 		6CC6AEA12B33366600F83B8B /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		6CC6AEA42B33370300F83B8B /* HeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
+		6CDBE6492B827E6E000CA393 /* PulseChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseChartView.swift; sourceTree = "<group>"; };
+		6CDBE64B2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleTodayAndWeek.swift; sourceTree = "<group>"; };
 		6CDFCC1A2B1928BC00B1A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CDFCC1F2B192D4C00B1A9A2 /* Gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-bold.ttf"; sourceTree = "<group>"; };
 		6CDFCC262B193E0100B1A9A2 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				6C2FE7942B1796870092BFE5 /* HomeHealthView.swift */,
 				6CF3FA3A2B2A4840000EC270 /* PopupInfoView.swift */,
+				6CDBE6492B827E6E000CA393 /* PulseChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */,
 				6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */,
 				6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */,
+				6CDBE64B2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */,
 				6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */,
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,
+				6CDBE64C2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift in Sources */,
 				6C2FE7A12B1798110092BFE5 /* HistoryView.swift in Sources */,
 				6CC6AE302B2C89D100F83B8B /* MeasurementView.swift in Sources */,
 				6C32619E2B67F7DE00A15BEA /* RealmManager.swift in Sources */,
@@ -625,6 +632,7 @@
 				6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */,
 				6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */,
 				6CC6AE292B2B81A800F83B8B /* CustomSettingsButton.swift in Sources */,
+				6CDBE64A2B827E6E000CA393 /* PulseChartView.swift in Sources */,
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CA8787F2B4D642300B2DCC3 /* LaunchScreenView.swift in Sources */,
 				6C245FE32B6A41EC00E8699A /* CustomMainSettingsButton.swift in Sources */,

@@ -25,6 +25,9 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV is an indicator that reflects the unevenness of your heartbeat.";
 "popup.button.title" = "OK";
+"dashboard.statistics.title" = "Assessment";
+"dashboard.statistics.button.today" = "Today";
+"dashboard.statistics.button.week" = "Week";
 
 // MARK: - Settings screen -
 "settings.contactUs.title" = "Contact Us";

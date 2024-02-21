@@ -35,6 +35,16 @@ internal enum L10n {
       /// Measure dashboard
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
     }
+    internal enum Statistics {
+      /// Assessment
+      internal static let title = L10n.tr("Localizable", "dashboard.statistics.title", fallback: "Assessment")
+      internal enum Button {
+        /// Today
+        internal static let today = L10n.tr("Localizable", "dashboard.statistics.button.today", fallback: "Today")
+        /// Week
+        internal static let week = L10n.tr("Localizable", "dashboard.statistics.button.week", fallback: "Week")
+      }
+    }
   }
   internal enum History {
     /// bpm

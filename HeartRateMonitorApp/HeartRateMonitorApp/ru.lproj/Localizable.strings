@@ -25,6 +25,9 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV - это показатель, отражающий неравномерность вашего сердцебиения.";
 "popup.button.title" = "ОК";
+"dashboard.statistics.title" = "Оценка";
+"dashboard.statistics.button.today" = "Сегодня";
+"dashboard.statistics.button.week" = "Неделя";
 
 // MARK: - Settings screen -
 "settings.contactUs.title" = "Cвязаться с нами";

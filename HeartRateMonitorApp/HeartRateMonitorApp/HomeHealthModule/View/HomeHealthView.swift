@@ -117,10 +117,10 @@ struct HomeHealthView: View {
         .frame(maxWidth: .infinity, minHeight: 367)
         .background(
             ZStack {
-            Color.appBlue
-            Image(.measureBackgound)
-                .blur(radius: 8.5)
-                .opacity(0.8)
+                Color.appBlue
+                Image(.measureBackgound)
+                    .blur(radius: 8.5)
+                    .opacity(0.8)
             }
         )
         .cornerRadius(20)
@@ -188,8 +188,8 @@ struct HomeHealthView: View {
             .frame(maxWidth: .infinity, minHeight: 238)
             .background(
                 ZStack(alignment: .bottom) {
-                Color.white
-                Image(.assessmentBackground)
+                    Color.white
+                    Image(.assessmentBackground)
                         .opacity(0.4)
                         .blur(radius: 5.0)
                         .padding(.bottom, 16)
@@ -218,7 +218,19 @@ struct HomeHealthView: View {
                             rectanglesUnderDashboard
                             measureDashboard
                         }
-                        weeklyAssessmentDashboard
+
+                        if !viewModel.pulseData.isEmpty {
+                            PulseChartView(
+                                isOn: $viewModel.isOnToggleTodayAndWeek,
+                                pulseData: viewModel.pulseData,
+                                blueGradient: viewModel.blueGradient
+                            )
+                        } else {
+                            weeklyAssessmentDashboard
+                        }
+                    }
+                    .onAppear {
+                        viewModel.trackingChangesRealmDB()
                     }
                 }
             }
