@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import MessageUI
+import StoreKit
 
 struct SettingsView: View {
     // MARK: - Property -
     @StateObject var viewModel = SettingsViewModel()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.requestReview) var requestReview
     @Binding var showTabBar: Bool
 
     // MARK: - Body -
@@ -22,28 +25,67 @@ struct SettingsView: View {
                     VStack(spacing: 14) {
                         CustomSettingsButton(
                             image: .settingsContactUsIcon,
-                            title: L10n.Settings.ContactUs.title
+                            title: L10n.Settings.ContactUs.title,
+                            action: { viewModel.state = .contactUs; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsPrivacyPolicyIcon,
-                            title: L10n.Settings.PrivacPolicy.title
+                            title: L10n.Settings.PrivacPolicy.title,
+                            action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsTermsOfUseIcon,
-                            title: L10n.Settings.TermsOfUse.title
+                            title: L10n.Settings.TermsOfUse.title,
+                            action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
-                        CustomSettingsButton(
-                            image: .settingsShareThisAppIcon,
-                            title: L10n.Settings.ShareThisApp.title
-                        )
+
+                        ShareLink(item: URL(string: viewModel.appStoreURL)!) {
+                            HStack(spacing: 8) {
+                                VStack {
+                                    Image(.settingsShareThisAppIcon)
+                                        .padding(8)
+                                }
+                                .background(Color.appPaleBlue)
+                                .cornerRadius(12)
+                                Text(L10n.Settings.ShareThisApp.title)
+                                    .font(.appSemibold(of: 15))
+                                    .foregroundStyle(Color.appMarengo)
+                                Spacer()
+                                Image(.settingsArrowIcon)
+                            }
+                            .padding(.horizontal, 16)
+                        }
                     }
                     .padding(.vertical, 16)
+                }
+                .sheet(isPresented: $viewModel.isShowing) {
+                    switch viewModel.state {
+                    case .contactUs:
+                        MailView(isShowing: $viewModel.isShowing)
+                    case .privacyPolicy:
+                        if let privacyPolicyURL = URL(string: viewModel.privacyPolicyURL) {
+                            WebView(url: privacyPolicyURL)
+                        }
+                    case .termsOfUse:
+                        if let termsOfUseURL = URL(string: viewModel.termsOfUseURL) {
+                            WebView(url: termsOfUseURL)
+                        }
+                    case .FAQ:
+                        if let faqURL = URL(string: viewModel.faqURL) {
+                            WebView(url: faqURL)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .background(.white)
@@ -54,13 +96,17 @@ struct SettingsView: View {
                     VStack(spacing: 14) {
                         CustomSettingsButton(
                             image: .settingsFAQIcon,
-                            title: L10n.Settings.Faq.title
+                            title: L10n.Settings.Faq.title,
+                            action: { viewModel.state = .FAQ; viewModel.toggleState() }
                         )
+
                         Divider()
                             .padding(.leading, 32)
+
                         CustomSettingsButton(
                             image: .settingsRateUsIcon,
-                            title: L10n.Settings.RateUs.title
+                            title: L10n.Settings.RateUs.title,
+                            action: { requestReview() }
                         )
                     }
                     .padding(.vertical, 16)
