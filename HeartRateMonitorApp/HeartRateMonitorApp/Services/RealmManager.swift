@@ -19,6 +19,7 @@ protocol RealmManagerProtocol {
     func deleteMeasurementPulseDB(pulseDB: PulseDB)
     func getPulseDataForCurrentDay() -> [PulseData]
     func getAveragePulseForWeek() -> [PulseData]
+    func hasMeasurementForDay(date: Date) -> Bool
 }
 
 final class RealmManager: RealmManagerProtocol {
@@ -95,6 +96,14 @@ final class RealmManager: RealmManagerProtocol {
             print(error.localizedDescription)
         }
         return averagePulse
+    }
+
+    func hasMeasurementForDay(date: Date) -> Bool {
+        let startOfDay = Calendar.current.startOfDay(for: date)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) ?? Date()
+        let pulseDataArray = realm?.objects(PulseDB.self)
+            .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
+        return !(pulseDataArray?.isEmpty ?? true)
     }
 }
 

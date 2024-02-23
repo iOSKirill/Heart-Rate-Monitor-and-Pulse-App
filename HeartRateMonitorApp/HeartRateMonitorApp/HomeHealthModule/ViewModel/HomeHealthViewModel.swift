@@ -25,7 +25,7 @@ final class HomeHealthViewModel: ObservableObject {
     }
     private let calendar = Calendar.current
 
-    private var realmManager: RealmManagerProtocol = RealmManager()
+    var realmManager: RealmManagerProtocol = RealmManager()
     private var notificationToken: NotificationToken?
 
     private(set) var blueGradient = Gradient(colors: [
@@ -36,6 +36,8 @@ final class HomeHealthViewModel: ObservableObject {
     // MARK: - Intializing -
     init() {
         fetchCurrentWeek()
+        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        print(dr)
     }
 
     // MARK: - Fetch days current week -

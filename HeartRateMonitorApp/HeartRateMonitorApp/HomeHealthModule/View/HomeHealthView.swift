@@ -22,14 +22,19 @@ struct HomeHealthView: View {
                         VStack(spacing: 6) {
                             Text(day.getDayOfWeekNumber)
                                 .font(.appSemibold(of: 17))
-                                .foregroundColor(Color.appMarengo)
+                                .foregroundColor(viewModel.realmManager.hasMeasurementForDay(date: day) ? Color.clear : Color.appMarengo)
                                 .background(
                                     ZStack {
                                         Circle()
                                             .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
                                             .foregroundColor(Color.appBlue)
-                                            .frame(width: 32, height: 32)
+                                            .frame(width: 36, height: 36)
                                             .opacity(day.todayDateInCalendar ? 1 : 0)
+
+                                        if viewModel.realmManager.hasMeasurementForDay(date: day) {
+                                            Image(.checkMeasurementIcon)
+                                        }
+
                                     }
                                 )
 
