@@ -20,23 +20,38 @@ struct HomeHealthView: View {
                 HStack {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
-                            Text(day.getDayOfWeekNumber)
-                                .font(.appSemibold(of: 17))
-                                .foregroundColor(viewModel.realmManager.hasMeasurementForDay(date: day) ? Color.clear : Color.appMarengo)
-                                .background(
-                                    ZStack {
-                                        Circle()
-                                            .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                            .foregroundColor(Color.appBlue)
-                                            .frame(width: 36, height: 36)
-                                            .opacity(day.todayDateInCalendar ? 1 : 0)
+                            Button {
+                                let average = viewModel.realmManager.getDailyAverage(date: day)
+                                if let averagePulse = average.pulse,
+                                   let averageHrv = average.hrv,
+                                   let averageAssessment = average.assessment {
+                                     print("Средний пульс за \(day) составляет \(averagePulse)")
+                                     print("Средний hrv за \(day) составляет \(averageHrv)")
+                                    print("Средний assessment за \(day) составляет \(averageAssessment)")
+                                 } else {
+                                     print("Нет измерений за \(day)")
+                                 }
+                            } label: {
+                                Text(day.getDayOfWeekNumber)
+                                    .font(.appSemibold(of: 17))
+                                    .foregroundColor(
+                                        viewModel.realmManager.hasMeasurementForDay(date: day) ?
+                                        Color.clear : Color.appMarengo
+                                    )
+                                    .background(
+                                        ZStack {
+                                            Circle()
+                                                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
+                                                .foregroundColor(Color.appBlue)
+                                                .frame(width: 36, height: 36)
+                                                .opacity(day.todayDateInCalendar ? 1 : 0)
 
-                                        if viewModel.realmManager.hasMeasurementForDay(date: day) {
-                                            Image(.checkMeasurementIcon)
+                                            if viewModel.realmManager.hasMeasurementForDay(date: day) {
+                                                Image(.checkMeasurementIcon)
+                                            }
                                         }
-
-                                    }
-                                )
+                                    )
+                            }
 
                             Text(day.getWeekOfDayName)
                                 .font(.appSemibold(of: 15))
@@ -49,87 +64,6 @@ struct HomeHealthView: View {
             }
         }
         .padding(.top, 20)
-        .padding(.horizontal, 16)
-    }
-
-    // MARK: - Measure dashboard -
-    var measureDashboard: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(L10n.Dashboard.Measure.title)
-                    .font(.appUrbanistBold(of: 17))
-                    .foregroundColor(Color.white)
-                Spacer()
-                Button {
-                    withAnimation(.linear(duration: 0.3)) {
-                        isPopupVisible.toggle()
-                    }
-                } label: {
-                    Image(.informationButton)
-                }
-            }
-            .padding(.horizontal, 16)
-            .padding(.top, 24)
-            .padding(.bottom, 10)
-
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.white.opacity(0.15))
-
-            HStack(alignment: .center) {
-                VStack(spacing: 13) {
-                    Button {
-                        viewModel.isPresentedMeasurementView.toggle()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .stroke(Color.white, lineWidth: 3)
-                                .frame(width: 76, height: 76)
-                            Image(.tapToStartButton)
-                        }
-                    }
-                    .fullScreenCover(isPresented: $viewModel.isPresentedMeasurementView) {
-                        MeasurementView()
-                    }
-                    Text(L10n.Button.Start.title)
-                        .font(.appSemibold(of: 15))
-                        .foregroundColor(.white)
-                }
-            }
-            .padding(.top, 28)
-            .frame(maxWidth: .infinity)
-
-            HStack(alignment: .center) {
-                VStack(spacing: 8) {
-                    Text(L10n.Dashboard.Measure.subtitle)
-                        .font(.appUrbanistBold(of: 19))
-                        .foregroundColor(.white)
-                    Text(L10n.Dashboard.Measure.mainText)
-                        .font(.appSemibold(of: 15))
-                        .foregroundColor(Color.appVeryLightBlue)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-                    Image(.pulseLine)
-                        .resizable()
-                        .padding(.top, 14)
-                        .padding(.bottom, 24)
-                }
-            }
-            .padding(.top, 25)
-            .frame(maxWidth: .infinity)
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, minHeight: 367)
-        .background(
-            ZStack {
-                Color.appBlue
-                Image(.measureBackgound)
-                    .blur(radius: 8.5)
-                    .opacity(0.8)
-            }
-        )
-        .cornerRadius(20)
-        .padding(.top, 70)
         .padding(.horizontal, 16)
     }
 
@@ -221,7 +155,7 @@ struct HomeHealthView: View {
                         weekCalendar
                         ZStack {
                             rectanglesUnderDashboard
-                            measureDashboard
+                            MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
                         }
 
                         if !viewModel.pulseData.isEmpty {

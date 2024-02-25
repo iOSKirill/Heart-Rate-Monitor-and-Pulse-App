@@ -29,7 +29,6 @@ struct HistoryInfoView: View {
 
     var measurementDetailsView: some View {
         VStack {
-
             // Headline
             HStack {
                 Text(viewModel.measurementDetails.time.getDateOfHistoryDetails)

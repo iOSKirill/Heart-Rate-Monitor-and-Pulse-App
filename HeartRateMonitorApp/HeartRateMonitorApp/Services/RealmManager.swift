@@ -13,6 +13,12 @@ struct PulseData {
     var time: Date
 }
 
+struct DailyAverage {
+    let pulse: Int?
+    let hrv: Int?
+    let assessment: Int?
+}
+
 protocol RealmManagerProtocol {
     var realm: Realm? { get }
     func addLastMeasurement(pulse: Int, hrv: Int, assessment: Int, time: Date)
@@ -20,6 +26,7 @@ protocol RealmManagerProtocol {
     func getPulseDataForCurrentDay() -> [PulseData]
     func getAveragePulseForWeek() -> [PulseData]
     func hasMeasurementForDay(date: Date) -> Bool
+    func getDailyAverage(date: Date) -> DailyAverage
 }
 
 final class RealmManager: RealmManagerProtocol {
@@ -104,6 +111,27 @@ final class RealmManager: RealmManagerProtocol {
         let pulseDataArray = realm?.objects(PulseDB.self)
             .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
         return !(pulseDataArray?.isEmpty ?? true)
+    }
+
+    func getDailyAverage(date: Date) -> DailyAverage {
+        let startOfDay = Calendar.current.startOfDay(for: date)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) ?? Date()
+        let pulseDataArray = realm?.objects(PulseDB.self)
+            .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
+
+        if let pulseDataArray = pulseDataArray, !pulseDataArray.isEmpty {
+            let totalPulse = pulseDataArray.map { $0.pulse }.reduce(0, +)
+            let totalHrv = pulseDataArray.map { $0.hrv }.reduce(0, +)
+            let totalAssessment = pulseDataArray.map { $0.assessment }.reduce(0, +)
+
+            let averagePulse = Int(ceil(Double(totalPulse) / Double(pulseDataArray.count)))
+            let averageHrv = Int(ceil(Double(totalHrv) / Double(pulseDataArray.count)))
+            let averageAssessment = Int(ceil(Double(totalAssessment) / Double(pulseDataArray.count)))
+
+            return DailyAverage(pulse: averagePulse, hrv: averageHrv, assessment: averageAssessment)
+        } else {
+            return DailyAverage(pulse: nil, hrv: nil, assessment: nil)
+        }
     }
 }
 

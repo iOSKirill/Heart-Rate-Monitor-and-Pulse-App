@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C07CBF92B8B9195009CB990 /* CustomButtonPopupPresented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBF82B8B9195009CB990 /* CustomButtonPopupPresented.swift */; };
+		6C07CBFB2B8B93EB009CB990 /* MeasureDefaultDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */; };
+		6C07CBFD2B8B94E0009CB990 /* MeasureNoDataDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */; };
 		6C245FE32B6A41EC00E8699A /* CustomMainSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */; };
 		6C245FE52B6A5E2100E8699A /* Gilroy-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */; };
 		6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C07CBF82B8B9195009CB990 /* CustomButtonPopupPresented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonPopupPresented.swift; sourceTree = "<group>"; };
+		6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureDefaultDashboard.swift; sourceTree = "<group>"; };
+		6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNoDataDashboard.swift; sourceTree = "<group>"; };
 		6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainSettingsButton.swift; sourceTree = "<group>"; };
 		6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-black.ttf"; sourceTree = "<group>"; };
 		6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryView.swift; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 				6C2FE7942B1796870092BFE5 /* HomeHealthView.swift */,
 				6CF3FA3A2B2A4840000EC270 /* PopupInfoView.swift */,
 				6CDBE6492B827E6E000CA393 /* PulseChartView.swift */,
+				6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */,
+				6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */,
 				6CEC0BFF2B72A3510009A872 /* CustomBackButton.swift */,
 				6CDBE64B2B8289CB000CA393 /* CustomToggleTodayAndWeek.swift */,
+				6C07CBF82B8B9195009CB990 /* CustomButtonPopupPresented.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -602,11 +611,14 @@
 				6CEC0C002B72A3510009A872 /* CustomBackButton.swift in Sources */,
 				6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
+				6C07CBFD2B8B94E0009CB990 /* MeasureNoDataDashboard.swift in Sources */,
+				6C07CBF92B8B9195009CB990 /* CustomButtonPopupPresented.swift in Sources */,
 				6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */,
 				6CA8787D2B4D637D00B2DCC3 /* LaunchScreenViewModel.swift in Sources */,
 				6CA878862B4D744000B2DCC3 /* OnboardingView.swift in Sources */,
 				6CC6AE9E2B33340100F83B8B /* Filter.swift in Sources */,
 				6CC6AEA22B33366600F83B8B /* AVCaptureDevice+Extension.swift in Sources */,
+				6C07CBFB2B8B93EB009CB990 /* MeasureDefaultDashboard.swift in Sources */,
 				6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */,
 				6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */,
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,

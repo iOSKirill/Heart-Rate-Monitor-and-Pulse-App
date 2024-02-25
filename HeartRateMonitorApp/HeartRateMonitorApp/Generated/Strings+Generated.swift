@@ -35,6 +35,14 @@ internal enum L10n {
       /// Measure dashboard
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
     }
+    internal enum NoData {
+      /// Try not to miss measurements in order 
+      ///  to monitor your health status.
+      internal static let subtitle = L10n.tr("Localizable", "dashboard.noData.subtitle", fallback: "Try not to miss measurements in order \n to monitor your health status.")
+      /// Unfortunately, you did not take 
+      ///  measurements that day
+      internal static let title = L10n.tr("Localizable", "dashboard.noData.title", fallback: "Unfortunately, you did not take \n measurements that day")
+    }
     internal enum Statistics {
       /// Assessment
       internal static let title = L10n.tr("Localizable", "dashboard.statistics.title", fallback: "Assessment")

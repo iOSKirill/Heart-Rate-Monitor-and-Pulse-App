@@ -87,6 +87,7 @@ struct TabBarView: View {
                     .edgesIgnoringSafeArea(.all)
                 PopupInfoView(isPopupVisible: $isPopupVisible)
                     .zIndex(1)
+                    .statusBarHidden()
             }
         }
     }
