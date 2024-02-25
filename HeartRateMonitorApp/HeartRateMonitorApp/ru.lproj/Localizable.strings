@@ -13,6 +13,7 @@
 "dashboard.measure.title" = "Измерительная панель";
 "dashboard.noData.title" = "К сожалению, в этот день вы не проводили \n измерений";
 "dashboard.noData.subtitle" = "Старайтесь не пропускать измерения, \n чтобы следить за состоянием своего здоровья.";
+"dashboard.headline.title" = "В среднем за день";
 "button.start.title" = "Нажмите, чтобы начать";
 "dashboard.measure.subtitle" = "Как ты себя сегодня чувствуешь?";
 "dashboard.measure.mainText" = "Сделайте замеры, чтобы получить оценку готовности вашего организма к предстоящему дню";

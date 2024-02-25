@@ -13,6 +13,7 @@
 "dashboard.measure.title" = "Measure dashboard";
 "dashboard.noData.title" = "Unfortunately, you did not take \n measurements that day";
 "dashboard.noData.subtitle" = "Try not to miss measurements in order \n to monitor your health status.";
+"dashboard.headline.title" = "Average per day";
 "button.start.title" = "Tap to start";
 "dashboard.measure.subtitle" = "How are you feeling today?";
 "dashboard.measure.mainText" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";

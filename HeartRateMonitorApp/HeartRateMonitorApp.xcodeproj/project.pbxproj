@@ -10,6 +10,7 @@
 		6C07CBF92B8B9195009CB990 /* CustomButtonPopupPresented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBF82B8B9195009CB990 /* CustomButtonPopupPresented.swift */; };
 		6C07CBFB2B8B93EB009CB990 /* MeasureDefaultDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */; };
 		6C07CBFD2B8B94E0009CB990 /* MeasureNoDataDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */; };
+		6C07CBFF2B8BAEB9009CB990 /* MeasureDetailsDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFE2B8BAEB9009CB990 /* MeasureDetailsDashboard.swift */; };
 		6C245FE32B6A41EC00E8699A /* CustomMainSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */; };
 		6C245FE52B6A5E2100E8699A /* Gilroy-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */; };
 		6C245FE72B6A64A100E8699A /* CustomHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */; };
@@ -69,6 +70,7 @@
 		6C07CBF82B8B9195009CB990 /* CustomButtonPopupPresented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonPopupPresented.swift; sourceTree = "<group>"; };
 		6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureDefaultDashboard.swift; sourceTree = "<group>"; };
 		6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNoDataDashboard.swift; sourceTree = "<group>"; };
+		6C07CBFE2B8BAEB9009CB990 /* MeasureDetailsDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureDetailsDashboard.swift; sourceTree = "<group>"; };
 		6C245FE22B6A41EC00E8699A /* CustomMainSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainSettingsButton.swift; sourceTree = "<group>"; };
 		6C245FE42B6A5E2100E8699A /* Gilroy-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-black.ttf"; sourceTree = "<group>"; };
 		6C245FE62B6A64A100E8699A /* CustomHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				6CDBE6492B827E6E000CA393 /* PulseChartView.swift */,
 				6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */,
 				6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */,
+				6C07CBFE2B8BAEB9009CB990 /* MeasureDetailsDashboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				6CF3FA392B286D0B000EC270 /* CustomNavigationBar.swift in Sources */,
 				6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */,
 				6CC6AE292B2B81A800F83B8B /* CustomSettingsButton.swift in Sources */,
+				6C07CBFF2B8BAEB9009CB990 /* MeasureDetailsDashboard.swift in Sources */,
 				6CDBE64A2B827E6E000CA393 /* PulseChartView.swift in Sources */,
 				6CBD64CE2B1DEFAC001D1DBF /* SettingsViewModel.swift in Sources */,
 				6CA8787F2B4D642300B2DCC3 /* LaunchScreenView.swift in Sources */,

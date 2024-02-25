@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MeasureDefaultDashboard: View {
     // MARK: - Property -
-    @StateObject var viewModel = HomeHealthViewModel()
+    @ObservedObject var viewModel: HomeHealthViewModel
     @Binding var isPopupVisible: Bool
 
     // MARK: - Body -

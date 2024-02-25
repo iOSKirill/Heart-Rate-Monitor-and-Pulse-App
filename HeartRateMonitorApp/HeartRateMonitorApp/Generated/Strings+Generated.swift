@@ -27,6 +27,10 @@ internal enum L10n {
       /// Assessment for the week
       internal static let title = L10n.tr("Localizable", "dashboard.assessment.title", fallback: "Assessment for the week")
     }
+    internal enum Headline {
+      /// Average per day
+      internal static let title = L10n.tr("Localizable", "dashboard.headline.title", fallback: "Average per day")
+    }
     internal enum Measure {
       /// Take a measurement to get an assessment of your body's readiness for the upcoming day
       internal static let mainText = L10n.tr("Localizable", "dashboard.measure.mainText", fallback: "Take a measurement to get an assessment of your body's readiness for the upcoming day")

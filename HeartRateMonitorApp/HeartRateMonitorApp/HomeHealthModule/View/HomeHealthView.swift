@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeHealthView: View {
     // MARK: - Property -
-    @StateObject var viewModel = HomeHealthViewModel()
+    @ObservedObject var viewModel: HomeHealthViewModel
     @Binding var isPopupVisible: Bool
     @Binding var showTabBar: Bool
 
@@ -21,16 +21,7 @@ struct HomeHealthView: View {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
                             Button {
-                                let average = viewModel.realmManager.getDailyAverage(date: day)
-                                if let averagePulse = average.pulse,
-                                   let averageHrv = average.hrv,
-                                   let averageAssessment = average.assessment {
-                                     print("Средний пульс за \(day) составляет \(averagePulse)")
-                                     print("Средний hrv за \(day) составляет \(averageHrv)")
-                                    print("Средний assessment за \(day) составляет \(averageAssessment)")
-                                 } else {
-                                     print("Нет измерений за \(day)")
-                                 }
+                                viewModel.calculateDailyAverage(date: day)
                             } label: {
                                 Text(day.getDayOfWeekNumber)
                                     .font(.appSemibold(of: 17))
@@ -155,7 +146,8 @@ struct HomeHealthView: View {
                         weekCalendar
                         ZStack {
                             rectanglesUnderDashboard
-                            MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+                            MeasureDetailsDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+//                            MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
                         }
 
                         if !viewModel.pulseData.isEmpty {
@@ -178,5 +170,5 @@ struct HomeHealthView: View {
 }
 
 #Preview {
-    HomeHealthView(isPopupVisible: .constant(true), showTabBar: .constant(true))
+    HomeHealthView(viewModel: .init(dailyAverage: .init(pulse: 20, hrv: 20, assessment: 20, time: .now)), isPopupVisible: .constant(true), showTabBar: .constant(true))
 }

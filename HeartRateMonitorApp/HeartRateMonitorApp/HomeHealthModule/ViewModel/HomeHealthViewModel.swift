@@ -14,6 +14,7 @@ final class HomeHealthViewModel: ObservableObject {
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
     @Published private(set) var currentDay = Date()
+    @Published var dailyAverage: DailyAverage
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
     @Published var scrollOffSet: CGFloat = 0.0
@@ -34,10 +35,9 @@ final class HomeHealthViewModel: ObservableObject {
     ])
 
     // MARK: - Intializing -
-    init() {
+    init(dailyAverage: DailyAverage) {
+        self.dailyAverage = realmManager.getDailyAverage(date: .now)
         fetchCurrentWeek()
-        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        print(dr)
     }
 
     // MARK: - Fetch days current week -
@@ -77,5 +77,26 @@ final class HomeHealthViewModel: ObservableObject {
     deinit {
         guard let notificationToken = notificationToken else { return }
         notificationToken.invalidate()
+    }
+
+    func getDescriptionForAssessment() -> String {
+        guard let assessment = dailyAverage.assessment else { return "" }
+        switch assessment {
+        case 70...100:
+            return dailyAverage.time?.getDateOfHistoryLowHealthRange ?? ""
+
+        case 40..<70:
+            return L10n.HistoryInfo.Subtitle.mediumHealthRange
+
+        case 0..<40:
+            return  L10n.HistoryInfo.Subtitle.lowHealthRange
+
+        default:
+            return dailyAverage.time?.getDateOfHistoryLowHealthRange ?? ""
+        }
+    }
+
+    func calculateDailyAverage(date: Date) {
+        dailyAverage = realmManager.getDailyAverage(date: date)
     }
 }

@@ -17,6 +17,7 @@ struct DailyAverage {
     let pulse: Int?
     let hrv: Int?
     let assessment: Int?
+    let time: Date?
 }
 
 protocol RealmManagerProtocol {
@@ -127,10 +128,15 @@ final class RealmManager: RealmManagerProtocol {
             let averagePulse = Int(ceil(Double(totalPulse) / Double(pulseDataArray.count)))
             let averageHrv = Int(ceil(Double(totalHrv) / Double(pulseDataArray.count)))
             let averageAssessment = Int(ceil(Double(totalAssessment) / Double(pulseDataArray.count)))
+            let timeLastMeasurement = pulseDataArray.last?.time
 
-            return DailyAverage(pulse: averagePulse, hrv: averageHrv, assessment: averageAssessment)
+            return DailyAverage(
+                pulse: averagePulse,
+                hrv: averageHrv,
+                assessment: averageAssessment,
+                time: timeLastMeasurement)
         } else {
-            return DailyAverage(pulse: nil, hrv: nil, assessment: nil)
+            return DailyAverage(pulse: nil, hrv: nil, assessment: nil, time: nil)
         }
     }
 }
