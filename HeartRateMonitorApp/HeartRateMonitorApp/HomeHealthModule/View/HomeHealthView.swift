@@ -26,7 +26,7 @@ struct HomeHealthView: View {
                                 Text(day.getDayOfWeekNumber)
                                     .font(.appSemibold(of: 17))
                                     .foregroundColor(
-                                        viewModel.realmManager.hasMeasurementForDay(date: day) ?
+                                        viewModel.hasMeasurementForDay(date: day) ?
                                         Color.clear : Color.appMarengo
                                     )
                                     .background(
@@ -37,7 +37,7 @@ struct HomeHealthView: View {
                                                 .frame(width: 36, height: 36)
                                                 .opacity(day.todayDateInCalendar ? 1 : 0)
 
-                                            if viewModel.realmManager.hasMeasurementForDay(date: day) {
+                                            if viewModel.hasMeasurementForDay(date: day) {
                                                 Image(.checkMeasurementIcon)
                                             }
                                         }
@@ -146,8 +146,15 @@ struct HomeHealthView: View {
                         weekCalendar
                         ZStack {
                             rectanglesUnderDashboard
-                            MeasureDetailsDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
-//                            MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+
+                            switch viewModel.measurementState {
+                              case .noData:
+                                  MeasureNoDataDashboard(isPopupVisible: $isPopupVisible)
+                              case .defaultMeasurement:
+                                  MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+                              case .details:
+                                  MeasureDetailsDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+                              }
                         }
 
                         if !viewModel.pulseData.isEmpty {
@@ -170,5 +177,9 @@ struct HomeHealthView: View {
 }
 
 #Preview {
-    HomeHealthView(viewModel: .init(dailyAverage: .init(pulse: 20, hrv: 20, assessment: 20, time: .now)), isPopupVisible: .constant(true), showTabBar: .constant(true))
+    HomeHealthView(
+        viewModel: .init(dailyAverage: .init(pulse: 20, hrv: 20, assessment: 20, time: .now)),
+        isPopupVisible: .constant(true),
+        showTabBar: .constant(true)
+    )
 }

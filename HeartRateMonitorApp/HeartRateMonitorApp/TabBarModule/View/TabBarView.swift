@@ -69,7 +69,12 @@ struct TabBarView: View {
                 switch selectedIndex {
                 case 0:
                     HomeHealthView(
-                        viewModel: HomeHealthViewModel(dailyAverage: .init(pulse: 20, hrv: 20, assessment: 20, time: .now)),
+                        viewModel: HomeHealthViewModel(dailyAverage: .init(
+                            pulse: 20,
+                            hrv: 20,
+                            assessment: 20,
+                            time: .now
+                        )),
                         isPopupVisible: $isPopupVisible,
                         showTabBar: $showTabBar
                     )

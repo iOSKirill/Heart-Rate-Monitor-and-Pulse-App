@@ -9,24 +9,36 @@ import Foundation
 import RealmSwift
 import SwiftUI
 
+enum MeasurementState {
+    case noData
+    case defaultMeasurement
+    case details
+}
+
 final class HomeHealthViewModel: ObservableObject {
     // MARK: - Property -
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
     @Published private(set) var currentDay = Date()
-    @Published var dailyAverage: DailyAverage
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var pulseData: [PulseData] = []
+    @Published var measurementState: MeasurementState = .noData
+    @Published var dailyAverage: DailyAverage {
+        didSet {
+            updateMeasurementState()
+        }
+    }
     @Published var isOnToggleTodayAndWeek: Bool = true {
         didSet {
             trackingChangesRealmDB()
         }
     }
+
     private let calendar = Calendar.current
 
-    var realmManager: RealmManagerProtocol = RealmManager()
+    private var realmManager: RealmManagerProtocol = RealmManager()
     private var notificationToken: NotificationToken?
 
     private(set) var blueGradient = Gradient(colors: [
@@ -38,9 +50,10 @@ final class HomeHealthViewModel: ObservableObject {
     init(dailyAverage: DailyAverage) {
         self.dailyAverage = realmManager.getDailyAverage(date: .now)
         fetchCurrentWeek()
+        updateMeasurementState()
     }
 
-    // MARK: - Fetch days current week -
+    // Fetch days current week
     func fetchCurrentWeek() {
         let today = Date()
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
@@ -79,6 +92,7 @@ final class HomeHealthViewModel: ObservableObject {
         notificationToken.invalidate()
     }
 
+    // Changing the text depending on the assessment
     func getDescriptionForAssessment() -> String {
         guard let assessment = dailyAverage.assessment else { return "" }
         switch assessment {
@@ -96,7 +110,31 @@ final class HomeHealthViewModel: ObservableObject {
         }
     }
 
+    // Checks if there is a measurement for the given date
+    func hasMeasurementForDay(date: Date) -> Bool {
+        realmManager.hasMeasurementForDay(date: date)
+    }
+
+    // Calculates the daily average for the given date
     func calculateDailyAverage(date: Date) {
         dailyAverage = realmManager.getDailyAverage(date: date)
+    }
+
+    // Updates the measurement state based on the daily average pulse
+    func updateMeasurementState() {
+        if dailyAverage.pulse == nil {
+            if isToday(date: dailyAverage.time ?? Date()) {
+                measurementState = .defaultMeasurement
+            } else {
+                measurementState = .noData
+            }
+        } else {
+            measurementState = .details
+        }
+    }
+
+    // Checks if the given date is today
+    private func isToday(date: Date) -> Bool {
+        return calendar.isDateInToday(date)
     }
 }
