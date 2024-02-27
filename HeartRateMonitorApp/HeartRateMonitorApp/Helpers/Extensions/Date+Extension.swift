@@ -48,6 +48,15 @@ extension Date {
         }
     }
 
+    var getDateHomeDeatails: String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(self) {
+            return "\(L10n.HistoryInfo.Time.today) \(formatted(.dateOfHistoryDetails))"
+        } else {
+            return "\(L10n.Dashboard.Headline.title)"
+        }
+    }
+
     var getDateOfHistoryLowHealthRange: String {
         let calendar = Calendar.current
         if calendar.isDateInToday(self) {

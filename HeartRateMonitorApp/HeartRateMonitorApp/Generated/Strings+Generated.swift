@@ -27,6 +27,10 @@ internal enum L10n {
       /// Assessment for the week
       internal static let title = L10n.tr("Localizable", "dashboard.assessment.title", fallback: "Assessment for the week")
     }
+    internal enum Headline {
+      /// Average per day
+      internal static let title = L10n.tr("Localizable", "dashboard.headline.title", fallback: "Average per day")
+    }
     internal enum Measure {
       /// Take a measurement to get an assessment of your body's readiness for the upcoming day
       internal static let mainText = L10n.tr("Localizable", "dashboard.measure.mainText", fallback: "Take a measurement to get an assessment of your body's readiness for the upcoming day")
@@ -34,6 +38,14 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "dashboard.measure.subtitle", fallback: "How are you feeling today?")
       /// Measure dashboard
       internal static let title = L10n.tr("Localizable", "dashboard.measure.title", fallback: "Measure dashboard")
+    }
+    internal enum NoData {
+      /// Try not to miss measurements in order 
+      ///  to monitor your health status.
+      internal static let subtitle = L10n.tr("Localizable", "dashboard.noData.subtitle", fallback: "Try not to miss measurements in order \n to monitor your health status.")
+      /// Unfortunately, you did not take 
+      ///  measurements that day
+      internal static let title = L10n.tr("Localizable", "dashboard.noData.title", fallback: "Unfortunately, you did not take \n measurements that day")
     }
     internal enum Statistics {
       /// Assessment

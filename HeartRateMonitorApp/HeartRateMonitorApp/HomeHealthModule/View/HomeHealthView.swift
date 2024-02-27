@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeHealthView: View {
     // MARK: - Property -
-    @StateObject var viewModel = HomeHealthViewModel()
+    @ObservedObject var viewModel: HomeHealthViewModel
     @Binding var isPopupVisible: Bool
     @Binding var showTabBar: Bool
 
@@ -20,18 +20,29 @@ struct HomeHealthView: View {
                 HStack {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
-                            Text(day.getDayOfWeekNumber)
-                                .font(.appSemibold(of: 17))
-                                .foregroundColor(Color.appMarengo)
-                                .background(
-                                    ZStack {
-                                        Circle()
-                                            .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                            .foregroundColor(Color.appBlue)
-                                            .frame(width: 32, height: 32)
-                                            .opacity(day.todayDateInCalendar ? 1 : 0)
-                                    }
-                                )
+                            Button {
+                                viewModel.calculateDailyAverage(date: day)
+                            } label: {
+                                Text(day.getDayOfWeekNumber)
+                                    .font(.appSemibold(of: 17))
+                                    .foregroundColor(
+                                        viewModel.hasMeasurementForDay(date: day) ?
+                                        Color.clear : Color.appMarengo
+                                    )
+                                    .background(
+                                        ZStack {
+                                            Circle()
+                                                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
+                                                .foregroundColor(Color.appBlue)
+                                                .frame(width: 36, height: 36)
+                                                .opacity(day.todayDateInCalendar ? 1 : 0)
+
+                                            if viewModel.hasMeasurementForDay(date: day) {
+                                                Image(.checkMeasurementIcon)
+                                            }
+                                        }
+                                    )
+                            }
 
                             Text(day.getWeekOfDayName)
                                 .font(.appSemibold(of: 15))
@@ -44,87 +55,6 @@ struct HomeHealthView: View {
             }
         }
         .padding(.top, 20)
-        .padding(.horizontal, 16)
-    }
-
-    // MARK: - Measure dashboard -
-    var measureDashboard: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(L10n.Dashboard.Measure.title)
-                    .font(.appUrbanistBold(of: 17))
-                    .foregroundColor(Color.white)
-                Spacer()
-                Button {
-                    withAnimation(.linear(duration: 0.3)) {
-                        isPopupVisible.toggle()
-                    }
-                } label: {
-                    Image(.informationButton)
-                }
-            }
-            .padding(.horizontal, 16)
-            .padding(.top, 24)
-            .padding(.bottom, 10)
-
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.white.opacity(0.15))
-
-            HStack(alignment: .center) {
-                VStack(spacing: 13) {
-                    Button {
-                        viewModel.isPresentedMeasurementView.toggle()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .stroke(Color.white, lineWidth: 3)
-                                .frame(width: 76, height: 76)
-                            Image(.tapToStartButton)
-                        }
-                    }
-                    .fullScreenCover(isPresented: $viewModel.isPresentedMeasurementView) {
-                        MeasurementView()
-                    }
-                    Text(L10n.Button.Start.title)
-                        .font(.appSemibold(of: 15))
-                        .foregroundColor(.white)
-                }
-            }
-            .padding(.top, 28)
-            .frame(maxWidth: .infinity)
-
-            HStack(alignment: .center) {
-                VStack(spacing: 8) {
-                    Text(L10n.Dashboard.Measure.subtitle)
-                        .font(.appUrbanistBold(of: 19))
-                        .foregroundColor(.white)
-                    Text(L10n.Dashboard.Measure.mainText)
-                        .font(.appSemibold(of: 15))
-                        .foregroundColor(Color.appVeryLightBlue)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-                    Image(.pulseLine)
-                        .resizable()
-                        .padding(.top, 14)
-                        .padding(.bottom, 24)
-                }
-            }
-            .padding(.top, 25)
-            .frame(maxWidth: .infinity)
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, minHeight: 367)
-        .background(
-            ZStack {
-                Color.appBlue
-                Image(.measureBackgound)
-                    .blur(radius: 8.5)
-                    .opacity(0.8)
-            }
-        )
-        .cornerRadius(20)
-        .padding(.top, 70)
         .padding(.horizontal, 16)
     }
 
@@ -208,15 +138,23 @@ struct HomeHealthView: View {
         NavigationView {
             ZStack {
                 Color(.appPaleBlue).ignoresSafeArea()
-                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                NavigationBarScroll(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                     title: L10n.NavigationBar.Health.title,
-                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
+                    button: AnyView(SettingsButton(showTabBar: $showTabBar))
                 )) {
                     VStack {
                         weekCalendar
                         ZStack {
                             rectanglesUnderDashboard
-                            measureDashboard
+
+                            switch viewModel.measurementState {
+                              case .noData:
+                                  MeasureNoDataDashboard(isPopupVisible: $isPopupVisible)
+                              case .defaultMeasurement:
+                                  MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+                              case .details:
+                                  MeasureDetailsDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+                              }
                         }
 
                         if !viewModel.pulseData.isEmpty {
@@ -239,5 +177,9 @@ struct HomeHealthView: View {
 }
 
 #Preview {
-    HomeHealthView(isPopupVisible: .constant(true), showTabBar: .constant(true))
+    HomeHealthView(
+        viewModel: .init(dailyAverage: .init(pulse: 0, hrv: 0, assessment: 0, time: Date())),
+        isPopupVisible: .constant(true),
+        showTabBar: .constant(true)
+    )
 }

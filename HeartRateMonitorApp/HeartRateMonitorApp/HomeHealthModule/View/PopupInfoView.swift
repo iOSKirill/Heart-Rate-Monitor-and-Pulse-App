@@ -15,17 +15,17 @@ struct PopupInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 12) {
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupAssessmentIcon,
                     title: L10n.Popup.Assessment.title,
                     subtitle: L10n.Popup.Assessment.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupPulseIcon,
                     title: L10n.Popup.Pulse.title,
                     subtitle: L10n.Popup.Pulse.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupHRVIcon,
                     title: L10n.Popup.Hrv.title,
                     subtitle: L10n.Popup.Hrv.subtitle

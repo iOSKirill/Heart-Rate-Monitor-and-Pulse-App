@@ -1,5 +1,5 @@
 //
-//  CustomToggleTodayAndWeek.swift
+//  TodayWeekToggleView.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 18.02.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomToggleTodayAndWeek: View {
+struct TodayWeekToggleView: View {
     // MARK: - Property -
     @Binding var isOn: Bool
     let blueGradient = LinearGradient(
@@ -56,8 +56,4 @@ struct CustomToggleTodayAndWeek: View {
         .background(.appPaleBlue)
         .cornerRadius(58)
     }
-}
-
-#Preview {
-    CustomToggleTodayAndWeek(isOn: .constant(true))
 }

@@ -1,40 +1,26 @@
 //
-//  HistoryInfoView.swift
+//  MeasureDetailsDashboard.swift
 //  HeartRateMonitorApp
 //
-//  Created by Kirill Manuilenko on 6.02.24.
+//  Created by Kirill Manuilenko on 25.02.24.
 //
 
 import SwiftUI
 
-struct HistoryInfoView: View {
+struct MeasureDetailsDashboard: View {
     // MARK: - Property -
-    @ObservedObject var viewModel: HistoryInfoViewModel
-    @Binding var showTabBar: Bool
+    @ObservedObject var viewModel: HomeHealthViewModel
+    @Binding var isPopupVisible: Bool
 
-    // MARK: - Share button -
-    var shareHistoryButton: some View {
-        Button {
-           // Share history
-        } label: {
-            VStack {
-                Image(.historyShareIcon)
-                    .foregroundColor(Color.appMarengo)
-                    .padding(10)
-            }
-            .background(Color.white)
-            .cornerRadius(12)
-        }
-    }
-
-    var measurementDetailsView: some View {
+    // MARK: - Body -
+    var body: some View {
         VStack {
-            // Headline
             HStack {
-                Text(viewModel.measurementDetails.time.getDateOfHistoryDetails)
+                Text("\(viewModel.dailyAverage.time.getDateHomeDeatails)")
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(.white)
                 Spacer()
+                PopupButton(isPopupVisible: $isPopupVisible)
             }
             .padding(.horizontal, 16)
             .padding(.top, 24)
@@ -45,7 +31,6 @@ struct HistoryInfoView: View {
                 .padding(.top, 10)
 
             HStack {
-
                 // Assessment detail
                 VStack(spacing: 0) {
                     HStack(spacing: 10) {
@@ -55,7 +40,7 @@ struct HistoryInfoView: View {
                             .foregroundColor(.white)
                     }
 
-                    Text("\(viewModel.measurementDetails.assessment)%")
+                    Text("\(viewModel.dailyAverage.assessment)%")
                         .font(.appBlack(of: 48))
                         .foregroundColor(.white)
                         .padding(.leading, 42)
@@ -78,7 +63,7 @@ struct HistoryInfoView: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text("\(viewModel.measurementDetails.pulse)")
+                            Text("\(viewModel.dailyAverage.pulse)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.bpm)
@@ -98,7 +83,7 @@ struct HistoryInfoView: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text("\(viewModel.measurementDetails.hrv)")
+                            Text("\(viewModel.dailyAverage.hrv)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.ms)
@@ -137,59 +122,6 @@ struct HistoryInfoView: View {
         )
         .cornerRadius(20)
         .padding(.horizontal, 16)
-        .padding(.top, 12)
+        .padding(.top, 70)
     }
-
-    var intoAboutMeasurementView: some View {
-        VStack {
-            VStack(spacing: 12) {
-                PopupVStackInfo(
-                    image: .popupAssessmentIcon,
-                    title: L10n.Popup.Assessment.title,
-                    subtitle: L10n.Popup.Assessment.subtitle
-                )
-                PopupVStackInfo(
-                    image: .popupPulseIcon,
-                    title: L10n.Popup.Pulse.title,
-                    subtitle: L10n.Popup.Pulse.subtitle
-                )
-                PopupVStackInfo(
-                    image: .popupHRVIcon,
-                    title: L10n.Popup.Hrv.title,
-                    subtitle: L10n.Popup.Hrv.subtitle
-                )
-            }
-            .padding(.vertical, 20)
-         }
-        .frame(maxWidth: .infinity)
-        .background(Color.white)
-        .cornerRadius(20)
-        .padding(.horizontal, 16)
-        .padding(.bottom, 30)
-    }
-
-    // MARK: - Body -
-    var body: some View {
-        ZStack {
-            Color(.appPaleBlue).ignoresSafeArea()
-            NavigationBarScroll(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
-                title: L10n.History.NavBar.title,
-                buttonFirst: AnyView(BackButton(showTabBar: $showTabBar)),
-                buttonSecond: AnyView(shareHistoryButton)
-            )) {
-                VStack(spacing: 11) {
-                    measurementDetailsView
-                    intoAboutMeasurementView
-                }
-            }
-        }
-        .onAppear {
-            showTabBar = false
-        }
-        .navigationBarHidden(true)
-    }
-}
-
-#Preview {
-    HistoryInfoView(viewModel: .init(measurementDetails: .init()), showTabBar: .constant(true))
 }

@@ -1,5 +1,5 @@
 //
-//  CustomHistoryView.swift
+//  HistoryDetailView.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 31.01.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomHistoryView: View {
+struct HistoryDetailView: View {
     // MARK: - Property -
     var historyInfo: PulseDB
 

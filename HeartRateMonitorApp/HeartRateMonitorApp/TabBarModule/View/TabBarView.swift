@@ -38,7 +38,7 @@ struct TabBarView: View {
     var tabBarButtons: some View {
         VStack {
             HStack {
-                CustomButtonOnTabBar(
+                PlusButtonOnTabBar(
                     selectedIndex: $selectedIndex,
                     index: 0,
                     image: .homeButton,
@@ -48,7 +48,7 @@ struct TabBarView: View {
                 Spacer(minLength: 0)
                 plusBarButton
                 Spacer(minLength: 0)
-                CustomButtonOnTabBar(
+                PlusButtonOnTabBar(
                     selectedIndex: $selectedIndex,
                     index: 1,
                     image: .historyButton,
@@ -68,7 +68,16 @@ struct TabBarView: View {
             VStack(spacing: 0) {
                 switch selectedIndex {
                 case 0:
-                    HomeHealthView(isPopupVisible: $isPopupVisible, showTabBar: $showTabBar)
+                    HomeHealthView(
+                        viewModel: HomeHealthViewModel(dailyAverage: .init(
+                            pulse: 20,
+                            hrv: 20,
+                            assessment: 20,
+                            time: .now
+                        )),
+                        isPopupVisible: $isPopupVisible,
+                        showTabBar: $showTabBar
+                    )
 
                 case 1:
                     HistoryView(showTabBar: $showTabBar)
@@ -87,6 +96,7 @@ struct TabBarView: View {
                     .edgesIgnoringSafeArea(.all)
                 PopupInfoView(isPopupVisible: $isPopupVisible)
                     .zIndex(1)
+                    .statusBarHidden()
             }
         }
     }

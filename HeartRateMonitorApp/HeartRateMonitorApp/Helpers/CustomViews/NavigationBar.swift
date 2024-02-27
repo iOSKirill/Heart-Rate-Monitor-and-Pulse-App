@@ -1,5 +1,5 @@
 //
-//  CustomNavigationBar.swift
+//  NavigationBar.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 12.12.23.
@@ -14,7 +14,7 @@ enum NavBarLayout {
     case leftButtonCenterTitleRightButton(title: String, buttonFirst: AnyView, buttonSecond: AnyView)
 }
 
-struct CustomNavigationBar: View {
+struct NavigationBar: View {
     // MARK: - Property -
     @Binding var scrollOffSet: CGFloat
     var navBarLayout: NavBarLayout
@@ -80,7 +80,7 @@ struct CustomNavigationBar: View {
     }
 }
 
- struct CustomScrollView<Content: View>: View {
+ struct NavigationBarScroll<Content: View>: View {
     // MARK: - Property -
     @Binding var scrollOffSet: CGFloat
     var navBarLayout: NavBarLayout
@@ -104,7 +104,7 @@ struct CustomNavigationBar: View {
             .coordinateSpace(name: "scroll")
             .onPreferenceChange(ViewOffSetKey.self) { self.scrollOffSet = $0 }
 
-            CustomNavigationBar(scrollOffSet: $scrollOffSet, navBarLayout: navBarLayout)
+            NavigationBar(scrollOffSet: $scrollOffSet, navBarLayout: navBarLayout)
         }
     }
  }

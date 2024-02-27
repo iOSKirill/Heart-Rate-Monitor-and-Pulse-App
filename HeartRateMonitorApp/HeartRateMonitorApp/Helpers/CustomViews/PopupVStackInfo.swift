@@ -1,5 +1,5 @@
 //
-//  CustomPopupVStackInfo.swift
+//  PopupVStackInfo.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 8.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomPopupVStackInfo: View {
+struct PopupVStackInfo: View {
     // MARK: - Property -
     let image: UIImage
     let title: String

@@ -10,14 +10,20 @@
 "tabBar.home.title" = "Home";
 "tabBar.history.title" = "History";
 "navigationBar.health.title" = "Health";
-"dashboard.measure.title" = "Measure dashboard";
 "button.start.title" = "Tap to start";
+"dashboard.measure.title" = "Measure dashboard";
+"dashboard.noData.title" = "Unfortunately, you did not take \n measurements that day";
+"dashboard.noData.subtitle" = "Try not to miss measurements in order \n to monitor your health status.";
+"dashboard.headline.title" = "Average per day";
 "dashboard.measure.subtitle" = "How are you feeling today?";
 "dashboard.measure.mainText" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";
 "dashboard.assessment.header" = "Statistics";
 "dashboard.assessment.title" = "Assessment for the week";
 "dashboard.assessment.subtitle" = "No data";
 "dashboard.assessment.mainText" = "Take some measurements to see your results";
+"dashboard.statistics.title" = "Assessment";
+"dashboard.statistics.button.today" = "Today";
+"dashboard.statistics.button.week" = "Week";
 "popup.assessment.title" = "Assessment";
 "popup.assessment.subtitle" = "Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.";
 "popup.pulse.title" = "Pulse";
@@ -25,9 +31,6 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV is an indicator that reflects the unevenness of your heartbeat.";
 "popup.button.title" = "OK";
-"dashboard.statistics.title" = "Assessment";
-"dashboard.statistics.button.today" = "Today";
-"dashboard.statistics.button.week" = "Week";
 
 // MARK: - Settings screen -
 "settings.contactUs.title" = "Contact Us";
