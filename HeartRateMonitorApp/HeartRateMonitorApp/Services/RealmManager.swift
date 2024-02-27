@@ -67,25 +67,23 @@ final class RealmManager: RealmManagerProtocol {
         var averagePulse: [PulseData] = []
         do {
             let realm = try Realm()
+            let calendar = Calendar.current
+            let now = Date()
+            let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now)
+            let weekStartDate = calendar.date(from: components)!
             for index in 0..<7 {
-                let startOfDay = Calendar.current.date(
-                    byAdding: .day,
-                    value: -index,
-                    to: Calendar.current.startOfDay(for: Date())
-                )
-                let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay ?? Date())
+                let startOfDay = calendar.date(byAdding: .day, value: index, to: weekStartDate)!
+                let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
 
-                if let startOfDay = startOfDay, let endOfDay = endOfDay {
-                    let pulseDataArray = realm.objects(PulseDB.self)
-                        .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
-                        .map { PulseData(pulse: $0.pulse, time: $0.time) }
+                let pulseDataArray = realm.objects(PulseDB.self)
+                    .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
+                    .map { PulseData(pulse: $0.pulse, time: $0.time) }
 
-                    if !pulseDataArray.isEmpty {
-                        let totalPulse = pulseDataArray.reduce(0, { $0 + $1.pulse })
-                        let average = Double(totalPulse) / Double(pulseDataArray.count)
+                if !pulseDataArray.isEmpty {
+                    let totalPulse = pulseDataArray.reduce(0, { $0 + $1.pulse })
+                    let average = Double(totalPulse) / Double(pulseDataArray.count)
 
-                        averagePulse.append(PulseData(pulse: Int(ceil(average)), time: startOfDay))
-                    }
+                    averagePulse.append(PulseData(pulse: Int(ceil(average)), time: startOfDay))
                 }
             }
         } catch {
