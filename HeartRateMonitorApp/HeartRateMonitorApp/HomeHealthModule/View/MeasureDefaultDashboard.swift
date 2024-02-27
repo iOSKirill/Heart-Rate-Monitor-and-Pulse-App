@@ -20,7 +20,7 @@ struct MeasureDefaultDashboard: View {
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(Color.white)
                 Spacer()
-              CustomButtonPopupPresented(isPopupVisible: $isPopupVisible)
+              PopupButton(isPopupVisible: $isPopupVisible)
             }
             .padding(.horizontal, 16)
             .padding(.top, 24)

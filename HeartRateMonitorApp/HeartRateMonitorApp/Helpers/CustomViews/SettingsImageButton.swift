@@ -1,5 +1,5 @@
 //
-//  CustomSettingsButton.swift
+//  SettingsImageButton.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 14.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomSettingsButton: View {
+struct SettingsImageButton: View {
     // MARK: - Property -
     var image: UIImage
     var title: String

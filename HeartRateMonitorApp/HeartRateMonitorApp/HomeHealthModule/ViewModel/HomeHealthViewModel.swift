@@ -51,6 +51,8 @@ final class HomeHealthViewModel: ObservableObject {
         self.dailyAverage = realmManager.getDailyAverage(date: .now)
         fetchCurrentWeek()
         updateMeasurementState()
+        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        print(dr)
     }
 
     // Fetch days current week
@@ -125,11 +127,14 @@ final class HomeHealthViewModel: ObservableObject {
         if dailyAverage.pulse == nil {
             if isToday(date: dailyAverage.time ?? Date()) {
                 measurementState = .defaultMeasurement
+                print(".defaultMeasurement")
             } else {
                 measurementState = .noData
+                print(".noData")
             }
         } else {
             measurementState = .details
+            print(".details")
         }
     }
 

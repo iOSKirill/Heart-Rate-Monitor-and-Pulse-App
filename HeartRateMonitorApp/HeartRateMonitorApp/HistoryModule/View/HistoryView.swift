@@ -68,9 +68,9 @@ struct HistoryView: View {
         NavigationView {
             ZStack {
                 Color(.appPaleBlue).ignoresSafeArea()
-                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                NavigationBarScroll(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                     title: L10n.History.NavBar.title,
-                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
+                    button: AnyView(SettingsButton(showTabBar: $showTabBar))
                 )) {
                     VStack {
                         if !viewModel.arrayPulseDB.isEmpty {
@@ -79,7 +79,7 @@ struct HistoryView: View {
                                     viewModel: HistoryInfoViewModel(measurementDetails: item),
                                     showTabBar: $showTabBar
                                 )) {
-                                    CustomHistoryView(historyInfo: item)
+                                    HistoryDetailView(historyInfo: item)
                                 }
                             }
                         } else {

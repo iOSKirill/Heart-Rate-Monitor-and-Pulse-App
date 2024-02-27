@@ -143,17 +143,17 @@ struct HistoryInfoView: View {
     var intoAboutMeasurementView: some View {
         VStack {
             VStack(spacing: 12) {
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupAssessmentIcon,
                     title: L10n.Popup.Assessment.title,
                     subtitle: L10n.Popup.Assessment.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupPulseIcon,
                     title: L10n.Popup.Pulse.title,
                     subtitle: L10n.Popup.Pulse.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupHRVIcon,
                     title: L10n.Popup.Hrv.title,
                     subtitle: L10n.Popup.Hrv.subtitle
@@ -172,9 +172,9 @@ struct HistoryInfoView: View {
     var body: some View {
         ZStack {
             Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
+            NavigationBarScroll(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftButtonCenterTitleRightButton(
                 title: L10n.History.NavBar.title,
-                buttonFirst: AnyView(CustomBackButton(showTabBar: $showTabBar)),
+                buttonFirst: AnyView(BackButton(showTabBar: $showTabBar)),
                 buttonSecond: AnyView(shareHistoryButton)
             )) {
                 VStack(spacing: 11) {

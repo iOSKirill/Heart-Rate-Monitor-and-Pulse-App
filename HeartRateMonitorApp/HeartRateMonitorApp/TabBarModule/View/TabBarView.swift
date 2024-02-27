@@ -38,7 +38,7 @@ struct TabBarView: View {
     var tabBarButtons: some View {
         VStack {
             HStack {
-                CustomButtonOnTabBar(
+                PlusButtonOnTabBar(
                     selectedIndex: $selectedIndex,
                     index: 0,
                     image: .homeButton,
@@ -48,7 +48,7 @@ struct TabBarView: View {
                 Spacer(minLength: 0)
                 plusBarButton
                 Spacer(minLength: 0)
-                CustomButtonOnTabBar(
+                PlusButtonOnTabBar(
                     selectedIndex: $selectedIndex,
                     index: 1,
                     image: .historyButton,

@@ -1,5 +1,5 @@
 //
-//  CustomBackButton.swift
+//  BackButton.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 6.02.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomBackButton: View {
+struct BackButton: View {
     // MARK: - Property -
     @Environment(\.dismiss) var dismiss
     @Binding var showTabBar: Bool
@@ -30,5 +30,5 @@ struct CustomBackButton: View {
 }
 
 #Preview {
-    CustomBackButton(showTabBar: .constant(true))
+    BackButton(showTabBar: .constant(true))
 }

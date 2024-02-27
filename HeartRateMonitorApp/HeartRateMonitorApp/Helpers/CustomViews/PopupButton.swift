@@ -1,5 +1,5 @@
 //
-//  CustomButtonPopupPresented.swift
+//  PopupButtonPresented.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 25.02.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButtonPopupPresented: View {
+struct PopupButton: View {
     // MARK: - Property -
     @Binding var isPopupVisible: Bool
 

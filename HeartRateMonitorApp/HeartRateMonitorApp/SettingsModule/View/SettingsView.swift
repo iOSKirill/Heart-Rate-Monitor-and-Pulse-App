@@ -23,7 +23,7 @@ struct SettingsView: View {
             VStack(spacing: 12) {
                 VStack {
                     VStack(spacing: 14) {
-                        CustomSettingsButton(
+                        SettingsImageButton(
                             image: .settingsContactUsIcon,
                             title: L10n.Settings.ContactUs.title,
                             action: { viewModel.state = .contactUs; viewModel.toggleState() }
@@ -32,7 +32,7 @@ struct SettingsView: View {
                         Divider()
                             .padding(.leading, 32)
 
-                        CustomSettingsButton(
+                        SettingsImageButton(
                             image: .settingsPrivacyPolicyIcon,
                             title: L10n.Settings.PrivacPolicy.title,
                             action: { viewModel.state = .privacyPolicy; viewModel.toggleState() }
@@ -41,7 +41,7 @@ struct SettingsView: View {
                         Divider()
                             .padding(.leading, 32)
 
-                        CustomSettingsButton(
+                        SettingsImageButton(
                             image: .settingsTermsOfUseIcon,
                             title: L10n.Settings.TermsOfUse.title,
                             action: { viewModel.state = .termsOfUse; viewModel.toggleState() }
@@ -94,7 +94,7 @@ struct SettingsView: View {
 
                 VStack {
                     VStack(spacing: 14) {
-                        CustomSettingsButton(
+                        SettingsImageButton(
                             image: .settingsFAQIcon,
                             title: L10n.Settings.Faq.title,
                             action: { viewModel.state = .FAQ; viewModel.toggleState() }
@@ -103,7 +103,7 @@ struct SettingsView: View {
                         Divider()
                             .padding(.leading, 32)
 
-                        CustomSettingsButton(
+                        SettingsImageButton(
                             image: .settingsRateUsIcon,
                             title: L10n.Settings.RateUs.title,
                             action: { requestReview() }
@@ -119,11 +119,11 @@ struct SettingsView: View {
             }
             .padding(.top, 70)
 
-            CustomNavigationBar(
+            NavigationBar(
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .leftButtonCenterTitle(
                     title: L10n.Settings.NavBar.title,
-                    button: AnyView(CustomBackButton(showTabBar: $showTabBar))
+                    button: AnyView(BackButton(showTabBar: $showTabBar))
                 )
             )
         }

@@ -96,7 +96,7 @@ struct MeasurementView: View {
     var body: some View {
         ZStack {
             Color(.appPaleBlue).ignoresSafeArea()
-            CustomScrollView(
+            NavigationBarScroll(
                 scrollOffSet: $viewModel.scrollOffSet,
                 navBarLayout: .centerTitleRightButton(
                     title: L10n.Measurement.NavBar.title,

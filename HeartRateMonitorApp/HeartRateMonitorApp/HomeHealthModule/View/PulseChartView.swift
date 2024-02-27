@@ -30,7 +30,7 @@ struct PulseChartView: View {
                         .foregroundColor(Color.appMarengo)
                         .padding(.leading, 12)
                     Spacer()
-                    CustomToggleTodayAndWeek(isOn: $isOn)
+                    TodayWeekToggleView(isOn: $isOn)
                 }
                 .padding(.top, 18)
                 .padding(.horizontal, 16)

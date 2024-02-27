@@ -1,5 +1,5 @@
 //
-//  CustomMainSettingsButton.swift
+//  SettingsButton.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 31.01.24.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct CustomMainSettingsButton: View {
+struct SettingsButton: View {
     @Binding var showTabBar: Bool
+
     // MARK: - Body -
     var body: some View {
         NavigationLink {

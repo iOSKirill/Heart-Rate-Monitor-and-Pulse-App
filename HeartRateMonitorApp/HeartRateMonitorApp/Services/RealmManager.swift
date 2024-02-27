@@ -8,18 +8,6 @@
 import Foundation
 import RealmSwift
 
-struct PulseData {
-    var pulse: Int
-    var time: Date
-}
-
-struct DailyAverage {
-    let pulse: Int?
-    let hrv: Int?
-    let assessment: Int?
-    let time: Date?
-}
-
 protocol RealmManagerProtocol {
     var realm: Realm? { get }
     func addLastMeasurement(pulse: Int, hrv: Int, assessment: Int, time: Date)
@@ -134,7 +122,8 @@ final class RealmManager: RealmManagerProtocol {
                 pulse: averagePulse,
                 hrv: averageHrv,
                 assessment: averageAssessment,
-                time: timeLastMeasurement)
+                time: timeLastMeasurement
+            )
         } else {
             return DailyAverage(pulse: nil, hrv: nil, assessment: nil, time: nil)
         }

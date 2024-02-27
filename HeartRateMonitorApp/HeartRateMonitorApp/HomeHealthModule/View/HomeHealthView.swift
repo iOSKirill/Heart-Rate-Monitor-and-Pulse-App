@@ -138,9 +138,9 @@ struct HomeHealthView: View {
         NavigationView {
             ZStack {
                 Color(.appPaleBlue).ignoresSafeArea()
-                CustomScrollView(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
+                NavigationBarScroll(scrollOffSet: $viewModel.scrollOffSet, navBarLayout: .leftTitleRightButton(
                     title: L10n.NavigationBar.Health.title,
-                    button: AnyView(CustomMainSettingsButton(showTabBar: $showTabBar))
+                    button: AnyView(SettingsButton(showTabBar: $showTabBar))
                 )) {
                     VStack {
                         weekCalendar
