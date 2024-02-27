@@ -19,12 +19,11 @@ final class HomeHealthViewModel: ObservableObject {
     // MARK: - Property -
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
-    @Published private(set) var currentDay = Date()
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
     @Published var scrollOffSet: CGFloat = 0.0
     @Published var pulseData: [PulseData] = []
-    @Published var measurementState: MeasurementState = .noData
+    @Published var measurementState: MeasurementState = .defaultMeasurement
     @Published var dailyAverage: DailyAverage {
         didSet {
             updateMeasurementState()
@@ -36,8 +35,7 @@ final class HomeHealthViewModel: ObservableObject {
         }
     }
 
-    private let calendar = Calendar.current
-
+    private var calendar = Calendar.current
     private var realmManager: RealmManagerProtocol = RealmManager()
     private var notificationToken: NotificationToken?
 
@@ -51,18 +49,12 @@ final class HomeHealthViewModel: ObservableObject {
         self.dailyAverage = realmManager.getDailyAverage(date: .now)
         fetchCurrentWeek()
         updateMeasurementState()
-        let dr = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        print(dr)
     }
 
     // Fetch days current week
     func fetchCurrentWeek() {
-        let today = Date()
-        let week = calendar.dateInterval(of: .weekOfMonth, for: today)
-        guard let firstWeekDay = week?.start else { return }
-        currentWeek = (0...6).compactMap { day in
-            calendar.date(byAdding: .day, value: day, to: firstWeekDay)
-        }
+        guard let week = calendar.dateInterval(of: .weekOfMonth, for: Date()) else { return }
+        currentWeek = (0...6).compactMap { calendar.date(byAdding: .day, value: $0, to: week.start) }
     }
 
     // Observer Realm
@@ -96,19 +88,18 @@ final class HomeHealthViewModel: ObservableObject {
 
     // Changing the text depending on the assessment
     func getDescriptionForAssessment() -> String {
-        guard let assessment = dailyAverage.assessment else { return "" }
-        switch assessment {
+        switch dailyAverage.assessment {
         case 70...100:
-            return dailyAverage.time?.getDateOfHistoryLowHealthRange ?? ""
+            return dailyAverage.time.getDateOfHistoryLowHealthRange
 
         case 40..<70:
             return L10n.HistoryInfo.Subtitle.mediumHealthRange
 
         case 0..<40:
-            return  L10n.HistoryInfo.Subtitle.lowHealthRange
+            return L10n.HistoryInfo.Subtitle.lowHealthRange
 
         default:
-            return dailyAverage.time?.getDateOfHistoryLowHealthRange ?? ""
+            return ""
         }
     }
 
@@ -124,18 +115,10 @@ final class HomeHealthViewModel: ObservableObject {
 
     // Updates the measurement state based on the daily average pulse
     func updateMeasurementState() {
-        if dailyAverage.pulse == nil {
-            if isToday(date: dailyAverage.time ?? Date()) {
-                measurementState = .defaultMeasurement
-                print(".defaultMeasurement")
-            } else {
-                measurementState = .noData
-                print(".noData")
-            }
-        } else {
-            measurementState = .details
-            print(".details")
-        }
+        let isTodayDate = isToday(date: dailyAverage.time)
+         measurementState = dailyAverage.isEmpty
+             ? (isTodayDate ? .defaultMeasurement : .noData)
+             : .details
     }
 
     // Checks if the given date is today

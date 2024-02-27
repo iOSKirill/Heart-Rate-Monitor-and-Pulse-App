@@ -16,7 +16,7 @@ struct MeasureDetailsDashboard: View {
     var body: some View {
         VStack {
             HStack {
-                Text("\(viewModel.dailyAverage.time?.getDateHomeDeatails ?? "")")
+                Text("\(viewModel.dailyAverage.time.getDateHomeDeatails)")
                     .font(.appUrbanistBold(of: 17))
                     .foregroundColor(.white)
                 Spacer()
@@ -40,7 +40,7 @@ struct MeasureDetailsDashboard: View {
                             .foregroundColor(.white)
                     }
 
-                    Text("\(viewModel.dailyAverage.assessment ?? 0)%")
+                    Text("\(viewModel.dailyAverage.assessment)%")
                         .font(.appBlack(of: 48))
                         .foregroundColor(.white)
                         .padding(.leading, 42)
@@ -63,7 +63,7 @@ struct MeasureDetailsDashboard: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text("\(viewModel.dailyAverage.pulse ?? 0)")
+                            Text("\(viewModel.dailyAverage.pulse)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.bpm)
@@ -83,7 +83,7 @@ struct MeasureDetailsDashboard: View {
                         }
 
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text("\(viewModel.dailyAverage.hrv ?? 0)")
+                            Text("\(viewModel.dailyAverage.hrv)")
                                 .font(.appBlack(of: 32))
                                 .foregroundColor(.white)
                             Text(L10n.History.ms)

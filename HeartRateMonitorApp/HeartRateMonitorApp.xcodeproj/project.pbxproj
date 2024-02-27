@@ -179,8 +179,8 @@
 				6CBD64CA2B1DEF23001D1DBF /* SettingsModule */,
 				6C3261942B67F29E00A15BEA /* Helpers */,
 				6CDFCC172B1927FE00B1A9A2 /* Fonts */,
-				6C2FE7662B1683730092BFE5 /* Assets.xcassets */,
 				6C2FE7752B174B650092BFE5 /* Localizable.strings */,
+				6C2FE7662B1683730092BFE5 /* Assets.xcassets */,
 				6C2FE7682B1683730092BFE5 /* Preview Content */,
 			);
 			path = HeartRateMonitorApp;

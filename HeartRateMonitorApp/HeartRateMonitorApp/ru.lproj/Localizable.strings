@@ -10,17 +10,20 @@
 "tabBar.home.title" = "Главная";
 "tabBar.history.title" = "История";
 "navigationBar.health.title" = "Здоровье";
+"button.start.title" = "Нажмите, чтобы начать";
 "dashboard.measure.title" = "Измерительная панель";
 "dashboard.noData.title" = "К сожалению, в этот день вы не проводили \n измерений";
 "dashboard.noData.subtitle" = "Старайтесь не пропускать измерения, \n чтобы следить за состоянием своего здоровья.";
 "dashboard.headline.title" = "В среднем за день";
-"button.start.title" = "Нажмите, чтобы начать";
 "dashboard.measure.subtitle" = "Как ты себя сегодня чувствуешь?";
 "dashboard.measure.mainText" = "Сделайте замеры, чтобы получить оценку готовности вашего организма к предстоящему дню";
 "dashboard.assessment.header" = "Статистика";
 "dashboard.assessment.title" = "Оценка за неделю";
 "dashboard.assessment.subtitle" = "Нет данных";
 "dashboard.assessment.mainText" = "Сделайте несколько измерений, чтобы увидеть свои результаты";
+"dashboard.statistics.title" = "Оценка";
+"dashboard.statistics.button.today" = "Сегодня";
+"dashboard.statistics.button.week" = "Неделя";
 "popup.assessment.title" = "Оценка";
 "popup.assessment.subtitle" = "Оценка - отображает общее состояние вашего организма, включая выводы об уровне стресса, работе центральной нервной системы и другие данные о организме.";
 "popup.pulse.title" = "Пульс";
@@ -28,9 +31,6 @@
 "popup.HRV.title" = "HRV";
 "popup.HRV.subtitle" = "HRV - это показатель, отражающий неравномерность вашего сердцебиения.";
 "popup.button.title" = "ОК";
-"dashboard.statistics.title" = "Оценка";
-"dashboard.statistics.button.today" = "Сегодня";
-"dashboard.statistics.button.week" = "Неделя";
 
 // MARK: - Settings screen -
 "settings.contactUs.title" = "Cвязаться с нами";

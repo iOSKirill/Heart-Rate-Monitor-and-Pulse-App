@@ -103,31 +103,31 @@ final class RealmManager: RealmManagerProtocol {
     }
 
     func getDailyAverage(date: Date) -> DailyAverage {
-        let startOfDay = Calendar.current.startOfDay(for: date)
-        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) ?? Date()
-        let pulseDataArray = realm?.objects(PulseDB.self)
-            .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
+         let startOfDay = Calendar.current.startOfDay(for: date)
+         let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) ?? Date()
+         let pulseDataArray = realm?.objects(PulseDB.self)
+             .filter("time >= %@ AND time < %@", startOfDay, endOfDay)
 
-        if let pulseDataArray = pulseDataArray, !pulseDataArray.isEmpty {
-            let totalPulse = pulseDataArray.map { $0.pulse }.reduce(0, +)
-            let totalHrv = pulseDataArray.map { $0.hrv }.reduce(0, +)
-            let totalAssessment = pulseDataArray.map { $0.assessment }.reduce(0, +)
+         if let pulseDataArray = pulseDataArray, !pulseDataArray.isEmpty {
+             let totalPulse = pulseDataArray.map { $0.pulse }.reduce(0, +)
+             let totalHrv = pulseDataArray.map { $0.hrv }.reduce(0, +)
+             let totalAssessment = pulseDataArray.map { $0.assessment }.reduce(0, +)
 
-            let averagePulse = Int(ceil(Double(totalPulse) / Double(pulseDataArray.count)))
-            let averageHrv = Int(ceil(Double(totalHrv) / Double(pulseDataArray.count)))
-            let averageAssessment = Int(ceil(Double(totalAssessment) / Double(pulseDataArray.count)))
-            let timeLastMeasurement = pulseDataArray.last?.time
+             let averagePulse = Int(ceil(Double(totalPulse) / Double(pulseDataArray.count)))
+             let averageHrv = Int(ceil(Double(totalHrv) / Double(pulseDataArray.count)))
+             let averageAssessment = Int(ceil(Double(totalAssessment) / Double(pulseDataArray.count)))
+             let timeLastMeasurement = pulseDataArray.last?.time ?? Date()
 
-            return DailyAverage(
-                pulse: averagePulse,
-                hrv: averageHrv,
-                assessment: averageAssessment,
-                time: timeLastMeasurement
-            )
-        } else {
-            return DailyAverage(pulse: nil, hrv: nil, assessment: nil, time: nil)
-        }
-    }
+             return DailyAverage(
+                 pulse: averagePulse,
+                 hrv: averageHrv,
+                 assessment: averageAssessment,
+                 time: timeLastMeasurement
+             )
+         } else {
+             return DailyAverage(pulse: 0, hrv: 0, assessment: 0, time: date)
+         }
+     }
 }
 
 class PulseDB: Object {

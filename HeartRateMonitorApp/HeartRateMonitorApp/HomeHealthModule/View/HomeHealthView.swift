@@ -178,7 +178,7 @@ struct HomeHealthView: View {
 
 #Preview {
     HomeHealthView(
-        viewModel: .init(dailyAverage: .init(pulse: 20, hrv: 20, assessment: 20, time: .now)),
+        viewModel: .init(dailyAverage: .init(pulse: 0, hrv: 0, assessment: 0, time: Date())),
         isPopupVisible: .constant(true),
         showTabBar: .constant(true)
     )
