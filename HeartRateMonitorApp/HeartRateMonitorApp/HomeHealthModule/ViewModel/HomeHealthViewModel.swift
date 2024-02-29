@@ -19,6 +19,7 @@ final class HomeHealthViewModel: ObservableObject {
     // MARK: - Property -
     @Published private(set) var settingsVM = SettingsViewModel()
     @Published private(set) var currentWeek: [Date] = []
+    @Published var selectedDate: Date?
     @Published var isScroll = false
     @Published var isPresentedMeasurementView = false
     @Published var scrollOffSet: CGFloat = 0.0

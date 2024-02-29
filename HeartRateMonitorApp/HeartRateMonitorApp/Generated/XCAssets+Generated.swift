@@ -35,6 +35,7 @@ internal enum Asset {
     internal static let appLightBlue = ColorAsset(name: "AppLightBlue")
     internal static let appManatee = ColorAsset(name: "AppManatee")
     internal static let appMarengo = ColorAsset(name: "AppMarengo")
+    internal static let appOrange = ColorAsset(name: "AppOrange")
     internal static let appPaleBlue = ColorAsset(name: "AppPaleBlue")
     internal static let appRed = ColorAsset(name: "AppRed")
     internal static let appRedGradientFirstButton = ColorAsset(name: "AppRedGradientFirstButton")

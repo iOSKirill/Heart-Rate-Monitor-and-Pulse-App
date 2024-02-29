@@ -21,7 +21,10 @@ struct HomeHealthView: View {
                     ForEach(viewModel.currentWeek, id: \.self) { day in
                         VStack(spacing: 6) {
                             Button {
-                                viewModel.calculateDailyAverage(date: day)
+                                if day <= Date() {
+                                    viewModel.calculateDailyAverage(date: day)
+                                    viewModel.selectedDate = day
+                                }
                             } label: {
                                 Text(day.getDayOfWeekNumber)
                                     .font(.appSemibold(of: 17))
@@ -31,11 +34,18 @@ struct HomeHealthView: View {
                                     )
                                     .background(
                                         ZStack {
-                                            Circle()
-                                                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
-                                                .foregroundColor(Color.appBlue)
-                                                .frame(width: 36, height: 36)
-                                                .opacity(day.todayDateInCalendar ? 1 : 0)
+                                            if day.todayDateInCalendar {
+                                                Circle()
+                                                    .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
+                                                    .foregroundColor(Color.appBlue)
+                                                    .frame(width: 36, height: 36)
+                                            }
+                                            if viewModel.selectedDate == day && !day.todayDateInCalendar {
+                                                Circle()
+                                                    .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
+                                                    .foregroundColor(Color.appOrange)
+                                                    .frame(width: 36, height: 36)
+                                            }
 
                                             if viewModel.hasMeasurementForDay(date: day) {
                                                 Image(.checkMeasurementIcon)
