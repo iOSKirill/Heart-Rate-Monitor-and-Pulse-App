@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WebKit
 
 struct OnboardingView: View {
     // MARK: - Property -
@@ -37,18 +36,21 @@ struct OnboardingView: View {
 
     var backgroundOnboardingStep: some View {
         TabView(selection: $viewModel.currentStep) {
-            ForEach(viewModel.onboardingSteps, id: \.id) { _ in
-                if item.id == 1 {
-                    Image(item.image)
+            ForEach(viewModel.onboardingSteps, id: \.id) { item in
+                if let image = item.image, item.id == 1 {
+                    Image(image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 } else {
-                    Image(item.image)
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                        .aspectRatio(contentMode: .fit)
+                    if let image = item.image {
+                        Image(image)
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
+
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -92,9 +94,49 @@ struct OnboardingView: View {
         .padding(.bottom, 30)
     }
 
+    var termsAndPrivacyButtons: some View {
+        HStack(spacing: 3) {
+            Button {
+                viewModel.webViewType = .termsOfService
+                viewModel.showWebView.toggle()
+            } label: {
+                Text(L10n.Onboarding.termsOfService)
+                    .font(.appMedium(of: 12))
+                    .foregroundColor(Color.appMarengo)
+            }
+
+            Text(L10n.Onboarding.and)
+                .font(.appMedium(of: 12))
+                .foregroundColor(Color.appManatee)
+
+            Button {
+                viewModel.webViewType = .privacyPolicy
+                viewModel.showWebView.toggle()
+            } label: {
+                Text(L10n.Onboarding.privacyPolicy)
+                    .font(.appMedium(of: 12))
+                    .foregroundColor(Color.appMarengo)
+            }
+        }
+        .sheet(isPresented: $viewModel.showWebView) {
+            switch viewModel.webViewType {
+            case .termsOfService:
+                if let termsURL = URL(string: viewModel.termsURL) {
+                    WebView(url: termsURL)
+                }
+            case .privacyPolicy:
+                if let privacyURL = URL(string: viewModel.privacyURL) {
+                    WebView(url: privacyURL)
+                }
+            case .none:
+                EmptyView()
+            }
+        }
+    }
+
     var body: some View {
         ZStack(alignment: .top) {
-            Image(.onboardingBackground)
+            Image(viewModel.currentStep == 3 ? .paywallBackground : .onboardingBackground)
                 .resizable()
                 .scaledToFit()
                 .ignoresSafeArea()
@@ -110,21 +152,11 @@ struct OnboardingView: View {
                 .frame(maxWidth: .infinity, maxHeight: 312)
                 .background(.white)
                 .cornerRadius(20)
+                if viewModel.currentStep == 3 {
+                    termsAndPrivacyButtons
+                }
             }
         }
-    }
-}
-
-struct WebView: UIViewRepresentable {
-    var url: URL
-
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
-    }
-
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        let requst = URLRequest(url: url)
-        webView.load(requst)
     }
 }
 

@@ -150,11 +150,13 @@ struct HomeHealthView: View {
                             switch viewModel.measurementState {
                             case .noData:
                                 MeasureNoDataDashboard(isPopupVisible: $isPopupVisible)
+
                             case .defaultMeasurement:
                                 MeasureDefaultDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
+
                             case .details:
                                 MeasureDetailsDashboard(viewModel: viewModel, isPopupVisible: $isPopupVisible)
-                              }
+                            }
                         }
 
                         if !viewModel.pulseData.isEmpty {

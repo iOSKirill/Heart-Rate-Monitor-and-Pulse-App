@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WebKit
 
 enum WebViewType {
     case termsOfService
@@ -36,7 +37,7 @@ final class OnboardingViewModel: ObservableObject {
                        description: L10n.Onboarding.Paywall.subtitle)
     ]
     @Published var webViewType: WebViewType? = .none
-    @Published var showWebView: Bool = false
+    @Published var showWebView = false
     private(set) var blueGradient = LinearGradient(
         gradient: Gradient(colors: [
             Color.appBlueGradientFirstButton,
@@ -60,5 +61,19 @@ final class OnboardingViewModel: ObservableObject {
     // MARK: - Get next button text -
     func getNextButtonText() -> String {
         currentStep == 0 ? "Go" : "Next"
+    }
+}
+
+// MARK: - WebView terms and privacy info -
+struct WebView: UIViewRepresentable {
+    var url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        let requst = URLRequest(url: url)
+        webView.load(requst)
     }
 }
