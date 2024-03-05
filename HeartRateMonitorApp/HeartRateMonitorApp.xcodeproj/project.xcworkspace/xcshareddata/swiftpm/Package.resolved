@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "apphudsdk",
+      "identity" : "realm-core",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apphud/ApphudSDK.git",
+      "location" : "https://github.com/realm/realm-core.git",
       "state" : {
-        "revision" : "8f8b3963e6b8065df281dfbc6cb276918202d6d7",
-        "version" : "3.2.6"
+        "revision" : "a5e87a39cffdcc591f3203c11cfca68100d0b9a6",
+        "version" : "13.26.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "revision" : "55466ae0fb29c5f21866792f05c1fc0c590d7c29",
+        "version" : "10.47.0"
       }
     }
   ],

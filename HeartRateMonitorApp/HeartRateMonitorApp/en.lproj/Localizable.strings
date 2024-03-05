@@ -10,16 +10,22 @@
 "tabBar.home.title" = "Home";
 "tabBar.history.title" = "History";
 "navigationBar.health.title" = "Health";
-"dashboard.measure.title" = "Measure dashboard";
 "button.start.title" = "Tap to start";
+"dashboard.measure.title" = "Measure dashboard";
+"dashboard.noData.title" = "Unfortunately, you did not take \n measurements that day";
+"dashboard.noData.subtitle" = "Try not to miss measurements in order \n to monitor your health status.";
+"dashboard.headline.title" = "Average per day";
 "dashboard.measure.subtitle" = "How are you feeling today?";
 "dashboard.measure.mainText" = "Take a measurement to get an assessment of your body's readiness for the upcoming day";
 "dashboard.assessment.header" = "Statistics";
 "dashboard.assessment.title" = "Assessment for the week";
 "dashboard.assessment.subtitle" = "No data";
 "dashboard.assessment.mainText" = "Take some measurements to see your results";
+"dashboard.statistics.title" = "Assessment";
+"dashboard.statistics.button.today" = "Today";
+"dashboard.statistics.button.week" = "Week";
 "popup.assessment.title" = "Assessment";
-"popup.assessment.subtitle" = "Evaluation - displays the general state of your body, including conclusions about the level of stress, the work of the central nervous system and other data about the body.";
+"popup.assessment.subtitle" = "Assessment - displays your overall condition based on an average number, which includes heart rate and HRV findings.";
 "popup.pulse.title" = "Pulse";
 "popup.pulse.subtitle" = "Heart Rate - heart rate, that is, the number of heartbeats per minute.";
 "popup.HRV.title" = "HRV";
@@ -37,6 +43,20 @@
 
 // MARK: - Measurement screen -
 "measurement.navBar.title" = "Measurement";
+"measurement.bmp.title" = "bpm";
+"measurement.stepOne.title" = "Put your index finger to the phone's camera. Follow the following instructions";
+"measurement.stepOne.time" = "30 seconds";
+"measurement.stepOne.subtitle" = "It will take us %@ to measure";
+"measurement.stepOne.button" = "Start";
+"measurement.stepTwo.title" = "Please do not remove your finger, wait for the measurement to finish.";
+"measurement.stepTwo.time" = "%@s";
+"measurement.stepTwo.subtitle" = "Measuring: %@ left";
+"measurement.stepTwo.button" = "Stop";
+"measurement.stepThree.title" = "For more information, save the current measurement.";
+"measurement.stepThree.button.save" = "Save";
+"measurement.stepThree.button.notNow" = "Not now";
+"measurement.stepThree.assessment.title" = "Take measurements every day to monitor your health";
+"measurement.bpm" = "bpm";
 
 // MARK: - Onboarding screen -
 "onboarding.stepOne.title" = "Measure Heart Rate & Pulse";
@@ -59,3 +79,22 @@
 "onboarding.termsOfService" = "Terms of Service";
 "onboarding.and" = "and";
 "onboarding.privacyPolicy" = "Privacy Policy";
+
+// MARK: - History screen -
+"history.navBar.title" = "History";
+"history.headline.pulse" = "Pulse";
+"history.headline.assessment" = "Assessment";
+"history.headline.HRV" = "HRV";
+"history.bpm" = "bpm";
+"history.ms" = "ms";
+"history.headline.noData" = "Measurement history";
+"history.noData.title" = "No data";
+"history.noData.subtitle" = "To make a story appear, \n take a measurement";
+
+// MARK: - History info screen -
+"historyInfo.time.today" = "Today at";
+"historyInfo.time.yesterday" = "Yesterday at";
+"historyInfo.subtitle.highHealthRange.today" = "You are in great shape today!";
+"historyInfo.subtitle.highHealthRange.otherDates" = "You were in great shape on";
+"historyInfo.subtitle.mediumHealthRange" = "Satisfactory. \n Try to rest more";
+"historyInfo.subtitle.lowHealthRange" = "Unsatisfactory! \n It is better to consult with your doctor.";

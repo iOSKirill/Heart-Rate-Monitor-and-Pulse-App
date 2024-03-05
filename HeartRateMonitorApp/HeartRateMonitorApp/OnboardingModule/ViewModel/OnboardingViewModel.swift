@@ -39,15 +39,15 @@ final class OnboardingViewModel: ObservableObject {
     @Published var showWebView: Bool = false
     private(set) var blueGradient = LinearGradient(
         gradient: Gradient(colors: [
-            Color.gradientFirstButton,
-            Color.gradientSecondButton
+            Color.appBlueGradientFirstButton,
+            Color.appBlueGradientSecondButton
         ]),
         startPoint: .top,
         endPoint: .bottom
     )
     private(set) var privacyURL = AppConstants.Info.privacy
     private(set) var termsURL = AppConstants.Info.terms
-    
+
     // MARK: - Next step onboarding -
     func nextStepOnButton() {
         if currentStep < onboardingSteps.count - 1 {

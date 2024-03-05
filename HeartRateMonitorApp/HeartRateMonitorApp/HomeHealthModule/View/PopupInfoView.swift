@@ -15,17 +15,17 @@ struct PopupInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 12) {
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupAssessmentIcon,
                     title: L10n.Popup.Assessment.title,
                     subtitle: L10n.Popup.Assessment.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupPulseIcon,
                     title: L10n.Popup.Pulse.title,
                     subtitle: L10n.Popup.Pulse.subtitle
                 )
-                CustomPopupVStackInfo(
+                PopupVStackInfo(
                     image: .popupHRVIcon,
                     title: L10n.Popup.Hrv.title,
                     subtitle: L10n.Popup.Hrv.subtitle
@@ -44,8 +44,8 @@ struct PopupInfoView: View {
                     .background(
                         LinearGradient(
                             gradient: Gradient(colors: [
-                                Color.gradientFirstButton,
-                                Color.gradientSecondButton
+                                Color.appBlueGradientFirstButton,
+                                Color.appBlueGradientSecondButton
                             ]),
                             startPoint: .top,
                             endPoint: .bottom
@@ -53,6 +53,7 @@ struct PopupInfoView: View {
                     )
                     .cornerRadius(43)
                     .padding(.horizontal, 101.5)
+                    .shadow(color: Color.appBlueShadow.opacity(0.15), radius: 5.95, x: 0, y: 4)
                 }
             }
             .padding(.vertical, 20)

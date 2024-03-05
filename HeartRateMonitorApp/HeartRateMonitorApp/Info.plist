@@ -6,6 +6,7 @@
 	<string>Pulse uses the camera to measure your heart rate.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Gilroy-black.ttf</string>
 		<string>Gilroy-bold.ttf</string>
 		<string>Urbanist-Bold.ttf</string>
 		<string>Urbanist-Medium.ttf</string>

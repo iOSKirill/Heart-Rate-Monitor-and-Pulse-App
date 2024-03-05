@@ -1,5 +1,5 @@
 //
-//  CustomButtonOnTabBar.swift
+//  PlusButtonOnTabBar.swift
 //  HeartRateMonitorApp
 //
 //  Created by Kirill Manuilenko on 29.11.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButtonOnTabBar: View {
+struct PlusButtonOnTabBar: View {
     // MARK: - Property -
     @Binding var selectedIndex: Int
     let index: Int
@@ -28,6 +28,6 @@ struct CustomButtonOnTabBar: View {
             }
             .padding(.bottom, 20)
         }
-        .foregroundColor(selectedIndex == index ? Color(.highlightedButton) : Color(.notHighlightedButton))
+        .foregroundColor(selectedIndex == index ? Color(.appMarengo) : Color(.appManatee))
     }
 }

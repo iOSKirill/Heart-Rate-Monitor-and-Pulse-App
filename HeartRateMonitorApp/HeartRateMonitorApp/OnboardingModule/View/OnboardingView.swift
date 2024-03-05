@@ -20,13 +20,13 @@ struct OnboardingView: View {
                     Text(item.title)
                         .multilineTextAlignment(.center)
                         .font(.appUrbanistBold(of: 32))
-                        .foregroundColor(Color.mainText)
+                        .foregroundColor(Color.appMarengo)
                         .padding(.horizontal, 15)
 
                     Text(item.description)
                         .multilineTextAlignment(.center)
                         .font(.appMedium(of: 14))
-                        .foregroundColor(Color.subtitle)
+                        .foregroundColor(Color.appSlateGrey)
                         .padding(.horizontal, 32)
                 }
             }
@@ -37,19 +37,17 @@ struct OnboardingView: View {
 
     var backgroundOnboardingStep: some View {
         TabView(selection: $viewModel.currentStep) {
-            ForEach(viewModel.onboardingSteps, id: \.id) { item in
-                if let image = item.image {
-                    if item.id == 1 {
-                        Image(image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    } else {
-                        Image(image)
-                            .resizable()
-                            .frame(maxWidth: .infinity)
-                            .aspectRatio(contentMode: .fit)
-                    }
+            ForEach(viewModel.onboardingSteps, id: \.id) { _ in
+                if item.id == 1 {
+                    Image(item.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                } else {
+                    Image(item.image)
+                        .resizable()
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(contentMode: .fit)
                 }
             }
         }
@@ -65,11 +63,11 @@ struct OnboardingView: View {
                     Rectangle()
                         .frame(width: 32, height: 8)
                         .cornerRadius(10)
-                        .foregroundColor(Color.currentDay)
+                        .foregroundColor(Color.appBlue)
                 } else {
                     Circle()
                         .frame(width: 8, height: 8)
-                        .foregroundColor(Color.notHighlightedButton)
+                        .foregroundColor(Color.appManatee)
                 }
             }
         }
@@ -93,45 +91,10 @@ struct OnboardingView: View {
         }
         .padding(.bottom, 30)
     }
-    
-    var termsAndPrivacyButtons: some View {
-        HStack(spacing: 3) {
-            Button {
-                viewModel.webViewType = .termsOfService
-                viewModel.showWebView.toggle()
-            } label: {
-                Text(L10n.Onboarding.termsOfService)
-                    .font(.appMedium(of: 12))
-                    .foregroundColor(Color.mainText)
-            }
-            
-            Text(L10n.Onboarding.and)
-                .font(.appMedium(of: 12))
-                .foregroundColor(Color.notHighlightedButton)
-            Button {
-                viewModel.webViewType = .privacyPolicy
-                viewModel.showWebView.toggle()
-            } label: {
-                Text(L10n.Onboarding.privacyPolicy)
-                    .font(.appMedium(of: 12))
-                    .foregroundColor(Color.mainText)
-            }
-        }
-        .sheet(isPresented: $viewModel.showWebView) {
-            switch viewModel.webViewType {
-            case .termsOfService:
-                WebView(url: URL(string: viewModel.termsURL)!)
-            case .privacyPolicy:
-                WebView(url: URL(string: viewModel.privacyURL)!)
-            case .none:
-                EmptyView()
-            }
-        }
-    }
-    
+
     var body: some View {
         ZStack(alignment: .top) {
-            Image(viewModel.currentStep == 3 ? .paywallBackground : .onboardingBackground)
+            Image(.onboardingBackground)
                 .resizable()
                 .scaledToFit()
                 .ignoresSafeArea()
@@ -147,9 +110,6 @@ struct OnboardingView: View {
                 .frame(maxWidth: .infinity, maxHeight: 312)
                 .background(.white)
                 .cornerRadius(20)
-                if viewModel.currentStep == 3 {
-                    termsAndPrivacyButtons
-                }
             }
         }
     }
@@ -157,11 +117,11 @@ struct OnboardingView: View {
 
 struct WebView: UIViewRepresentable {
     var url: URL
-    
+
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
-    
+
     func updateUIView(_ webView: WKWebView, context: Context) {
         let requst = URLRequest(url: url)
         webView.load(requst)

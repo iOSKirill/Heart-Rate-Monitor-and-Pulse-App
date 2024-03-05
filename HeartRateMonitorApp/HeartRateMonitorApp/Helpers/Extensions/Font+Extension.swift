@@ -23,4 +23,7 @@ extension SwiftUI.Font {
     static func appMedium(of size: CGFloat) -> SwiftUI.Font {
         FontFamily.Urbanist.medium.swiftUIFont(size: size)
     }
+    static func appBlack(of size: CGFloat) -> SwiftUI.Font {
+        FontFamily.Gilroy.black.swiftUIFont(size: size)
+    }
 }

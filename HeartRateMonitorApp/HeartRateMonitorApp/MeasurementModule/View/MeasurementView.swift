@@ -7,6 +7,44 @@
 
 import SwiftUI
 
+struct InfoView: View {
+    // MARK: - Body -
+    var body: some View {
+        VStack {
+            Image(.measurementiPhone)
+                .resizable()
+                .scaledToFit()
+        }
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .cornerRadius(24)
+        .padding(.horizontal, 16)
+        .padding(.bottom, 16)
+    }
+}
+
+struct AssessmentView: View {
+    // MARK: - Body -
+    var body: some View {
+        VStack(spacing: 4) {
+            Text(L10n.Measurement.StepThree.Assessment.title)
+                .font(.appUrbanistBold(of: 17))
+                .foregroundColor(Color.appMarengo)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+                .padding(.top, 26)
+            Image(.measurementAssessmentBackground)
+                .resizable()
+                .scaledToFit()
+                .padding(.horizontal, 16)
+        }
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .cornerRadius(24)
+        .padding(.horizontal, 16)
+    }
+}
+
 struct MeasurementView: View {
     // MARK: - Property -
     @StateObject var viewModel = MeasurementViewModel()
@@ -20,54 +58,62 @@ struct MeasurementView: View {
          } label: {
              VStack {
                  Image(.navBarCloseButtonIcon)
-                     .foregroundColor(Color.mainText)
+                     .foregroundColor(Color.appMarengo)
                      .padding(8)
              }
              .background(.white.opacity(0.6))
              .cornerRadius(12)
          }
-         .padding(.top, 32)
      }
+
+    // MARK: - Measurement view -
+    var measurementView: some View {
+        VStack {
+            MeasurementContentView(
+                title: viewModel.title,
+                progress: viewModel.progress,
+                isHeartBeating: viewModel.isBeatingHeart,
+                pulse: viewModel.pulseValue,
+                descriptionText: viewModel.descriptionText,
+                buttonGradient: viewModel.buttonGradient,
+                buttonTitle: viewModel.buttonTitle,
+                action: {
+                    viewModel.toggleState()
+                    if viewModel.isPresentedHomeHealthView {
+                        dismiss()
+                    }
+                },
+                notNowButtonTitle: viewModel.notNowButtonTitle
+            )
+        }
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .cornerRadius(24)
+        .padding(.horizontal, 16)
+    }
 
     // MARK: - Body -
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.backgroundSreens).ignoresSafeArea()
+        ZStack {
+            Color(.appPaleBlue).ignoresSafeArea()
+            NavigationBarScroll(
+                scrollOffSet: $viewModel.scrollOffSet,
+                navBarLayout: .centerTitleRightButton(
+                    title: L10n.Measurement.NavBar.title,
+                    button: AnyView(closeViewButton)
+                )) {
                 VStack {
-                    Text(viewModel.pulse)
-                        .onReceive(viewModel.$pulse) { newPulse in
-                            self.currentPulse = newPulse
-                        }
-                    Button {
-                        viewModel.initCaptureSession()
-                    } label: {
-                        Text("Start measurement")
-                            .padding()
+                    measurementView
+                    switch viewModel.currentStepMeasurement {
+                    case .first:
+                        InfoView()
+                    case .second:
+                        InfoView()
+                    case .third:
+                        AssessmentView()
                     }
-                    .background(.green)
-                    .cornerRadius(15)
-                    Button {
-                        viewModel.deinitCaptureSession()
-                    } label: {
-                        Text("Stop measurement")
-                            .padding()
-                    }
-                    .background(.red)
-                    .cornerRadius(15)
                 }
-                .onAppear {
-                    viewModel.initVideoCapture()
-                }
-            }
-            .navigationBarItems(trailing: closeViewButton)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text(L10n.Measurement.NavBar.title)
-                        .font(.appUrbanistBold(of: 24))
-                        .foregroundColor(Color.mainText)
-                        .padding(.top, 32)
-                }
+                .padding(.top, 23)
             }
         }
     }
