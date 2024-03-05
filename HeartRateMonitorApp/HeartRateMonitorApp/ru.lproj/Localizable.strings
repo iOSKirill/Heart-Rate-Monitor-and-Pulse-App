@@ -72,7 +72,6 @@
 "onboarding.paywall.subtitle" = "Начните пользоваться приложением PulseWave \n без ограничений всего за $ 5,99 в неделю";
 "onboarding.paywall.buttonTitle" = "Начните, чтобы продолжить";
 
-
 "onboarding.trial.title" = "Начните, чтобы продолжить \n Приложение Pulse Wave";
 "onboarding.trial.subtitle" = "Начните пользоваться приложением PulseWave с 3-дневной пробной версии и платой 5,99 долларов в неделю";
 "onboarding.trial.buttonTitle" = "Попробуйте бесплатную версию";
@@ -99,3 +98,20 @@
 "historyInfo.subtitle.highHealthRange.otherDates" = "Ты был в отличной форме - ";
 "historyInfo.subtitle.mediumHealthRange" = "Удовлетворительный. \n Старайтесь больше отдыхать";
 "historyInfo.subtitle.lowHealthRange" = "Неудовлетворительно! \n Лучше проконсультироваться со своим врачом.";
+
+//MARK: - Subscription screen -
+"subscription.title" = "PulseWave \n без ограничений";
+"subscription.subtitle" = "Умный трекер \n тенденций вашего здоровья";
+"subscription.button" = "Запустите пробную версию, затем подпишитесь";
+"subscription.monthly.title" = "ПОПУЛЯРНЫЙ";
+"subscription.monthly.subtitle" = "Ежемесячно";
+"subscription.monthly.cost.title" = "$4,99 в неделю";
+"subscription.monthly.cost.subtitle" = "$19,99/месяц";
+"subscription.weekly.title" = "БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ НА 3 ДНЯ";
+"subscription.weekly.subtitle" = "Еженедельно";
+"subscription.weekly.cost.title" = "$5,99/неделя";
+"subscription.weekly.cost.subtitle" = "$5,99 в неделю";
+"subscription.yearly.title" = "ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ";
+"subscription.yearly.subtitle" = "Годовой";
+"subscription.yearly.cost.title" = "$39,99/год";
+"subscription.yearly.cost.subtitle" = "$0,79 в неделю";

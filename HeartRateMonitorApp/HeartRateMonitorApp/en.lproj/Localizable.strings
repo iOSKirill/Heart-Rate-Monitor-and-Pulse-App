@@ -98,3 +98,20 @@
 "historyInfo.subtitle.highHealthRange.otherDates" = "You were in great shape on";
 "historyInfo.subtitle.mediumHealthRange" = "Satisfactory. \n Try to rest more";
 "historyInfo.subtitle.lowHealthRange" = "Unsatisfactory! \n It is better to consult with your doctor.";
+
+//MARK: - Subscription screen -
+"subscription.title" = "PulseWave \n with no limitations";
+"subscription.subtitle" = "Smart tracker of \n your health trends";
+"subscription.button" = "Start Trial then Subscribe";
+"subscription.monthly.title" = "POPULAR";
+"subscription.monthly.subtitle" = "Monthly";
+"subscription.monthly.cost.title" = "$4,99 per week";
+"subscription.monthly.cost.subtitle" = "$19,99/month";
+"subscription.weekly.title" = "3 DAYS \n FREE TRIAL";
+"subscription.weekly.subtitle" = "Weekly";
+"subscription.weekly.cost.title" = "$5,99/week";
+"subscription.weekly.cost.subtitle" = "$5,99 per week";
+"subscription.yearly.title" = "BEST DEAL";
+"subscription.yearly.subtitle" = "Yearly";
+"subscription.yearly.cost.title" = "$39,99/year";
+"subscription.yearly.cost.subtitle" = "$0,79 per week";
