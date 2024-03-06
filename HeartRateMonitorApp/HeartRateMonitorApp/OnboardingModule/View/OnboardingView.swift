@@ -94,46 +94,6 @@ struct OnboardingView: View {
         .padding(.bottom, 30)
     }
 
-    var termsAndPrivacyButtons: some View {
-        HStack(spacing: 3) {
-            Button {
-                viewModel.webViewType = .termsOfService
-                viewModel.showWebView.toggle()
-            } label: {
-                Text(L10n.Onboarding.termsOfService)
-                    .font(.appMedium(of: 12))
-                    .foregroundColor(Color.appMarengo)
-            }
-
-            Text(L10n.Onboarding.and)
-                .font(.appMedium(of: 12))
-                .foregroundColor(Color.appManatee)
-
-            Button {
-                viewModel.webViewType = .privacyPolicy
-                viewModel.showWebView.toggle()
-            } label: {
-                Text(L10n.Onboarding.privacyPolicy)
-                    .font(.appMedium(of: 12))
-                    .foregroundColor(Color.appMarengo)
-            }
-        }
-        .sheet(isPresented: $viewModel.showWebView) {
-            switch viewModel.webViewType {
-            case .termsOfService:
-                if let termsURL = URL(string: viewModel.termsURL) {
-                    WebView(url: termsURL)
-                }
-            case .privacyPolicy:
-                if let privacyURL = URL(string: viewModel.privacyURL) {
-                    WebView(url: privacyURL)
-                }
-            case .none:
-                EmptyView()
-            }
-        }
-    }
-
     var body: some View {
         ZStack(alignment: .top) {
             Image(viewModel.currentStep == 3 ? .paywallBackground : .onboardingBackground)
@@ -153,7 +113,10 @@ struct OnboardingView: View {
                 .background(.white)
                 .cornerRadius(20)
                 if viewModel.currentStep == 3 {
-                    termsAndPrivacyButtons
+                    TermsAndPrivacyButtons(
+                        showWebView: $viewModel.showWebView,
+                        webViewType: $viewModel.webViewType
+                    )
                 }
             }
         }

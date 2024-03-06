@@ -105,8 +105,8 @@
 "subscription.button" = "Start Trial then Subscribe";
 "subscription.monthly.title" = "POPULAR";
 "subscription.monthly.subtitle" = "Monthly";
-"subscription.monthly.cost.title" = "$4,99 per week";
-"subscription.monthly.cost.subtitle" = "$19,99/month";
+"subscription.monthly.cost.title" = "$19,99/month";
+"subscription.monthly.cost.subtitle" = "$4,99 per week";
 "subscription.weekly.title" = "3 DAYS \n FREE TRIAL";
 "subscription.weekly.subtitle" = "Weekly";
 "subscription.weekly.cost.title" = "$5,99/week";

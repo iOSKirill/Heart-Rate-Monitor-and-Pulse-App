@@ -9,11 +9,6 @@ import Foundation
 import SwiftUI
 import WebKit
 
-enum WebViewType {
-    case termsOfService
-    case privacyPolicy
-}
-
 final class OnboardingViewModel: ObservableObject {
     // MARK: - Property -
     @AppStorage("appCondition", store: .standard) var appCondition: AppCondition = .onboardingView
@@ -46,8 +41,6 @@ final class OnboardingViewModel: ObservableObject {
         startPoint: .top,
         endPoint: .bottom
     )
-    private(set) var privacyURL = AppConstants.Info.privacy
-    private(set) var termsURL = AppConstants.Info.terms
 
     // MARK: - Next step onboarding -
     func nextStepOnButton() {

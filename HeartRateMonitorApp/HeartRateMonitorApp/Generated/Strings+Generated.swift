@@ -268,6 +268,53 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "settings.termsOfUse.title", fallback: "Terms of Use")
     }
   }
+  internal enum Subscription {
+    /// Start Trial then Subscribe
+    internal static let button = L10n.tr("Localizable", "subscription.button", fallback: "Start Trial then Subscribe")
+    /// Smart tracker of 
+    ///  your health trends
+    internal static let subtitle = L10n.tr("Localizable", "subscription.subtitle", fallback: "Smart tracker of \n your health trends")
+    /// PulseWave 
+    ///  with no limitations
+    internal static let title = L10n.tr("Localizable", "subscription.title", fallback: "PulseWave \n with no limitations")
+    internal enum Monthly {
+      /// Monthly
+      internal static let subtitle = L10n.tr("Localizable", "subscription.monthly.subtitle", fallback: "Monthly")
+      /// POPULAR
+      internal static let title = L10n.tr("Localizable", "subscription.monthly.title", fallback: "POPULAR")
+      internal enum Cost {
+        /// $4,99 per week
+        internal static let subtitle = L10n.tr("Localizable", "subscription.monthly.cost.subtitle", fallback: "$4,99 per week")
+        /// $19,99/month
+        internal static let title = L10n.tr("Localizable", "subscription.monthly.cost.title", fallback: "$19,99/month")
+      }
+    }
+    internal enum Weekly {
+      /// Weekly
+      internal static let subtitle = L10n.tr("Localizable", "subscription.weekly.subtitle", fallback: "Weekly")
+      /// 3 DAYS 
+      ///  FREE TRIAL
+      internal static let title = L10n.tr("Localizable", "subscription.weekly.title", fallback: "3 DAYS \n FREE TRIAL")
+      internal enum Cost {
+        /// $5,99 per week
+        internal static let subtitle = L10n.tr("Localizable", "subscription.weekly.cost.subtitle", fallback: "$5,99 per week")
+        /// $5,99/week
+        internal static let title = L10n.tr("Localizable", "subscription.weekly.cost.title", fallback: "$5,99/week")
+      }
+    }
+    internal enum Yearly {
+      /// Yearly
+      internal static let subtitle = L10n.tr("Localizable", "subscription.yearly.subtitle", fallback: "Yearly")
+      /// BEST DEAL
+      internal static let title = L10n.tr("Localizable", "subscription.yearly.title", fallback: "BEST DEAL")
+      internal enum Cost {
+        /// $0,79 per week
+        internal static let subtitle = L10n.tr("Localizable", "subscription.yearly.cost.subtitle", fallback: "$0,79 per week")
+        /// $39,99/year
+        internal static let title = L10n.tr("Localizable", "subscription.yearly.cost.title", fallback: "$39,99/year")
+      }
+    }
+  }
   internal enum TabBar {
     internal enum History {
       /// History

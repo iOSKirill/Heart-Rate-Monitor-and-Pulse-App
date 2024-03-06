@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0023E92B97A5F000430C69 /* TermsAndPrivacyButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0023E82B97A5F000430C69 /* TermsAndPrivacyButtons.swift */; };
 		6C07CBF92B8B9195009CB990 /* PopupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBF82B8B9195009CB990 /* PopupButton.swift */; };
 		6C07CBFB2B8B93EB009CB990 /* MeasureDefaultDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */; };
 		6C07CBFD2B8B94E0009CB990 /* MeasureNoDataDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */; };
@@ -46,6 +47,7 @@
 		6CBD64D02B1DEFBF001D1DBF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */; };
 		6CBD64D62B1E1902001D1DBF /* Urbanist-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */; };
 		6CBD64DE2B1F4D47001D1DBF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */; };
+		6CBDA9EC2B979195002F5E0A /* SubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBDA9EB2B979194002F5E0A /* SubscriptionButton.swift */; };
 		6CC6AE292B2B81A800F83B8B /* SettingsImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE282B2B81A700F83B8B /* SettingsImageButton.swift */; };
 		6CC6AE302B2C89D100F83B8B /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE2F2B2C89D100F83B8B /* MeasurementView.swift */; };
 		6CC6AE322B2C8A1500F83B8B /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6AE312B2C8A1500F83B8B /* MeasurementViewModel.swift */; };
@@ -71,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C0023E82B97A5F000430C69 /* TermsAndPrivacyButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyButtons.swift; sourceTree = "<group>"; };
 		6C07CBF82B8B9195009CB990 /* PopupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButton.swift; sourceTree = "<group>"; };
 		6C07CBFA2B8B93EB009CB990 /* MeasureDefaultDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureDefaultDashboard.swift; sourceTree = "<group>"; };
 		6C07CBFC2B8B94E0009CB990 /* MeasureNoDataDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNoDataDashboard.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		6CBD64CF2B1DEFBF001D1DBF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6CBD64D52B1E1902001D1DBF /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
 		6CBD64DD2B1F4D47001D1DBF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		6CBDA9EB2B979194002F5E0A /* SubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButton.swift; sourceTree = "<group>"; };
 		6CC6AE282B2B81A700F83B8B /* SettingsImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageButton.swift; sourceTree = "<group>"; };
 		6CC6AE2F2B2C89D100F83B8B /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		6CC6AE312B2C8A1500F83B8B /* MeasurementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementViewModel.swift; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 				6CC6AE282B2B81A700F83B8B /* SettingsImageButton.swift */,
 				6CB1991C2B8E06A000AFA790 /* HistoryDetailView.swift */,
 				6CDBE64B2B8289CB000CA393 /* TodayWeekToggleView.swift */,
+				6CBDA9EB2B979194002F5E0A /* SubscriptionButton.swift */,
+				6C0023E82B97A5F000430C69 /* TermsAndPrivacyButtons.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 			files = (
 				6C2FE7A42B1799800092BFE5 /* PlusButtonOnTabBar.swift in Sources */,
 				6CEC0C002B72A3510009A872 /* BackButton.swift in Sources */,
+				6C0023E92B97A5F000430C69 /* TermsAndPrivacyButtons.swift in Sources */,
 				6C3261962B67F2C100A15BEA /* AppConstants.swift in Sources */,
 				6CDFCC272B193E0100B1A9A2 /* Strings+Generated.swift in Sources */,
 				6C07CBFD2B8B94E0009CB990 /* MeasureNoDataDashboard.swift in Sources */,
@@ -666,6 +673,7 @@
 				6CC6AEA22B33366600F83B8B /* AVCaptureDevice+Extension.swift in Sources */,
 				6C07CBFB2B8B93EB009CB990 /* MeasureDefaultDashboard.swift in Sources */,
 				6CC6AEA52B33370300F83B8B /* HeartRateManager.swift in Sources */,
+				6CBDA9EC2B979195002F5E0A /* SubscriptionButton.swift in Sources */,
 				6C54B5182B20A9B600F6E360 /* Fonts+Generated.swift in Sources */,
 				6CF3FA3B2B2A4841000EC270 /* PopupInfoView.swift in Sources */,
 				6CDBE64C2B8289CB000CA393 /* TodayWeekToggleView.swift in Sources */,
