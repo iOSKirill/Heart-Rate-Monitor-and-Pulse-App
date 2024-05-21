@@ -88,7 +88,7 @@ To measure the pulse, you need to put your finger on the camera of our device an
 ---
 
 <p align="justify">
-On the history screen, we can see all our measurements and view their details to view our health status at the time of pulse measurement
+On the history screen, we can see all our measurements and view their details to view our health status at the time of pulse measurement.
 </p>
 
 ---
