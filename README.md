@@ -69,8 +69,22 @@ There is a calendar on the main screen where you can select a date and view the 
 
 ---
 
+<p align="justify">
+To measure the pulse, you need to put your finger on the camera of our device and do not let go for 30 seconds so that the measurement is completed. After the measurement, we are prompted to save the changes or not. The application also has a settings section.
+</p>
 
+---
 
+<p align="center">
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/7b0a900c-4e8f-4781-953b-c6a00e23d831" alt="snake"/>
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/d6252f19-de67-4ce8-a323-1bedb76b458a" alt="snake"/>
+</p>
 
+<p align="center">
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/4a899ea6-2ee0-40d4-a1fe-e82022bb183c" alt="snake"/>
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/10444113-24cf-482f-be08-f732e19ef41b" alt="snake"/>
+</p>
+
+---
 
 
