@@ -19,3 +19,8 @@ PulseWave is ideal for athletes, people who lead an active lifestyle, as well as
 </p>
 
 ---
+
+https://github.com/iOSKirill/PulseWave/assets/108831301/dcdf4c83-284b-473d-8820-653016dc0fac
+
+
+---
