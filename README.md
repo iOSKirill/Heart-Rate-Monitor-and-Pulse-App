@@ -87,4 +87,13 @@ To measure the pulse, you need to put your finger on the camera of our device an
 
 ---
 
+<p align="justify">
+On the history screen, we can see all our measurements and view their details to view our health status at the time of pulse measurement
+</p>
 
+---
+
+<p align="center">
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/65bced85-68f7-499d-b34e-0e4a4ae0b036" alt="snake"/>
+  <img width="400" src="https://github.com/iOSKirill/PulseWave/assets/108831301/9587a79d-9f23-4d95-9c4f-270d83148e1b" alt="snake"/>
+</p>
